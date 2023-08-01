@@ -1,0 +1,15 @@
+<app-list-field
+    [baseResourceKey]="baseResourceKey"
+    [tableIdProperty]="tableIdProperty"
+    [tableTitle]="tableTitle"
+    [tableTitleUseSectionSubtitle]="tableTitleUseSectionSubtitle"
+    [tableHeaders]="tableHeaders"
+    [errorResourceKeyPrefix]="errorResourceKeyPrefix"
+    [errorAddControlNameToResourceKeyPrefix]="errorAddControlNameToResourceKeyPrefix"
+    [errorShowErrorsMethod]="errorShowErrorsMethod"
+    [errorResourceOverrides]="errorResourceOverrides"
+    [errorResourceOverridesMethod]="errorResourceOverridesMethod"
+    [canCreate]="!!(canCreate$ | async)"
+>
+    <app-patient-language-form #editorForm [allSelectedLanguageIds$]="allSelectedLanguageIds$" ></app-patient-language-form>
+</app-list-field>

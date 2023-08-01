@@ -1,0 +1,13 @@
+<app-list
+    [baseResourceKey]="baseResourceKey"
+    [tableIdProperty]="tableIdProperty"
+    [tableHeaders]="tableHeaders"
+    [getTableData$]="getTableData$"
+    [handleSave$]="handleSave$"
+    [canCreate]="false"
+    [canUpdate]="true"
+    [canDelete]="false"
+    [totalRecordCount]="(totalRecordCount$ | async)!"
+>
+    <app-exposure-form #editorForm></app-exposure-form>
+</app-list>

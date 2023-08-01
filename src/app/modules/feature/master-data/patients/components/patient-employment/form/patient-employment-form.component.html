@@ -1,0 +1,90 @@
+<ng-container [formGroup]="form" *ngIf="{
+    companySiteOptions: companySiteOptions$ | async
+} as vm">
+    <div class="d-flex flex-row gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-16">
+            <app-autocomplete-field
+                [label]="'patient.employment.form.label.company' | resolveResource"
+                formControlName="company"
+                [searchFn$]="companyAutocomplete.searhcFn$"
+                [inputFormatter]="companyAutocomplete.getFormattedInputText"
+                [resultFormatter]="companyAutocomplete.getFormattedSelectText"
+            ></app-autocomplete-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-16">
+            <app-select-field
+                [label]="'patient.employment.form.label.companySite' | resolveResource"
+                formControlName="companySite"
+                [options]="vm.companySiteOptions ?? []"
+            ></app-select-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-16">
+            <!-- TODO bekötni üzem mező -->
+            <app-text-field
+                [label]="'patient.employment.form.label.TODO' | resolveResource"
+            ></app-text-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-16">
+            <app-autocomplete-field
+                [label]="'patient.employment.form.label.hsco' | resolveResource"
+                formControlName="hsco"
+                [searchFn$]="hscoAutocomplete.searhcFn$"
+                [inputFormatter]="hscoAutocomplete.getFormattedInputText"
+                [resultFormatter]="hscoAutocomplete.getFormattedSelectText"
+            ></app-autocomplete-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-16">
+            <app-autocomplete-field
+                [label]="'patient.employment.form.label.jobTitle' | resolveResource"
+                formControlName="jobTitle"
+                [searchFn$]="jobTitleAutocomplete.searhcFn$"
+                [inputFormatter]="jobTitleAutocomplete.getFormattedInputText"
+                [resultFormatter]="jobTitleAutocomplete.getFormattedSelectText"
+            ></app-autocomplete-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-16">
+            <app-autocomplete-field
+                [label]="'patient.employment.form.label.jobTitleExpozition' | resolveResource"
+                formControlName="jobTitleExpozition"
+                [searchFn$]="jobTitleAutocomplete.searhcFn$"
+                [inputFormatter]="jobTitleAutocomplete.getFormattedInputText"
+                [resultFormatter]="jobTitleAutocomplete.getFormattedSelectText"
+            ></app-autocomplete-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-20">
+            <app-datepicker-field
+                [label]="'patient.employment.form.label.startDate' | resolveResource"
+                formControlName="startDate"
+            ></app-datepicker-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-20">
+            <app-datepicker-field
+                [label]="'patient.employment.form.label.endDate' | resolveResource"
+                formControlName="endDate"
+            ></app-datepicker-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-20">
+            <app-text-field
+                [label]="'patient.employment.form.label.number' | resolveResource"
+                formControlName="number"
+            ></app-text-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-20">
+            <app-select-field
+                [label]="'patient.employment.form.label.dC_StatusId' | resolveResource"
+                formControlName="dC_StatusId"
+                [options]="initData.dC_StatusList"
+            ></app-select-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-20">
+            <app-select-field
+                [label]="'patient.employment.form.label.dC_OccupationalHealthClassificationId' | resolveResource"
+                formControlName="dC_OccupationalHealthClassificationId"
+                [options]="initData.dC_OccupationalHealthClassificationList"
+            ></app-select-field>
+        </div>
+    </div>
+</ng-container>

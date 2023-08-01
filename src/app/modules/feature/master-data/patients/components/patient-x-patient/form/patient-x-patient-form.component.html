@@ -1,0 +1,13 @@
+<ng-container [formGroup]="form">
+    <div class="d-flex flex-row gap-5 align-items-baseline">
+        <div class="w-100 overflow-hidden">
+            <app-patient-single-selection-list-field
+                formControlName="relatedPatient"
+                [baseResourceKey]="baseResourceKey"
+                [allPatients]="allPatients"
+                (refreshAllPatients)="refreshAllPatients.emit()"
+                [allUnselectablePatients]="(allUnselectablePatients$ | async) ?? []"
+            ></app-patient-single-selection-list-field>
+        </div>
+    </div>
+</ng-container>

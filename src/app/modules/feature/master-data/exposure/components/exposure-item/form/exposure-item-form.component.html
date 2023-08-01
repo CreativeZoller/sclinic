@@ -1,0 +1,36 @@
+<ng-container [formGroup]="form">
+    <div class="d-flex flex-row gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-text-field
+                [label]="'exposure.item.form.label.description' | resolveResource"
+                formControlName="description"
+            ></app-text-field>
+        </div>
+
+        <ng-container formGroupName="exposureItem">
+            <div class="flex-column-fluid overflow-hidden flex-25">
+                <app-text-field
+                    [label]="'exposure.item.form.label.exposureItem.description' | resolveResource"
+                    formControlName="description"
+                ></app-text-field>
+            </div>
+
+            <div class="flex-column-fluid overflow-hidden flex-25">
+                <app-text-field
+                    [label]="'exposure.item.form.label.exposureItem.code' | resolveResource"
+                    formControlName="code"
+                ></app-text-field>
+            </div>
+        </ng-container>
+    </div>
+
+    <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-exposure-item-service-list-field
+                formControlName="exposureXExposureItemXService"
+                [exposure]="_exposure"
+                [exposureXExposureItem]="form.getRawValue()"
+            ></app-exposure-item-service-list-field>
+        </div>
+    </div>
+</ng-container>

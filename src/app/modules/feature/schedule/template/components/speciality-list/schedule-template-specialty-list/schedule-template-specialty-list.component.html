@@ -1,0 +1,15 @@
+<app-list-field
+    [baseResourceKey]="baseResourceKey"
+    [tableIdProperty]="tableIdProperty"
+    [tableTitle]="tableTitle"
+    [tableTitleUseSectionSubtitle]="tableTitleUseSectionSubtitle"
+    [tableHeaders]="tableHeaders"
+    [canDelete]="false"
+    [valueToFormValue]="valueToFormValue"
+    [handleSave$]="handleSave$"
+>
+    <app-schedule-template-specialty-form
+        #editorForm
+        [allSelected]="(allSelected$ | async) ?? []"
+    ></app-schedule-template-specialty-form>
+</app-list-field>

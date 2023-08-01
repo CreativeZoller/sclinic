@@ -1,0 +1,3410 @@
+{
+    "general": {
+        "confirm": {
+            "dialog": {
+                "title": "Megerősítés szükséges",
+                "message": "Biztos benne hogy végre szeretné hajtani ezt a műveletet?",
+                "yesButtonCaption": "Igen",
+                "cancelButtonCaption": "Mégse",
+            },
+        },
+        "action": {
+            "label": {
+                "send": "Küldés",
+                "confirm": "Megerősítés",
+                "back": "Vissza",
+                "save": "Mentés",
+                "preview": "Előnézet",
+                "cancel": "Mégse",
+                "close": "Bezár",
+                "add": "Hozzáadás",
+                "copy": "Másol",
+                "edit": "Szerkeszt",
+                "file.upload": "File feltöltés",
+                "img.upload": "Kép feltöltés",
+                "search": "Keresés..."
+            },
+        },
+        "label": {
+            "and": "és",
+            "or": "vagy",
+            "true": "igaz",
+            "false": "hamis",
+        },
+        "weekday": {
+            "monday": "Hétfő",
+            "tuesday": "Kedd",
+            "wednesday": "Szerda",
+            "thursday": "Csütörtök",
+            "friday": "Péntek",
+            "saturday": "Szombat",
+            "sunday": "Vasárnap",
+        },
+        "unit": {
+            "minute": "perc",
+            "piece": "db",
+        },
+        "list": {
+            "active": "Aktív",
+            "inactive": "Inaktív",
+        },
+        "currency": {
+            "HUF": "Ft",
+        },
+        "form": {
+            "errors": {
+                "invalid": "Kérjük ellenőrizze a megadott adatokat",
+                "required": "Kötelező mező!",
+                "email": "Nem email formátumú!",
+                "minlength": "Minimum {{requiredLength}} karakter!",
+                "maxlength": "Maximum {{requiredLength}} karakter!",
+                "min": "Minimum érték: {{min}}",
+                "max": "Maximum érték: {{max}}",
+                "hasUppercaseCharacter": "Tartalmaznia kell legalább 1 nagybetűt!",
+                "arrayMinLength": "Legalább {{requiredLength}} értéket adjon meg!",
+                "pattern": "Nem megfelelő formátum!",
+                "dateOutOfRange": "A kiválasztott dátum kívül esik az engedélyezett időtartományon!",
+                "pastDateNotAllowed": "Múltbéli dátum nem engedélyezett!",
+                "futureDateNotAllowed": "Jövőbeli dátum nem engedélyezett!",
+                "empty.result.list": "Nincs találat!",
+                "greaterThan": "{{value}} utáni dátum engedélyezett!",
+                "smallerThan": "{{value}} előtti dátum engedélyezett!",
+                "cannotContainNumbers": "A mező számot nem tartalmazhat!",
+                "divisibleBy": "{{divisor}} többszörösének kell lennie!",
+            },
+        },
+        "enum": {
+            "label": {
+                "TwoFactorAuthenticationType": {
+                    "ESZIG": "Eszig",
+                    "MOBIL_TOKEN": "Mobil token",
+                    "HARD_TOKEN": "Hard token",
+                    "GOOGLE": "Google authentikátor",
+                },
+                "ServicePackageType": {
+                    "ELEMENTAL": "Elemi",
+                },
+            },
+            "img.tooltip": {
+                "AppointmentStatus": {
+                    "ABSENT": "Nem jelent meg",
+                    "CANCELLED": "Lemondta",
+                    "ARRIVED": "Megérkezett",
+                    "BOOKED": "Előjegyezve",
+                    "UNDER_EXAMINATION": "Viszgálaton van",
+                    "WAITING": "Várakozó",
+                    "EXAMINATION_CLOSED": "Viszgálat lezárva",
+                    "ALL_EXAMINATION_CLOSED": "Összes vizsgálat lezárva",
+                    "LEFT": "Távozott",
+                    "PRE_BOOKING": "",
+                    "PRE_BOOKED": "",
+                },
+            }
+        },
+        "selection.list": {
+            "headers": {
+                "selection": "Kiválaszt",
+            },
+        },
+        "tabs": {
+            "loading": "Loading content..."
+        },
+        "selector": {
+            "priceTable": {
+                "draft": "Piszkozat",
+                "pendingActivation": "Élesítésre várakozik",
+            }
+        }
+    },
+    "menu": {
+        "sidebar": {
+            "system": "Rendszer",
+            "system.users": "Felhasználók",
+            "system.roles": "Szerepkörök",
+            "system.authorities": "Jogosultságok",
+            "system.functions": "Funkciótörzs",
+            "system.configurations": "Konfiguráció",
+            "system.division.numbers": "Részlegszám",
+
+            "master.data": "Törzsadat",
+            "master.data.services": "Szolgáltatások",
+            "master.data.service.sub.packages": "Szolgáltatás alcsomagok",
+            "master.data.service.packages": "Szolgáltatás csomagok",
+            "master.data.price.tables": "Árak",
+            "master.data.items": "Cikkek",
+            "master.data.patients": "Páciensek",
+            "master.data.partners": "Partnerek",
+            "master.data.dictionary.entries": "Kódtár",
+            "master.data.document.templates": "Dokumentum sablonok",
+            "master.data.email.templates": "Email sablonok",
+            "master.data.service.provider.entities": "Szolgáltató entitások",
+            "master.data.labs": "Labor törzs",
+            "master.data.cities": "Település törzs",
+            "master.data.clinics": "Ellátóhelyek",
+            "master.data.doctors": "Orvosok",
+            "master.data.assistants": "Asszisztensek",
+            "master.data.exposures": "Expozíció összerendelés",
+            "master.data.job.title": "Munkakörök",
+            "master.data.feor.group": "FEOR főcsoport",
+            // TODO partner specifikus expozíciós mátrix menu item
+            // "master.data.TODO": "TODO",
+
+            "schedule": "Beosztás",
+            "schedule.template": "Sablonok",
+
+            "schedule.planner": "Beosztáskezelő",
+            "schedule.generator": "Beosztás generátor",
+            "schedule.publishing": "Publikálás és e-mail küldés",
+
+            "cc.main": "Call Center",
+            "cc.appointments": "Előjegyzések",
+
+            "medical.management": "Ellátás szervezés",
+            "medical.management.reception": "Recepció",
+        },
+    },
+    "table": {
+        "footer": {
+            "numberOfRows": "Sorok száma",
+            "info": "Megjelenített rekordok: {{minPage}} - {{maxPage}} az összesen {{totalRecord}} sorból",
+        }
+    },
+    "login":{
+        "title":"Bejelentkezés",
+        "subtitle":"e-Karton 3",
+        "form":{
+           "label":{
+              "email":"E-mail cím",
+              "password":"Jelszó",
+              "clinicId":"Rendelő/ellátóhely",
+              "praxisId":"Praxis",
+              "useEesztLogin":"EESZT belépés?",
+              "authTypeId":"Authentikáció módja",
+              "eesztUsername":"EESZT felhasználónév",
+              "hardToken":"Hard token jelszó",
+                "twoFactorCode": "Kód",
+           },
+           "errors":{
+                "invalid.credentials": "Nem sikerült bejelentkezni, kérjük ellenőrizze a megadott adatokat!",
+           },
+           "button":{
+              "label":{
+                 "forgotPassword":"Elfelejtette a jelszavát?",
+                 "lostToken":"Új kódszinkron kérése",
+                 "login":"Belépés",
+                    "login.loading": "Kérjük várjon...",
+                },
+            },
+        },
+     },
+     "forgot.password":{
+        "modal.title":"Elfelejtett jelszó",
+        "form":{
+           "label":{
+                "userEmail": "E-mail cím",
+            },
+            "information.text": "Amennyiben elküldi, az új jelszavát emailben kapja meg.",
+           },
+     },
+     "new.password":{
+        "modal.title":"Új jelszó megadása",
+        "form":{
+           "label":{
+              "newPassword":"Új jelszó",
+                "newPasswordAgain": "Új jelszó ismételten",
+           },
+           "errors":{
+                "fieldsEqual": "A két jelszó nem egyezik!",
+            },
+        },
+     },
+     "lost.token":{
+        "modal.title":"Új kód kérése",
+        "form":{
+           "label":{
+              "email":"E-mail cím",
+                "forEesztLogin": "EESZT-hez kér kódot?",
+            },
+            "information.text": "Amennyiben elküldi, az új kódot e-mailben kapja meg. Ez akár több órát is igénybe vehet. EESZT belépés nélkül is beléphet a rendszerbe.",
+           },
+     },
+    // Call Center
+    "cc": {
+        "page": {
+            "title":"Call Center"
+        },
+        "tabs": {
+            "appointment": {
+                "title": "Előjegyzés",
+                "services": {
+                    "ambulatory": {
+                        "title": "Járóbeteg"
+                    },
+                    "healthcare": {
+                        "title": "Foglalkozás egészségügy"
+                    },
+                    "filtration": {
+                        "title": "Szűrés"
+                    }
+                }
+            },
+            "overview": {
+                "title": "Áttekintés"
+            },
+            "notifications": {
+                "title": "Értesítések"
+            },
+            "group-booking": {
+                "title": "Csoportos foglalás"
+            }
+        },
+        "list": {
+            "table": {
+                "headers": {
+                    "title": "Titulus",
+                    "surName": "Vezetéknév",
+                    "firstName": "Keresztnév",
+                    "dateOfBirth": "Szül. dátum",
+                    "phoneNumbers": "Telefonszám",
+                    "emailAddress": "E-mail",
+                    "companyName": "Cég neve",
+                    "permissions": "Jogosultság",
+                    "notCompleted": "El nem végzett vizsgálat",
+                    "hasDebts": "Tartozás",
+                    "isBanned": "Kitiltva",
+                    "isOverused": "Túlhasználó"
+                }
+            }
+        },
+        "sections": {
+            "patients": "Páciens",
+            "services": "Szolgáltatás kiválasztása",
+            "searchables": "Keresendő tételek"
+        },
+        "action": {
+            "label": {
+                "history": "Előzmények",
+                "legal": "Jogviszony"
+            }
+        },
+        "services": {
+            "label": {
+                "clinics": "Ellátóhely",
+                "startDate": "Időszak (-tól)",
+                "endDate": "Időszak (-ig)",
+                "startTime": "Időpont (-tól)",
+                "endTime": "Időpont (-ig)",
+                "specialty": "Szakma",
+                "language": "Nyelv",
+                "ages": "Korcsoporttól",
+                "service": "Szolgáltatás",
+                "legals": "Jogviszony típus",
+                "price": "Ár",
+                "balance": "Egyenleg",
+                "doctor": "Orvos",
+                "standartTime": "Norm.",
+                "delayTime": "Várakoz.",
+                "position": "Max poz.",
+                "specialCare": "Szakorvosi",
+                "weekdays": {
+                    "mon": "Hétfő",
+                    "tue": "Kedd",
+                    "wed": "Szerda",
+                    "thu": "Csütörtök",
+                    "fri": "Péntek",
+                    "sat": "Szombat",
+                    "sun": "Vasárnap"
+                }
+            }
+        },
+        "modals": {
+            "action": {
+                "reset": "Keresés frissítése",
+                "add": "Kereséshez ad",
+                "search": "Időpontok keresése",
+                "to.basket": "Tovább a kosárra"
+            },
+            "basket": {
+                "id": "ID",
+                "title": "Kosár",
+                "name": "Kosár neve",
+                "comments": "Megjegyzés",
+                "finalize": "Kosár zárása"
+            },
+            "sections": {
+                "patient.data": "Páciens adatok",
+                "patient.times": "Időpontok",
+                "patient.results": "Találatok"
+            },
+            "labels": {
+                "patient.name": "Páciens neve",
+                "patient.birthday": "Páciens születési dátuma"
+            }
+        }
+    },
+    // Rendszerbeállítások
+    "user": {
+        "list": {
+            "table": {
+                "title": "Felhasználók",
+                "headers": {
+                    "dC_TitleTypeId": "Titulus",
+                    "familyName": "Felhasználó családneve",
+                    "firstName": "Felhasználó keresztneve",
+                    "email": "Felhasználónév",
+                    "phoneNumber": "Telefon",
+                    "dC_TwoFactorAuthenticationTypeId": "Kétfaktoros azonosítás",
+                    "dC_UserStatusId": "Státusz",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Felhasználó szerkesztése/törlése",
+                "create": "Új felhasználó hozzáadása",
+            },
+        },
+        "form": {
+            "label": {
+                "dC_UserTypeId": "Típus",
+                "dC_TitleTypeId": "Titulus",
+                "familyName": "Felhasználó családneve",
+                "firstName": "Felhasználó keresztneve",
+                "dC_TwoFactorAuthenticationTypeId": "Kétfaktoros azonosítás típusa",
+                "phoneNumber": "Telefonszám",
+                "email": "Felhasználónév / E-mail cím",
+                "dC_UserStatusId": "Státusz",
+            },
+            "section": {
+                "title": {
+                    "user.data": "Felhasználó adatai",
+                },
+            },
+        },
+    },
+    "user.role": {
+        "list": {
+            "table": {
+                "title": "Szerekörök",
+                "headers": {
+                    "roleName": "Szerepkör megnevezése",
+                    "technical": "Technikai",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Szerepkör szerkesztése/törlése",
+                "create": "Új szerepkör hozzáadása",
+            },
+        },
+        "form": {
+            "label": {
+                "roleId": "Szerepkör",
+                "commissionPercentage": "Jutalékhányad",
+                "swissUserXRoleXClinic": {
+                    "headers": {
+                        "clinicName": "Ellátóhely",
+                        "address.dC_City.postCode": "Ir.szám",
+                        "address.dC_City.name": "Város",
+                        "address.streetName": "Utca",
+                    },
+                },
+            },
+        },
+    },
+    "role": {
+        "list": {
+            "table": {
+                "title": "Szerekörök",
+                "headers": {
+                    "roleName": "Szerepkör megnevezése",
+                    "technical": "Technikai",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Szerepkör szerkesztése/törlése",
+                "create": "Új szerepkör hozzáadása",
+            },
+        },
+        "form": {
+            "label": {
+                "roleName": "Szerepkör megnevezése",
+                "technical": "Technikai",
+                "authorities": {
+                    "headers": {
+                        "name": "Jogosultság megnevezése",
+                    },
+                },
+            },
+            "section": {
+                "title": {
+                    "authorities": "Jogosultságok",
+                },
+            },
+            "errors": {
+                "roleName": {
+                    "required": "Kötelező mező!",
+                },
+            },
+        },
+    },
+    "authority": {
+        "list": {
+            "table": {
+                "title": "Jogosultságok",
+                "headers": {
+                    "name": "Megnevezés",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Jogosultság szerkesztése/törlése",
+                "create": "Új jogosultság hozzáadása",
+            },
+        },
+        "form": {
+            "label": {
+                "name": "Jogosultság megnevezése",
+                "rightXFunction": {
+                    "title": "Funkció megnevezése",
+                    "canCreate": "Létrehozás",
+                    "canRead": "Olvasás",
+                    "canUpdate": "Írás",
+                    "canDelete": "Törlés",
+                },
+            },
+            "errors": {
+                "name": {
+                    "required": "Kötelező mező!",
+                },
+                "rightXFunction": {
+                },
+            },
+        },
+    },
+    "function": {
+        "list": {
+            "table": {
+                "title": "Funkciótörzs",
+                "headers": {
+                    "functionName": "Megnevezés",
+                    "parentFunction.functionName": "Szülő",
+                    "dC_FunctionTypeId": "Típus",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Funkciótörzs szerkesztése/törlése",
+                "create": "Új funkciótörzs hozzáadása",
+            },
+        },
+        "form": {
+            "label": {
+                "functionName": "Megnevezés",
+                "parentFunctionId": "Szülő",
+                "dC_FunctionTypeId": "Típus",
+            },
+            "errors": {
+                "functionName": {
+                    "required": "Kötelező mező!",
+                },
+                "dC_FunctionTypeId": {
+                    "required": "Kötelező mező!",
+                },
+            },
+        },
+    },
+    "configuration": {
+        "list": {
+            "table": {
+                "title": "Konfiguráció beállítások tábla",
+                "headers": {
+                    "configurationName": "Konfiguráció neve",
+                    "configurationValue": "Konfigurációs érték",
+                    "validFrom": "Érvényesség kezdete",
+                    "validTo": "Érvényesség vége",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "edit": "Konfiguráció szerkesztése",
+            },
+        },
+        "form": {
+            "label": {
+                "configurationName": "Konfiguráció neve",
+                "configurationValue": "Konfigurációs érték",
+                "validFrom": "Érvényesség kezdete",
+                "validTo": "Érvényesség vége",
+            },
+            "errors": {
+                "configurationName": {
+                    "required": "Kötelező mező!",
+                },
+                "configurationValue": {
+                    "required": "Kötelező mező!",
+                },
+                "validFrom": {
+                    "required": "Kötelező mező!",
+                },
+                "validTo": {
+                    "required": "Kötelező mező!",
+                },
+            },
+        },
+    },
+    "division.number": {
+        "list": {
+            "table": {
+                "title": "Részlegszám beállítások tábla",
+                "headers": {
+                    "name": "Konfiguráció neve",
+                    "value": "Érték",
+                    "dC_StatusId": "Státusz",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Részlegszám szerkesztése/törlése",
+                "create": "Új részlegszám hozzáadása",
+            },
+        },
+        "form": {
+            "label": {
+                "name": "Konfiguráció neve",
+                "value": "Részlegszám",
+                "dC_StatusId": "Státusz",
+                "divisionNumberXField.fieldName": "Mező",
+                "divisionNumberXField.fieldValue": "Érték",
+            },
+            "errors": {
+                "name": {
+                    "required": "Kötelező mező!",
+                },
+                "value": {
+                    "required": "Kötelező mező!",
+                },
+                "dC_StatusId": {
+                    "required": "Kötelező mező!",
+                },
+                "divisionNumberXField.fieldValue": {
+                    "required": "Kötelező mező!",
+                },
+            },
+        },
+    },
+    // Törzsadatok
+    "service": {
+        "list": {
+            "table": {
+                "title": "Elemi szolgáltatások",
+                "buttons": {
+                    "save.booking.areas": "Megjelenési felületek mentése"
+                },
+                "headers": {
+                    "serviceName": "Szolgáltatás neve",
+                    "dC_ServiceCategoryId": "Kategória",
+                    "duration": "Normaidő",
+                    "basePrice": "Listaár",
+                    "basePriceEUR": "EUR",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Elemi szolgáltatás szerkesztése/törlése",
+                "create": "Új elemi szolgáltatás hozzáadása",
+            },
+        },
+        "form": {
+            "section": {
+                "title": {
+                    "deep.erp.merged.item": "Összevont deep.erp cikkszámok kiválasztása",
+                    "deep.erp": "Deep.ERP kompatibilitást biztosító mezők",
+                },
+            },
+            "label": {
+                "serviceId": "Azonosító",
+                "serviceName": "Szolgáltatás neve",
+                "serviceName_EN": "Szolgáltatás neve angolul",
+                "description": "Szolgáltatás leírása",
+                "minimumNumberOfDaysNextUse": "Minimum eltelt napok száma két szolgáltatás között",
+                "dC_StatusId": "Státusz",
+                "duration": "Normaidő",
+                "dC_ServiceCategoryId": "Elemi szolgáltatás kategória",
+                "dC_ServiceTypeId": "Típus",
+                "isPerformedExternally": "Külső helyszínen történő vizsgálat, foglalás szükséges egy másik rendszerben",
+                "isSendBookingChangeEmailNotification": "Foglalás időpontjának változásáról e-mailt fog kapni a páciens",
+                "TODO_assignToAllClinics": {
+                    "option": {
+                        "true": "Rendelje hozzá a szolgáltatást minden ellátóhely, minden szobájához",
+                        "false": "Semmilyen ellátóhelyhez ne rendelje hozzá a szolgáltatást",
+                    }
+                },
+                "deeperpMergedItemName": "Számlanév",
+                "deeperpMergedItemNumber": "deep.erp.cikkszám az összevont tételekhez",
+            },
+            "errors": {
+                "status.can.not.be.active.if.field.is.empty": "Ha nincs megadva a(z) \"{{fieldName}}\" mező, akkor nem lehet aktív a státusz!",
+                "delete.active.service.not.allowed": "Aktív státuszú szolgáltatás törlése nem engedélyezett!",
+            },
+            "confirm.dialog": {
+                "content.text": {
+                    "service.service.package": "A szolgáltatás jelenleg legalább 1 aktív (al)csomagnak a része!<br>Ha inaktiválja a szolgáltatást, azzal az őt tartalmazó (al)csomagokat is inaktiválja!",
+                },
+            },
+        },
+    },
+    "service.booking.area": {
+        "list": {
+            "table": {
+                "title": "Lehetséges foglalási felületek",
+                "headers": {
+                    "name": "Felület",
+                },
+            },
+        },
+    },
+    "service.speciality": {
+        "list": {
+            "table": {
+                "title": "Orvosszakmák hozzárendelése",
+                "headers": {
+                    "specialty.specialtyName": "Szakma neve",
+                    "specialty.specialtyCode": "Szakma kód",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Orvosszakma hozzárendelések szerkesztése",
+                "create": "Orvosszakma hozzárendelések szerkesztése",
+            },
+        },
+        "form": {
+            "label": {
+            },
+        },
+    },
+    "service.specialty.doctor": {
+        "list": {
+            "table": {
+                "title": "Orvos hozzárendelések",
+                "headers": {
+                    "dC_TitleTypeId": "Titulus",
+                    "lastName": "Vezetéknév",
+                    "firstName": "Keresztnév",
+                    "stampNumber": "Pecsétszám",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Orvos hozzárendelések szerkesztése",
+                "create": "Orvos hozzárendelések szerkesztése",
+            },
+        },
+        "form": {
+            "label": {
+            },
+        },
+    },
+    "service.price.template.item": {
+        "list": {
+            "table": {
+                "title": "Árazás",
+                "headers": {
+                    "priceTemplate.priceTemplateName": "Ársablon neve",
+                    "price": "Ár",
+                    "priceTemplate.startDate": "Érvénesség kezdete",
+                    "priceTemplate.endDate": "Érvényesség vége",
+                },
+                "basePriceTemplateName": "Listaár",
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Ár szerkesztése/törlése",
+                "create": "Új ár hozzáadása",
+            },
+        },
+        "form": {
+			"label": {
+                "priceTemplate": "Ársablon",
+                "price": "Ár",
+			},
+        },
+    },
+    "service.incompatible.service": {
+        "list": {
+            "table": {
+                "title": "Összeférhetetlen elemi szolgáltatások",
+                "headers": {
+                    "incompatibleService.serviceName": "Szolgáltatás neve",
+                    "incompatibleService.basePrice": "Listaár",
+                    "incompatibleService.dC_ServiceCategoryId": "Szolgáltatás kategória",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Összeférhetetlen elemi szolgátatás hozzárendelések szerkesztése",
+                "create": "Összeférhetetlen elemi szolgátatás hozzárendelések szerkesztése",
+            },
+        },
+        "form": {
+            "label": {
+            },
+        },
+    },
+    "service.connected.service": {
+        "list": {
+            "table": {
+                "title": "Kapcsolódó elemi szolgáltatások",
+                "headers": {
+                    "connectedService.serviceName": "Szolgáltatás neve",
+                    "connectedService.basePrice": "Listaár",
+                    "connectedService.duration": "Normaidő",
+                    "connectedService.dC_ServiceCategoryId": "Szolgáltatás kategória",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Kapcsolódó elemi szolgátatás hozzárendelések szerkesztése",
+                "create": "Kapcsolódó elemi szolgátatás hozzárendelések szerkesztése",
+            },
+        },
+        "form": {
+            "label": {
+            },
+        },
+    },
+    "service.item": {
+        "list": {
+            "table": {
+                "title": "Szükséges cikkek",
+                "headers": {
+                    "item.itemNumber": "Cikkszám",
+                    "item.itemName": "Cikk elnevezése",
+                    "itemConsumption": "Darabszám",
+                    "isRetailable": "Értékesíthető",
+                    "item.dC_ItemTypeId": "Eszköz típusa",
+                    "dC_ItemConsumerTypeId": "Fogyasztás típusa",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Szükséges cikk hozzárendelések szerkesztése",
+                "create": "Szükséges cikk hozzárendelések szerkesztése",
+            },
+        },
+        "form": {
+            "label": {
+            },
+        },
+    },
+    "service.lab": {
+        "list": {
+            "table": {
+                "title": "Laborvizsgálat hozzáadása elemi szolgáltatáshoz",
+                "headers": {
+                    "lab.dC_MarkerId": "Laborvizsgálat neve",
+                    "lab.providerIdentificationNumber": "Azonosító",
+                    "lab.dC_LabProviderId": "Laborszolgáltató neve",
+                    "lab.price": "Laborvizsgálat lista ár",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Laborvizsgálat hozzárendelések szerkesztése",
+                "create": "Laborvizsgálat hozzárendelések szerkesztése",
+            },
+        },
+        "form": {
+            "label": {
+            },
+        },
+    },
+    "service.role": {
+        "list": {
+            "table": {
+                "title": "Értékesítés",
+                "headers": {
+                    "roleId": "Értékesítő",
+                    "percentage": "Jutalék százalék",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Értékesítő szerkesztése/törlése",
+                "create": "Új értékesítő hozzáadása",
+            },
+        },
+        "form": {
+            "label": {
+                "roleId": "Ertékesítő",
+                "percentage": "Jutalék százalék",
+            },
+        },
+    },
+    "service.service.package": {
+        "list": {
+            "table": {
+                "title": "Csomagok és alcsomagok listája, amiknek a szolgáltatás a részét képezi",
+                "headers": {
+                    "servicePackage.servicePackageName": "Szolgáltatás neve",
+                    "servicePackage.dC_ServicePackageCategoryId": "Kategória",
+                    "servicePackage.dC_ServicePackageTypeId": "Szolgáltatás típusa",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "(Al)csomag szerkesztése/törlése",
+                "create": "Új (al)csomag hozzáadása",
+            },
+        },
+    },
+    "service.sub.package": {
+        "list": {
+            "table": {
+                "title": "Szolgáltatás alcsomagok",
+                "buttons": {
+                    "save.booking.areas": "Megjelenési felületek mentése"
+                },
+                "headers": {
+                    "servicePackageName": "Szolgáltatás neve",
+                    "dC_SubServicePackageCategoryId": "Kategória",
+                    "duration": "Normaidő",
+                    "basePrice": "Listaár",
+                    "basePriceEUR": "EUR",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Szolgáltatás alcsomag szerkesztése/törlése",
+                "create": "Új szolgáltatás alcsomag hozzáadása",
+            },
+        },
+        "form": {
+            "section": {
+                "title": {
+                    "deep.erp.merged.item": "Összevont deep.erp cikkszámok kiválasztása",
+                    "deep.erp": "Deep.ERP kompatibilitást biztosító mezők",
+                },
+            },
+            "label": {
+                "servicePackageId": "Azonosító",
+                "servicePackageName": "Alcsomag neve",
+                "servicePackageName_EN": "Alcsomag angol neve",
+                "description": "Alcsomag leírása",
+                "minimumNumberOfDaysNextUse": "Minimum eltelt napok száma két szolgáltatás között",
+                "dC_StatusId": "Státusz",
+                "duration": "Normaidő",
+                "dC_SubServicePackageCategoryId": "Alcsomag kategóriája",
+                "dC_SubServicePackageTypeId": "Alcsomag típusa",
+                "isRightTime": "Pontos idő",
+                "isScreeningTest": "Szűrés",
+                "TODO_assignToAllClinics": {
+                    "option": {
+                        "true": "Rendelje hozzá a szolgáltatást minden ellátóhely, minden szobájához",
+                        "false": "Semmilyen ellátóhelyhez ne rendelje hozzá a szolgáltatást",
+                    }
+                },
+                "maxServiceCount": "Maximum választható szolgáltatások száma",
+                "maxLabServiceCount": "Maximum választható laborvizsgálatok száma",
+                "deeperpMergedItemName": "Számlanév",
+                "deeperpMergedItemNumber": "deep.erp.cikkszám az összevont tételekhez",
+            },
+            "errors": {
+                "status.can.not.be.active.if.field.is.empty": "Ha nincs megadva a(z) \"{{fieldName}}\" mező, akkor nem lehet aktív a státusz!",
+            },
+            "confirm.dialog": {
+                "content.text": {
+                    "service.sub.package.service.package": "A szolgáltatás jelenleg legalább 1 aktív csomagnak a része!<br>Ha inaktiválja a szolgáltatást, azzal az őt tartalmazó csomagokat is inaktiválja!",
+                },
+            },
+        },
+    },
+    "service.sub.package.booking.area": {
+        "list": {
+            "table": {
+                "title": "Lehetséges foglalási felületek",
+                "headers": {
+                    "name": "Felület",
+                },
+            },
+        },
+    },
+    "service.sub.package.price.template.item": {
+        "list": {
+            "table": {
+                "title": "Árazás",
+                "headers": {
+                    "priceTemplate.priceTemplateName": "Ársablon neve",
+                    "price": "Ár",
+                    "priceTemplate.startDate": "Érvénesség kezdete",
+                    "priceTemplate.endDate": "Érvényesség vége",
+                },
+                "basePriceTemplateName": "Listaár",
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Ár szerkesztése/törlése",
+                "create": "Új ár hozzáadása",
+            },
+        },
+        "form": {
+			"label": {
+                "priceTemplate": "Ársablon",
+                "price": "Ár",
+			},
+        },
+    },
+    "service.sub.package.role": {
+        "list": {
+            "table": {
+                "title": "Értékesítés",
+                "headers": {
+                    "roleId": "Ertékesítő",
+                    "percentage": "Jutalék százalék",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Értékesítő szerkesztése/törlése",
+                "create": "Új értékesítő hozzáadása",
+            },
+        },
+        "form": {
+            "label": {
+                "roleId": "Ertékesítő",
+                "percentage": "Jutalék százalék",
+            },
+        },
+    },
+    "service.sub.package.service.package": {
+        "list": {
+            "table": {
+                "title": "Csomagok listája, amiknek az alcsomag a részét képezi",
+                "headers": {
+                    "servicePackage.servicePackageName": "Szolgáltatás neve",
+                    "servicePackage.dC_ServicePackageCategoryId": "Kategória",
+                    "servicePackage.dC_ServicePackageTypeId": "Szolgáltatás típusa",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Csomag szerkesztése/törlése",
+                "create": "Új csomag hozzáadása",
+            },
+        },
+    },
+    "service.sub.package.contract": {
+        "list": {
+            "table": {
+                "title": "Szerződések listája, amiknek a szolgáltatás a részét képezi",
+                "headers": {
+                    "companyName": "Cégnév",
+                    "contractName": "Szerződés neve",
+                    "contractNumber": "Szerződés száma",
+                    "isPriorityPartner": "Priority ügyfél",
+                },
+            },
+        }
+    },
+    "service.sub.package.service": {
+        "list": {
+            "table": {
+                "title": "Elemi szolgáltatás hozzáadása az alcsomaghoz",
+                "headers": {
+                    "position": "Sorszám",
+                    "service.serviceName": "Szolgáltatás neve",
+                    "maxMinute": "Maximum idő",
+                    "service.duration": "Normaidő",
+                    "service.basePrice": "Listaár",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Elemi szolgáltatás hozzárendelésének szerkesztése",
+                "create": "Új elemi szolgáltatás hozzárendelése",
+            },
+        },
+        "form": {
+            "label": {
+                "position": "Sorszám",
+                "maxMinute": "Maximum idő",
+            },
+        },
+    },
+    "service.sub.package.lab.service": {
+        "list": {
+            "table": {
+                "title": "Laborvizsgálat szolgáltatás hozzáadása az alcsomaghoz",
+                "headers": {
+                    "position": "Sorszám",
+                    "service.serviceName": "Laborvizsgálat neve",
+                    "maxMinute": "Maximum idő",
+                    "service.duration": "Normaidő",
+                    "service.basePrice": "Listaár",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Laborvizsgálat szolgáltatás hozzárendelésének szerkesztése",
+                "create": "Új laborvizsgálat szolgáltatás hozzárendelése",
+            },
+        },
+        "form": {
+            "label": {
+                "position": "Sorszám",
+                "maxMinute": "Maximum idő",
+            },
+        },
+    },
+    "service.package": {
+        "list": {
+            "table": {
+                "title": "Szolgáltatás csomagok",
+                "buttons": {
+                    "save.booking.areas": "Megjelenési felületek mentése",
+                },
+                "headers": {
+                    "servicePackageName": "Szolgáltatás neve",
+                    "dC_ServicePackageCategoryId": "Kategória",
+                    "duration": "Normaidő",
+                    "basePrice": "Listaár",
+                    "basePriceEUR": "EUR",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Szolgáltatás csomag szerkesztése/törlése",
+                "create": "Új szolgáltatás csomag hozzáadása",
+            },
+        },
+        "form": {
+            "section": {
+                "title": {
+                    "deep.erp.merged.item": "Összevont deep.erp cikkszámok kiválasztása",
+                    "deep.erp": "Deep.ERP kompatibilitást biztosító mezők",
+                },
+            },
+            "label": {
+                "servicePackageId": "Azonosító",
+                "servicePackageName": "Csomag neve",
+                "servicePackageName_EN": "Csomag angol neve",
+                "description": "Csomag leírása",
+                "dC_StatusId": "Státusz",
+                "dC_ServicePackageCategoryId": "Csomag kategóriája",
+                "isScreeningTest": "Szűrés",
+                // "TODO_assignToAllClinics": {
+                //     "option": {
+                //         "true": "Rendelje hozzá a szolgáltatást minden ellátóhely, minden szobájához",
+                //         "false": "Semmilyen ellátóhelyhez ne rendelje hozzá a szolgáltatást",
+                //     }
+                // },
+                "deeperpMergedItemName": "Számlanév",
+                "deeperpMergedItemNumber": "deep.erp.cikkszám az összevont tételekhez",
+            },
+            "errors": {
+                "status.can.not.be.active.if.field.is.empty": "Ha nincs megadva a(z) \"{{fieldName}}\" mező, akkor nem lehet aktív a státusz!",
+            },
+            "confirm.dialog": {
+                "content.text": {
+                    "service.package.service.package": "A szolgáltatás jelenleg legalább 1 aktív csomagnak a része!<br>Ha inaktiválja a szolgáltatást, azzal az őt tartalmazó csomagokat is inaktiválja!",
+                },
+            },
+        },
+    },
+    "service.package.booking.area": {
+        "list": {
+            "table": {
+                "title": "Lehetséges foglalási felületek",
+                "headers": {
+                    "name": "Felület",
+                },
+            },
+        },
+    },
+    "service.package.price.template.item": {
+        "list": {
+            "table": {
+                "title": "Árazás",
+                "headers": {
+                    "priceTemplate.priceTemplateName": "Ársablon neve",
+                    "price": "Ár",
+                    "priceTemplate.startDate": "Érvénesség kezdete",
+                    "priceTemplate.endDate": "Érvényesség vége",
+                },
+                "basePriceTemplateName": "Listaár",
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Ár szerkesztése/törlése",
+                "create": "Új ár hozzáadása",
+            },
+        },
+        "form": {
+			"label": {
+                "priceTemplate": "Ársablon",
+                "price": "Ár",
+			},
+        },
+    },
+    "service.package.role": {
+        "list": {
+            "table": {
+                "title": "Lehetséges értékesítés",
+                "headers": {
+                    "roleId": "Ertékesítő",
+                    "percentage": "Jutalék százalék",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Értékesítő szerkesztése/törlése",
+                "create": "Új értékesítő hozzáadása",
+            },
+        },
+        "form": {
+            "label": {
+                "roleId": "Ertékesítő",
+                "percentage": "Jutalék százalék",
+            },
+        },
+    },
+    "service.package.service": {
+        "list": {
+            "table": {
+                "title": "Elemi szolgáltatás hozzáadása az csomaghoz",
+                "headers": {
+                    "position": "Sorszám",
+                    "service.serviceName": "Szolgáltatás neve",
+                    "maxMinute": "Maximum idő",
+                    "service.duration": "Normaidő",
+                    "service.basePrice": "Listaár",
+                    "required": "Kötelező",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Elemi szolgáltatás hozzárendelésének szerkesztése",
+                "create": "Új elemi szolgáltatás hozzárendelése",
+            },
+        },
+        "form": {
+            "label": {
+                "position": "Sorszám",
+                "maxMinute": "Maximum idő",
+                "required": "Kötelező",
+            },
+        },
+    },
+    "service.package.sub.service.package": {
+        "list": {
+            "table": {
+                "title": "Alcsomag hozzáadása a Csomaghoz",
+                "headers": {
+                    "position": "Sorszám",
+                    "subServicePackage.servicePackageName": "Alcsomag neve",
+                    "subServicePackage.dC_ServicePackageTypeId": "Típus",
+                    "subServicePackage.basePrice": "Listaár",
+                    "subServicePackage.duration": "Normaidő",
+                    "required": "Kötelező",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Alcsomag hozzárendelésének szerkesztése",
+                "create": "Új alcsomag hozzárendelése",
+            },
+        },
+        "form": {
+            "label": {
+                "position": "Sorszám",
+                "required": "Kötelező",
+            },
+        },
+    },
+    "service.package.lab.service": {
+        "list": {
+            "table": {
+                "title": "Laborvizsgálat szolgáltatás hozzáadása a csomaghoz",
+                "headers": {
+                    "position": "Sorszám",
+                    "lab.service.serviceName": "Laborvizsgálat neve",
+                    "identification": "Azonosító",
+                    "maxMinute": "Maximum idő",
+                    "lab.service.duration": "Normaidő",
+                    "lab.service.basePrice": "Laborvizsgálat lista ár",
+                    "required": "Kötelező",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Laborvizsgálat szolgáltatás hozzárendelésének szerkesztése",
+                "create": "Új laborvizsgálat szolgáltatás hozzárendelése",
+            },
+        },
+        "form": {
+            "label": {
+                "position": "Sorszám",
+                "maxMinute": "Maximum idő",
+                "required": "Kötelező",
+            },
+        },
+    },
+    "deep.erp.item.identification": {
+        "form": {
+            "section": {
+                "subtitle": {
+                    "additional.fields": "Kiegészítő adatok, default üres mezők",
+                }
+            },
+            "label": {
+                "invoiceItemName": "Megnevezés a számlán",
+                "deeperpItemNumber": "Külső azonosító",
+                "vatCategory": "ÁFA ügyviteeli kategória",
+                "dC_ItemProcurationalCategoryId": "Cikk ügyviteli kategória",
+                "cpaNumber": "VT/TESZOR szám",
+                "isDEEPERPActive": "Aktív",
+                "defaultQuantity": "Alap mennyiségi egység",
+                "defaultSaleQuantity": "Alap eladási mennyiségi egység",
+                "defaultPurchaseQuantity": "Alap beszerzési mennyiségi egység",
+                "environmentProductTax": "Környezetvédelmi termékdíj",
+                "mrpCalculationAllowed": "MRP kalkuláció engedélyezett",
+                "excise": "Jövedéki",
+                "productionTaxStamp": "Jövedéki zárjegy termeléskor",
+                "discountAllowed": "Skontó alkalmazható",
+                "outOfProduction": "Kifutó termék",
+                "hazardousProduct": "Veszélyes áru",
+                "hazardousProductLimitQuantity": "Veszélyes áru korl.Mennyiség",
+            },
+        },
+    },
+    "price.table": {
+        "list": {
+            "table": {
+                "title": "Ártáblák",
+                "headers": {
+                    "priceTableName": "Ártábla neve",
+                    "dC_PriceTableStatusId": "Státusz",
+                    "parentPriceTable.priceTableName": "Forrás ártábla neve",
+                    "startDate": "Érvényesség kezdete",
+                    "endDate": "Érvényesség vége"
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Ártábla szerkesztése/törlése",
+                "create": "Új ártábla hozzáadása",
+            },
+        },
+        "form.create": {
+            "label": {
+                "priceTableName": "Ártábla neve",
+                "parentPriceTable": "Másolandó ártábla",
+            },
+        },
+        "form.update": {
+            "label": {
+                "priceTableName": "Ártábla neve",
+                "priceTableIdentifier": "Ártábla azonosítója",
+                "parentPriceTableName": "Forrás ártábla neve",
+                "parentPriceTableIdentifier": "Forrás ártábla azonosítója",
+                "startDate": "Érvényesség kezdete",
+                "endDate": "Érvényesség vége",
+                "continuous": "Folyamatos",
+                "dC_PriceTableStatusId": "Státusz",
+                "description": "Ártábla leírása",
+                "new": {
+                    "newCopiedTableName": "Új ártábla neve",
+                    "priceTableIdToCopy": "Másolandó ártábla",
+                },
+            },
+            "errors": {
+                "dC_PriceTableStatusId": {
+                    "activeNotUnique": "Már szerepel egy 'aktív' ártábla a rendszerben!",
+                    "pendingActiveNotUnique": "Már szerepel egy 'függőben levő' ártábla a rendszerben!",
+                    "required": "Kötelező mező!",
+                },
+            },
+        },
+    },
+    "price.template": {
+        "list": {
+            "table": {
+                "headers": {
+                    "basePrice": "Listaár",
+                    "basePriceEUR": "EUR",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "edit": "Ársablon szerkesztése",
+            },
+        },
+        "form": {
+            "label": {
+                "priceTemplateName": "Ársablon neve",
+                "isAvailableForCC": "Callcenteren látható?",
+                "isAvailableForReception": "Recepción látható?",
+                "startDate": "Érvényesség kezdete",
+                "endDate": "Érvényesség vége",
+            },
+        },
+    },
+    "price.template.of.item": {
+        "list": {
+            "table": {
+                "title": "Cikkek árazásai",
+                "headers": {
+                    "itemName": "Cikk neve",
+                },
+            },
+        },
+    },
+    "price.template.of.service.sub.package": {
+        "list": {
+            "table": {
+                "title": "Alcsomagok árazásai",
+                "headers": {
+                    "dC_SubServicePackageCategoryId": "Alcsomag kategóriája",
+                    "servicePackageName": "Alcsomag neve",
+                    "dC_ServicePackageTypeId": "Szolgáltatás típusa",
+                },
+            },
+        },
+    },
+    "price.template.of.service.package": {
+        "list": {
+            "table": {
+                "title": "Csomagok árazásai",
+                "headers": {
+                    "dC_ServicePackageCategoryId": "Csomag kategóriája",
+                    "servicePackageName": "Csomag neve",
+                    "dC_ServicePackageTypeId": "Szolgáltatás típusa",
+                },
+            },
+        },
+    },
+    "price.template.of.service": {
+        "list": {
+            "table": {
+                "title": "Elemi szolgáltatás árazásai",
+                "headers": {
+                    "dC_ServiceCategoryId": "Szolgáltatás kategóriája",
+                    "serviceName": "Szolgáltatás neve",
+                    "dC_ServicePackageTypeId": "Szolgáltatás típusa",
+                    "specialtyXService": "Szakma",
+                },
+            },
+        },
+    },
+    "item": {
+        "list": {
+            "table": {
+                "title": "Cikkek",
+                "headers": {
+                    "itemName": "Név",
+                    "dC_ItemCategoryId": "Kategória",
+                    "subItemName": "Alszám megnevezés",
+                    "subItemNumber": "Alszám",
+                    "purchasePrice": "Beszerzési ár",
+                    "sellingPrice": "Listaár",
+                    "dC_ItemStatusId": "Státusz",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Cikk szerkesztése/törlése",
+                "create": "Új cikk hozzáadása",
+            },
+        },
+        "form": {
+            "section": {
+                "title": {
+                    "deep.erp": "Deep.ERP kompatibilitást biztosító mezők ",
+                }
+            },
+            "label": {
+                "itemName": "Cikk neve",
+                "dC_ItemStatusId": "Státusz",
+                "itemNumber": "Cikkszám",
+                "subItemName": "Alszám megnevezés",
+                "subItemNumber": "Alszám",
+                "dC_ItemCategoryId": "Kategória",
+                "dC_ItemTypeId": "Eszköz típusa",
+                "validityDate": "Érvényességi dátum",
+                "expirationDate": "Lejárati dátum",
+                "manufacturingNumber": "Gyári szám",
+                "partnerId": "Beszállító",
+                "purchasePrice": "Beszerzési ár",
+                "sellingPrice": "Lista ár",
+                "isSelectableItemWhenBooking": "Választható cikk szolgáltatás kódoláshoz?",
+            }
+        },
+        "sub.item": {
+            "list": {
+                "table": {
+                    "title": "Alszámok",
+                    "headers": {
+                        "subItemName": "Alszám megnevezés",
+                        "subItemNumber": "Alszám",
+                        "dC_ItemCategoryId": "Kategória",
+                        "purchasePrice": "Beszerzési ár",
+                        "sellingPrice": "Listaár",
+                        "dC_ItemStatusId": "Státusz",
+                    },
+                },
+            },
+            "editor": {
+                "title": {
+                    "editOrDelete": "Alszám szerkesztése/törlése",
+                    "create": "Új alszám hozzáadása",
+                },
+            },
+        },
+        "price.template.item": {
+            "list": {
+                "table": {
+                    "title": "Árak",
+                    "headers": {
+                        "priceTemplate.priceTemplateName": "Ársablon neve",
+                        "price": "Ár",
+                        "priceTemplate.startDate": "Érvényesség kezdete",
+                        "priceTemplate.endDate": "Érvényesség vége",
+                    },
+                    "basePriceTemplateName": "Listaár",
+                },
+            },
+            "editor": {
+                "title": {
+                    "editOrDelete": "Árak szerkesztése/törlése",
+                    "create": "Új ár hozzáadása",
+                },
+            },
+            "form": {
+                "section": {
+                    "title": {
+                        "editOrDelete": "Ár szerkesztése/törlése",
+                        "create": "Új ár hozzáadása",
+                    }
+                },
+                "label": {
+                    "priceTemplate": "Ársablon",
+                    "price": "Ár",
+                },
+            }
+        },
+    },
+    "lab": {
+        "list": {
+            "table": {
+                "title": "Labor törzs",
+                "headers": {
+                    "dC_MarkerId": "Marker név",
+                    "providerIdentificationNumber": "Külső azonosító",
+                    "dC_LabSamplingTypeId": "Mintavétel típusa",
+                    "dC_LabRepeatPeriodId": "Időszakon belül nem ismételhető meg",
+                    "dC_SamplingItemId": "Mintavételi eszköz",
+                    "dC_LabProviderId": "Szolgáltató azonosító"
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Labor szerkesztése/törlése",
+                "create": "Új labor hozzáadása",
+            },
+        },
+        "form": {
+            "errors": {
+                "dC_MarkerId": {
+                    "required": "Kötelező mező!",
+                },
+                "providerIdentificationNumber": {
+                    "required": "Kötelező mező!",
+                },
+                "dC_SamplingItemId": {
+                    "required": "Kötelező mező!",
+                },
+            },
+          "label": {
+            "dC_MarkerId": "Marker név",
+            "providerIdentificationNumber": "Külső azonosító",
+            "dC_LabSamplingTypeId": "Mintavétel típusa",
+            "dC_LabRepeatPeriodId": "Időszakon belül nem ismételhető meg",
+            "dC_SamplingItemId": "Mintavételi eszköz",
+            "dC_LabProviderId": "Szolgáltató azonosító"
+          },
+        },
+    },
+    "service.provider.entity": {
+        "list": {
+            "table": {
+                "title": "Szolgáltató entitások",
+                "headers": {
+                    "partner.company.fullName": "Cégnév",
+                    "partner.company.dC_CompanyTypeId": "Cégforma típus",
+                    "partner.company.dC_PartnerModeId": "Partner mód",
+                    "partner.company.contactEmailAddress": "Email",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Szolgáltató szerkesztése/törlése",
+                "create": "Új szolgáltató hozzáadása",
+            },
+        },
+        "form": {
+            "section": {
+                "title": {
+                    "company": "Cég",
+                    "address": "Cím",
+                },
+                "subtitle": {
+                    "nameData": "Név adatok",
+                    "addressData": "Székhely",
+                    "invoiceData": "Számlázás",
+                    "company.site.data": "Telephelyek (címek)",
+                },
+            },
+			"label": {
+				"selfName": "Entitás név",
+				"partner": {
+					"deepERPIdentifier": "Deep.ERP azonosító",
+					"company": {
+						"taxNumber": "Adószám",
+						"companyRegistrationNumber": "Cégjegyzékszám",
+						"dC_InvoiceModeId": "Számla típusa",
+						"invoiceEmail": "Számla e-mail cím",
+						"euTaxNumber": "EU adószám",
+						"bankAccountNumber": "Bankszámlaszám",
+						"parentCompanyId": "Cégcsoport",
+						"groupTaxation": "Csoportos adóalanyiság tag",
+						"groupTaxNumber": "Csoportos adószám",
+						"communityMemberStateCode": "Közösségi tagállamkód",
+						"fullName": "Teljes cégnév",
+						"shortName": "Rövid cégnév",
+						"dC_CompanyTypeId": "Cégforma típus",
+						"contactPersonName": "Kapcsolattartó neve",
+						"contactPhoneNumber": "Kapcsolattartó telefonszáma",
+						"contactEmailAddress": "Kapcsolattartó e-mail címe",
+						"headquartersPhoneNumber": "Telefonszám",
+					},
+				},
+                "address": {
+                    "dC_City.postCode": "Irányítószám",
+                    "dC_City.name": "Város",
+                    "streetName": "Közterület neve",
+                    "dC_PublicPlaceCategoryId": "Közterület jellege",
+                    "buildingNumber": "Házszám",
+                    "building": "Épület",
+                    "staircase": "Lépcsőház",
+                    "floor": "Emelet",
+                    "door": "Ajtó",
+                    "lotNumber": "Helyrajziszám",
+                },
+			},
+        },
+    },
+    "clinic": {
+        "list": {
+            "table": {
+                "title": "Ellátóhelyek",
+                "headers": {
+                    "clinicName": "Ellátóhely",
+                    "postCode": "Ir.szám",
+                    "city.name": "Város",
+                    "streetName": "Utca",
+                    "clinicType": "Praxis",
+                    "phoneNumber": "Telefon",
+                    "selfName": "Számlaadó",
+                    "clinicRooms": "Szobaszám",
+                    "isDeletedStatus": "Státusz",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Ellátóhely szerkesztése/törlése",
+                "create": "Új ellátóhely hozzáadása",
+            },
+        },
+        "form": {
+            "section": {
+                "title": {
+                    "comments": "Megjegyzések",
+                    "bookingArea": "Foglalhatóság",
+                    "dC_ClinicType": "Ellátóhely típusa",
+                    "clinicOpenHours": "Nyitvatartás",
+                    "clinicXSpecialtyXService": "Szakmák és szolgáltatások",
+                    "OTHCode": "OTH kódok",
+                    "transactionRules": "Tranzakciós szabályok megadása",
+                },
+            },
+            "label": {
+                "clinicName": "Elnevezés",
+                "phoneNumber": "Telefonszám",
+                "email": "E-mail cím",
+                "ftKp": "Ft-Kp",
+                "ftOther": "Ft-Egyéb",
+                "eurKp": "EUR- Kp",
+                "eurOther": "EUR-Egyéb",
+                "address": {
+                    "dC_City": {
+                        "postCode": "Ir.szám",
+                        "name": "Település",
+                    },
+                    "streetName": "Közterület neve",
+                    "dC_PublicPlaceCategoryId": "Közterület jellege",
+                    "buildingNumber": "Házszám",
+                    "building": "Épület",
+                    "staircase": "Lépcsőház",
+                    "floor": "Emelet",
+                    "door": "Ajtó",
+                    "lotNumber": "Helyrajzi sz.",
+                },
+			},
+        },
+        "booking.area": {
+            "list": {
+                "table": {
+                    "title": "Foglalási felületek",
+                    "headers": {
+                        "bookingAreaName": "Foglalási felület",
+                    },
+                },
+            },
+        },
+        "open.hours": {
+            "form": {
+                "label": {
+                    "startTime": "Nyitvatartás kezdete",
+                    "endTime": "Nyitvatartás vége",
+                },
+                "errors": {
+                    "open.hours.all.or.none.required": "Ha megadja a nyitvatartás kezdetét/végét akkor kötelező megadni a másik értéket is!",
+                },
+            },
+        },
+        "room": {
+            "list": {
+                "table": {
+                    "title": "Szobák",
+                    "headers": {
+                        "dC_FloorId": "Emelet",
+                        "roomNumber": "Szobaszám",
+                    },
+                },
+            },
+            "editor": {
+                "title": {
+                    "editOrDelete": "Szoba szerkesztése/törlése",
+                    "create": "Új szoba hozzáadása",
+                },
+            },
+            "form": {
+                "section": {
+                    "title": "Szobák"
+                }  ,
+                "label": {
+                    "dC_FloorId" : "Emelet",
+                    "roomNumber" : "Szobaszám",
+                }
+            }
+        },
+        "self": {
+            "list": {
+                "table": {
+                    "title": "OTH kódok",
+                    "headers": {
+                        "selfName": "Swiss entitás",
+                        "specialtyName": "Szakma",
+                        "clinicOrganizationUniteCode": "OTH kód",
+                    },
+                },
+            },
+            "editor": {
+                "title": {
+                    "editOrDelete": "OTH kód szerkesztése/törlése",
+                    "create": "Új OTH kód hozzáadása",
+                },
+            },
+            "form": {
+                "section": {
+                    "title": "OTH kódok"
+                },
+                "errors": {
+                    "selfSpecialtyCombinationAlreadyExists": "Egy ellátóhelyhez egy szakágat és entitást lehet egyszerre a rendelni!",
+                },
+                "label": {
+                    "selfName": "Swiss entitás",
+                    "specialtyName": "Szakma",
+                    "clinicOrganizationUniteCode": "OTH kód",
+                }
+            }
+        }
+    },
+    "city": {
+        "list": {
+            "table": {
+                "title": "Település törzs",
+                "headers": {
+                    "name": "Település név",
+                    "postCode": "Irásnyítószám",
+                    "dC_CountyId": "Megye",
+                    "dC_CountryId": "Ország",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Település szerkesztése/törlése",
+                "create": "Új település hozzáadása",
+            },
+        },
+        "form": {
+            "errors": {
+                "name": {
+                    "required": "Kötelező mező!",
+                },
+                "postCode": {
+                    "required": "Kötelező mező!",
+                },
+                "dC_CountyId": {
+                    "required": "Kötelező mező!",
+                },
+            },
+			"label": {
+                "name": "Település név",
+                "postCode": "Irásnyítószám",
+                "dC_CountyId": "Megye",
+                "dC_CountryId": "Ország",
+			},
+        },
+    },
+    "patient": {
+        "list": {
+            "table": {
+                "title": "Páciensek",
+                "headers": {
+                    "dC_TitleTypeId": "Titulus",
+                    "surname": "Vezetéknév",
+                    "firstname": "keresztnév",
+                    "ssn": "TAJ szám",
+                    "dateOfBirth": "Szül. dátum",
+                    "placeOfBirth": "Szül. hely",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "edit": "Páciens szerkesztése",
+                "editOrDelete": "Páciens szerkesztése/törlése",
+                "create": "Új páciens hozzáadása",
+            },
+        },
+        "form": {
+            "section": {
+                "title": {
+                    "personal.data": "Személyes adatok",
+                    "comments": "Megjegyzések",
+                },
+            },
+            "label": {
+            //Személyes adatok
+                "dC_TitleTypeId": "Titulus",
+                "surname": "Vezetéknév",
+                "firstname": "Keresztnév",
+                "dC_NationalityId": "Állampolgárság",
+                "dC_BirthTitleTypeId": "Születéskori titulus",
+                "birthLastName": "Születéskori vezetéknév",
+                "birthFirstName": "Születéskori keresztnév",
+                "motherName": "Anyja neve",
+                "isDeceased": "Elhunyt",
+                "deathTime": "Dátum",
+                "placeOfBirth": "Születési hely",
+                "dateOfBirth": "Születési dátum",
+                "dC_VIPId": "VIP státusz",
+                "dC_GenderId": "Neme",
+            // Megjegyzések
+                "publicComment": "Publikus megjegyzés",
+                "internalComment": "Belső megjegyzés",
+                "isBanned": "Kitiltva",
+                "isOveruser": "Túlhasználó",
+                "bannedComment": "Kitiltás indoklása",
+                "isInDebt": "Tartozása van",
+                "debtComment": "Tartozás indoklása",
+                "ssn": "TAJ szám",
+                "issueDate": "Kiállítás dátuma",
+            },
+        },
+    },
+    "patient.address": {
+        "list": {
+            "table": {
+                "title": "Címek",
+                "headers": {
+                    "foreignAddress": "Külföldi",
+                    "dC_PatientAddressTypeId": "Típus",
+                    "address": {
+                        "dC_City": {
+                            "postCode": "Ir.szám",
+                            "name": "Település",
+                        },
+                        "streetName": "Közterület neve",
+                        "dC_PublicPlaceCategoryId": "Közterület jellege",
+                        "buildingNumber": "Házszám",
+                        "building": "Épület",
+                        "staircase": "Lépcsőház",
+                        "floor": "Emelet",
+                        "door": "Ajtó",
+                        "lotNumber": "Helyrajzi sz.",
+                    },
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Cím szerkesztése/törlése",
+                "create": "Új cím hozzáadása",
+            },
+        },
+        "form": {
+            "label": {
+                "foreignAddress": "Külföldi cím?",
+                "dC_PatientAddressTypeId": "Típus",
+                "address": {
+                    "dC_City": {
+                        "postCode": "Irányítószám",
+                        "name": "Település",
+                    },
+                    "streetName": "Közterület neve",
+                    "dC_PublicPlaceCategoryId": "Közterület jellege",
+                    "buildingNumber": "Házszám",
+                    "building": "Épület",
+                    "staircase": "Lépcsőház",
+                    "floor": "Emelet",
+                    "door": "Ajtó",
+                    "lotNumber": "Helyrajzi szám",
+                },
+            },
+        },
+    },
+    "patient.contact": {
+        "list": {
+            "table": {
+                "title": "Egyéb elérhetőségek",
+                "headers": {
+                    "dC_ContactTypeId": "Elérhetőség típusa",
+                    "contactValue": "Elérhetőség értéke",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Elérhetőség szerkesztése/törlése",
+                "create": "Új elérhetőség hozzáadása",
+            },
+        },
+        "form": {
+            "label": {
+                "dC_ContactTypeId": "Elérhetőség típusa",
+                "contactValue": "Elérhetőség értéke",
+            },
+        },
+    },
+    "patient.language": {
+        "list": {
+            "table": {
+                "title": "Kommunikációs nyelvek",
+                "headers": {
+                    "dC_LanguageId": "Nyelv",
+                    "isDefault": "Alapértelmezett",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Kommunikációs nyelv szerkesztése/törlése",
+                "create": "Új kommunikációs nyelv hozzáadása",
+            },
+        },
+        "form": {
+            "label": {
+                "dC_LanguageId": "Nyelv",
+                "isDefault": "Alapértelmezett?",
+            },
+        },
+    },
+    "patient.employment": {
+        "list": {
+            "table": {
+                "title": "Munkahely és Munkakör",
+                "headers": {
+                    "company.fullName": "Munkáltató",
+                    "companySite.siteName": "Telephely",
+                    "TODO": "Üzem",
+                    "hsco.hscoNumber": "FEOR",
+                    "jobTitle.titleName": "Munkakör",
+                    "jobTitleExpozition.titleName": "Exp.mátrix szerinti munkakör",
+                    "startDate": "Kezdete",
+                    "endDate": "Vége",
+                    "number": "Törzsszám",
+                    "dC_StatusId": "Státusz",
+                    "dC_OccupationalHealthClassificationId": "FEÜ kategória",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Munkahely szerkesztése/törlése",
+                "create": "Új munkahely hozzáadása",
+            },
+        },
+        "form": {
+            "label": {
+                "company": "Munkáltató",
+                "companySite": "Telephely",
+                "TODO": "Üzem",
+                "hsco": "FEOR kód",
+                "jobTitle": "Munkakör",
+                "jobTitleExpozition": "Exp.mátrix szerinti munkakör",
+                "startDate": "Kezdete",
+                "endDate": "Vége",
+                "number": "Törzsszám",
+                "dC_StatusId": "Státusz",
+                "dC_OccupationalHealthClassificationId": "FEÜ kategória",
+            },
+        },
+    },
+    "patient.id": {
+        "list": {
+            "table": {
+                "title": "Igazolvány adatok",
+                "headers": {
+                    "dC_PatientIdTypeId": "Igazolvány típusa",
+                    "number": "Igazolvány száma",
+                    "dC_PatientIdTypeCategoryId": "Kategória",
+                    "issueDate": "Kiállítás dátuma",
+                    "expirationDate": "Érvényesség dátuma",
+                    "comment": "Megjegyzés",
+                    "createdBy_UserName": "Létrehozó",
+                    "creationDate": "Létrehozás dátuma",
+                    "lastModifiedBy_UserName": "Utolsó módosító",
+                    "lastModifiedDate": "Utolsó módosítás dátuma",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Igazolvány szerkesztése/törlése",
+                "create": "Új igazolvány hozzáadása",
+            },
+        },
+        "form": {
+            "label": {
+                "dC_PatientIdTypeId": "Igazolvány típusa",
+                "number": "Igazolvány száma",
+                "dC_PatientIdTypeCategoryId": "Kategória",
+                "issueDate": "Kiállítás dátuma",
+                "expirationDate": "Érvényesség dátuma",
+                "comment": "Megjegyzés",
+                "createdBy_UserName": "Létrehozó",
+                "creationDate": "Létrehozás dátuma",
+                "lastModifiedBy_UserName": "Utolsó módosító",
+                "lastModifiedDate": "Utolsó módosítás dátuma",
+            },
+        },
+    },
+    "patient.insurance.detail": {
+        "list": {
+            "table": {
+                "title": "Biztosítási és egészségpénztári adatok",
+                "headers": {
+                    "partner": "Biztosító neve",
+                    "identificationNumber": "Biztosítási azonosító",
+                    "isEP": "Egészségpénztár",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Biztosítás/egészségpénztár szerkesztése/törlése",
+                "create": "Új biztosítás/egészségpénztár hozzáadása",
+            },
+        },
+        "form": {
+            "label": {
+                "partner": "Biztosító neve",
+                "identificationNumber": "Biztosítási azonosító",
+                "isEP": "Egészségpénztár?",
+            },
+        },
+    },
+    "patient.x.patient": {
+        "editor": {
+            "title": {
+                "editOrDelete": "Családtag szerkesztése/törlése",
+                "create": "Új családtag hozzáadása",
+            },
+        },
+        "list": {
+            "table": {
+                "title": "Családtag",
+                "headers": {
+                    "fullName": "Teljes név",
+                    "ssn": "TAJ szám",
+                    "placeOfBirth": "Szül. hely",
+                    "dateOfBirth": "Szül. dátum",
+                    "motherName": "Anyja neve",
+                },
+            },
+        },
+    },
+    "partner": {
+        "list": {
+            "table": {
+                "title": "Partnerek",
+            },
+            "tabs": {
+                "patient": {
+                    "title": "Magánszemélyek",
+                    "table": {
+                        "headers": {
+                            "patient.dC_TitleTypeId": "Titulus",
+                            "patient.surname": "Vezetéknév",
+                            "patient.firstname": "Keresztnév",
+                            "patient.ssn": "TAJ szám",
+                        },
+                    },
+                },
+                "company": {
+                    "title": "Cégek",
+                    "table": {
+                        "headers": {
+                            "company.fullName": "Cégnév",
+                            "company.dC_CompanyTypeId": "Cégforma típus",
+                            "dC_PartnerModeId": "Partner mód",
+                            "company.contactEmailAddress": "Email",
+                        },
+                    },
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Partner szerkesztése/törlése",
+                "create": "Új partner hozzáadása",
+            },
+        },
+        "form": {
+            "section": {
+                "title": {
+                    "patient.data": "Magánszemély",
+                    "company.data": "Cég",
+                },
+                "subtitle": {
+                    "patient.name.data": "Név adatok",
+                    "patient.address.data": "Cím adatok",
+                    "patient.contact.data": "Elérhetőségek",
+                    "patient.id.data": "Igazolvány adatok",
+                    "patient.invoice.data": "Számlázás",
+                    "company.name.data": "Név adatok",
+                    "company.invoice.data": "Számlázás",
+                    "company.hq.address.data": "Székhely (cím)",
+                    "company.invoice.address.data": "Számlázásí (cím)",
+                    "company.site.data": "Telephelyek (címek)",
+                },
+            },
+            "label": {
+                "dC_PartnerTypeId": "Partner típusa (magánszemély vagy cég)",
+                "dC_PartnerModeId": "Partner mód (vevő vagy szállító vagy mindkettő)",
+                "deepERPIdentifier": "Deep.ERP azonosító",
+
+                "patient": {
+                    "dC_TitleTypeId": "Titulus",
+                    "surname": "Vezetéknév",
+                    "firstname": "Keresztnév",
+                    "dC_InvoiceModeId": "Számla típusa",
+                    "invoiceEmail": "Számla e-mail cím",
+                },
+
+                "company": {
+                    "fullName": "Teljes cégnév",
+                    "shortName": "Rövid cégnév",
+                    "dC_CompanyTypeId": "Cégforma típus",
+                    "contactPersonName": "Kapcsolattartó neve",
+                    "contactPhoneNumber": "Kapcsolattartó telefonszáma",
+                    "contactEmailAddress": "Kapcsolattartó e-mail címe",
+
+                    "taxNumber": "Adószám",
+                    "companyRegistrationNumber": "Cégjegyzékszám",
+                    "dC_InvoiceModeId": "Számla típusa",
+                    "invoiceEmail": "Számla e-mail cím",
+                    "euTaxNumber": "EU adószám",
+                    "bankAccountNumber": "Bankszámlaszám",
+                    "parentCompany": "Cégcsoport",
+                    "groupTaxation": "Csoportos adóalanyiság tag",
+                    "groupTaxNumber": "Csoportos adószám",
+                    "communityMemberStateCode": "Közösségi tagállamkód",
+
+                    // Székhely adatok
+                    "address": {
+                        "dC_City.name": "Település",
+                        "dC_City.postCode": "Irányítószám",
+                        "streetName": "Közterület neve",
+                        "dC_PublicPlaceCategoryId": "Közterület jellege",
+                        "buildingNumber": "Házszám",
+                        "building": "Épület",
+                        "staircase": "Lépcsőház",
+                        "floor": "Emelet",
+                        "door": "Ajtó",
+                    },
+                    "headquartersPhoneNumber": "Telefonszám",
+                },
+            },
+        },
+    },
+    "dictionary.category": {
+        "list": {
+            "table": {
+                "title": "Kódtár",
+                "headers": {
+                    "name": "Kódtár neve",
+                    "categoryName": "Kategória",
+                    "remarks": "Megjegyzés",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "edit": "Kódtár szerkesztése",
+            },
+        },
+        "form": {
+            "label": {
+                "name": "Kódtár neve",
+                "categoryName": "Kategória",
+                "remarks": "Megjegyzés",
+            },
+        },
+    },
+    "dictionary.entry": {
+        "list": {
+            "table": {
+                "title": "Kódtár elemei",
+                "headers": {
+                    "name": "Kódtár elem neve",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Kódtár elem szerkesztése/törlése",
+                "create": "Új kódtár elem hozzáadása",
+            },
+        },
+        "form": {
+            "label": {
+                "name": "Kódtár elem neve",
+            },
+        },
+    },
+    "company.site": {
+        "list": {
+            "table": {
+                "title": "Telephelyek",
+                "headers": {
+                    "address.dC_City.postCode": "Ir.sz.",
+                    "address.dC_City.name": "Telephely",
+                    "address": "Cím",
+                    "phoneNumber": "Telefonszám",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Telephely szerkesztése/törlése",
+                "create": "Új telephely hozzáadása",
+            },
+        },
+        "form": {
+            "label": {
+                "companyFullName": "Teljes cégnév",
+                "siteName": "Telephely neve",
+                "address": {
+                    "dC_City": {
+                        "postCode": "Irányítószám",
+                        "name": "Település",
+                    },
+                    "streetName": "Közterület neve",
+                    "dC_PublicPlaceCategoryId": "Közterület jellege",
+                    "buildingNumber": "Házszám",
+                    "building": "Épület",
+                    "staircase": "Lépcsőház",
+                    "floor": "Emelet",
+                    "door": "Ajtó",
+                },
+                "phoneNumber": "Telefonszám",
+            },
+        },
+    },
+    "document.template": {
+        "list": {
+            "table": {
+                "title": "Dokumentum sablonok",
+                "headers": {
+                    "name": "Sablon megnevezés",
+                    "description": "Sablon leírás",
+                    "dC_DocumentTemplateCategoryId": "Kategória",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Dokumentum sablon szerkesztése/törlése",
+                "create": "Új dokumentum sablon hozzáadása",
+            },
+        },
+        "form": {
+            "label": {
+                "name": "Dokumentum sablon megnevezése",
+                "description": "Dokumentum sablon leírása",
+                "dC_DocumentTemplateCategoryId": "Kategória",
+                "documentJSON": "Csatolmány",
+            },
+            "errors": {
+                "name": {
+                    "required": "Kötelező mező!",
+                },
+                "description": {
+                    "required": "Kötelező mező!",
+                },
+                "dC_DocumentTemplateCategoryId": {
+                    "required": "Kötelező mező!",
+                },
+                "documentJSON": {
+                    "required": "Kötelező mező!",
+                },
+            },
+        },
+    },
+    "email.template": {
+        "list": {
+            "table": {
+                "title": "Email sablonok",
+                "headers": {
+                    "emailTemplateName": "Sablon megnevezés",
+                    "description": "Sablon leírás",
+                    "dC_EmailTemplateCategoryId": "Kategória",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Email sablon szerkesztése/törlése",
+                "create": "Új email sablon hozzáadása",
+            },
+        },
+        "form": {
+            "label": {
+                "emailTemplateName": "Email sablon megnevezése",
+                "description": "Email sablon leírása",
+                "subject": "Tárgy",
+                "body": "Email szövege",
+                "dC_EmailTemplateCategoryId": "Kategória",
+                "documentJSON": "Csatolmány",
+            },
+            "errors": {
+                "emailTemplateName": {
+                    "required": "Kötelező mező!",
+                },
+                "description": {
+                    "required": "Kötelező mező!",
+                },
+                "subject": {
+                    "required": "Kötelező mező!",
+                },
+                "body": {
+                    "required": "Kötelező mező!",
+                },
+                "dC_EmailTemplateCategoryId": {
+                    "required": "Kötelező mező!",
+                },
+                "documentJSON": {
+                    "required": "Kötelező mező!",
+                },
+            },
+        },
+    },
+    "medical.employee": {
+        "form": {
+            "label": {
+                "dC_TitleTypeId": "Titulus",
+                "lastName": "Vezetéknév",
+                "firstName": "Keresztnév",
+                "stampNumber": "Pecsétszám",
+                "license.number": "Működési engedély száma",
+                "nehiIdentifier": "EESZT azonosító",
+                "numberOfDaysOff": "Éves szabadság",
+                "isAttendingPhysician": "Kezelőorvos",
+                "substituteMedicalEmployee": "Helyettese",
+                "assistant": "Asszisztense",
+                "address": {
+                    "dC_City.name": "Település",
+                    "dC_City.postCode": "Irányítószám",
+                    "streetName": "Közterület neve",
+                    "dC_PublicPlaceCategoryId": "Közterület jellege",
+                    "buildingNumber": "Házszám",
+                    "building": "Épület",
+                    "staircase": "Lépcsőház",
+                    "floor": "Emelet",
+                    "door": "Ajtó",
+                },
+                "profilePicture": "Orvos fotó",
+                "stampPicture": "Pecsét",
+            },
+            "section": {
+                "title": {
+                    "contract.data": "Szerződéses adatok",
+                    "speciality.assignment": "Szakma hozzárendelés",
+                },
+            },
+        },
+    },
+    "medical.employee.contact": {
+        "list": {
+            "table": {
+                "title": "Elérhetőségek",
+                "headers": {
+                    "dC_ContactTypeId": "Elérhetőség típusa",
+                    "contactValue": "Elérhetőség értéke",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Elérhetőség szerkesztése/törlése",
+                "create": "Új elérhetőség hozzáadása",
+            },
+        },
+        "form": {
+            "label": {
+                "dC_ContactTypeId": "Elérhetőség típusa",
+                "contactValue": "Elérhetőség értéke",
+            },
+        },
+    },
+    "medical.employee.contract.commission": {
+        "tree": {
+            "headers": {
+                "title": "Megnevezés",
+                "commissionPercentage": "Jutalék%",
+                "commissionAmount": "Jutalék",
+                "cancelPercentage": "Lemond. jut.%",
+                "cancelAmount": "Lemond. jut.",
+            },
+            "all.services.row.name": "Összes szolgáltatás",
+        },
+    },
+    "medical.employee.language": {
+        "list": {
+            "table": {
+                "title": "Beszélt nyelvek",
+                "headers": {
+                    "dC_LanguageId": "Nyelv",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Beszélt nyelv szerkesztése/törlése",
+                "create": "Új beszélt nyelv hozzáadása",
+            },
+        },
+        "form": {
+            "label": {
+                "dC_LanguageId": "Nyelv",
+            },
+        },
+    },
+    "medical.employee.professional.exam": {
+        "list": {
+            "table": {
+                "title": "Szakvizsgák",
+                "headers": {
+                    "puphaX_ProfessionalExamCode.name": "Szakvizsga",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Szakvizsga szerkesztése/törlése",
+                "create": "Új szakvizsga hozzáadása",
+            },
+        },
+        "form": {
+            "label": {
+                "puphaX_ProfessionalExamCode": "Szakvizsga",
+            },
+        },
+    },
+    "medical.employee.speciality.service": {
+        "tree": {
+            "headers": {
+                "duration": "Normaidő",
+                "age.group": "Korcsoport",
+            },
+        },
+    },
+    "medical.employee.contract": {
+        "list": {
+            "table": {
+                "title": "Szerződések",
+                "headers": {
+                    "medicalContractNumber": "Szerződés száma",
+                    "medicalContractName": "Megnevezés",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Szerződés szerkesztése/törlése",
+                "create": "Új szerződés hozzáadása",
+            },
+        },
+        "form": {
+            "label": {
+                "medicalContractNumber": "Szerződés száma",
+                "medicalContractName": "Szerződés megnevezése",
+                "_period": {
+                    "contract.type": "Szerződés típusa",
+                    "isDuty": "Ügyeletes",
+                    "isCancelCommission": "Lemond. jut.",
+                    "isEmployee": "Munkavállaló",
+                    "isHourlyRate": "Óradíjas",
+                    "isHandoverWork": "Leadós",
+                    "isPaidLunchBreak": "Fizetett ebédidő",
+                    "isPaidTravelTime": "Fizetett utazási idő",
+                },
+            },
+        },
+    },
+    "medical.employee.contract.schedule.entry": {
+        "list": {
+            "table": {
+                "title": "Időszakok",
+                "headers": {
+                    "dC_ScheduleSpecialTypeId": "Időszak típusa",
+                    "startTime": "-Tól",
+                    "endTime": "-Ig",
+                    "amount": "Összeg",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Időszak szerkesztése/törlése",
+                "create": "Új időszak hozzáadása",
+            },
+        },
+        "form": {
+            "label": {
+                "dC_ScheduleSpecialTypeId": "Időszak típusa",
+                "startTime": "-Tól",
+                "endTime": "-Ig",
+                "amount": "Összeg",
+            },
+        },
+    },
+    "medical.employee.booking.area": {
+        "list": {
+            "table": {
+                "title": "Foglalási felületek",
+                "headers": {
+                    "name": "Foglalási felület",
+                },
+            },
+        },
+    },
+    "doctor": {
+        "list": {
+            "table": {
+                "title": "Orvosok",
+                "headers": {
+                    "dC_TitleTypeId": "Titulus",
+                    "lastName": "Vezetéknév",
+                    "firstName": "Keresztnév",
+                    "stampNumber": "Pecsétszám",
+                    "TODO_clinic": "Rendelő",
+                    "medicalEmployeeXService.specialty.specialtyName": "Szakma",
+                    "medicalEmployeeXDC_Language.dC_LanguageId": "Beszélt nyelv",
+                    "medicalEmployeeXService.ageFrom": "Korcsoporttól",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Orvos szerkesztése/törlése",
+                "create": "Új orvos hozzáadása",
+            },
+        },
+    },
+    "assistant": {
+        "list": {
+            "table": {
+                "title": "Asszisztensek",
+                "headers": {
+                    "dC_TitleTypeId": "Titulus",
+                    "lastName": "Vezetéknév",
+                    "firstName": "Keresztnév",
+                    "medicalEmployeeXContact.phoneNumber": "Tel.szám",
+                    "nehiIdentifier": "EESZT azon.",
+                    "medicalContract.medicalContractPeriod.dC_JobTypeId": "Foglalkozt.",
+                    "medicalContract.medicalContractPeriod.isEmployee": "Munkavállaló.",
+                    "medicalContract.medicalContractPeriod.isHourlyRate": "Óradíjas.",
+                    "medicalContract.medicalContractPeriod.isHandoverWork": "Leadós.",
+                    "numberOfDaysOff": "Éves szab.",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Asszisztens szerkesztése/törlése",
+                "create": "Új asszisztens hozzáadása",
+            },
+        },
+    },
+    "exposure": {
+        "list": {
+            "table": {
+                "title": "Expozíciók összerendelése",
+                "headers": {
+                    "isCompleted": "Kitöltve",
+                    "description": "Expozícó",
+                    "code": "Paraméter kódja",
+                    "exposureDate": "Dátum",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "create": "Expozíció összerendelés létrehozás",
+                "edit": "Expozíció összerendelés",
+                "editOrDelete": "Expozíció összerendelés szerkesztése/törlése",
+            },
+        },
+        "form": {
+            "label": {
+                "description": "Expozícó",
+            },
+        },
+    },
+    "exposure.item": {
+        "list": {
+            "table": {
+                "title": "Expózíció paraméterei",
+                "headers": {
+                    "description": "Paraméter",
+                    "specialtyName": "Szakma",
+                    "serviceName": "Szolgáltatás",
+                    "remarks": "Megjegyzés",
+                    "price": "Ár",
+                    "duration": "Norm.",
+                    "dC_ExposureFrequencyId": "Gyakoriság",
+                    "isMandatory": "Kötelező",
+                    "isPreviousResultAccepted": "Hozott lelet",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Expozíció paraméter szerkesztése/törlése",
+                "create": "Új expozíció paraméter hozzáadása",
+            },
+        },
+        "form": {
+            "label": {
+                "description": "Expozíció",
+                "exposureItem.description": "Paraméter",
+                "exposureItem.code": "Paraméter kódja",
+            },
+        },
+    },
+    "exposure.item.service": {
+        "list": {
+            "table": {
+                "title": "Szolgáltatás hozzárendelések",
+                "headers": {
+                    "specialtyName": "Szakma",
+                    "serviceName": "Szolgáltatás",
+                    "remarks": "Megjegyzés",
+                    "dC_ExposureFrequencyId": "Gyakoriság",
+                    "isMandatory": "Kötelező",
+                    "isPreviousResultAccepted": "Hozott lelet",
+                    "price": "Ár",
+                    "duration": "Norm.",
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Szolgáltatás hozzárendelés szerkesztése/törlése",
+                "create": "Új szolgáltatás hozzárendelés hozzáadása",
+            },
+        },
+        "form": {
+            "label": {
+                "description": "Expozíció",
+                "exposureItem.description": "Paraméter",
+                "exposureItem.code": "Paraméter kódja",
+                "specialty": "Szakma",
+                "service": "Szolgáltatás",
+                "price": "Ár",
+                "duration": "Normaidő",
+                "dC_ExposureFrequencyId": "Gyakoriság",
+                "isMandatory": "Kötelező",
+                "isPreviousResultAccepted": "Hozott lelet",
+                "remarks": "Megjegyzés",
+                "partial": "Részleges",
+                "complete": "Teljes",
+            },
+        },
+    },
+    "dashboard": {
+        "title" : "Nyitólap",
+    },
+    "job.title": {
+        "list": {
+            "table": {
+                "title": "Munkakörök",
+                "headers": {
+                    "position": "Sorszám",
+                    "feor.main.group": "FEOR Főcs.",
+                    "feor.sub.group": "FEOR Al-cs.",
+                    "feor.group": "FEOR Cs.",
+                    "feor": "FEOR",
+                    "job.title.name": "Munkakör",
+                    "completed": "Kitöltve",
+                    "required": "Kötelező",
+                },
+            },
+            "label": {
+                "job.title.search.by.feor": "Munkakör keresés FEOR szerint",
+            }
+        },
+        "editor": {
+            "title": {
+                "editOrDelete": "Munkakör hozzáadása / szerkesztése",
+                "create": "Új munkakör szerkesztése hozzárendelése",
+            },
+        },
+        "form": {
+            "section.title": {
+                "class": "Osztály",
+                "examType": "Típus",
+                "services": "Szolgáltatások",
+            },
+            "label": {
+                "titleName": "Munkakör neve",
+                "occupationalHealth.dC_OccupationalHealthClassificationId": "Foglalkozás-egészségügyi osztály",
+                "occupationalHealth.dC_OccupationalHealthTypeId": "Vizsgálat típus",
+                "occupationalHealth.dC_OccupationalHealthPriceCategoryId": "Árkategória",
+                "feor": "FEOR",
+            },
+        },
+        "service": {
+            "list": {
+                "table": {
+                    "title": "Szolgáltatások",
+                    "headers": {
+                        "service.serviceName": "Szolgáltatás",
+                        "isMandatory": "Kötelező",
+                        "isPreviousResultAccepted": "Hozott lelet",
+                        "dC_ExposureFrequencyId": "Gyakoriság",
+                    },
+                },
+            },
+            "form": {
+                "label": {
+                    "service.serviceName": "Szolgáltatás",
+                    "isMandatory": "Kötelező",
+                    "isPreviousResultAccepted": "Hozott lelet",
+                    "dC_ExposureFrequencyId": "Gyakoriság",
+                },
+            },
+            "editor": {
+                "title": {
+                    "editOrDelete": "Munkakör szolgáltatás hozzárendelésének szerkesztése",
+                    "create": "Új szolgáltatás hozzárendelése",
+                },
+            },
+        }
+    },
+    "hsco": {
+        "list": {
+            "table": {
+                "title": "FEOR főcsoport",
+                "headers": {
+                    "hscoNumber": "FEOR azonotsító",
+                    "hscoName": "FEOR"
+                },
+            },
+        },
+        "editor": {
+            "title": {
+                "edit": "FEOR főcsoport szerkesztése",
+            },
+        },
+        "form": {
+            "section.title": {
+                "class": "Osztály",
+                "examType": "Típus",
+                "services": "Szolgáltatások",
+            },
+            "label": {
+                "hscoName": "FEOR",
+                "occupationalHealth.dC_OccupationalHealthClassificationId": "Foglalkozás-egészségügyi osztály",
+                "occupationalHealth.dC_OccupationalHealthTypeId": "Vizsgálat típus",
+                "occupationalHealth.dC_OccupationalHealthPriceCategoryId": "Árkategória",
+            },
+        },
+    },
+    "schedule": {
+        "template": {
+            "list": {
+                "table": {
+                    "title": "Beosztás sablonok",
+                    "headers": {
+                        "name": "Sablon neve",
+                        "id": "Sablon azonosítója",
+                        "aWeek": "A hét",
+                        "bWeek": "B hét",
+                        "cWeek": "C hét",
+                        "dWeek": "D hét",
+                        "description": "Leírás",
+                        "author": "Készítő"
+                    }
+                }
+            },
+            "editor": {
+                "title": {
+                    "editOrDelete": "Sablon szerkesztése/törlése",
+                    "create": "Üres sablon hozzáadása",
+                },
+            },
+            "form": {
+                "label": {
+                    "name": "Beosztás sablon neve",
+                    "aWeek": "Sablon A hét",
+                    "description": "Sablon leírása",
+                    "from": "Időszak (-tól)",
+                    "to": "Időszak (-tól)",
+                    "week": "Hét",
+                    "aWeek": "A hét",
+                    "bWeek": "B hét",
+                    "cWeek": "C hét",
+                    "dWeek": "D hét",
+                    "continuously": "Folytatólagosan",
+                    "followingPattern": "Mintázatkövetően"
+                },
+                "section": {
+                    "template.application": "Sablon alkalmazása"
+                },
+                "button": {
+                    "template.to.calendar": "Sablon alkalmazása kalendárra",
+                    "copy.template": "Sablon másolása",
+                    "templateInOverviewView": "Sablon szerkesztése áttekintő nézetben"
+                }
+            },
+            "clinic": {
+                "list": {
+                    "table": {
+                        "title": "Ellátóhelyek",
+                        "headers": {
+                            "name": "Ellátóhely",
+                            "bookable": "Foglalható",
+                            "phone": "Telefon",
+                            "company": "Számlaadó",
+                            "room": "Szobaszám"
+                        },
+                    },
+                },
+                "editor.title.create": "Ellátóhely kiválasztása"
+            },
+            "specialty": {
+                "editor.title.create": "Szakma kiválasztása",
+                "list": {
+                    "table": {
+                        "title": "Szakmák",
+                        "headers": {
+                            "name": "Szakma neve",
+                            "code": "Szakma kód",
+                            "status": "Státusz"
+                        },
+                    }
+                },
+            },
+            "employee": {
+                "editor.title.create": "Orvos kiválasztása",
+                "list": {
+                    "table": {
+                        "title": "Orvosok és Aszisztensek",
+                        "headers": {
+                            "type": "Típus",
+                            "titleType": "Titulus",
+                            "firstName": "Keresztnév",
+                            "lastName": "Vezetéknév",
+                            "sealNumber": "Pecsétsz.",
+                            "phone": "Tel.szám",
+                            "specialties": "Szakmák",
+                            "fogl": "Fogl.",
+                            "insurance": "Bizt.",
+                            "annualLeave": "Éves szab."
+                        }
+                    }
+                }
+            }
+        },
+        "generator": {
+            "section.title": {
+                "date.range": "Időszak",
+            },
+            "form": {
+                "label": {
+                    "start.date": "Időszak (-tól)",
+                    "end.date": "Időszak (-ig)"
+                },
+                "button": "Beosztás generálása",
+                "success": "Beosztás generálása sikeresen megtörtént.",
+            },
+            "clinic": {
+                "list": {
+                    "table": {
+                        "title": "Ellátóhelyek",
+                        "headers": {
+                            "id": "ID",
+                            "name": "Ellátóhely",
+                            "phone": "Telefon",
+                        },
+                    },
+                },
+                "editor.title.create": "Ellátóhely kiválasztása"
+            },
+            "specialty": {
+                "editor.title.create": "Szakma kiválasztása",
+                "list": {
+                    "table": {
+                        "title": "Szakmák",
+                        "headers": {
+                            "name": "Szakma neve",
+                            "code": "Szakma kód",
+                            "status": "Státusz"
+                        },
+                    }
+                },
+            },
+            "employee": {
+                "editor.title.create": "Orvos kiválasztása",
+                "list": {
+                    "table": {
+                        "title": "Orvosok és Aszisztensek",
+                        "headers": {
+                            "type": "Típus",
+                            "titleType": "Titulus",
+                            "firstName": "Keresztnév",
+                            "lastName": "Vezetéknév",
+                            "sealNumber": "Pecsétsz.",
+                            "phone": "Tel.szám",
+                            "specialties": "Szakmák",
+                            "fogl": "Fogl.",
+                            "insurance": "Bizt.",
+                            "annualLeave": "Éves szab."
+                        }
+                    }
+                }
+            }
+        },
+        "planner": {
+            "filter": {
+                "button": {
+                    "default": "Default szűrő",
+                    "update": "Frissítsd a kalendárt",
+                    "save": "Jelenlegi szűrők mentése defaultnak",
+                    "empty.template": "Üres sablon készítése",
+                    "create.template.from.filter": "Sablon készítése az aktuális szűrő alapján",
+                    "select.template": "Sablon kiválasztása"
+                },
+                "form": {
+                    "label": {
+                        "startDate": "Időszak (-tól)",
+                        "endDate": "Időszak (-ig)",
+                    },
+                    "section": {
+                        "interval": "Időszak",
+                    }
+                },
+                "clinic": {
+                    "list": {
+                        "table": {
+                            "title": "Ellátóhelyek",
+                            "headers": {
+                                "id": "ID",
+                                "name": "Ellátóhely",
+                                "phone": "Telefon",
+                            },
+                        },
+                    },
+                    "editor.title.create": "Ellátóhely kiválasztása"
+                },
+                "specialty": {
+                    "editor.title.create": "Szakma kiválasztása",
+                    "list": {
+                        "table": {
+                            "title": "Szakmák",
+                            "headers": {
+                                "name": "Szakma neve",
+                                "code": "Szakma kód",
+                                "status": "Státusz"
+                            },
+                        }
+                    },
+                },
+                "employee": {
+                    "editor.title.create": "Orvos kiválasztása",
+                    "list": {
+                        "table": {
+                            "title": "Orvosok és Aszisztensek",
+                            "headers": {
+                                "type": "Típus",
+                                "titleType": "Titulus",
+                                "firstName": "Keresztnév",
+                                "lastName": "Vezetéknév",
+                                "sealNumber": "Pecsétsz.",
+                                "phone": "Tel.szám",
+                                "annualLeave": "Éves szab.",
+                                "nehi.identifier": "EESZT azon.",
+                                "days.off": "Éves szab.",
+                                "assistant": "Asszisztens"
+                            }
+                        }
+                    }
+                }
+            },
+            "modal": {
+                "form": {
+                    "label": {
+                        "startDate": "Műszak kezdete",
+                        "endDate": "Műszak vége",
+                        "isPending": "Függőben",
+                        "clinicId": "Ellátóhely",
+                        "clinicFloorId": "Emelet",
+                        "clinicRoomId": "Szoba",
+                        "edit.clinic.button": "Ellátóhely szerkesztése",
+                        "isEmailDenied": "E-mail letiltva",
+                        "isClosedSchedule": "Zárt rendelés, a beosztás csak az ellátóhelynél beállított megtekintési felületeken fog látszódni",
+                        "remarks": "Megjegyzés",
+                        "editedBy": "Utoljára szerkesztette",
+                        "editedAt": "Utoljára szerkesztés időpontja"
+                    },
+                    "success": "Beosztás módosítása sikeresen megtörtént",
+                    "success.delete": "Beosztás módosítása sikeresen megtörtént",
+                    "error": {
+                        "empty.specialty": "Kötelező legalább egy szakmát kiválasztani",
+                    }
+                },
+                "list": {
+                    "doctor": "Orvos",
+                    "doctor.editor.title.create": "Orvos kiválasztása",
+                    "assistant": "Asszisztensek",
+                    "assistant.editor.title.create": "Asszisztens kiválasztása",
+                    "substitute": "Helyettesítő orvosok",
+                    "substitute.editor.title.create": "Helyettesítő orvos kiválasztása",
+                    "titleType": "Titulus",
+                    "firstName": "Keresztnév",
+                    "lastName": "Vezetéknév",
+                    "sealNumber": "Pecsétsz.",
+                    "phone": "Tel.szám",
+                    "specialties": "Szakmák",
+                    "nehi.identifier": "EESZT azon.",
+                    "shiftStart": "Műszak kezdete",
+                    "shiftEnd": "Műszak vége",
+                    "specialty": {
+                        "editor.title.create": "Szakma kiválasztása",
+                        "list": {
+                            "table": {
+                                "title": "Szakmák",
+                                "headers": {
+                                    "name": "Szakma neve",
+                                    "code": "Szakma kód",
+                                    "isHide": "Elrejtés"
+                                },
+                            }
+                        },
+                    },
+                },
+                "special.time": {
+                    "editor.title.create": "Speciális időszak hozzáadása",
+                    "list": {
+                        "table": {
+                            "title": "Speciális időszakok",
+                            "headers": {
+                                "type": "Típusa",
+                                "startDate": "Kezdete",
+                                "endDate": "Vége",
+                            }
+                        }
+                    }
+                },
+                "button.copy": "Többszörös másolás",
+                "copy": {
+                    "title": "Beosztás többszörös másolása",
+                    "label": {
+                        "employee": "Orvos",
+                        "specialty": "Szakma 1",
+                        "aWeek": "A hét",
+                        "bWeek": "B hét",
+                        "cWeek": "C hét",
+                        "dWeek": "D hét",
+                        "monday": "Hétfő",
+                        "tuesday": "Kedd",
+                        "wednesday": "Szerda",
+                        "thursday": "Csütörtök",
+                        "friday": "Péntek",
+                        "saturday": "Szombat",
+                        "sunday": "Vasárnap",
+                        "startDate": "Időszak (-tól)",
+                        "endDate": "Időszak (-ig)",
+                        "week": "Hét",
+                    }
+                }
+            },
+            "resources.area": {
+                "employee": "Dolgozó",
+                "clinic": "Ellátóhely",
+                "floor": "Emelet",
+                "room": "Szoba",
+                "no.employee": "Nincs dolgozóhoz rendelve",
+                "no.clinic": "Nincs ellátóhelyhez rendelve",
+            },
+            "button": {
+                "colleagues": "Munkatársak",
+                "clinics": "Ellátóhelyek"
+            },
+            "section": {
+                "filter": "Szűrők",
+                "calendar": "Naptár",
+            }
+        },
+        "fullcalendar": {
+            "header": {
+                "clinic": "Ellátóhely",
+                "floor": "Emelet",
+                "room": "Szobaszám"
+            }
+        },
+        "publishing": {
+            "form": {
+                "label": {
+                    "startDate": "Időszak (-tól)",
+                    "endDate": "Időszak (-ig)",
+                    "onlyChange": "Csak a változatatásokat a legutóbbi e-mail küldés óta",
+                    "sendAll": "Küldd az egész időszakot",
+                    "test.email": "Teszt e-mail cím"
+                }
+            },
+            "section": {
+                "publishing.and.email.send": "Publikálás és e-mail küldés",
+                "email.send.only": "E-mail küldés publikálás nélkül",
+                "parameters": "Paraméterek",
+            },
+            "button": {
+                "publishing": "Publikálás és e-mail küldés",
+                "test.mail": "Teszt e-mail küldése",
+                "email.send": "E-mail küldése publikálás nélkül",
+                "email.edit": "E-mail szerkesztése"
+            },
+            "toast": {
+                "success": "Sikeres publikálás"
+            },
+            "employee": {
+                "editor.title.create": "Orvos kiválasztása",
+                "list": {
+                    "table": {
+                        "title": "Orvosok",
+                        "headers": {
+                            "type": "Típus",
+                            "titleType": "Titulus",
+                            "firstName": "Keresztnév",
+                            "lastName": "Vezetéknév",
+                            "phone": "Tel.szám",
+                            "sealNumber": "Pecsétsz.",
+                            "nehi.identifier": "EESZT azon.",
+                            "annualLeave": "Éves szab."
+                        }
+                    }
+                }
+            },
+            "clinic": {
+                "list": {
+                    "table": {
+                        "title": "Ellátóhelyek",
+                        "headers": {
+                            "address": "Ellátóhely címe",
+                            "name": "Ellátóhely neve",
+                            "phone": "Tel.szám",
+                        },
+                    },
+                },
+                "editor.title.create": "Ellátóhely kiválasztása"
+            },
+        }
+    },
+    "reception": {
+        "title": "Recepció",
+        "subtitle": "Előjegyzés - {{date}}",
+        "action": {
+            "open.prices.modal": "Árlista",
+            "open.qr.code.modal": "QR kód beolvasás",
+        },
+        "prices.modal": {
+            "title": "Árlista",
+            "service.list.table": {
+                "title": "Elemi szolgáltatások",
+                "headers": {
+                    "serviceName": "Szolgáltatás neve",
+                    "dC_ServiceCategoryId": "Szolgáltatás kategória",
+                    "basePrice": "Listaár",
+                    "basePriceEUR": "EUR",
+                },
+            },
+            "service.sub.package.list.table": {
+                "title": "Szolgáltatás alcsomagok",
+                "headers": {
+                    "servicePackageName": "Szolgáltatás neve",
+                    "dC_SubServicePackageCategoryId": "Szolgáltatás kategória",
+                    "basePrice": "Listaár",
+                    "basePriceEUR": "EUR",
+                },
+            },
+            "service.package.list.table": {
+                "title": "Szolgáltatás csomagok",
+                "headers": {
+                    "servicePackageName": "Szolgáltatás neve",
+                    "dC_ServicePackageCategoryId": "Szolgáltatás kategória",
+                    "basePrice": "Listaár",
+                    "basePriceEUR": "EUR",
+                },
+            },
+        },
+        "tabs": {
+            "overview": {
+                "title": "Áttekintő nézet",
+            },
+            "patient.management": {
+                "title": "Betegirányítás",
+                "list": {
+                    "filter": {
+                        "number.of.patients.to.be.treated": "Ellátandó páciensek: {{number}}",
+                        "number.of.examinations": "Hátralévő vizsgálatok: {{number}}",
+                    },
+                    "table": {
+                        "headers": {
+                            "isMissingPatientData": "Adathiány",
+                            "flags": "Jelzők",
+                            "dC_AppointmentStatusId": "Státusz",
+                            "startDate": "Fogl. idő",
+                            "patientName": "Név",
+                            "patientDateOfBirth": "Szül. dátum",
+                            "patientPhoneNumber": "Telefon",
+                            "patientEmail": "E-mail",
+                            "specialtyName": "Szakma",
+                            "serviceName": "Szolgáltatás",
+                            "medicalEmployeeName": "Orvos",
+                            "price": "Ár",
+                            "subContractNumberName": "Jogviszony",
+                            "floor": "Emelet",
+                            "room": "Szoba",
+                            "ticketNumber": "Sorszám",
+                        },
+                        "labels": {
+                            "is.over.user": "Túlhasználó",
+                            "is.in.debt": "Tartozik",
+                        },
+                        "bulk.actions": {
+                            "arrival.management": "Érkeztetés",
+                            "print.ticketNumber": "Sorszám nyomtatása",
+                            "history": "Előzmények",
+                            "contracts": "Jogviszonyok",
+                            "cancel": "Lemondás",
+                            "departure.management": "Távoztatás",
+                            "debt.settlement": "Tartozás rendezés",
+                            "patient.call": "Ügyfélhívás",
+                        },
+                    },
+                },
+                "arrival.management": {
+                    "form": {
+                        "label": {
+                            "patient": {
+                                "fullName": "Páciens neve",
+                                "patientIdTypeId": "Azonosító típusa",
+                                "patientIdNumber": "Azonosító száma",
+                                "placeOfBirth": "Születési hely",
+                                "dateOfBirth": "Születési dátum",
+                                "motherName": "Anyja neve",
+                            },
+                            "recommenderPartner": "Beküldő",
+                            "dC_BookingAreaId": "Foglaló rendszer",
+                            "webshopInvoiceNumber": "Webshop számlaszám",
+                            "webshopPaidAmount": "Webshopban már befizetett összeg",
+                            "isLate": "Elkésett",
+                            "isWithoutAppointment": "Előjegyzés nelkül érkezett",
+                            "isWithoutRequiredReceipt": "Nem hozta a szükséges bizonylatot",
+                            "isIncorrectRecording": "Hibás rögzítés",
+                            "isUnableToWait": "Nem tudott többet várni",
+                            "isIncomprehensibleBehaviour": "Értékelhetetlen magatartású",
+                            "remarks": "Megjegyzés",
+                            "appointment": {
+                                "ticketNumber": "Sorszám",
+                            },
+                        },
+                        "section": {
+                            "patient.data": "Páciens adatok",
+                            "statements": "Nyilatkozatok",
+                        },
+                        "modal": {
+                            "title": "Érkeztetés",
+                        },
+                        "button": {
+                            "label": {
+                                "save": "Érkeztet",
+                            },
+                        },
+                        "errors": {
+                            "patient.in.debt.cannot.be.arrived": "Tartozással rendelkező pácienst nem lehet érkeztetni!",
+                        },
+                    },
+                    "appointment.service": {
+                        "list": {
+                            "table": {
+                                "title": "Foglalási adatok",
+                                "headers": {
+                                    "startDate": "Idő",
+                                    "floor": "Emelet",
+                                    "room": "Szoba",
+                                    "isNotCompleted": "El nem végzett",
+                                    "specialtyName": "Szakma",
+                                    "serviceName": "Szolgáltatás",
+                                    "medicalEmployeeName": "Orvos",
+                                    "price": "Ár",
+                                    "subContractNumberName": "Jogviszony",
+                                    "costBearer.partner": "Biztosító",
+                                    "costBearer.number": "Költségátvállalási szám",
+                                },
+                            },
+                        },
+                        "editor": {
+                            "title": {
+                                "editOrDelete": "Szolgáltatás szerkesztése/törlése",
+                                "create": "Új szolgáltatás hozzáadása",
+                            },
+                        },
+                        "form": {
+                            "label": {
+                                "specialtyName": "Szakma",
+                                "serviceName": "Szolgáltatás",
+                                "medicalEmployeeName": "Orvos",
+                                "subContractNumberName": "Szerződés",
+                                "price": "Ár",
+                                "isValid": "Érv.",
+                                "accountBalanceQuantity": "Egyenleg",
+                                "startDate": "Idő",
+                                "floor": "Emelet",
+                                "room": "Szoba",
+                            },
+                            "button":{
+                                "label":{
+                                    "to.calendar.view": "Idő és hely választása a naptárban",
+                                },
+                            },
+                        },
+                        "cost.bearer": {
+                            "list": {
+                                "table": {
+                                    "title": "Költségvállalók",
+                                    "headers": {
+                                        "partner": "Biztosító",
+                                        "costBearerNumber": "Költségátvállaló száma",
+                                        "amount": "Összeg",
+                                    },
+                                },
+                            },
+                            "editor": {
+                                "title": {
+                                    "editOrDelete": "Költségvállaló szerkesztése/törlése",
+                                    "create": "Új költségvállaló hozzáadása",
+                                },
+                            },
+                            "form": {
+                                "label": {
+                                    "partner": "Biztosító",
+                                    "costBearerNumber": "Költségátvállaló száma",
+                                    "amount": "Összeg",
+                                },
+                            },
+                        },
+                    },
+                    "statement": {
+                        "list": {
+                            "table": {
+                                "headers": {
+                                    "isSigned": "Kitöltve",
+                                    "name": "Megnevezés",
+                                    "dateOfSignature": "Dátum",
+                                },
+                                "bulk.actions": {
+                                    "send.to.tablet": "Tabletre küldés",
+                                    "print": "Nyomtatás",
+                                    "scan": "Szkennelés",
+                                },
+                            },
+                        }
+                    },
+                },
+            },
+        },
+    },
+}

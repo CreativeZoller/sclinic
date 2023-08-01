@@ -1,0 +1,34 @@
+<h1 class="page-heading d-flex text-dark fw-bold fs-3 my-0 flex-column-fluid overflow-hidden">
+    {{ 'menu.sidebar.schedule.generator' | resolveResource }}
+</h1>
+<div class="bg-white p-10 mt-10">
+    <ng-container [formGroup]="form">
+        <app-section-title [title]="'schedule.generator.section.title.date.range' | resolveResource"></app-section-title>
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden flex-50">
+                <app-datepicker-field [label]="'schedule.generator.form.label.start.date' | resolveResource" formControlName="startDate"></app-datepicker-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-50">
+                <app-datepicker-field [label]="'schedule.generator.form.label.end.date' | resolveResource" formControlName="endDate"></app-datepicker-field>
+            </div>
+        </div>
+
+        <ng-container>
+            <div class="mt-10 gap-5">
+                <app-schedule-generator-clinic-list-field formControlName="clinicIdList"></app-schedule-generator-clinic-list-field>
+            </div>
+
+            <div class="mt-10 gap-5">
+                <app-schedule-generator-employee-list-field formControlName="medicalEmployeeIdList"></app-schedule-generator-employee-list-field>
+            </div>
+
+            <div class="mt-10 gap-5">
+                <app-schedule-generator-booking-area-selection-list-field formControlName="dC_BookingAreaIdList"></app-schedule-generator-booking-area-selection-list-field>
+            </div>
+        </ng-container>
+
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline justify-content-end">
+            <button class="btn customBtn" (click)="generate()">{{ 'schedule.generator.form.button' | resolveResource }}</button>
+        </div>
+    </ng-container>
+</div>

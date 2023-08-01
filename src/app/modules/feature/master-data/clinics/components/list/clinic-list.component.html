@@ -1,0 +1,11 @@
+<app-list
+    [baseResourceKey]="baseResourceKey"
+    [tableIdProperty]="tableIdProperty"
+    [tableHeaders]="tableHeaders"
+    [getTableData$]="getTableData$"
+    [handleSave$]="handleSave$"
+    [handleDelete$]="handleDelete$"
+    [totalRecordCount]="(totalRecordCount$ | async)!"
+>
+    <app-clinic-form #editorForm></app-clinic-form>
+</app-list>

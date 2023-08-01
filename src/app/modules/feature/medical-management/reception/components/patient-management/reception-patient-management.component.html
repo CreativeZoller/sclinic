@@ -1,0 +1,125 @@
+<div class="d-flex flex-row flex-wrap justify-content-between gap-5 px-5 py-5 filter-header" [formGroup]="filterForm">
+    <ng-container formGroupName="dC_AppointmentStatusIds">
+        <div>
+            <app-checkbox-field [formControlName]="constants.AppointmentStatusEnum.ABSENT">
+                <span
+                    labelPrefix
+                    class="ms-2 svg-icon svg-icon-1"
+                    [inlineSVG]="'./assets/images/icons/reception_status_nem_jelent_meg.svg'"
+                    [title]="'general.enum.img.tooltip.AppointmentStatus.ABSENT' | resolveResource"
+                ></span>
+            </app-checkbox-field>
+        </div>
+        <div>
+            <app-checkbox-field [formControlName]="constants.AppointmentStatusEnum.CANCELLED">
+                <span
+                    labelPrefix
+                    class="ms-2 svg-icon svg-icon-1"
+                    [inlineSVG]="'./assets/images/icons/reception_status_lemondta.svg'"
+                    [title]="'general.enum.img.tooltip.AppointmentStatus.CANCELLED' | resolveResource"
+                ></span>
+            </app-checkbox-field>
+        </div>
+        <div>
+            <app-checkbox-field [formControlName]="constants.AppointmentStatusEnum.ARRIVED">
+                <span
+                    labelPrefix
+                    class="ms-2 svg-icon svg-icon-1"
+                    [inlineSVG]="'./assets/images/icons/reception_status_megerkezett.svg'"
+                    [title]="'general.enum.img.tooltip.AppointmentStatus.ARRIVED' | resolveResource"
+                ></span>
+            </app-checkbox-field>
+        </div>
+        <div>
+            <app-checkbox-field [formControlName]="constants.AppointmentStatusEnum.BOOKED">
+                <span
+                    labelPrefix
+                    class="ms-2 svg-icon svg-icon-1"
+                    [inlineSVG]="'./assets/images/icons/reception_status_elojegyezve.svg'"
+                    [title]="'general.enum.img.tooltip.AppointmentStatus.BOOKED' | resolveResource"
+                ></span>
+            </app-checkbox-field>
+        </div>
+        <div>
+            <app-checkbox-field [formControlName]="constants.AppointmentStatusEnum.UNDER_EXAMINATION">
+                <span
+                    labelPrefix
+                    class="ms-2 svg-icon svg-icon-1"
+                    [inlineSVG]="'./assets/images/icons/reception_status_vizsgalaton_van.svg'"
+                    [title]="'general.enum.img.tooltip.AppointmentStatus.UNDER_EXAMINATION' | resolveResource"
+                ></span>
+            </app-checkbox-field>
+        </div>
+        <div>
+            <app-checkbox-field [formControlName]="constants.AppointmentStatusEnum.WAITING">
+                <span
+                    labelPrefix
+                    class="ms-2 svg-icon svg-icon-1"
+                    [inlineSVG]="'./assets/images/icons/reception_status_varakozo.svg'"
+                    [title]="'general.enum.img.tooltip.AppointmentStatus.WAITING' | resolveResource"
+                ></span>
+            </app-checkbox-field>
+        </div>
+        <div>
+            <app-checkbox-field [formControlName]="constants.AppointmentStatusEnum.EXAMINATION_CLOSED">
+                <span
+                    labelPrefix
+                    class="ms-2 svg-icon svg-icon-1"
+                    [inlineSVG]="'./assets/images/icons/reception_status_vizsgalat_lezarva.svg'"
+                    [title]="'general.enum.img.tooltip.AppointmentStatus.EXAMINATION_CLOSED' | resolveResource"
+                ></span>
+            </app-checkbox-field>
+        </div>
+        <div>
+            <app-checkbox-field [formControlName]="constants.AppointmentStatusEnum.ALL_EXAMINATION_CLOSED">
+                <span
+                    labelPrefix
+                    class="ms-2 svg-icon svg-icon-1"
+                    [inlineSVG]="'./assets/images/icons/reception_status_osszes_vizsgalat_lezarva.svg'"
+                    [title]="'general.enum.img.tooltip.AppointmentStatus.ALL_EXAMINATION_CLOSED' | resolveResource"
+                ></span>
+            </app-checkbox-field>
+        </div>
+        <div>
+            <app-checkbox-field [formControlName]="constants.AppointmentStatusEnum.LEFT">
+                <span
+                    labelPrefix
+                    class="ms-2 svg-icon svg-icon-1"
+                    [inlineSVG]="'./assets/images/icons/reception_status_tavozott.svg'"
+                    [title]="'general.enum.img.tooltip.AppointmentStatus.LEFT' | resolveResource"
+                ></span>
+            </app-checkbox-field>
+        </div>
+    </ng-container>
+
+    <div class="d-flex flex-row gap-5 flex-wrap justify-content-between">
+        <div class="fw-bold">
+            {{ 'reception.tabs.patient.management.list.filter.number.of.patients.to.be.treated' | resolveResource: { params: { number: (patientCount$ | async) ?? "" } } }}
+        </div>
+
+        <div class="fw-bold">
+            {{ 'reception.tabs.patient.management.list.filter.number.of.examinations' | resolveResource: { params: { number: (appointmentCount$ | async) ?? "" } } }}
+        </div>
+    </div>
+</div>
+
+<app-list
+    [tableIdProperty]="tableIdProperty"
+    [baseResourceKey]="baseResourceKey"
+    [tableHeaders]="tableHeaders"
+    [getTableData$]="getTableData$"
+    [titleRowTemplate]="titleRowTemplate"
+    [bulkActions]="bulkActions"
+    [getExpandedRowChildRows]="getExpandedRowChildRows"
+    [getRowClasses]="getRowClasses"
+    (rowClick)="onTableRowClick($event)"
+>
+    <ng-template #titleRowTemplate></ng-template>
+</app-list>
+
+<app-reception-patient-arrival-management-form-modal
+    #arrivalFormModal
+    [activeClinicRoomList]="(activeClinicRoomList$ | async) ?? []"
+    (afterSaved)="refreshTableData()"
+    (afterPatientSaved)="refreshTableData()"
+></app-reception-patient-arrival-management-form-modal>

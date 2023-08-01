@@ -1,0 +1,111 @@
+<ng-container [formGroup]="form">
+    <div class="d-flex flex-row gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-text-field
+                [label]="'exposure.item.service.form.label.description' | resolveResource"
+                formControlName="description"
+            ></app-text-field>
+        </div>
+
+        <ng-container formGroupName="exposureItem">
+            <div class="flex-column-fluid overflow-hidden flex-25">
+                <app-text-field
+                    [label]="'exposure.item.service.form.label.exposureItem.description' | resolveResource"
+                    formControlName="description"
+                ></app-text-field>
+            </div>
+
+            <div class="flex-column-fluid overflow-hidden flex-25">
+                <app-text-field
+                    [label]="'exposure.item.service.form.label.exposureItem.code' | resolveResource"
+                    formControlName="code"
+                ></app-text-field>
+            </div>
+        </ng-container>
+    </div>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-autocomplete-field
+                [label]="'exposure.item.service.form.label.specialty' | resolveResource"
+                formControlName="specialty"
+                [searchFn$]="specialtyAutocomplete.searhcFn"
+                [inputFormatter]="specialtyAutocomplete.getFormattedInputText"
+                [resultFormatter]="specialtyAutocomplete.getFormattedSelectText"
+            ></app-autocomplete-field>
+        </div>
+
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-autocomplete-field
+                [label]="'exposure.item.service.form.label.service' | resolveResource"
+                formControlName="service"
+                [searchFn$]="serviceAutocomplete.searhcFn"
+                [inputFormatter]="serviceAutocomplete.getFormattedInputText"
+                [resultFormatter]="serviceAutocomplete.getFormattedSelectText"
+            ></app-autocomplete-field>
+        </div>
+    </div>
+
+
+    <ng-container formGroupName="_service">
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden flex-50">
+                <app-number-field
+                    [label]="'exposure.item.service.form.label.price' | resolveResource"
+                    formControlName="price"
+                >
+                    <ng-template #fieldSuffixTemplate>
+                        <span class="input-group-text">{{"general.currency.HUF" | resolveResource}}</span>
+                    </ng-template>
+                </app-number-field>
+            </div>
+
+            <div class="flex-column-fluid overflow-hidden flex-50">
+                <app-number-field
+                    [label]="'exposure.item.service.form.label.duration' | resolveResource"
+                    formControlName="duration"
+                    [step]="5"
+                >
+                    <ng-template #fieldSuffixTemplate>
+                        <span class="input-group-text">{{"general.unit.minute" | resolveResource}}</span>
+                    </ng-template>
+                </app-number-field>
+            </div>
+        </div>
+    </ng-container>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-33">
+            <app-select-field
+                [label]="'exposure.item.service.form.label.dC_ExposureFrequencyId' | resolveResource"
+                formControlName="dC_ExposureFrequencyId"
+                [options]="initData.dC_ExposureFrequencyList"
+            ></app-select-field>
+        </div>
+
+        <div class="flex-column-fluid overflow-hidden flex-33">
+            <app-checkbox-field
+                [label]="'exposure.item.service.form.label.isMandatory' | resolveResource"
+                formControlName="isMandatory"
+                [useAlignBaselineFix]="true"
+            ></app-checkbox-field>
+        </div>
+
+        <div class="flex-column-fluid overflow-hidden flex-33">
+            <app-checkbox-field
+                [label]="'exposure.item.service.form.label.isPreviousResultAccepted' | resolveResource"
+                formControlName="isPreviousResultAccepted"
+                [useAlignBaselineFix]="true"
+            ></app-checkbox-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-text-area-field
+                [label]="'exposure.item.service.form.label.remarks' | resolveResource"
+                formControlName="remarks"
+            ></app-text-area-field>
+        </div>
+    </div>
+</ng-container>

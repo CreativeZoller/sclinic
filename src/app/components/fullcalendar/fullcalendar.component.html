@@ -1,0 +1,29 @@
+
+<full-calendar
+    #calendar
+    [options]="(calendarOptions$ | async) ?? {}"
+    [deepChangeDetection]="true"
+    [events]="(events$ | async) ?? []"
+    class="mt-5"
+>
+    <ng-template #eventContent let-arg>
+        <div class="text-center">
+            <div>{{ arg?.event?.title ?? '' }}</div>
+            <div>{{ arg?.event?.start | date:'HH:mm' }} - {{ arg?.event?.end | date:'HH:mm' }}</div>
+            <div>{{ arg?.event?.extendedProps?.description ?? '' }}</div>
+        </div>
+    </ng-template>
+</full-calendar>
+
+<app-modal #editModal [modalConfig]="modalConfig">
+    <ng-content></ng-content>
+</app-modal>
+
+<div id="context-menu" #contextMenu [style.top]="contextMenuTop + 'px'" [style.left]="contextMenuLeft + 'px'" *ngIf="contextMenuVisible">
+    <div class="context-menu-item" (click)="contextMenuDeleteClick()">
+        Törlés
+    </div>
+    <div class="context-menu-item" (click)="contextMenuEditClick()">
+        Módosítás
+    </div>
+</div>

@@ -1,0 +1,40 @@
+// Initialize
+@import "/src/assets/sass/style.scss";
+@import "/src/assets/sass/variables";
+
+.bullet-dot {
+    background-color: $red;
+    width: 14px;
+    height: 14px;
+    font-size: 9px;
+    font-weight: 700;
+    line-height: 14px;
+    letter-spacing: 0em;
+    color: $white;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.userInfo {
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.userName {
+    font-family: "Poppins-SemiBold";
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 18px;
+    letter-spacing: 0em;
+    color: $lightGrey;
+}
+
+.userPosition {
+    font-family: "Poppins-SemiBold";
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 18px;
+    letter-spacing: 0em;
+    color: $darkGrey;
+}

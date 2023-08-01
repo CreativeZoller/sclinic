@@ -1,0 +1,48 @@
+<div class="d-flex flex-column">
+    <app-list
+        [tableTitle]="tableTitle"
+        [baseResourceKey]="baseResourceKey"
+        [tableIdProperty]="tableIdProperty"
+        [tableHeaders]="tableHeadersWithSelectionColumn"
+        [getTableData$]="getTableData$"
+        [handleSave$]="handleSave$"
+        [handleDelete$]="handleDelete$"
+        [titleRowTemplate]="tableTitleUseSectionSubtitle ? titleRowTemplateSectionSubtitle : titleRowTemplateSectionTitle"
+        [editorForm]="editorForm"
+        [enableEditor]="enableEditor"
+        [convertFormValueToRequestValueBeforeHandlers]="false"
+        [dragAndDropConfig]="dragAndDropConfig"
+        [virtualScrollConfig]="virtualScrollConfig"
+        [allowPaging]="allowPaging"
+    >
+        <ng-content></ng-content>
+    </app-list>
+
+    <div
+        *ngIf="ngControl?.control as ctrl"
+        [class.is-invalid]="ngControl?.invalid && (ngControl?.touched || ngControl?.dirty)"
+        [class.disabled]="isDisabled"
+    >
+        <app-field-error
+            *ngIf="!!ctrl && ctrl.invalid"
+            [control]="ctrl"
+            [resourceKeyPrefix]="errorResourceKeyPrefix"
+            [addControlNameToResourceKeyPrefix]="errorAddControlNameToResourceKeyPrefix"
+            [showErrorsMethod]="errorShowErrorsMethod"
+            [resourceOverrides]="errorResourceOverrides"
+            [resourceOverridesMethod]="errorResourceOverridesMethod"
+        ></app-field-error>
+    </div>
+</div>
+
+<ng-template #titleRowTemplateSectionTitle let-title="title" let-titleRowButtonsTemplate="titleRowButtonsTemplate">
+    <div class="mb-2 w-100 overflow-hidden">
+        <app-section-title [title]="title" [buttonsTemplate]="titleRowButtonsTemplate"></app-section-title>
+    </div>
+</ng-template>
+
+<ng-template #titleRowTemplateSectionSubtitle let-title="title" let-titleRowButtonsTemplate="titleRowButtonsTemplate">
+    <div class="mb-2 w-100 overflow-hidden">
+        <app-section-subtitle [title]="title" [buttonsTemplate]="titleRowButtonsTemplate"></app-section-subtitle>
+    </div>
+</ng-template>

@@ -1,0 +1,65 @@
+<ng-container [formGroup]="form">
+    <div class="d-flex flex-row gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-text-field
+                [label]="'hsco.form.label.hscoName' | resolveResource" formControlName="hscoName"
+            ></app-text-field>
+        </div>
+
+        <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+            <div class="w-100 overflow-hidden">
+                <app-section-title
+                    [title]="'hsco.form.section.title.class' | resolveResource"
+                ></app-section-title>
+            </div>
+        </div>
+    </div>
+
+    <ng-container formArrayName="occupationalHealth">
+        <ng-container formGroupName="0">
+            <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+                <div class="flex-column-fluid overflow-hidden w-100">
+                    <app-select-field
+                        [label]="'hsco.form.label.occupationalHealth.dC_OccupationalHealthClassificationId' | resolveResource"
+                        formControlName="dC_OccupationalHealthClassificationId"
+                        [options]="initData.dC_OccupationalHealthClassificationList"
+                    ></app-select-field>
+                </div>
+            </div>
+
+            <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+                <div class="w-100 overflow-hidden">
+                    <app-section-title
+                        [title]="'hsco.form.section.title.examType' | resolveResource"
+                    ></app-section-title>
+                </div>
+            </div>
+
+            <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+                <div class="flex-column-fluid overflow-hidden w-100">
+                    <app-select-field
+                        [label]="'hsco.form.label.occupationalHealth.dC_OccupationalHealthTypeId' | resolveResource"
+                        formControlName="dC_OccupationalHealthTypeId"
+                        [options]="initData.dC_OccupationalHealthTypeList"
+                    ></app-select-field>
+                </div>
+            </div>
+
+            <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+                <div class="flex-column-fluid overflow-hidden w-100">
+                    <app-grouped-exposure-list-field
+                        formControlName="groupedExposureServiceList"
+                    ></app-grouped-exposure-list-field>
+                </div>
+            </div>
+
+            <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+                <div class="flex-column-fluid overflow-hidden w-100">
+                    <app-occupational-health-service-list-field
+                        formControlName="aloneServiceList"
+                    ></app-occupational-health-service-list-field>
+                </div>
+            </div>
+        </ng-container>
+    </ng-container>
+</ng-container>

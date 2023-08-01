@@ -1,0 +1,60 @@
+<div class="d-flex flex-column flex-lg-row flex-column-fluid overflow-hidden page">
+    <div class="d-flex flex-column flex-lg-row-fluid w-lg-50 p-10 loginPage">
+        <div class="d-flex flex-center flex-column flex-lg-row-fluid">
+            <div class="p-10 w-100">
+
+                <form class="form m-auto loginForm" novalidate="novalidate" id="user-role_form" [formGroup]="form" (ngSubmit)="submit()">
+                    <div class="loginHeader">
+                        <div class="d-flex flex-row align-items-center">
+                            <div class="d-flex flex-column-fluid overflow-hidden flex-center">
+                                <img
+                                    src="assets/images/swiss-logo.svg"
+                                    alt="Swiss Clinic"
+                                    class="img-fluid"
+                                />
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column flex-center mt-5">
+                            <h1 class="loginTitle">Szerepkör választás</h1>
+                            <h2 class="loginSubitle">eKarton v3</h2>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-column roleSelectorGroupWrapper" [ngClass]="{
+                        'is-invalid': form.controls['activatedRoleId'].invalid && (form.controls['activatedRoleId'].touched || form.controls['activatedRoleId'].dirty)
+                    }">
+
+                        <div class="btn-group-vertical roleSelectorGroup">
+                            <div *ngFor="let role of (roles$ | async)" class="roleSelectorGroupItem" [class.active]="form.controls['activatedRoleId'].value === role.roleId">
+                                <input type="radio" formControlName="activatedRoleId" [value]="role.roleId" class="btn-check" [id]="'role_' + role.roleId" autocomplete="off">
+                                <label class="" [for]="'role_' + role.roleId">{{role.roleName}}</label>
+                            </div>
+                        </div>
+
+                        <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                            validation: 'required',
+                            message: 'Please select from the roles above',
+                            control: form.controls['activatedRoleId']
+                        }"></ng-container>
+                    </div>
+
+                    <div class="d-grid flex-center mt-10">
+                        <button type="submit" id="kt_sign_in_submit" class="btn customBtn">
+                            <span class="indicator-label">Tovább</span>
+                        </button>
+                    </div>
+                </form>
+
+                <ng-template #formError let-control="control" let-message="message" let-validation="validation">
+                    <ng-container *ngIf="control.hasError(validation) && (control.dirty || control.touched)">
+                        <div class="form-error mt-2">
+                            {{ message }}
+                        </div>
+                    </ng-container>
+                </ng-template>
+
+            </div>
+        </div>
+    </div>
+</div>
+

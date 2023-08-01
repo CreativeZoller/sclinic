@@ -1,0 +1,55 @@
+<div>
+    <app-price-template-x-price-template-item-of-item-list
+        #priceTemplateItemListComponent
+        [priceTableId]="priceTableId"
+        [priceTemplates]="priceTemplates$ | async"
+        (copyPriceTemplateAtIndex)="onCopyPriceTemplateAtIndex($event)"
+        (editPriceTemplateAtIndex)="onEditPriceTemplateAtIndex($event)"
+        (changePriceTemplates)="onChangePriceTemplates('itemPriceTemplates', $event)"
+        (loadingChanged)="onPriceTemplatesLoadingChanged($event)"
+        (hasLoadingErrorChanged)="onHasPriceTemplatesLoadingErrorChanged($event)"
+    ></app-price-template-x-price-template-item-of-item-list>
+</div>
+
+<div class="mt-10">
+    <app-price-template-x-price-template-item-of-service-list
+        #priceTemplateItemListComponent
+        [priceTableId]="priceTableId"
+        [priceTemplates]="priceTemplates$ | async"
+        (copyPriceTemplateAtIndex)="onCopyPriceTemplateAtIndex($event)"
+        (editPriceTemplateAtIndex)="onEditPriceTemplateAtIndex($event)"
+        (changePriceTemplates)="onChangePriceTemplates('servicePriceTemplates', $event)"
+        (loadingChanged)="onPriceTemplatesLoadingChanged($event)"
+        (hasLoadingErrorChanged)="onHasPriceTemplatesLoadingErrorChanged($event)"
+    ></app-price-template-x-price-template-item-of-service-list>
+</div>
+
+<div class="mt-10">
+    <app-price-template-x-price-template-item-of-service-sub-package-list
+        #priceTemplateItemListComponent
+        [priceTableId]="priceTableId"
+        [priceTemplates]="priceTemplates$ | async"
+        (copyPriceTemplateAtIndex)="onCopyPriceTemplateAtIndex($event)"
+        (editPriceTemplateAtIndex)="onEditPriceTemplateAtIndex($event)"
+        (changePriceTemplates)="onChangePriceTemplates('serviceSubPackagePriceTemplates', $event)"
+        (loadingChanged)="onPriceTemplatesLoadingChanged($event)"
+        (hasLoadingErrorChanged)="onHasPriceTemplatesLoadingErrorChanged($event)"
+    ></app-price-template-x-price-template-item-of-service-sub-package-list>
+</div>
+
+<div class="mt-10">
+    <app-price-template-x-price-template-item-of-service-package-list
+        #priceTemplateItemListComponent
+        [priceTableId]="priceTableId"
+        [priceTemplates]="priceTemplates$ | async"
+        (copyPriceTemplateAtIndex)="onCopyPriceTemplateAtIndex($event)"
+        (editPriceTemplateAtIndex)="onEditPriceTemplateAtIndex($event)"
+        (changePriceTemplates)="onChangePriceTemplates('servicePackagePriceTemplates', $event)"
+        (loadingChanged)="onPriceTemplatesLoadingChanged($event)"
+        (hasLoadingErrorChanged)="onHasPriceTemplatesLoadingErrorChanged($event)"
+    ></app-price-template-x-price-template-item-of-service-package-list>
+</div>
+
+<app-form-modal #priceTemplateFormModal>
+    <app-price-template-form #formComponent></app-price-template-form>
+</app-form-modal>

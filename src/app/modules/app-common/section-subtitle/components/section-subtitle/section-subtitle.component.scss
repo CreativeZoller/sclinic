@@ -1,0 +1,33 @@
+// Initialize
+@import "/src/assets/sass/variables";
+
+.section-subtitle-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+
+    .section-subtitle-text {
+        flex: 1 0 auto;
+        font-family: "Poppins-Bold";
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: 0em;
+        color: $red;
+        margin: 0;
+
+    }
+
+    .title-default {
+        color: red;
+        font-family: "Poppins-Bold";
+    }
+
+    .compound-title-default {
+        color: gray;
+    }
+
+    .separator-default {
+        color: gray;
+    }
+}

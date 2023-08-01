@@ -1,0 +1,39 @@
+<ng-container *ngIf="{
+    imgPreviewSrc: imgPreviewSrc$ | async
+} as vm">
+    <div class="d-flex flex-column align-items-center w-100 gap-5">
+        <input
+            #fileInput
+            [hidden]="true"
+            type="file"
+            accept="{{accepts | stringJoin: ', '}}"
+            [disabled]="isDisabled || false"
+            (change)="onFileInputChange($event)"
+            (blur)="onBlur()"
+        />
+
+        <label *ngIf="!!label" class="img-input-label">{{label}}</label>
+
+        <img class="img-input-preview" [src]="vm.imgPreviewSrc" />
+
+        <button
+            type="button"
+            class="btn customBtn--secondary w-100"
+            [disabled]="isDisabled || false"
+            (click)="fileInput.click()"
+        >
+            {{"general.action.label.img.upload" | resolveResource}}
+            <span [inlineSVG]="'./assets/images/icons/plus.svg'" class="svg-icon svg-icon-1 me-0 ms-2 color-inherit"></span>
+        </button>
+
+        <app-field-error
+            *ngIf="!!ngControl?.control && ngControl!.control!.invalid"
+            [control]="ngControl!.control!"
+            [resourceKeyPrefix]="errorResourceKeyPrefix"
+            [addControlNameToResourceKeyPrefix]="errorAddControlNameToResourceKeyPrefix"
+            [showErrorsMethod]="errorShowErrorsMethod"
+            [resourceOverrides]="errorResourceOverrides"
+            [resourceOverridesMethod]="errorResourceOverridesMethod"
+        ></app-field-error>
+    </div>
+</ng-container>

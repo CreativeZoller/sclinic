@@ -1,0 +1,57 @@
+<input
+    #fileInput
+    [hidden]="true"
+    type="file"
+    accept="{{accepts | stringJoin: ', '}}"
+    [multiple]="multiple"
+    [disabled]="isDisabled || false"
+    (change)="onFileInputChange($event)"
+    (blur)="onBlur()"
+/>
+
+<div *ngIf="{
+    files: files$ | async
+} as vm" class="d-flex flex-column gap-5">
+    <div
+        *ngIf="(vm.files?.length ?? 0) > 0"
+        class="d-flex flex-column gap-1"
+    >
+        <div
+            *ngFor="let file of vm.files ?? []; let last = last"
+            class="file-row mb-1"
+        >
+            <span>{{file.name}}</span>
+
+            <button mat-icon-button (click)="downloadFile(file)">
+                <mat-icon>download</mat-icon>
+            </button>
+
+            <button mat-icon-button (click)="deleteFile(file)">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </div>
+    </div>
+
+    <button
+        type="button"
+        class="btn customBtn"
+        [disabled]="(buttonMode === 'MERGE' && !multiple && (vm.files?.length ?? 0) === 1)
+            || isDisabled
+            || false
+        "
+        (click)="fileInput.click()"
+    >
+        <span [inlineSVG]="'./assets/images/icons/plus.svg'" class="svg-icon svg-icon-1 color-inherit"></span>
+        {{"general.action.label.file.upload" | resolveResource}}
+    </button>
+</div>
+
+<app-field-error
+    *ngIf="!!ngControl?.control && ngControl!.control!.invalid"
+    [control]="ngControl!.control!"
+    [resourceKeyPrefix]="errorResourceKeyPrefix"
+    [addControlNameToResourceKeyPrefix]="errorAddControlNameToResourceKeyPrefix"
+    [showErrorsMethod]="errorShowErrorsMethod"
+    [resourceOverrides]="errorResourceOverrides"
+    [resourceOverridesMethod]="errorResourceOverridesMethod"
+></app-field-error>

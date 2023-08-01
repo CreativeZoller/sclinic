@@ -1,0 +1,41 @@
+<ng-container [formGroup]="form">
+    <div class="d-flex flex-row gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-text-field
+                [label]="'price.template.form.label.priceTemplateName' | resolveResource"
+                formControlName="priceTemplateName"
+            ></app-text-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-checkbox-field
+                [label]="'price.template.form.label.isAvailableForCC' | resolveResource"
+                formControlName="isAvailableForCC"
+            ></app-checkbox-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-checkbox-field
+                [label]="'price.template.form.label.isAvailableForReception' | resolveResource"
+                formControlName="isAvailableForReception"
+            ></app-checkbox-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-datepicker-field
+                [label]="'price.template.form.label.startDate' | resolveResource"
+                formControlName="startDate"
+            ></app-datepicker-field>
+        </div>
+
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-datepicker-field
+                [label]="'price.template.form.label.endDate' | resolveResource"
+                formControlName="endDate"
+            ></app-datepicker-field>
+        </div>
+    </div>
+</ng-container>

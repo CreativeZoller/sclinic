@@ -1,0 +1,124 @@
+<ng-container *ngIf="{
+    authTypeOptions: authTypeOptions$ | async
+} as vm">
+    <form [formGroup]="loginSecondFactorForm" (ngSubmit)="submit()">
+        <ng-container *ngIf="isDoctorLogin">
+            <div class="d-flex flex-row mt-10 gap-5">
+                <div class="flex-column-fluid overflow-hidden flex-50">
+                    <app-select-field
+                        [label]="'login.form.label.clinicId' | resolveResource"
+                        formControlName="clinicId"
+                        [options]="clinicOptions"
+                        [hideDefaultOption]="true"
+                    ></app-select-field>
+                </div>
+                <div class="flex-column-fluid overflow-hidden flex-50">
+                    <app-select-field
+                        [label]="'login.form.label.praxisId' | resolveResource"
+                        formControlName="praxisId"
+                        [options]="praxisOptions"
+                        [hideDefaultOption]="true"
+                    ></app-select-field>
+                </div>
+            </div>
+
+            <div class="d-flex flex-row mt-10 gap-5">
+                <div class="flex-column-fluid overflow-hidden my-5">
+                    <app-checkbox-field
+                        [label]="'login.form.label.useEesztLogin' | resolveResource"
+                        formControlName="useEesztLogin"
+                    ></app-checkbox-field>
+                </div>
+            </div>
+
+            <div class="d-flex flex-row mt-10 gap-5">
+                <div class="flex-column-fluid overflow-hidden flex-33">
+                    <app-select-field
+                        [label]="'login.form.label.authTypeId' | resolveResource"
+                        formControlName="authTypeId"
+                        [options]="vm.authTypeOptions ?? []"
+                        [hideDefaultOption]="true"
+                    ></app-select-field>
+                </div>
+                <div
+                    *ngIf="!!loginSecondFactorForm.value.useEesztLogin"
+                    class="flex-column-fluid overflow-hidden flex-33"
+                >
+                    <app-text-field
+                        [label]="'login.form.label.eesztUsername' | resolveResource"
+                        formControlName="eesztUsername"
+                    ></app-text-field>
+                </div>
+                <div
+                    *ngIf="!!loginSecondFactorForm.value.useEesztLogin
+                        && loginSecondFactorForm.value.authTypeId === constants.TwoFactorAuthenticationType.HARD_TOKEN
+                    "
+                    class="flex-column-fluid overflow-hidden flex-33"
+                >
+                    <app-text-field
+                        [label]="'login.form.label.hardToken' | resolveResource"
+                        formControlName="hardToken"
+                    ></app-text-field>
+                </div>
+            </div>
+
+            <div
+                *ngIf="loginSecondFactorForm.value.authTypeId !== constants.TwoFactorAuthenticationType.HARD_TOKEN"
+                class="d-flex flex-row mt-10 gap-5"
+            >
+                <div class="flex-column-fluid overflow-hidden">
+                    <app-text-field
+                        [label]="'login.form.label.twoFactorCode' | resolveResource"
+                        formControlName="twoFactorCode"
+                    ></app-text-field>
+
+                    <button type="button" class="linkButton mt-2" (click)="lostTokenFormModal.open()">
+                        {{"login.form.button.label.lostToken" | resolveResource}}
+                    </button>
+                </div>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="!isDoctorLogin">
+            <div class="d-flex flex-row mt-10 gap-5">
+                <div class="flex-column-fluid overflow-hidden flex-50">
+                    <app-select-field
+                        [label]="'login.form.label.clinicId' | resolveResource"
+                        formControlName="clinicId"
+                        [options]="clinicOptions"
+                        [hideDefaultOption]="true"
+                    ></app-select-field>
+                </div>
+                <div class="flex-column-fluid overflow-hidden flex-50">
+                        <app-text-field
+                            [label]="'login.form.label.twoFactorCode' | resolveResource"
+                            formControlName="twoFactorCode"
+                        ></app-text-field>
+
+                        <button type="button" class="linkButton mt-2" (click)="lostTokenFormModal.open()">
+                            {{"login.form.button.label.lostToken" | resolveResource}}
+                        </button>
+                </div>
+            </div>
+        </ng-container>
+
+        <!--begin::Action-->
+        <div class="d-grid flex-center mt-10">
+            <button type="submit" id="kt_sign_in_submit" class="btn customBtn" [disabled]="isSubmitting$ | async">
+                <ng-container *ngIf="isSubmitting$ | async">
+                    <span class="indicator-progress" [style.display]="'block'">
+                        <span>{{"login.form.button.label.login.loading" | resolveResource}}</span>
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </ng-container>
+                <ng-container *ngIf="(isSubmitting$ | async) === false">
+                    <span class="indicator-label">
+                        {{"login.form.button.label.login" | resolveResource}}
+                    </span>
+                </ng-container>
+            </button>
+        </div>
+        <!--end::Action-->
+    </form>
+
+    <app-lost-token-form-modal #lostTokenFormModal></app-lost-token-form-modal>
+</ng-container>

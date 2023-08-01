@@ -1,0 +1,18 @@
+<app-list-field
+    [baseResourceKey]="baseResourceKey"
+    [tableIdProperty]="tableIdProperty"
+    [tableTitle]="tableTitle"
+    [tableTitleUseSectionSubtitle]="tableTitleUseSectionSubtitle"
+    [tableHeaders]="tableHeaders"
+    [errorResourceKeyPrefix]="errorResourceKeyPrefix"
+    [errorAddControlNameToResourceKeyPrefix]="errorAddControlNameToResourceKeyPrefix"
+    [errorShowErrorsMethod]="errorShowErrorsMethod"
+    [errorResourceOverrides]="errorResourceOverrides"
+    [errorResourceOverridesMethod]="errorResourceOverridesMethod"
+>
+    <app-reception-patient-arrival-management-appointment-service-form
+        #editorForm
+        [activeClinicRoomList]="(activeClinicRoomList$ | async) ?? []"
+        [patient]="patient"
+    ></app-reception-patient-arrival-management-appointment-service-form>
+</app-list-field>

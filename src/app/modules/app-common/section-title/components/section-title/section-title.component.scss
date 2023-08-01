@@ -1,0 +1,35 @@
+// Initialize
+@import "/src/assets/sass/variables";
+
+.section-title-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+
+    .section-title-icon {
+        color: $red;
+    }
+
+    .section-title-text {
+        flex: 0 0 auto;
+        font-family: "Poppins-Bold";
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: 0em;
+        color: $red;
+        margin: 0;
+    }
+
+    .section-title-hr {
+        flex: 1 1 0;
+        border-top: 2px solid $red;
+        width: 100%;
+        opacity: 1;
+        margin: 0;
+    }
+
+    .section-title-button {
+        flex: 0 0 auto;
+    }
+}

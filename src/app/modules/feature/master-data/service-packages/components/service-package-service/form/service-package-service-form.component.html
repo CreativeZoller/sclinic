@@ -1,0 +1,35 @@
+<ng-container [formGroup]="form">
+    <div class="d-flex flex-row gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-33">
+            <app-number-field
+                [label]="(baseResourceKey + '.form.label.position') | resolveResource"
+                formControlName="position"
+            ></app-number-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-33">
+            <app-number-field
+                [label]="(baseResourceKey + '.form.label.maxMinute') | resolveResource"
+                formControlName="maxMinute"
+            ></app-number-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-33">
+            <app-checkbox-field
+                [label]="(baseResourceKey + '.form.label.required') | resolveResource"
+                formControlName="required"
+                [useAlignBaselineFix]="true"
+            ></app-checkbox-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="w-100 overflow-hidden">
+            <app-service-package-service-single-selection-list-field
+                formControlName="service"
+                [baseResourceKey]="baseResourceKey"
+                [allServices]="allServices"
+                (refreshAllServices)="refreshAllServices.emit()"
+                [allUnselectableServices]="(allUnselectableServices$ | async) ?? []"
+            ></app-service-package-service-single-selection-list-field>
+        </div>
+    </div>
+</ng-container>

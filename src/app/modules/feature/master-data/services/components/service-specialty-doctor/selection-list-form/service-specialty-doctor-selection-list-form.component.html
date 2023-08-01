@@ -1,0 +1,10 @@
+<ng-container [formGroup]="form">
+    <div class="d-flex flex-row gap-5 align-items-baseline">
+        <div class="w-100 overflow-hidden">
+            <app-service-specialty-doctor-selection-list-field
+                formControlName="selectedSpecialtyDoctors"
+                [allSpecialtyDoctors]="allSpecialtyDoctors"
+            ></app-service-specialty-doctor-selection-list-field>
+        </div>
+    </div>
+</ng-container>

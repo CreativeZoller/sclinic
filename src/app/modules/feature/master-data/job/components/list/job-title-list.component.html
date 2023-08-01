@@ -1,0 +1,36 @@
+<ng-container [formGroup]="form">
+    <div class="d-flex flex-row gap-5align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-autocomplete-field
+                [label]="'job.title.list.label.job.title.search.by.feor' | resolveResource"
+                formControlName="hsco"
+                [searchFn$]="hscoAutocomplete.searchFn$"
+                [inputFormatter]="hscoAutocomplete.getFormattedInputText"
+                [resultFormatter]="hscoAutocomplete.getFormattedSelectText"
+            ></app-autocomplete-field>
+        </div>
+    </div>
+</ng-container>
+
+
+<ng-container *ngIf="{
+    showTableLoading: showTableLoading$ | async
+} as vm">
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-list
+                [baseResourceKey]="baseResourceKey"
+                [tableIdProperty]="tableIdProperty"
+                [tableHeaders]="tableHeaders"
+                [getTableData$]="getTableData$"
+                [handleSave$]="handleSave$"
+                [handleDelete$]="handleDelete$"
+                [virtualScrollConfig]="{ enabled: true, maxHeightPx: 300 }"
+                [showLoading]="vm.showTableLoading ?? false"
+                [canCreate]="((selectedHSCOId$ | async) ?? 0) > 0"
+            >
+                <app-job-title-form #editorForm [hscoLevel]="hscoLevel"></app-job-title-form>
+            </app-list>
+        </div>
+    </div>
+</ng-container>

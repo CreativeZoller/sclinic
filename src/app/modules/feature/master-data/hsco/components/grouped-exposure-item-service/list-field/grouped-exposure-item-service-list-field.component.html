@@ -1,0 +1,19 @@
+<app-list-field
+    [baseResourceKey]="baseResourceKey"
+    [tableIdProperty]="tableIdProperty"
+    [tableTitle]="tableTitle"
+    [tableTitleUseSectionSubtitle]="tableTitleUseSectionSubtitle"
+    [tableHeaders]="tableHeaders"
+    [errorResourceKeyPrefix]="errorResourceKeyPrefix"
+    [errorAddControlNameToResourceKeyPrefix]="errorAddControlNameToResourceKeyPrefix"
+    [errorShowErrorsMethod]="errorShowErrorsMethod"
+    [errorResourceOverrides]="errorResourceOverrides"
+    [errorResourceOverridesMethod]="errorResourceOverridesMethod"
+    [canCreate]="!!exposure && !!exposureItem"
+>
+    <app-grouped-exposure-item-service-form
+        #editorForm
+        [exposure]="exposure"
+        [exposureItem]="exposureItem"
+    ></app-grouped-exposure-item-service-form>
+</app-list-field>

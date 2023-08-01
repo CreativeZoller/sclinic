@@ -1,0 +1,39 @@
+<ng-container *ngIf="(control.dirty || control.touched) && !!control.errors">
+    <ng-template #errorListTemplate let-errorEntryList="errorEntryList">
+        <ng-container *ngFor="let errorEntry of errorEntryList">
+            <div class="form-error mt-2">
+                {{
+                    (
+                        (!!resourceKeyPrefix)
+                            ? (addControlNameToResourceKeyPrefix ?? defaultAddControlNameToResourceKeyPrefix)
+                                ? [resourceKeyPrefix, (control | getAbstractControlPath), errorEntry.key]
+                                : [resourceKeyPrefix, errorEntry.key]
+                            : [defaultResourceKeyPrefix, errorEntry.key]
+                    )
+                        | stringJoin: '.'
+                        | resolveResource : { params: errorEntry.value, resourceOverrides, resourceOverridesMethod }
+                }}
+            </div>
+        </ng-container>
+    </ng-template>
+
+    <ng-container *ngIf="!!showErrorsMethod ? showErrorsMethod : defaultShowErrorsMethod as _showErrorsMethod">
+        <ng-container
+            *ngIf="_showErrorsMethod === 'first'"
+            [ngTemplateOutlet]="errorListTemplate"
+            [ngTemplateOutletContext]="{ errorEntryList: control | getAllAbstractFormControlErrors | stableKeyValue | slice:0:1 }"
+        ></ng-container>
+
+        <ng-container
+            *ngIf="_showErrorsMethod === 'last'"
+            [ngTemplateOutlet]="errorListTemplate"
+            [ngTemplateOutletContext]="{ errorEntryList: control | getAllAbstractFormControlErrors | stableKeyValue | slice:-1:0 }"
+        ></ng-container>
+
+        <ng-container
+            *ngIf="_showErrorsMethod === 'all'"
+            [ngTemplateOutlet]="errorListTemplate"
+            [ngTemplateOutletContext]="{ errorEntryList: control | getAllAbstractFormControlErrors | stableKeyValue }"
+        ></ng-container>
+    </ng-container>
+</ng-container>

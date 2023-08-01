@@ -1,0 +1,11 @@
+<app-list
+    [baseResourceKey]="baseResourceKey"
+    [tableIdProperty]="tableIdProperty"
+    [tableHeaders]="tableHeaders"
+    [getTableData$]="getTableData$"
+    [handleSave$]="handleSave$"
+    [handleDelete$]="handleDelete$"
+    [totalRecordCount]="(totalRecordCount$ | async)!"
+>
+    <app-item-form #editorForm  [activePriceTable]="activePriceTable$ | async"></app-item-form>
+</app-list>

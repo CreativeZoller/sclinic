@@ -1,0 +1,29 @@
+<ng-container [formGroup]="form">
+    <div class="d-flex flex-row gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-33">
+            <app-autocomplete-field
+                [label]="'reception.tabs.patient.management.arrival.management.appointment.service.cost.bearer.form.label.partner' | resolveResource"
+                formControlName="partner"
+                [searchFn$]="partnerAutocomplete.searchFn$"
+                [inputFormatter]="partnerAutocomplete.getFormattedInputText"
+                [resultFormatter]="partnerAutocomplete.getFormattedSelectText"
+            ></app-autocomplete-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-33">
+            <app-text-field
+                [label]="'reception.tabs.patient.management.arrival.management.appointment.service.cost.bearer.form.label.costBearerNumber' | resolveResource"
+                formControlName="costBearerNumber"
+            ></app-text-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-33">
+            <app-number-field
+                [label]="'reception.tabs.patient.management.arrival.management.appointment.service.cost.bearer.form.label.amount' | resolveResource"
+                formControlName="amount"
+            >
+                <ng-template #fieldSuffixTemplate>
+                    <span class="input-group-text">{{"general.currency.HUF" | resolveResource}}</span>
+                </ng-template>
+            </app-number-field>
+        </div>
+    </div>
+</ng-container>

@@ -1,0 +1,8 @@
+<app-form-modal
+    [modalTitle]="'patient.editor.title.edit' | resolveResource"
+    [dismissButtonLabel]="'general.action.label.back' | resolveResource"
+    [saveButtonLabel]="'general.action.label.save' | resolveResource"
+    [handleSave$]="handleSave$"
+>
+    <app-patient-form #formComponent ></app-patient-form>
+</app-form-modal>

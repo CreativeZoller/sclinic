@@ -1,0 +1,47 @@
+<div>
+    <div class="d-flex flex-row align-items-top justify-content-between gap-4 pb-3 pb-lg-6">
+        <div>
+            <h1 class="page-heading d-flex text-dark fw-bold fs-3 my-0 flex-column-fluid overflow-hidden">
+                {{ (baseResourceKey + ".title") | resolveResource }}
+            </h1>
+
+            <h2 class="page-subheading text-gray-500 fs-5 my-0">
+                {{ (baseResourceKey + ".subtitle") | resolveResource : { params: { date: (scheduleDate | date) ?? "" } } }}
+            </h2>
+        </div>
+
+        <div class="d-flex flex-row flex-wrap gap-4">
+            <div class="d-flex flex-column justify-content-end">
+                <div (click)="openPricesModal()" class="btn customBtn">
+                    {{ "reception.action.open.prices.modal" | resolveResource }}
+                </div>
+            </div>
+
+            <div class="d-flex flex-column justify-content-end">
+                <div (click)="receptionPatientManagementComponent.openEditorFor()" class="btn customBtn customBtn--withIcon">
+                    <span [inlineSVG]="'./assets/images/icons/plus.svg'" class="svg-icon svg-icon-1 color-inherit"></span>
+                    {{ "general.action.label.add" | resolveResource }}
+                </div>
+            </div>
+
+            <div class="d-flex flex-column justify-content-end">
+                <div (click)="openQRCodeModal()" class="btn customBtn">
+                    {{ "reception.action.open.qr.code.modal" | resolveResource }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <mat-tab-group mat-align-tabs="start" class="mt-10">
+        <!-- TODO -->
+        <!-- <mat-tab [label]="'reception.tabs.overview.title' | resolveResource">
+            TODO
+        </mat-tab> -->
+
+        <mat-tab [label]="'reception.tabs.patient.management.title' | resolveResource">
+            <app-reception-patient-management #receptionPatientManagementComponent></app-reception-patient-management>
+        </mat-tab>
+    </mat-tab-group>
+</div>
+
+<app-reception-price-list-modal></app-reception-price-list-modal>

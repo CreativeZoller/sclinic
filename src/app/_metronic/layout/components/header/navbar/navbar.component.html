@@ -1,0 +1,40 @@
+<!--begin::Chat-->
+<div class="app-navbar-item" [ngClass]="itemClass">
+    <div
+        [ngClass]="btnClass"
+        class="position-relative"
+        id="kt_drawer_chat_toggle"
+    >
+        <span
+            [inlineSVG]="
+                './assets/images/icons/chat.svg'
+            "
+            class="svg-icon"
+            [ngClass]="btnIconClass"
+        ></span>
+        <span class="bullet bullet-dot">2</span>
+    </div>
+</div>
+<!--end::Chat-->
+
+<!--begin::User menu-->
+<div class="app-navbar-item flex-column ms-lg-10 userInfo">
+    <div class="userName">{{ userFormattedName$ | async }}</div>
+    <div class="userPosition mb-0">{{(activeRole$ | async)?.roleName}}</div>
+</div>
+<div class="app-navbar-item" [ngClass]="itemClass">
+    <!--begin::Menu wrapper-->
+    <div
+        class="cursor-pointer symbol"
+        [ngClass]="userAvatarClass"
+        data-kt-menu-trigger="{default: 'click'}"
+        data-kt-menu-attach="parent"
+        data-kt-menu-placement="bottom-end"
+    >
+        <!-- TODO show user image  -->
+        <img alt="Logo" src="assets/media/avatars/blank.png" />
+    </div>
+    <app-user-inner data-kt-menu="true"></app-user-inner>
+    <!--end::Menu wrapper-->
+</div>
+<!--end::User menu-->

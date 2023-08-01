@@ -1,0 +1,31 @@
+<div class="list-tabs-title mb-5">
+    <div class="list-tabs-title-title-container mb-10">
+        <h2 class="list-tabs-title-title-text m-0">{{ pageTitle }}</h2>
+    </div>
+</div>
+
+<ng-container *ngIf="{
+    activeTabConfigIndex: activeTabConfigIndex$ | async
+} as vm">
+    <div class="list-tabs-title-tabs-container d-flex flex-row gap-2 justify-content-between align-items-stretch">
+        
+        <div class="list-tabs-title-tabs-inner-container d-flex flex-row-fluid gap-2 overflow-hidden align-items-end">
+            <mat-tab-group 
+                mat-align-tabs="start" 
+                [selectedIndex]="vm.activeTabConfigIndex"
+                (selectedIndexChange)="setActiveTabConfigByIndex($event)"
+            >
+                <mat-tab 
+                    *ngFor="let tabConfig of tabConfigs"
+                    [label]="tabConfig.title"
+                    [disabled]='isInitialMode'
+                >
+                    <app-cc-patient-list (rowChecked)="showDetails($event)"></app-cc-patient-list>
+                    <app-cc-patient-details [patient]="this.selectedPatient" [vip]="this.vipConfs" *ngIf="this.newSelection"></app-cc-patient-details>
+                    <app-cc-patient-navigation [patient]="this.selectedPatient" *ngIf="this.newSelection"></app-cc-patient-navigation>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+
+    </div>
+</ng-container>

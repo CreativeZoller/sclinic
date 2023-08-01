@@ -1,0 +1,167 @@
+<ng-container [formGroup]="form">
+    <ng-container>
+        <div class="d-flex flex-row gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden flex-50">
+                <app-text-field
+                    [label]="'item.form.label.itemName' | resolveResource"
+                    formControlName="itemName"
+                ></app-text-field>
+            </div>
+
+            <div class="flex-column-fluid overflow-hidden flex-50">
+                <app-select-field
+                    [label]="'item.form.label.dC_ItemStatusId' | resolveResource"
+                    formControlName="dC_ItemStatusId"
+                    [options]="initData.dC_ItemStatusList"
+                ></app-select-field>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden w-100">
+                <app-text-field
+                    [label]="'item.form.label.itemNumber' | resolveResource"
+                    formControlName="itemNumber"
+                    pattern="\d*"
+                ></app-text-field>
+            </div>
+        </div>
+
+        <div
+            *ngIf="form.value.parentItemId || nestingLevel !== 0"
+            class="d-flex flex-row mt-10 gap-5 align-items-baseline"
+        >
+            <div class="flex-column-fluid overflow-hidden flex-50">
+                <app-text-field
+                    [label]="'item.form.label.subItemName' | resolveResource"
+                    formControlName="subItemName"
+                ></app-text-field>
+            </div>
+
+            <div class="flex-column-fluid overflow-hidden flex-50">
+                <app-text-field
+                    [label]="'item.form.label.subItemNumber' | resolveResource"
+                    formControlName="subItemNumber"
+                    pattern="\d*"
+                ></app-text-field>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden w-100">
+                <app-select-field
+                    [label]="'item.form.label.dC_ItemCategoryId' | resolveResource"
+                    formControlName="dC_ItemCategoryId"
+                    [options]="initData.dC_ItemCategoryList"
+                ></app-select-field>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden w-100">
+                <app-select-field
+                    [label]="'item.form.label.dC_ItemTypeId' | resolveResource"
+                    formControlName="dC_ItemTypeId"
+                    [options]=" initData.dC_ItemTypeList"
+                ></app-select-field>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden flex-50">
+                <app-datepicker-field
+                    [label]="'item.form.label.validityDate' | resolveResource"
+                    formControlName="validityDate"
+                ></app-datepicker-field>
+            </div>
+
+            <div class="flex-column-fluid overflow-hidden flex-50">
+                <app-datepicker-field
+                    [label]="'item.form.label.expirationDate' | resolveResource"
+                    formControlName="expirationDate"
+                ></app-datepicker-field>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden flex-50">
+                <app-text-field
+                    [label]="'item.form.label.manufacturingNumber' | resolveResource"
+                    formControlName="manufacturingNumber"
+                    pattern="\d*"
+                ></app-text-field>
+            </div>
+
+            <div class="flex-column-fluid overflow-hidden flex-50">
+                <app-autocomplete-field
+                    [label]="'item.form.label.partnerId' | resolveResource"
+                    formControlName="partner"
+                    [searchFn$]="partnerAutocomplete.searhcFn$"
+                    [inputFormatter]="partnerAutocomplete.getFormattedInputText"
+                    [resultFormatter]="partnerAutocomplete.getFormattedSelectText"
+                ></app-autocomplete-field>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden flex-50">
+                <app-text-field
+                    [label]="'item.form.label.purchasePrice' | resolveResource"
+                    formControlName="purchasePrice"
+                    mask="separator.0" maskSuffix=" Ft"
+                ></app-text-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-50">
+                <app-text-field
+                    [label]="'item.form.label.sellingPrice' | resolveResource"
+                    formControlName="sellingPrice"
+                    mask="separator.0" maskSuffix=" Ft"
+                ></app-text-field>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden w-100">
+                <app-checkbox-field
+                    [label]="'item.form.label.isSelectableItemWhenBooking' | resolveResource"
+                    formControlName="isSelectableItemWhenBooking"
+                ></app-checkbox-field>
+            </div>
+        </div>
+    </ng-container>
+
+    <ng-container>
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden w-100">
+                <app-item-x-price-template-item-list-field
+                    formControlName="priceTemplateItem"
+                    [activePriceTable]="activePriceTable$ | async"
+                ></app-item-x-price-template-item-list-field>
+            </div>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="nestingLevel === 0 && (form.value.parentItemId ?? 0) === 0">
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden w-100">
+                <app-item-x-sub-item-list-field formControlName="subItems"
+                    [parent]="form.value" [nestingLevel]="nestingLevel + 1"
+                ></app-item-x-sub-item-list-field>
+            </div>
+        </div>
+    </ng-container>
+
+    <ng-container>
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="w-100 overflow-hidden">
+                <app-section-title [title]="'item.form.section.title.deep.erp' | resolveResource"></app-section-title>
+            </div>
+        </div>
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <app-deep-erp-item-identification-form-field
+                formControlName="deeperpItemIdentification"
+            ></app-deep-erp-item-identification-form-field>
+        </div>
+    </ng-container>
+</ng-container>
+

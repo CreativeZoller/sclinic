@@ -1,0 +1,75 @@
+<ng-container [formGroup]="form">
+
+    <app-expandable-panel
+        [title]="'schedule.publishing.section.publishing.and.email.send' | resolveResource"
+        [withIcon]="false"
+        [isOpened]="true"
+    >
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden flex-50">
+                <app-datepicker-field [label]="'schedule.publishing.form.label.startDate' | resolveResource" formControlName="startDate"></app-datepicker-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-50">
+                <app-datepicker-field [label]="'schedule.publishing.form.label.endDate' | resolveResource" formControlName="endDate"></app-datepicker-field>
+            </div>
+        </div>
+
+        <app-schedule-publishing-clinic-list-field formControlName="clinicId"></app-schedule-publishing-clinic-list-field>
+
+        <button class="btn customBtn" (click)="publishing()">{{ 'schedule.publishing.button.publishing' | resolveResource }}</button>
+    </app-expandable-panel>
+
+    <app-expandable-panel
+        [title]="'schedule.publishing.section.email.send.only' | resolveResource"
+        [withIcon]="false"
+        [isOpened]="false"
+    >
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden flex-50">
+                <app-datepicker-field [label]="'schedule.publishing.form.label.startDate' | resolveResource" formControlName="startDate"></app-datepicker-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-50">
+                <app-datepicker-field [label]="'schedule.publishing.form.label.endDate' | resolveResource" formControlName="endDate"></app-datepicker-field>
+            </div>
+        </div>
+
+        <app-schedule-publishing-clinic-list-field formControlName="clinicId"></app-schedule-publishing-clinic-list-field>
+
+        <app-schedule-publishing-employee-list-field formControlName="medicalEmployeeId"></app-schedule-publishing-employee-list-field>
+
+        <app-section-title [title]="'schedule.publishing.section.parameters' | resolveResource"></app-section-title>
+
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden flex-50">
+                <app-checkbox-field [label]="'schedule.publishing.form.label.onlyChange' | resolveResource" formControlName="onlyChange"></app-checkbox-field>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden flex-50">
+                <app-checkbox-field [label]="'schedule.publishing.form.label.sendAll' | resolveResource" formControlName="sendAll"></app-checkbox-field>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden flex-50">
+                <app-text-field [label]="'schedule.publishing.form.label.test.email' | resolveResource" formControlName="email"></app-text-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-50">
+                <button class="btn customBtn">{{ 'schedule.publishing.button.test.mail' | resolveResource }}</button>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden flex-25">
+                <button class="btn customBtn">{{ 'schedule.publishing.button.email.send' | resolveResource }}</button>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-25">
+                <button class="btn customBtn">{{ 'schedule.publishing.button.email.edit' | resolveResource }}</button>
+            </div>
+        </div>
+
+
+    </app-expandable-panel>
+
+</ng-container>

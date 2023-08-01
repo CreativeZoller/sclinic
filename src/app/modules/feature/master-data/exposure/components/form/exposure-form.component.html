@@ -1,0 +1,29 @@
+<ng-container [formGroup]="form">
+    <div class="d-flex flex-row gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-25">
+            <app-text-field
+                [label]="'exposure.form.label.description' | resolveResource"
+                formControlName="description"
+            ></app-text-field>
+        </div>
+    </div>
+
+    <div
+        class="mt-10 gap-5"
+        formGroupName="_exposureXExposureItem"
+    >
+        <mat-tab-group mat-align-tabs="start">
+            <mat-tab
+                *ngFor="let option of (initData.dC_ExposureTypeList ?? [])"
+                [label]="option.name"
+            >
+                <div class="mt-10">
+                    <app-exposure-item-list-field
+                        [formControlName]="option.value"
+                        [exposure]="form.getRawValue()"
+                    ></app-exposure-item-list-field>
+                </div>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+</ng-container>

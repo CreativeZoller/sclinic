@@ -1,0 +1,14 @@
+<app-list
+    [baseResourceKey]="baseResourceKey"
+    [tableIdProperty]="tableIdProperty"
+    [tableHeaders]="tableHeaders"
+    [getTableData$]="getTableData$"
+    [handleSave$]="handleSave$"
+    [handleDelete$]="handleDelete$"
+    [totalRecordCount]="totalRecordCount!"
+>
+    <app-function-form
+        #editorForm
+        [allFunctions]="tableDataSnapshot"
+    ></app-function-form>
+</app-list>

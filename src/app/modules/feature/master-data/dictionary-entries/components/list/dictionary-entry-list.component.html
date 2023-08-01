@@ -1,0 +1,22 @@
+<ng-container *ngIf="{
+    entityIdProperty: entityIdProperty$ | async
+} as vm">
+    <app-list
+        [baseResourceKey]="baseResourceKey"
+        [tableIdProperty]="vm.entityIdProperty ?? ''"
+        [tableHeaders]="tableHeaders"
+        [getTableData$]="getTableData$"
+        [getFullModelFromGridModel$]="getFullModelFromGridModel$"
+        [handleSave$]="handleSave$"
+        [handleDelete$]="handleDelete$"
+        [titleRowTemplate]="titleRowTemplateSectionTitle"
+    >
+        <app-dictionary-entry-form #editorForm ></app-dictionary-entry-form>
+    </app-list>
+
+    <ng-template #titleRowTemplateSectionTitle let-title="title" let-titleRowButtonsTemplate="titleRowButtonsTemplate">
+        <div class="mb-2 w-100 overflow-hidden">
+            <app-section-title [title]="title" [buttonsTemplate]="titleRowButtonsTemplate"></app-section-title>
+        </div>
+    </ng-template>
+</ng-container>

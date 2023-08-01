@@ -1,0 +1,25 @@
+@import "/src/assets/sass/variables";
+
+:host {
+    width: 100%;
+
+    .filter-header {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    }
+
+    ::ng-deep {
+        .status-icon {
+            width: 1.75rem;
+            height: 1.75rem;
+        }
+
+        .star-icon {
+            color: $red;
+            font-size: 1.5em;
+        }
+
+        .text-red {
+            color: $red;
+        }
+    }
+}

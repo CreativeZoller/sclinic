@@ -1,0 +1,15 @@
+<app-list-field
+    [baseResourceKey]="baseResourceKey"
+    [tableIdProperty]="tableIdProperty"
+    [tableTitleUseSectionSubtitle]="tableTitleUseSectionSubtitle"
+    [tableHeaders]="tableHeaders"
+    [canDelete]="false"
+    [valueToFormValue]="valueToFormValue"
+    [handleSave$]="handleSave$"
+    [tableTitle]="tableTitleProperty | resolveResource"
+>
+    <app-schedule-planner-doctor-form
+        #editorForm
+        [allSelected]="(allSelected$ | async) ?? []"
+    ></app-schedule-planner-doctor-form>
+</app-list-field>

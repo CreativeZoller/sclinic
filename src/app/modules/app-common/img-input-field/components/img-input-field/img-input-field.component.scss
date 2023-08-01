@@ -1,0 +1,27 @@
+@import "/src/assets/sass/variables";
+
+:host {
+    display: block;
+    width: 100%;
+
+    &.disabled {
+        &, & > * {
+            cursor: default;
+        }
+
+        opacity: 0.6;
+    }
+
+    .img-input-label {
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    .img-input-preview {
+        height: 250px;
+        border-radius: 50%;
+        background-color: $hoverGrey;
+        width: 250px;
+        object-fit: cover;
+    }
+}

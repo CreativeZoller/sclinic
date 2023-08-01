@@ -1,0 +1,60 @@
+<ng-container [formGroup]="form">
+    <div class="d-flex flex-row gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <div formGroupName="exposure">
+                <app-text-field
+                    [label]="'exposure.item.form.label.description' | resolveResource"
+                    formControlName="description"
+                ></app-text-field>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-autocomplete-field
+                [label]="'exposure.item.form.label.exposureItem.description' | resolveResource"
+                formControlName="exposureItem"
+                [searchFn$]="exposureItemAutocomplete.searhcFn$('description')"
+                [inputFormatter]="exposureItemAutocomplete.getFormattedDescriptionNameInputText"
+                [resultFormatter]="exposureItemAutocomplete.getFormattedSelectText"
+            ></app-autocomplete-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-25">
+            <app-autocomplete-field
+                [label]="'exposure.item.form.label.exposureItem.code' | resolveResource"
+                formControlName="exposureItem"
+                [searchFn$]="exposureItemAutocomplete.searhcFn$('code')"
+                [inputFormatter]="exposureItemAutocomplete.getFormattedCodeeInputText"
+                [resultFormatter]="exposureItemAutocomplete.getFormattedSelectText"
+            ></app-autocomplete-field>
+        </div>
+
+        <div class="flex-column-fluid overflow-hidden flex-25">
+            <app-radio-field formControlName="_isComplete">
+                <div class="d-flex flex-row gap-5 align-items-baseline">
+                    <app-radio-field-option
+                        [useAlignBaselineFix]="true"
+                        [label]="'exposure.item.service.form.label.complete' | resolveResource"
+                        [optionValue]="true"
+                    ></app-radio-field-option>
+
+                    <app-radio-field-option
+                        [useAlignBaselineFix]="true"
+                        [label]="'exposure.item.service.form.label.partial' | resolveResource"
+                        [optionValue]="false"
+                    ></app-radio-field-option>
+                </div>
+            </app-radio-field>
+        </div>
+    </div>
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-grouped-exposure-item-service-list-field
+                formControlName="serviceList"
+                [exposure]="_exposure"
+                [exposureItem]="form.value.exposureItem"
+            ></app-grouped-exposure-item-service-list-field>
+        </div>
+    </div>
+</ng-container>

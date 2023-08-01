@@ -1,0 +1,80 @@
+<ng-container [formGroup]="form" *ngIf="{
+    patientIdTypeOptions: patientIdTypeOptions$ | async
+} as vm">
+    <div class="d-flex flex-row gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-33">
+            <app-select-field
+                [label]="'patient.id.form.label.dC_PatientIdTypeId' | resolveResource"
+                formControlName="dC_PatientIdTypeId"
+                [options]="vm.patientIdTypeOptions ?? []"
+            ></app-select-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-33">
+            <app-select-field
+                [label]="'patient.id.form.label.dC_PatientIdTypeCategoryId' | resolveResource"
+                formControlName="dC_PatientIdTypeCategoryId"
+                [options]="initData.dC_PatientIdTypeCategoryList"
+            ></app-select-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-33">
+            <app-text-field
+                [label]="'patient.id.form.label.number' | resolveResource"
+                formControlName="number"
+            ></app-text-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-datepicker-field
+                [label]="'patient.id.form.label.issueDate' | resolveResource"
+                formControlName="issueDate"
+            ></app-datepicker-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-datepicker-field
+                [label]="'patient.id.form.label.expirationDate' | resolveResource"
+                formControlName="expirationDate"
+            ></app-datepicker-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-text-field
+                [label]="'patient.id.form.label.comment' | resolveResource"
+                formControlName="comment"
+            ></app-text-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-text-field
+                [label]="'patient.id.form.label.createdBy_UserName' | resolveResource"
+                formControlName="createdBy_UserName"
+            ></app-text-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-datepicker-field
+                [label]="'patient.id.form.label.creationDate' | resolveResource"
+                formControlName="creationDate"
+            ></app-datepicker-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-text-field
+                [label]="'patient.id.form.label.lastModifiedBy_UserName' | resolveResource"
+                formControlName="lastModifiedBy_UserName"
+            ></app-text-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-datepicker-field
+                [label]="'patient.id.form.label.lastModifiedDate' | resolveResource"
+                formControlName="lastModifiedDate"
+            ></app-datepicker-field>
+        </div>
+    </div>
+</ng-container>

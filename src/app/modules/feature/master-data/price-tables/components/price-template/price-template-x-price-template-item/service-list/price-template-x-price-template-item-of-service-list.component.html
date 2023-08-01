@@ -1,0 +1,15 @@
+<app-price-template-x-price-template-item-generic-list
+    [baseResourceKey]="baseResourceKey"
+    [tableIdProperty]="tableIdProperty"
+    [getPriceTemplateItemsOfModel]="getPriceTemplateItemsOfModel"
+    [modelSpecificTableHeaders]="modelSpecificTableHeaders"
+    [getModelList$]="getModelList$"
+
+    [priceTableId]="priceTableId"
+    [priceTemplates]="priceTemplates"
+    (copyPriceTemplateAtIndex)="copyPriceTemplateAtIndex.emit($event)"
+    (editPriceTemplateAtIndex)="editPriceTemplateAtIndex.emit($event)"
+    (changePriceTemplates)="changePriceTemplates.emit($event)"
+    (loadingChanged)="loadingChanged.emit($event)"
+    (hasLoadingErrorChanged)="hasLoadingErrorChanged.emit($event)"
+></app-price-template-x-price-template-item-generic-list>

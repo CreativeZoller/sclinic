@@ -1,0 +1,10 @@
+<ng-container [formGroup]="form">
+    <div class="d-flex flex-row gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-text-field
+                [label]="'dictionary.entry.form.label.name' | resolveResource"
+                formControlName="name"
+            ></app-text-field>
+        </div>
+    </div>
+</ng-container>

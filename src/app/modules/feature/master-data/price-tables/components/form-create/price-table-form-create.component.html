@@ -1,0 +1,19 @@
+<ng-container [formGroup]="form">
+    <div class="d-flex flex-row gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-text-field
+                [label]="'price.table.form.create.label.priceTableName' | resolveResource"
+                formControlName="priceTableName"
+            ></app-text-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-autocomplete-field
+                [label]="'price.table.form.create.label.parentPriceTable' | resolveResource"
+                formControlName="parentPriceTable"
+                [searchFn$]="priceTableAutocomplete.searhcFn$"
+                [inputFormatter]="priceTableAutocomplete.getFormattedInputText"
+                [resultFormatter]="priceTableAutocomplete.getFormattedSelectText"
+            ></app-autocomplete-field>
+        </div>
+    </div>
+</ng-container>

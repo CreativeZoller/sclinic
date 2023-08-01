@@ -1,0 +1,21 @@
+<ng-container *ngIf="{ activePriceTable: activePriceTable$ | async } as vm">
+    <app-modal #modal [modalConfig]="modalConfig$ | async">
+        <div class="d-flex">
+            <app-reception-price-of-service-list
+                [activePriceTable]="vm.activePriceTable"
+            ></app-reception-price-of-service-list>
+        </div>
+
+        <div class="d-flex mt-10">
+            <app-reception-price-of-service-sub-package-list
+                [activePriceTable]="vm.activePriceTable"
+            ></app-reception-price-of-service-sub-package-list>
+        </div>
+
+        <div class="d-flex mt-10">
+            <app-reception-price-of-service-package-list
+                [activePriceTable]="vm.activePriceTable"
+            ></app-reception-price-of-service-package-list>
+        </div>
+    </app-modal>
+</ng-container>

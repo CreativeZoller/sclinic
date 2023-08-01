@@ -1,0 +1,101 @@
+<ng-container [formGroup]="form" *ngIf="{
+    patientAddressTypeOptions: patientAddressTypeOptions$ | async
+} as vm">
+    <div class="d-flex flex-row gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-checkbox-field
+                [label]="'patient.address.form.label.foreignAddress' | resolveResource"
+                formControlName="foreignAddress"
+                [useAlignBaselineFix]="true"
+            ></app-checkbox-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-select-field
+                [label]="'patient.address.form.label.dC_PatientAddressTypeId' | resolveResource"
+                formControlName="dC_PatientAddressTypeId"
+                [options]="vm.patientAddressTypeOptions ?? []"
+            ></app-select-field>
+        </div>
+    </div>
+
+    <ng-container formGroupName="address">
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden flex-50">
+                <app-autocomplete-field
+                    [label]="'patient.address.form.label.address.dC_City.postCode' | resolveResource"
+                    formControlName="dC_City"
+                    [searchFn$]="citiesAutocomplete.searhcFn$('postCode')"
+                    [inputFormatter]="citiesAutocomplete.getFormattedPostCodeInputText"
+                    [resultFormatter]="citiesAutocomplete.getFormattedSelectText"
+                ></app-autocomplete-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-50">
+                <app-autocomplete-field
+                    [label]="'patient.address.form.label.address.dC_City.name' | resolveResource"
+                    formControlName="dC_City"
+                    [searchFn$]="citiesAutocomplete.searhcFn$('name')"
+                    [inputFormatter]="citiesAutocomplete.getFormattedCityNameInputText"
+                    [resultFormatter]="citiesAutocomplete.getFormattedSelectText"
+                ></app-autocomplete-field>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden flex-33">
+                <app-text-field
+                    [label]="'patient.address.form.label.address.streetName' | resolveResource"
+                    formControlName="streetName"
+                ></app-text-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-33">
+                <app-select-field
+                    [label]="'patient.address.form.label.address.dC_PublicPlaceCategoryId' | resolveResource"
+                    formControlName="dC_PublicPlaceCategoryId"
+                    [options]="initData.dC_PublicPlaceCategoryList"
+                ></app-select-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-33">
+                <app-text-field
+                    [label]="'patient.address.form.label.address.buildingNumber' | resolveResource"
+                    formControlName="buildingNumber"
+                ></app-text-field>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden flex-25">
+                <app-text-field
+                    [label]="'patient.address.form.label.address.building' | resolveResource"
+                    formControlName="building"
+                ></app-text-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-25">
+                <app-text-field
+                    [label]="'patient.address.form.label.address.staircase' | resolveResource"
+                    formControlName="staircase"
+                ></app-text-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-25">
+                <app-text-field
+                    [label]="'patient.address.form.label.address.floor' | resolveResource"
+                    formControlName="floor"
+                ></app-text-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-25">
+                <app-text-field
+                    [label]="'patient.address.form.label.address.door' | resolveResource"
+                    formControlName="door"
+                ></app-text-field>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden flex-33">
+                <app-text-field
+                    [label]="'patient.address.form.label.address.lotNumber' | resolveResource"
+                    formControlName="lotNumber"
+                ></app-text-field>
+            </div>
+        </div>
+    </ng-container>
+</ng-container>

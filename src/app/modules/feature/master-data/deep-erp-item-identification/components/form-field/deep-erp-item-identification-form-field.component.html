@@ -1,0 +1,145 @@
+<ng-container [formGroup]="form">
+    <div class="d-flex flex-row gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-20">
+            <app-text-field
+                [label]="'deep.erp.item.identification.form.label.invoiceItemName' | resolveResource"
+                formControlName="invoiceItemName"
+            ></app-text-field>
+        </div>
+
+        <div class="flex-column-fluid overflow-hidden flex-20">
+            <app-text-field
+                [label]="'deep.erp.item.identification.form.label.deeperpItemNumber' | resolveResource"
+                formControlName="deeperpItemNumber"
+                pattern="\d*"
+            ></app-text-field>
+        </div>
+
+        <div class="flex-column-fluid overflow-hidden flex-20">
+            <app-text-field
+                [label]="'deep.erp.item.identification.form.label.vatCategory' | resolveResource"
+                formControlName="vatCategory"
+            ></app-text-field>
+        </div>
+
+        <div class="flex-column-fluid overflow-hidden flex-20">
+            <app-select-field
+                [label]="'deep.erp.item.identification.form.label.dC_ItemProcurationalCategoryId' | resolveResource"
+                formControlName="dC_ItemProcurationalCategoryId"
+                [options]="initData.dC_ItemProcurationalCategoryList"
+            ></app-select-field>
+        </div>
+
+        <div class="flex-column-fluid overflow-hidden flex-20">
+            <app-text-field
+                [label]="'deep.erp.item.identification.form.label.cpaNumber' | resolveResource"
+                formControlName="cpaNumber"
+                pattern="\d*"
+            ></app-text-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-25">
+            <app-checkbox-field
+                [label]="'deep.erp.item.identification.form.label.isDEEPERPActive' | resolveResource"
+                formControlName="isDEEPERPActive"
+                [useAlignBaselineFix]="true"
+            ></app-checkbox-field>
+        </div>
+
+        <div class="flex-column-fluid overflow-hidden flex-25">
+            <app-number-field
+                [label]="'deep.erp.item.identification.form.label.defaultQuantity' | resolveResource"
+                formControlName="defaultQuantity"
+                pattern="\d*"
+            ></app-number-field>
+        </div>
+
+        <div class="flex-column-fluid overflow-hidden flex-25">
+            <app-number-field
+                [label]="'deep.erp.item.identification.form.label.defaultSaleQuantity' | resolveResource"
+                formControlName="defaultSaleQuantity"
+                pattern="\d*"
+            ></app-number-field>
+        </div>
+
+        <div class="flex-column-fluid overflow-hidden flex-25">
+            <app-number-field
+                [label]="'deep.erp.item.identification.form.label.defaultPurchaseQuantity' | resolveResource"
+                formControlName="defaultPurchaseQuantity"
+                pattern="\d*"
+            ></app-number-field>
+        </div>
+    </div>
+
+    <div class="mt-10 gap-5">
+        <app-expandable-panel
+            [title]="'deep.erp.item.identification.form.section.subtitle.additional.fields' | resolveResource"
+            [withIcon]="false"
+            [isOpened]="false"
+        >
+            <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+                <div class="flex-column-fluid overflow-hidden flex-25">
+                    <app-number-field
+                        [label]="'deep.erp.item.identification.form.label.environmentProductTax' | resolveResource"
+                        formControlName="environmentProductTax"
+                        pattern="\d*"
+                    ></app-number-field>
+                </div>
+
+                <div class="flex-column-fluid overflow-hidden flex-25">
+                    <app-text-field
+                        [label]="'deep.erp.item.identification.form.label.mrpCalculationAllowed' | resolveResource"
+                        formControlName="mrpCalculationAllowed"
+                    ></app-text-field>
+                </div>
+
+                <div class="flex-column-fluid overflow-hidden flex-25">
+                    <app-text-field
+                        [label]="'deep.erp.item.identification.form.label.excise' | resolveResource"
+                        formControlName="excise"
+                    ></app-text-field>
+                </div>
+
+                <div class="flex-column-fluid overflow-hidden flex-25">
+                    <app-text-field
+                        [label]="'deep.erp.item.identification.form.label.productionTaxStamp' | resolveResource"
+                        formControlName="productionTaxStamp"
+                    ></app-text-field>
+                </div>
+            </div>
+
+            <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+                <div class="flex-column-fluid overflow-hidden flex-25">
+                    <app-text-field
+                        [label]="'deep.erp.item.identification.form.label.discountAllowed' | resolveResource"
+                        formControlName="discountAllowed"
+                    ></app-text-field>
+                </div>
+
+                <div class="flex-column-fluid overflow-hidden flex-25">
+                    <app-text-field
+                        [label]="'deep.erp.item.identification.form.label.outOfProduction' | resolveResource"
+                        formControlName="outOfProduction"
+                    ></app-text-field>
+                </div>
+
+                <div class="flex-column-fluid overflow-hidden flex-25">
+                    <app-text-field
+                        [label]="'deep.erp.item.identification.form.label.hazardousProduct' | resolveResource"
+                        formControlName="hazardousProduct"
+                    ></app-text-field>
+                </div>
+
+                <div class="flex-column-fluid overflow-hidden flex-25">
+                    <app-text-field
+                        [label]="'deep.erp.item.identification.form.label.hazardousProductLimitQuantity' | resolveResource"
+                        formControlName="hazardousProductLimitQuantity"
+                        pattern="\d*"
+                    ></app-text-field>
+                </div>
+            </div>
+        </app-expandable-panel>
+    </div>
+</ng-container>

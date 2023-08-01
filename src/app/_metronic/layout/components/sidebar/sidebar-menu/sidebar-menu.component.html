@@ -1,0 +1,294 @@
+<!--begin::Menu wrapper-->
+<div
+    id="kt_app_sidebar_menu_wrapper"
+    class="app-sidebar-wrapper hover-scroll-overlay-y my-5"
+    data-kt-scroll="true"
+    data-kt-scroll-activate="true"
+    data-kt-scroll-height="auto"
+    data-kt-scroll-dependencies="#kt_app_sidebar_logo, #kt_app_sidebar_footer"
+    data-kt-scroll-wrappers="#kt_app_sidebar_menu"
+    data-kt-scroll-offset="5px"
+    data-kt-scroll-save-state="true"
+>
+    <!--begin::Menu-->
+    <div class="menu menu-column menu-rounded menu-sub-indention px-3" id="#kt_app_sidebar_menu" data-kt-menu="true" data-kt-menu-expand="false">
+
+        <!-- CallCenter -->
+        <div class="menu-item menu-accordion" data-kt-menu-trigger="click" routerLinkActive="here show">
+            <span class="menu-link">
+                <span class="menu-icon">
+                    <span class="svg-icon svg-icon-2" [inlineSVG]="'./assets/images/icons/arrow-right.svg'"></span>
+                </span>
+                <span class="menu-title">{{"menu.sidebar.cc.main" | resolveResource}}</span>
+            </span>
+            <div class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">
+                <div class="menu-item menu-accordion" routerLinkActive="here show" data-kt-menu-trigger="click">
+                    <ng-container *ngTemplateOutlet="menuItem; context: {
+                        base: constants.CC_BASE_ROUTE,
+                        route: constants.CC_APPOINTMENTS_ROUTE,
+                        name: 'menu.sidebar.cc.appointments' | resolveResource
+                    }"></ng-container>
+                </div>
+            </div>
+        </div>
+
+        <!-- Törzsadatok -->
+        <div class="menu-item menu-accordion" data-kt-menu-trigger="click" routerLinkActive="here show">
+            <span class="menu-link">
+                <span class="menu-icon">
+                    <span class="svg-icon svg-icon-2" [inlineSVG]="'./assets/images/icons/arrow-right.svg'"></span>
+                </span>
+                <span class="menu-title">{{"menu.sidebar.master.data" | resolveResource}}</span>
+            </span>
+            <div class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">
+                <div class="menu-item menu-accordion" routerLinkActive="here show" data-kt-menu-trigger="click">
+
+                    <ng-container *ngTemplateOutlet="menuItem; context: {
+                        base: constants.MASTER_DATA_BASE_ROUTE,
+                        route: constants.SERVICES_ROUTE,
+                        name: 'menu.sidebar.master.data.services' | resolveResource
+                    }"></ng-container>
+
+                    <ng-container *ngTemplateOutlet="menuItem; context: {
+                        base: constants.MASTER_DATA_BASE_ROUTE,
+                        route: constants.SERVICE_SUB_PACKAGES_ROUTE,
+                        name: 'menu.sidebar.master.data.service.sub.packages' | resolveResource
+                    }"></ng-container>
+
+                    <ng-container *ngTemplateOutlet="menuItem; context: {
+                        base: constants.MASTER_DATA_BASE_ROUTE,
+                        route: constants.SERVICE_PACKAGES_ROUTE,
+                        name: 'menu.sidebar.master.data.service.packages' | resolveResource
+                    }"></ng-container>
+
+                    <ng-container *ngTemplateOutlet="menuItem; context: {
+                        base: constants.MASTER_DATA_BASE_ROUTE,
+                        route: constants.PRICE_TABLES_ROUTE,
+                        name: 'menu.sidebar.master.data.price.tables' | resolveResource
+                    }"></ng-container>
+
+                    <ng-container *ngTemplateOutlet="menuItem; context: {
+                        base: constants.MASTER_DATA_BASE_ROUTE,
+                        route: constants.ITEMS_ROUTE,
+                        name: 'menu.sidebar.master.data.items' | resolveResource
+                    }"></ng-container>
+
+                    <ng-container *ngTemplateOutlet="menuItem; context: {
+                        base: constants.MASTER_DATA_BASE_ROUTE,
+                        route: constants.PATIENTS_ROUTE,
+                        name: 'menu.sidebar.master.data.patients' | resolveResource
+                    }"></ng-container>
+
+                    <ng-container *ngTemplateOutlet="menuItem; context: {
+                        base: constants.MASTER_DATA_BASE_ROUTE,
+                        route: constants.PARTNERS_ROUTE,
+                        name: 'menu.sidebar.master.data.partners' | resolveResource
+                    }"></ng-container>
+
+                    <ng-container *ngTemplateOutlet="menuItem; context: {
+                        base: constants.MASTER_DATA_BASE_ROUTE,
+                        route: constants.DICTIONARY_ENTRIES_ROUTE,
+                        name: 'menu.sidebar.master.data.dictionary.entries' | resolveResource
+                    }"></ng-container>
+
+                    <ng-container *ngTemplateOutlet="menuItem; context: {
+                        base: constants.MASTER_DATA_BASE_ROUTE,
+                        route: constants.DOCUMENT_TEMPLATES_ROUTE,
+                        name: 'menu.sidebar.master.data.document.templates' | resolveResource
+                    }"></ng-container>
+
+                    <ng-container *ngTemplateOutlet="menuItem; context: {
+                        base: constants.MASTER_DATA_BASE_ROUTE,
+                        route: constants.EMAIL_TEMPLATES_ROUTE,
+                        name: 'menu.sidebar.master.data.email.templates' | resolveResource
+                    }"></ng-container>
+
+                    <ng-container *ngTemplateOutlet="menuItem; context: {
+                        base: constants.MASTER_DATA_BASE_ROUTE,
+                        route: constants.SERVICE_PROVIDER_ENTITIES_ROUTE,
+                        name: 'menu.sidebar.master.data.service.provider.entities' | resolveResource
+                    }"></ng-container>
+
+                    <ng-container *ngTemplateOutlet="menuItem; context: {
+                        base: constants.MASTER_DATA_BASE_ROUTE,
+                        route: constants.LABS_ROUTE,
+                        name: 'menu.sidebar.master.data.labs' | resolveResource
+                    }"></ng-container>
+
+                    <ng-container *ngTemplateOutlet="menuItem; context: {
+                        base: constants.MASTER_DATA_BASE_ROUTE,
+                        route: constants.CITIES_ROUTE,
+                        name: 'menu.sidebar.master.data.cities' | resolveResource
+                    }"></ng-container>
+
+                    <ng-container *ngTemplateOutlet="menuItem; context: {
+                        base: constants.MASTER_DATA_BASE_ROUTE,
+                        route: constants.CLINICS_ROUTE,
+                        name: 'menu.sidebar.master.data.clinics' | resolveResource
+                    }"></ng-container>
+
+                    <ng-container *ngTemplateOutlet="menuItem; context: {
+                        base: constants.MASTER_DATA_BASE_ROUTE,
+                        route: constants.DOCTORS_ROUTE,
+                        name: 'menu.sidebar.master.data.doctors' | resolveResource
+                    }"></ng-container>
+
+                    <ng-container *ngTemplateOutlet="menuItem; context: {
+                        base: constants.MASTER_DATA_BASE_ROUTE,
+                        route: constants.ASSISTANTS_ROUTE,
+                        name: 'menu.sidebar.master.data.assistants' | resolveResource
+                    }"></ng-container>
+
+                    <ng-container *ngTemplateOutlet="menuItem; context: {
+                        base: constants.MASTER_DATA_BASE_ROUTE,
+                        route: constants.EXPOSURES_ROUTE,
+                        name: 'menu.sidebar.master.data.exposures' | resolveResource
+                    }"></ng-container>
+
+                    <ng-container *ngTemplateOutlet="menuItem; context: {
+                        base: constants.MASTER_DATA_BASE_ROUTE,
+                        route: constants.FEOR_GROUP_ROUTE,
+                        name: 'menu.sidebar.master.data.feor.group' | resolveResource
+                    }"></ng-container>
+
+                    <ng-container *ngTemplateOutlet="menuItem; context: {
+                        base: constants.MASTER_DATA_BASE_ROUTE,
+                        route: constants.JOB_TITLE_ROUTE,
+                        name: 'menu.sidebar.master.data.job.title' | resolveResource
+                    }"></ng-container>
+                    <!-- // TODO partner specifikus expozíciós mátrix... : export const TODO_ROUTE: string = "TODO"; -->
+                    <!-- <ng-container *ngTemplateOutlet="menuItem; context: {
+                        base: constants.MASTER_DATA_BASE_ROUTE,
+                        route: constants.TODO,
+                        name: 'menu.sidebar.master.data.TODO' | resolveResource
+                    }"></ng-container> -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Beosztás -->
+        <div class="menu-item menu-accordion" data-kt-menu-trigger="click" routerLinkActive="here show">
+            <span class="menu-link">
+                <span class="menu-icon">
+                    <span class="svg-icon svg-icon-2" [inlineSVG]="'./assets/images/icons/arrow-right.svg'"></span>
+                </span>
+                <span class="menu-title">{{"menu.sidebar.schedule" | resolveResource}}</span>
+            </span>
+            <div class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">
+                <div class="menu-item menu-accordion" routerLinkActive="here show" data-kt-menu-trigger="click">
+                    <ng-container *ngTemplateOutlet="menuItem; context: {
+                        base: constants.SCHEDULE_BASE_ROUTE,
+                        route: constants.SCHEDULE_TEMPLATE,
+                        name: 'menu.sidebar.schedule.template' | resolveResource
+                    }"></ng-container>
+
+                    <ng-container *ngTemplateOutlet="menuItem; context: {
+                        base: constants.SCHEDULE_BASE_ROUTE,
+                        route: constants.SCHEDULE_GENERATOR,
+                        name: 'menu.sidebar.schedule.generator' | resolveResource
+                    }"></ng-container>
+
+                    <ng-container *ngTemplateOutlet="menuItem; context: {
+                        base: constants.SCHEDULE_BASE_ROUTE,
+                        route: constants.SCHEDULE_PLANNER,
+                        name: 'menu.sidebar.schedule.planner' | resolveResource
+                    }"></ng-container>
+
+                    <ng-container *ngTemplateOutlet="menuItem; context: {
+                        base: constants.SCHEDULE_BASE_ROUTE,
+                        route: constants.SCHEDULE_PUBLISHING,
+                        name: 'menu.sidebar.schedule.publishing' | resolveResource
+                    }"></ng-container>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rendszer -->
+        <div class="menu-item menu-accordion" data-kt-menu-trigger="click" routerLinkActive="here show">
+            <span class="menu-link">
+                <span class="menu-icon">
+                    <span class="svg-icon svg-icon-2" [inlineSVG]="'./assets/images/icons/arrow-right.svg'"></span>
+                </span>
+                <span class="menu-title">{{"menu.sidebar.system" | resolveResource}}</span>
+            </span>
+            <div class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">
+                <div class="menu-item menu-accordion" routerLinkActive="here show" data-kt-menu-trigger="click">
+                    <ng-container *ngTemplateOutlet="menuItem; context: {
+                        base: constants.SYSTEM_BASE_ROUTE,
+                        route: constants.USERS_ROUTE,
+                        name: 'menu.sidebar.system.users' | resolveResource
+                    }"></ng-container>
+
+                    <ng-container *ngTemplateOutlet="menuItem; context: {
+                        base: constants.SYSTEM_BASE_ROUTE,
+                        route: constants.ROLES_ROUTE,
+                        name: 'menu.sidebar.system.roles' | resolveResource
+                    }"></ng-container>
+
+                    <ng-container *ngTemplateOutlet="menuItem; context: {
+                        base: constants.SYSTEM_BASE_ROUTE,
+                        route: constants.AUTHORITIES_ROUTE,
+                        name: 'menu.sidebar.system.authorities' | resolveResource
+                    }"></ng-container>
+
+                    <ng-container *ngTemplateOutlet="menuItem; context: {
+                        base: constants.SYSTEM_BASE_ROUTE,
+                        route: constants.FUNCTIONS_ROUTE,
+                        name: 'menu.sidebar.system.functions' | resolveResource
+                    }"></ng-container>
+
+                    <ng-container *ngTemplateOutlet="menuItem; context: {
+                        base: constants.SYSTEM_BASE_ROUTE,
+                        route: constants.CONFIGURATIONS_ROUTE,
+                        name: 'menu.sidebar.system.configurations' | resolveResource
+                    }"></ng-container>
+
+                    <ng-container *ngTemplateOutlet="menuItem; context: {
+                        base: constants.SYSTEM_BASE_ROUTE,
+                        route: constants.DIVISION_NUMBERS_ROUTE,
+                        name: 'menu.sidebar.system.division.numbers' | resolveResource
+                    }"></ng-container>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ellátás szervezés -->
+        <div class="menu-item menu-accordion" data-kt-menu-trigger="click" routerLinkActive="here show">
+            <span class="menu-link">
+                <span class="menu-icon">
+                    <span class="svg-icon svg-icon-2" [inlineSVG]="'./assets/images/icons/arrow-right.svg'"></span>
+                </span>
+                <span class="menu-title">{{"menu.sidebar.medical.management" | resolveResource}}</span>
+            </span>
+            <div class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">
+                <div class="menu-item menu-accordion" routerLinkActive="here show" data-kt-menu-trigger="click">
+                    <ng-container *ngTemplateOutlet="menuItem; context: {
+                        base: constants.MEDICAL_MANAGEMENT_BASE_ROUTE,
+                        route: constants.RECEPTION_ROUTE,
+                        name: 'menu.sidebar.medical.management.reception' | resolveResource
+                    }"></ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end::Menu-->
+</div>
+<!--end::Menu wrapper-->
+
+<ng-template #menuItem let-base="base" let-route="route" let-name="name">
+    <a
+        class="menu-link without-sub"
+        routerLinkActive="active"
+        [routerLink]="'/' + base + '/' + route"
+    >
+        <span class="menu-bullet">
+            <span class="bullet bullet-dot"></span>
+        </span>
+        <span
+            class="menu-title"
+            [attr.data-link]="'/' + base + '/' + route "
+        >
+            {{name}}
+        </span>
+    </a>
+</ng-template>

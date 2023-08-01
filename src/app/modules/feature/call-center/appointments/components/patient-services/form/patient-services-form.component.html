@@ -1,0 +1,145 @@
+<ng-container *ngIf="{
+    editorModalConfig: editorModalConfig$ | async
+} as vm" [formGroup]="form">
+    <ng-container>
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden flex-20">
+                <app-select-field
+                    [label]="'cc.services.label.clinics' | resolveResource"
+                    formControlName="clinicId"
+                    [options]="clinicOptions"
+                    [hideDefaultOption]="false"
+                ></app-select-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-20">
+                <app-datepicker-field
+                    [label]="'cc.services.label.startDate' | resolveResource"
+                    formControlName="startDate"
+                ></app-datepicker-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-20">
+                <app-datepicker-field
+                    [label]="'cc.services.label.endDate' | resolveResource"
+                    formControlName="endDate"
+                ></app-datepicker-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-20">
+                <app-timepicker-field
+                    [label]="'cc.services.label.startTime' | resolveResource"
+                    formControlName="startTime"
+                ></app-timepicker-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-20">
+                <app-timepicker-field
+                    [label]="'cc.services.label.endTime' | resolveResource"
+                    formControlName="endTime"
+                ></app-timepicker-field>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden flex-40">
+            <app-autocomplete-field
+                [label]="'cc.services.label.specialty' | resolveResource"
+                formControlName="specialty"
+                [searchFn$]="specialtyAutocomplete.searhcFn"
+                [inputFormatter]="specialtyAutocomplete.getFormattedInputText"
+                [resultFormatter]="specialtyAutocomplete.getFormattedSelectText"
+            ></app-autocomplete-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-20">
+                <app-select-field
+                    [label]="'cc.services.label.language' | resolveResource"
+                    formControlName="dC_LanguageId"
+                    [options]="languageOptions"
+                    [hideDefaultOption]="false"
+                ></app-select-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-40">
+                <app-number-field
+                    [label]="'cc.services.label.ages' | resolveResource"
+                    formControlName="patientAge"
+                ></app-number-field>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden flex-25">
+                <app-autocomplete-field
+                    [label]="'cc.services.label.service' | resolveResource"
+                    formControlName="service"
+                    [searchFn$]="serviceAutocomplete.searchFn"
+                    [inputFormatter]="serviceAutocomplete.getFormattedInputText"
+                    [resultFormatter]="serviceAutocomplete.getFormattedSelectText"
+                ></app-autocomplete-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-20">
+                <app-select-field
+                    [label]="'cc.services.label.legals' | resolveResource"
+                    formControlName="permissions"
+                    [options]="(permissionOptions$ | async) ?? []"
+                    [hideDefaultOption]="false"
+                ></app-select-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-15">
+                <app-number-field
+                    [label]="'cc.services.label.price' | resolveResource"
+                    [fieldSuffixTemplate]="customFieldsuffixTemplateFt"
+                    formControlName="price"
+                ></app-number-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-15">
+                <app-number-field
+                    [label]="'cc.services.label.balance' | resolveResource"
+                    [fieldSuffixTemplate]="customFieldsuffixTemplateFt"
+                    formControlName="balance"
+                ></app-number-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-25">
+                <app-select-field
+                    [label]="'cc.services.label.doctor' | resolveResource"
+                    formControlName="doctors"
+                    [options]="medicalOptions"
+                    [hideDefaultOption]="false"
+                ></app-select-field>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row mt-10 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden">
+                <div class="d-flex flex-row align-items-baseline text-start">
+                    <div *ngFor="let dayOption of dayConfigs" [formGroup]="dC_DayIdFg" class="flex-column-fluid">
+                        <app-checkbox-field
+                            [label]="dayOption.resourceKeyPart"
+                            [formControlName]="dayOption.dayId"
+                        ></app-checkbox-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row mt-10 justify-content-between">
+            <!--<button class="btn customBtn" type="button" (click)="submitService()">
+                <span [inlineSVG]="'./assets/images/icons/plus.svg'" class="svg-icon svg-icon-1 color-inherit"></span>
+                {{ 'cc.modals.action.add' | resolveResource }}
+            </button>-->
+            <div class="d-flex flex-row justify-content-end">
+                <button class="btn customBtn ml-5" type="button" (click)="openModal()">
+                    {{ 'cc.modals.action.to.basket' | resolveResource }}
+                </button>
+            </div>
+        </div>
+    </ng-container>
+
+    <ng-template #customFieldsuffixTemplateFt>
+        <span class="input-group-text">
+            {{ 'general.currency.HUF' | resolveResource }}
+        </span>
+    </ng-template>
+
+    <app-modal #cartModal [modalConfig]="modalConfig$ | async">
+        <app-cc-appointments-cart-times #formComponent [data]="cartData$ | async"></app-cc-appointments-cart-times>
+        <!--<app-cc-appointments-cart-form #formComponent [data]="cartData$ | async"></app-cc-appointments-cart-form>-->
+    </app-modal>
+
+</ng-container>

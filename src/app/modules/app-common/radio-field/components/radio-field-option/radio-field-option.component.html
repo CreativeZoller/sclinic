@@ -1,0 +1,14 @@
+<label *ngIf="useAlignBaselineFix" class="form-label mb-5 w-0 invisible">&nbsp;</label>
+
+<div class="form-check form-check-custom form-check-solid form-check-sm">
+    <input
+        class="form-check-input"
+        type="radio"
+        [disabled]="isDisabled || false"
+        [value]="optionValue"
+        [checked]="isChecked"
+        (blur)="_onBlur()"
+        (click)="_onClick($event)"
+    />
+    <label class="form-check-label" [class.form-check-label-bold]="boldLabel">{{ label }}</label>
+</div>

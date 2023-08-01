@@ -1,0 +1,13 @@
+<ng-container [formGroup]="form">
+    <div class="d-flex flex-row gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-autocomplete-field
+                [label]="'medical.employee.professional.exam.form.label.puphaX_ProfessionalExamCode' | resolveResource"
+                formControlName="puphaX_ProfessionalExamCode"
+                [searchFn$]="professionalExamAutocomplete.searhcFn$"
+                [inputFormatter]="professionalExamAutocomplete.getFormattedInputText"
+                [resultFormatter]="professionalExamAutocomplete.getFormattedSelectText"
+            ></app-autocomplete-field>
+        </div>
+    </div>
+</ng-container>

@@ -1,0 +1,199 @@
+REFACTOR:
+    item form/list/stb komponens impl+refactor
+
+    - src/assets/scss kitenni src/styles-ba
+
+    - [ ] a fölösleges metronic-os komponenseket kivenni
+    - [ ] a fölösleges képeket kivenni
+        - media/demos még nincs átfutva
+    - [ ] environment.ts-ből kivenni a metronic-os fölösleges dolgokat
+    - [ ] commonjs dependencies refactor
+    - [ ] general form errors refactor
+            - ahol csak általános hibákat használunk ott töröljük a errorResource prefixet
+            - hu.resource-ból eltávolítani a fölösleges error kulcsokat
+
+    - [ ] package json-ból fölösleges dependency-k kivenni
+    - [ ] modulokból fölösleges dependecyk kivenni
+
+    - [ ] table headers-nél az attribute name kivezetése, helyette használjuk a formatterFn-t
+    - [ ] TableHeader -ből kivenni az id property-t
+    - [ ] grid modellek kivezetni ahol nincs grid lekérdezés
+    - [ ] typo fix: speciality -> specialty
+
+    - [ ] nyelviesítésből kiamaradt szövegek lefordítani
+        - [ ] Ft helyett "general.currency.HUF" használata
+
+    - tree componenteket valahogy generalizálni kellene
+    - BaseControlValueAccessor helyett használjuk mindenhol a BaseControlValueAccessWithForm-ot
+    - initDataProvider service használata
+    - BE ci/cd használata
+    - update nél a régi ID-kat vissza kell küldeni, create-nél elég csak 0-t küldeni és akkor azt create-nek veszi
+    - "medical-employee-contract-commission-tree-field.component" alapján módosítani a "medical-employee-speciality-service-tree-field.component"-t
+
+    master-data és system modulokban a komponenseket saját al-modulokba kellene rakni
+        - (hogy ha például szükség van a system modulban egy master-data-s komponensre akkor be lehessen oda húzni, circular dependency és multiple component declaration hibák nélkül)
+
+    SelectionListFieldComponent
+        // TODO fix: BaseControlValueAccessor<any[]> -> BaseControlValueAccessor<T[]>
+        // Error: Base class expressions cannot reference class type parameters. ts(2562)
+
+    AppModule
+        // TODO refactor / remove
+        TranslateModule.forRoot(),
+
+    tsconfig.json
+        "noImplicitOverride": false,// TODO set it to true when it works with swagger codegen
+        "strictPropertyInitialization": false,// TODO set it to true and refactor related code
+
+    DynamicComponentDirective, DynamicTableCellComponentDirective
+        // TODO move it to the app common module
+
+    app-common.module.ts
+        // TODO impl common components services module
+        // TODO shared (modul) dolgokat ide kivezetni
+
+    CkeditorFieldComponent
+        // TODO ckeditor config
+        // TODO ckeditor localizzations
+
+    _SharedModule és SharedModule megszüntetése
+
+    service provider entity:
+        //TODO Az ebben található logikát át kellene vezetni a formValueToRequestValue metódusba.
+        public getFormValue(raw?: boolean | undefined): Full_Model {
+
+        HTML: <!-- TODO [tableTitleUseSectionSubtitle]="tableTitleUseSectionSubtitle" -->
+
+    document template list component
+            documentTemplatePlaceholder: [],// TODO hotfix
+
+    Alábbiakra rákeresni:
+        // TODO review this
+
+    Nyelviesítés, hibakezelés:
+        file-input-field.component.ts
+            this.toastrService.error("A fájlt nem sikerült feldolgozni, kérjük probálja újra!");// TODO hibakód lefordítása
+        login.component.ts
+            this.toastrService.error("Nem sikerült bejelentkezni, kérjük ellenőrizze a megadott adatokat!");// TODO nyelviesítés
+        login-second-factor-form.component.ts
+            this.toastrService.error("Nem sikerült bejelentkezni, kérjük ellenőrizze a megadott adatokat!");// TODO nyelviesítés
+
+
+	master data
+		init page resolver refactor (mindenhol ezt használni)
+			- items
+		base form component refactor (mindenhol ezt használni)
+		list component refactor (mindenhol ezt használni)
+	all
+		models -> Tmodel refactor (mindenhol ezt használni) pl Function -> TFunction
+
+	changeDetection: ChangeDetectionStrategy.OnPush, használni mindenhol
+
+	*.scss-ekben megszüntetni a globális style behúzását
+		@import "/src/assets/sass/style.scss";
+
+	- ngOnInit$ mixin használata ahol OnInit-től függ az observable értéke
+	- ngAfterViewInit$ mixin használata ahol ngAfterViewInit-től függ az observable értéke
+
+	- getFormValue kivezetése, helyette formValueToRequestValue használjunk
+
+	- removeNullProperties kivezetése
+
+	- ...rowData kivenni mert a form value lenne csak a lényeges
+		kivenni a list komponenskeből, (handleSave$)
+		cserébe a form-okba felvenni az id mezőt
+
+	app-table -> app-commonba átrakni
+		list.module.ts TODO
+		selection-table.module.ts TODO
+
+	app-common refactor (shared module helyett)
+		- app-common.module.ts TODO
+
+	_Shared module megszüntetése
+
+	loading mask / képernyő lekészítése
+		- table stb loading kicserélése
+
+	- nyelviesítés nincs impl, szövegezés statikus
+		- common komponensek átnézni
+	- táblázat lapozás nem működik
+	- táblázat oszlop szélességek nem megfelelőek
+	- táblázat több sorba törnek a headerök
+	- táblázat oszlop headerjében a kereső mezők nem mindig látszanak megfelelően
+	- táblázat csoportos műveletek
+
+    táblázat fejlécek lenyítós részei
+        - hogy nézzen ki a kinyitott állapot?
+
+	** @font-face refactor
+	** app-common standalone components refactor
+	** protected legyen minden olyan tag amire csak a template-n van szükség
+
+
+    - BE hibakezelés implementálása után FE oldalt is implementálni
+
+    - popup/modal service: refactor?
+        - popup cannot be closed after navigation (ex.: http 401 redirect) bugfix
+
+    - @ObserveInput használata @Input + get/set + BehvaioutSubject helyett:
+        @Input() activeClinicRoomList: CoreModelsDTOsMasterDataMainTablesClinicRoomDTO[];
+        @ObserveInput("activeClinicRoomList") activeClinicRoomList$!: BehaviorSubject<typeof this.activeClinicRoomList>;
+
+
+
+---BE+FE TODO---
+	oszlop megjeleníthetőség / sorrend
+	jogosultság kezelés funkciókra
+        *role/permission kezelés
+            -swissUserXRole -> szerepkörök
+                -roleXRight -> adott szerepkörhöz tartozó jogok
+                    - functionId / functionDTO -> melyik konkrét FE komponensről van szó
+	?? cikkszám generálás ??
+	executing user Id kivezetése
+    *csrf impl
+        - cookie-ként küldeni
+        - response body-ban is küldeni
+        - requestkor mindkettőt küldeni server felé, ha ott nem egyeznek meg akkor elutasítani a kérést
+        (https://stackoverflow.com/a/69435737)
+    *jwt token cookie impl
+        - HttpOnly == no js
+        - Same-Site=Strict == csak saját oldalon
+        - Secure == csak https-en
+
+    passwords getUserById dto-ból kivenni
+    swagger útvonalak rövidíteni
+    swagger összevonása
+    swagger doksiban lévő dolgok dokumentálása, (dto mezők mire jók)
+
+    swagger ///summary kommentek legyenek benne a generált modellekben
+
+
+TODO OTHERS
+    rtl dir, direction eltávolítani html és ts fájlokból is
+
+        metronic ui
+        angular material
+        bootstrap
+        jquery
+        jquery datatables
+
+    index.html kiakarítani
+
+    scss letisztázása
+
+    shared modul átvezetni
+
+    budgets lejjebb venni?
+        "budgets": [
+            {
+                "type": "initial",
+                "maximumWarning": "500kb",
+                "maximumError": "1mb"
+            },
+            {
+                "type": "anyComponentStyle",
+                "maximumWarning": "2kb",
+                "maximumError": "4kb"
+            }
+        ],

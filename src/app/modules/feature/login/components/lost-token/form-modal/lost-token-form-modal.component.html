@@ -1,0 +1,8 @@
+<app-form-modal
+    [modalTitle]="'lost.token.modal.title' | resolveResource"
+    [dismissButtonLabel]="'general.action.label.back' | resolveResource"
+    [saveButtonLabel]="'general.action.label.send' | resolveResource"
+    [handleSave$]="handleSave$"
+>
+    <app-lost-token-form #formComponent ></app-lost-token-form>
+</app-form-modal>

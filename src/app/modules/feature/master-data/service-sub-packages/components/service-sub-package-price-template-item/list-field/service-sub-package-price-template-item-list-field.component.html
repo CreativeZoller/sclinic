@@ -1,0 +1,19 @@
+<app-list-field
+    [baseResourceKey]="baseResourceKey"
+    [tableIdProperty]="tableIdProperty"
+    [tableTitle]="tableTitle"
+    [tableTitleUseSectionSubtitle]="tableTitleUseSectionSubtitle"
+    [tableHeaders]="tableHeaders"
+    [errorResourceKeyPrefix]="errorResourceKeyPrefix"
+    [errorAddControlNameToResourceKeyPrefix]="errorAddControlNameToResourceKeyPrefix"
+    [errorShowErrorsMethod]="errorShowErrorsMethod"
+    [errorResourceOverrides]="errorResourceOverrides"
+    [errorResourceOverridesMethod]="errorResourceOverridesMethod"
+    [canCreate]="!!(canCreate$ | async)"
+>
+    <app-service-sub-package-price-template-item-form
+        #editorForm
+        [allPriceTemplates]="(allPriceTemplates$ | async) ?? []"
+        [allSelectedPriceTemplates]="(allSelectedPriceTemplates$ | async) ?? []"
+    ></app-service-sub-package-price-template-item-form>
+</app-list-field>

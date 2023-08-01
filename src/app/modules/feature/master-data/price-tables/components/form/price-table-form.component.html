@@ -1,0 +1,17 @@
+<ng-container *ngIf="{
+    initialEditorData: initialEditorData$ | async,
+    activePriceTable: activePriceTable$ | async,
+    pendingActivePriceTable: pendingActivePriceTable$ | async
+} as vm">
+    <app-price-table-form-create
+        *ngIf="!vm.initialEditorData"
+        #childFormComponent
+    ></app-price-table-form-create>
+
+    <app-price-table-form-update
+        *ngIf="!!vm.initialEditorData"
+        #childFormComponent
+        [activePriceTable]="vm.activePriceTable ?? undefined"
+        [pendingActivePriceTable]="vm.pendingActivePriceTable ?? undefined"
+    ></app-price-table-form-update>
+</ng-container>

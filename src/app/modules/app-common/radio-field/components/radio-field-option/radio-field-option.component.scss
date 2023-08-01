@@ -1,0 +1,39 @@
+@import "/src/assets/sass/init";
+@import "/src/assets/sass/variables";
+
+:host {
+    display: block;
+    width: 100%;
+
+    .form-check-label {
+        font-size: 14px;
+        line-height: 21px;
+        letter-spacing: 0em;
+        color: $black;
+
+        &.form-check-label-bold {
+            font-family: 'Poppins-SemiBold';
+            font-weight: normal;
+        }
+    }
+
+    .form-check-custom {
+        &.form-check-solid {
+            .form-check-input {
+                cursor: pointer;
+                background-color: $checkboxGrey;
+
+                & + label {
+                    color: $black;
+                    cursor: pointer;
+                }
+
+                &:checked {
+                    background-color: $checkboxGreyActive;
+                    background-image: url("/assets/images/icons/radiomark.svg");
+                    border: 1px solid $checkboxGreyActive;
+                }
+            }
+        }
+    }
+}

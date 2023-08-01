@@ -1,0 +1,144 @@
+<ng-container *ngIf="{
+    form: form$ | async
+} as vm">
+    <div
+        *ngIf="!vm.form"
+        class="d-flex justify-content-center loading-spinner-container-large"
+    >
+        <div class="spinner-border loading-spinner-large" role="status"></div>
+    </div>
+
+    <div *ngIf="!!vm.form" class="tree-container">
+        <!-- HEADER -->
+        <ng-container>
+            <div class="tree-column tree-column-header justify-content-start">
+                <span>
+                    {{'medical.employee.contract.commission.tree.headers.title' | resolveResource}}
+                </span>
+            </div>
+            <div class="tree-column tree-column-header justify-content-start">
+                <span>
+                    {{'medical.employee.contract.commission.tree.headers.commissionPercentage' | resolveResource}}
+                </span>
+            </div>
+            <div class="tree-column tree-column-header justify-content-start">
+                <span>
+                    {{'medical.employee.contract.commission.tree.headers.commissionAmount' | resolveResource}}
+                </span>
+            </div>
+            <div class="tree-column tree-column-header justify-content-start">
+                <span>
+                    {{'medical.employee.contract.commission.tree.headers.cancelPercentage' | resolveResource}}
+                </span>
+            </div>
+            <div class="tree-column tree-column-header justify-content-start">
+                <span>
+                    {{'medical.employee.contract.commission.tree.headers.cancelAmount' | resolveResource}}
+                </span>
+            </div>
+            <div class="tree-hr tree-hr-header"></div>
+        </ng-container>
+        <!-- TREE ROWS -->
+        <ng-container>
+            <ng-template #recursiveTreeNodes let-formArray="formArray" let-level="level">
+                <ng-container *ngFor="let fg of formArray.controls">
+                    <!-- TREE ROW -->
+                    <ng-container *ngIf="{
+                        showFields: (fg.value.type !== 'SPECIALITY' && fg.value.type !== 'ROOT')
+                    } as vm2">
+                        <div
+                            class="tree-column align-items-center"
+                            [ngStyle]="{'padding-left': (15 + 25*(level - 1)) + 'px'}"
+                        >
+                            <span *ngIf="level > 0" [inlineSVG]="'./assets/images/icons/level.svg'"></span>
+
+                            <button
+                                *ngIf="fg.controls._children?.controls?.length ?? 0 > 0"
+                                mat-icon-button
+                                class="d-flex align-items-center justify-content-center p-0 ms-1"
+                                (click)="fg.controls._expanded.setValue(fg.value._expanded !== true)"
+                            >
+                                <mat-icon>{{fg.controls._expanded.value ? 'expand_more' : 'chevron_right'}}</mat-icon>
+                            </button>
+
+                            <div class="d-flex gap-2 align-items-center justify-content-center"
+                                [class.ms-1]="fg.controls._children.controls?.length ?? 0 > 0"
+                                [class.ms-2]="!(fg.controls._children.controls?.length ?? 0 > 0)"
+                            >
+                                <app-checkbox-field
+                                    [label]="fg.value._label"
+                                    [boldLabel]="false"
+                                    [formControl]="fg.controls.selected"
+                                ></app-checkbox-field>
+                            </div>
+                        </div>
+                        <div class="tree-column">
+                            <div class="d-flex flex-row align-items-baseline">
+                                <app-number-field
+                                    *ngIf="vm2.showFields"
+                                    [hideLabel]="true"
+                                    [autoSizeConfig]="{ autoSize: true, minCharLen: 2 }"
+                                    [formControl]="fg.controls.commissionPercentage"
+                                >
+                                    <ng-template #fieldSuffixTemplate>
+                                        <span class="input-group-text"> %</span>
+                                    </ng-template>
+                                </app-number-field>
+                            </div>
+                        </div>
+                        <div class="tree-column">
+                            <div class="d-flex flex-row align-items-baseline">
+                                <app-number-field
+                                    *ngIf="vm2.showFields"
+                                    [hideLabel]="true"
+                                    [autoSizeConfig]="{ autoSize: true, minCharLen: 2 }"
+                                    [formControl]="fg.controls.commissionAmount"
+                                >
+                                    <ng-template #fieldSuffixTemplate>
+                                        <span class="input-group-text"> Ft</span>
+                                    </ng-template>
+                                </app-number-field>
+                            </div>
+                        </div>
+                        <div class="tree-column">
+                            <div class="d-flex flex-row align-items-baseline">
+                                <app-number-field
+                                    *ngIf="vm2.showFields"
+                                    [hideLabel]="true"
+                                    [autoSizeConfig]="{ autoSize: true, minCharLen: 2 }"
+                                    [formControl]="fg.controls.cancelPercentage"
+                                >
+                                    <ng-template #fieldSuffixTemplate>
+                                        <span class="input-group-text"> %</span>
+                                    </ng-template>
+                                </app-number-field>
+                            </div>
+                        </div>
+                        <div class="tree-column">
+                            <div class="d-flex flex-row align-items-baseline">
+                                <app-number-field
+                                    *ngIf="vm2.showFields"
+                                    [hideLabel]="true"
+                                    [autoSizeConfig]="{ autoSize: true, minCharLen: 2 }"
+                                    [formControl]="fg.controls.cancelAmount"
+                                >
+                                    <ng-template #fieldSuffixTemplate>
+                                        <span class="input-group-text"> Ft</span>
+                                    </ng-template>
+                                </app-number-field>
+                            </div>
+                        </div>
+                    </ng-container>
+
+                    <div class="tree-hr"></div>
+
+                    <ng-container *ngIf="fg.value._expanded && !!fg.controls._children">
+                        <ng-container *ngTemplateOutlet="recursiveTreeNodes; context:{ formArray: fg.controls._children, level: level + 1 }"></ng-container>
+                    </ng-container>
+                </ng-container>
+            </ng-template>
+
+            <ng-container *ngTemplateOutlet="recursiveTreeNodes; context:{ formArray: vm.form, level: 0 }"></ng-container>
+        </ng-container>
+    </div>
+</ng-container>

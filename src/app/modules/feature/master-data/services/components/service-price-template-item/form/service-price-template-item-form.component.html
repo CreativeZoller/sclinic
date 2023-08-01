@@ -1,0 +1,23 @@
+<ng-container [formGroup]="form" *ngIf="{
+    priceTemplateOptions: priceTemplateOptions$ | async
+} as vm">
+    <div class="d-flex flex-row gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-select-field
+                [label]="'service.price.template.item.form.label.priceTemplate' | resolveResource"
+                formControlName="priceTemplate"
+                [options]="vm.priceTemplateOptions ?? []"
+            ></app-select-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-number-field
+                [label]="'service.price.template.item.form.label.price' | resolveResource"
+                formControlName="price"
+            >
+                <ng-template #fieldSuffixTemplate>
+                    <span class="input-group-text"> Ft</span>
+                </ng-template>
+            </app-number-field>
+        </div>
+    </div>
+</ng-container>

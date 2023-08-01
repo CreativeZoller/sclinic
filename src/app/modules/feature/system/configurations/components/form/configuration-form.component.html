@@ -1,0 +1,19 @@
+<ng-container [formGroup]="form">
+    <div class="d-flex flex-row gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-text-field [label]="'configuration.form.label.configurationName' | resolveResource" formControlName="configurationName" [errorResourceKeyPrefix]="errorResourceKeyPrefix"></app-text-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-text-field [label]="'configuration.form.label.configurationValue' | resolveResource" formControlName="configurationValue" [errorResourceKeyPrefix]="errorResourceKeyPrefix"></app-text-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-datepicker-field [label]="'configuration.form.label.validFrom' | resolveResource" formControlName="validFrom" [errorResourceKeyPrefix]="errorResourceKeyPrefix"></app-datepicker-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-datepicker-field [label]="'configuration.form.label.validTo' | resolveResource" formControlName="validTo" [errorResourceKeyPrefix]="errorResourceKeyPrefix"></app-datepicker-field>
+        </div>
+    </div>
+</ng-container>

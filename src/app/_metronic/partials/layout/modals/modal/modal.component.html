@@ -1,0 +1,76 @@
+<ng-template #modal>
+    <div
+        class="modalContainer"
+        [class.modalContainer--small]="config.classSmall"
+        [ngClass]="containerClasses"
+        tabindex="-1"
+        ngbAutofocus
+        [style.outline]="0"
+    >
+        <div class="modal-header">
+            <!--begin::Modal title-->
+            <h2>{{ config.modalTitle }}</h2>
+            <!--end::Modal title-->
+            <!--begin::Close-->
+            <div class="btn btn-sm btn-icon btn-active-color-primary"
+                (click)="!config.disableDismissButton && config.onDismiss?.(this)"
+                *ngIf="!(config.hideDismissButton ?? false)"
+            >
+                <span [inlineSVG]="'./assets/images/icons/close.svg'"></span>
+            </div>
+            <!--end::Close-->
+        </div>
+        <div class="modal-body">
+            <ng-content *ngIf="!config.loading"></ng-content>
+
+            <div *ngIf="config.loading" class="d-flex justify-content-center loading-spinner-container-large">
+                <div class="spinner-border loading-spinner-large" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="d-flex flex-row w-100">
+                <div class="d-flex flex-column-fluid overflow-hidden flex-50" *ngIf="!(config.hideDeleteButton ?? false)" >
+                    <button
+                        type="button"
+                        class="btn customBtn--secondary"
+                        (click)="!config.disableDeleteButton && config.onDelete?.(this)"
+                        [disabled]="config.disableDeleteButton ?? false"
+                    >
+                        {{ config.deleteButtonLabel }}
+                    </button>
+                </div>
+                <div class="d-flex flex-column-fluid overflow-hidden justify-content-end gap-5" [class.flex-50]="!(config.hideDeleteButton ?? false)">
+                    <button
+                        type="button"
+                        class="btn customBtn--secondary order-1"
+                        (click)="!config.disableDismissButton && config.onDismiss?.(this)"
+                        *ngIf="!(config.hideDismissButton ?? false)"
+                        [disabled]="config.disableDismissButton ?? false"
+                    >
+                        {{ config.dismissButtonLabel }}
+                    </button>
+
+                    <button
+                        type="button"
+                        class="btn customBtn order-3"
+                        (click)="!config.disableSaveButton && config.onSave?.(this)"
+                        *ngIf="!(config.hideSaveButton ?? false)"
+                        [disabled]="config.disableSaveButton ?? false"
+                    >
+                        {{ config.saveButtonLabel }}
+                    </button>
+
+                    <ng-container *ngFor="let extraxButtonConfig of config.extraButtonsConfigs ?? []">
+                        <ng-template
+                            appDynamicComponent
+                            [component]="extraxButtonConfig.component"
+                            [initComponentBindingFn]="extraxButtonConfig.initComponentBindingFn"
+                        ></ng-template>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

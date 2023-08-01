@@ -1,0 +1,119 @@
+<ng-container [formGroup]="form">
+    <div class="d-flex flex-row gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-33">
+            <app-autocomplete-field
+                [label]="'reception.tabs.patient.management.arrival.management.appointment.service.form.label.specialtyName' | resolveResource"
+                formControlName="specialty"
+                [searchFn$]="specialtyAutocomplete.searchFn"
+                [inputFormatter]="specialtyAutocomplete.getFormattedInputText"
+                [resultFormatter]="specialtyAutocomplete.getFormattedSelectText"
+            ></app-autocomplete-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-33">
+            <ng-container formArrayName="appointmentServiceExtension">
+                <ng-container formGroupName="0">
+                    <app-autocomplete-field
+                        [label]="'reception.tabs.patient.management.arrival.management.appointment.service.form.label.serviceName' | resolveResource"
+                        formControlName="service"
+                        [searchFn$]="serviceAutocomplete.searchFn"
+                        [inputFormatter]="serviceAutocomplete.getFormattedInputText"
+                        [resultFormatter]="serviceAutocomplete.getFormattedSelectText"
+                    ></app-autocomplete-field>
+                </ng-container>
+            </ng-container>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-33">
+            <app-autocomplete-field
+                [label]="'reception.tabs.patient.management.arrival.management.appointment.service.form.label.medicalEmployeeName' | resolveResource"
+                formControlName="medicalEmployee"
+                [searchFn$]="medicalEmployeeAutocomplete.searchFn"
+                [inputFormatter]="medicalEmployeeAutocomplete.getFormattedInputText"
+                [resultFormatter]="medicalEmployeeAutocomplete.getFormattedSelectText"
+            ></app-autocomplete-field>
+        </div>
+    </div>
+
+    <ng-container formArrayName="appointmentServiceExtension">
+        <ng-container formGroupName="0">
+            <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+                <div class="flex-column-fluid overflow-hidden flex-33">
+                    <app-autocomplete-field
+                        [label]="'reception.tabs.patient.management.arrival.management.appointment.service.form.label.subContractNumberName' | resolveResource"
+                        formControlName="subContractNumber"
+                        [searchFn$]="subContractNumberAutocomplete.searchFn"
+                        [inputFormatter]="subContractNumberAutocomplete.getFormattedInputText"
+                        [resultFormatter]="subContractNumberAutocomplete.getFormattedSelectText"
+                    ></app-autocomplete-field>
+                </div>
+                <div class="flex-column-fluid overflow-hidden flex-33">
+                    <app-number-field
+                        [label]="'reception.tabs.patient.management.arrival.management.appointment.service.form.label.price' | resolveResource"
+                        formControlName="servicePrice"
+                    >
+                        <ng-template #fieldSuffixTemplate>
+                            <span class="input-group-text">{{"general.currency.HUF" | resolveResource}}</span>
+                        </ng-template>
+                    </app-number-field>
+                </div>
+                <div class="flex-column-fluid overflow-hidden flex-16">
+                    <app-checkbox-field
+                        [label]="'reception.tabs.patient.management.arrival.management.appointment.service.form.label.isValid' | resolveResource"
+                        formControlName="isValid"
+                        [useAlignBaselineFix]="true"
+                    ></app-checkbox-field>
+                </div>
+                <ng-container formGroupName="accountBalance">
+                    <div class="flex-column-fluid overflow-hidden flex-16">
+                        <app-number-field
+                            [label]="'reception.tabs.patient.management.arrival.management.appointment.service.form.label.accountBalanceQuantity' | resolveResource"
+                            formControlName="quantity"
+                        >
+                            <ng-template #fieldSuffixTemplate>
+                                <span class="input-group-text">{{"general.unit.piece" | resolveResource}}</span>
+                            </ng-template>
+                        </app-number-field>
+                    </div>
+                </ng-container>
+            </div>
+        </ng-container>
+    </ng-container>
+
+    <div class="gap-5 mt-10">
+        <app-reception-patient-arrival-management-appointment-service-cost-bearer-list-field
+            formControlName="appointmentCostBearer"
+        ></app-reception-patient-arrival-management-appointment-service-cost-bearer-list-field>
+    </div>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-33">
+            <app-timepicker-field
+                [label]="'reception.tabs.patient.management.arrival.management.appointment.service.form.label.startDate' | resolveResource"
+                formControlName="startDate"
+            ></app-timepicker-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-33">
+            <app-select-field
+                [label]="'reception.tabs.patient.management.arrival.management.appointment.service.form.label.floor' | resolveResource"
+                formControlName="_floorId"
+                [options]="(floorOptions$ | async) ?? []"
+            ></app-select-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-33">
+            <app-select-field
+                [label]="'reception.tabs.patient.management.arrival.management.appointment.service.form.label.room' | resolveResource"
+                formControlName="room"
+                [options]="(roomOptions$ | async) ?? []"
+            ></app-select-field>
+        </div>
+    </div>
+</ng-container>
+
+<div class="d-flex flex-row gap-5 mt-10 justify-content-end">
+    <button
+        type="button"
+        class="btn customBtn--secondary"
+        (click)="openCalendarView()"
+    >
+        {{ "reception.tabs.patient.management.arrival.management.appointment.service.form.button.label.to.calendar.view" | resolveResource }}
+    </button>
+</div>

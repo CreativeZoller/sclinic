@@ -1,0 +1,21 @@
+<app-list-field
+    [baseResourceKey]="baseResourceKey"
+    [tableIdProperty]="tableIdProperty"
+    [tableTitle]="tableTitle"
+    [tableTitleUseSectionSubtitle]="tableTitleUseSectionSubtitle"
+    [tableHeaders]="tableHeaders"
+    [errorResourceKeyPrefix]="errorResourceKeyPrefix"
+    [errorAddControlNameToResourceKeyPrefix]="errorAddControlNameToResourceKeyPrefix"
+    [errorShowErrorsMethod]="errorShowErrorsMethod"
+    [errorResourceOverrides]="errorResourceOverrides"
+    [errorResourceOverridesMethod]="errorResourceOverridesMethod"
+    [handleSave$]="handleSave$"
+    [canDelete]="false"
+    [valueToFormValue]="valueToFormValue"
+>
+    <app-service-specialty-doctor-selection-list-form
+        #editorForm
+        [allSpecialtyDoctors]="(allSpecialtyDoctors$ | async) ?? []"
+        [allSelectedSpecialtyDoctors]="(allSelectedSpecialtyDoctors$ | async) ?? []"
+    ></app-service-specialty-doctor-selection-list-form>
+</app-list-field>

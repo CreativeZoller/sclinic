@@ -1,0 +1,26 @@
+// Initialize
+@import "/src/assets/sass/style.scss";
+@import "/src/assets/sass/variables";
+
+.page-link.active,
+.active > .page-link {
+    background-color: $red;
+}
+
+.page-item {
+    &:hover:not(.active):not(.offset):not(.disabled) {
+        .page-link {
+            color: $red;
+
+            .previous, .next {
+                background-color: $red;
+            }
+        }
+    }
+}
+
+.select-width {
+    margin-right: 20px;
+    margin-left: 5px;
+    padding: 5px;
+}

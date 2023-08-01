@@ -1,0 +1,21 @@
+<ng-container [formGroup]="form">
+
+    <div class="d-flex flex-row gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-timepicker-field [label]="'schedule.planner.modal.special.time.list.table.headers.startDate' | resolveResource" formControlName="startDate"></app-timepicker-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-timepicker-field [label]="'schedule.planner.modal.special.time.list.table.headers.endDate' | resolveResource" formControlName="endDate"></app-timepicker-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-select-field
+                [label]="'schedule.planner.modal.special.time.list.table.headers.type' | resolveResource"
+                formControlName="dC_ScheduleSpecialTypeId"
+                [options]="initData.dC_ScheduleSpecialTypeList"
+            ></app-select-field>
+        </div>
+    </div>
+</ng-container>

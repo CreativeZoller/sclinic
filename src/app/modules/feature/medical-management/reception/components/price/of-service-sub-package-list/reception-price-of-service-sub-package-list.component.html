@@ -1,0 +1,25 @@
+<ng-container *ngIf="{
+    tableHeaders: tableHeaders$ | async,
+    showTableLoading: showTableLoading$ | async
+} as vm">
+    <app-list
+        *ngIf="!!vm.tableHeaders"
+        [baseResourceKey]="baseResourceKey"
+        [tableIdProperty]="tableIdProperty"
+        [tableHeaders]="vm.tableHeaders"
+        [getTableData$]="getTableData$"
+        [showLoading]="vm.showTableLoading ?? false"
+        [totalRecordCount]="(totalRecordCount$ | async)!"
+        [titleRowTemplate]="titleRowTemplate"
+    >
+        <ng-template #titleRowTemplate let-title="title" let-titleRowButtonsTemplate="titleRowButtonsTemplate">
+            <div class="mb-2 w-100 overflow-hidden">
+                <app-section-title [title]="title" [buttonsTemplate]="titleRowButtonsTemplate"></app-section-title>
+            </div>
+        </ng-template>
+    </app-list>
+
+    <div *ngIf="!vm.tableHeaders" class="d-flex justify-content-center loading-spinner-container-large">
+        <div class="spinner-border loading-spinner-large" role="status"></div>
+    </div>
+</ng-container>

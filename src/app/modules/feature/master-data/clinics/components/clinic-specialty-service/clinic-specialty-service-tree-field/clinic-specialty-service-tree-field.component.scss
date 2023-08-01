@@ -1,0 +1,30 @@
+@import "/src/assets/sass/variables";
+
+.tree-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: 10px;
+
+    .tree-column {
+        display: flex;
+        padding-top: 5px;
+        padding-bottom: 5px;
+
+        &.tree-column-header {
+            gap: 10px;
+            white-space: nowrap;
+            font-weight: bold;
+        }
+    }
+
+    .tree-hr {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        height: 1px;
+        background-color: $checkboxGrey;
+
+        &.tree-hr-header {
+            background-color: $checkboxGreyActive;
+        }
+    }
+}

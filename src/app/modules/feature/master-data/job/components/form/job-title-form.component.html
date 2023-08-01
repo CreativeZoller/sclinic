@@ -1,0 +1,84 @@
+<ng-container [formGroup]="form">
+    <div class="d-flex flex-row gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-autocomplete-field
+                [label]="'job.title.form.label.feor' | resolveResource"
+                formControlName="hsco"
+                [searchFn$]="hscoAutocomplete.searchFn$"
+                [inputFormatter]="hscoAutocomplete.getFormattedInputText"
+                [resultFormatter]="hscoAutocomplete.getFormattedSelectText"
+            ></app-autocomplete-field>
+        </div>
+    </div>
+
+    <ng-container *ngIf="!isGeneralFeorForm">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-text-field [label]="'job.title.form.label.titleName' | resolveResource" formControlName="titleName"></app-text-field>
+        </div>
+    </ng-container>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="w-100 overflow-hidden">
+            <app-section-title [title]="'job.title.form.section.title.class' | resolveResource"></app-section-title>
+        </div>
+    </div>
+
+    <ng-container  formGroupName="_occupationalHealth">
+        <div class="d-flex flex-row gap-5 mt-10  align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden w-100">
+                <app-select-field
+                    [label]="'job.title.form.label.occupationalHealth.dC_OccupationalHealthClassificationId' | resolveResource"
+                    formControlName="dC_OccupationalHealthClassificationId"
+                    [options]="initData.dC_OccupationalHealthClassificationList"
+                    [errorResourceKeyPrefix]="errorResourceKeyPrefix"
+                ></app-select-field>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+            <div class="w-100 overflow-hidden">
+                <app-section-title [title]="'job.title.form.section.title.examType' | resolveResource"></app-section-title>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden w-100">
+                <app-select-field [label]="'job.title.form.label.occupationalHealth.dC_OccupationalHealthTypeId' | resolveResource"
+                    formControlName="dC_OccupationalHealthTypeId"
+                    [options]="initData.dC_OccupationalHealthTypeList"
+                    [errorResourceKeyPrefix]="errorResourceKeyPrefix"
+                ></app-select-field>
+            </div>
+        </div>
+
+        <ng-container *ngIf="isGeneralFeorForm">
+            <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+                <div class="flex-column-fluid overflow-hidden w-100">
+                    <app-autocomplete-field
+                        [label]="'job.title.form.label.titleName' | resolveResource"
+                        formControlName="jobTitle"
+                        [searchFn$]="jobTitleAutocomplete.searchFn$"
+                        [inputFormatter]="jobTitleAutocomplete.getFormattedInputText"
+                        [resultFormatter]="jobTitleAutocomplete.getFormattedSelectText"
+                    ></app-autocomplete-field>
+                </div>
+            </div>
+        </ng-container>
+
+        <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden w-100">
+                <app-select-field [label]="'job.title.form.label.occupationalHealth.dC_OccupationalHealthPriceCategoryId' | resolveResource"
+                    formControlName="dC_OccupationalHealthPriceCategoryId"
+                    [options]="initData.dC_OccupationalHealthPriceCategoryList"
+                    [errorResourceKeyPrefix]="errorResourceKeyPrefix"
+                ></app-select-field>
+            </div>
+        </div>
+    </ng-container>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-job-title-service-list-field formControlName="jobTitleXService"></app-job-title-service-list-field>
+        </div>
+    </div>
+</ng-container>

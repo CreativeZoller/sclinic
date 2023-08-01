@@ -1,0 +1,97 @@
+<ng-container [formGroup]="form">
+    <div class="d-flex flex-row gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-text-field [label]="'schedule.template.form.label.name' | resolveResource" formControlName="name"></app-text-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-25">
+            <app-text-field [label]="'schedule.template.form.label.aWeek' | resolveResource" formControlName="weekAStartAndEndDate"></app-text-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-25">
+            <app-text-field [label]="'schedule.template.form.label.bWeek' | resolveResource" formControlName="weekBStartAndEndDate"></app-text-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-25">
+            <app-text-field [label]="'schedule.template.form.label.cWeek' | resolveResource" formControlName="weekCStartAndEndDate"></app-text-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-25">
+            <app-text-field [label]="'schedule.template.form.label.dWeek' | resolveResource" formControlName="weekDStartAndEndDate"></app-text-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-text-field [label]="'schedule.template.form.label.description' | resolveResource" formControlName="description"></app-text-field>
+        </div>
+    </div>
+
+    <ng-container>
+        <div class="mt-10 gap-5">
+            <app-schedule-template-clinic-list formControlName="clinicDataList"></app-schedule-template-clinic-list>
+        </div>
+
+        <div class="mt-10 gap-5">
+            <app-schedule-template-specialty-list formControlName="specialtyDataList"></app-schedule-template-specialty-list>
+        </div>
+
+        <div class="mt-10 gap-5">
+            <app-schedule-template-employee-list formControlName="employeeDataList"></app-schedule-template-employee-list>
+        </div>
+    </ng-container>
+
+    <div class="mt-10 gap-5">
+        <app-section-title [title]="'schedule.template.form.section.template.application' | resolveResource"></app-section-title>
+    </div>
+
+    <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-25">
+            <app-datepicker-field [label]="'schedule.template.form.label.from' | resolveResource" formControlName="applyFrom"></app-datepicker-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-25">
+            <app-text-field [label]="'schedule.template.form.label.week' | resolveResource" formControlName="startWeek"></app-text-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-25">
+            <app-datepicker-field [label]="'schedule.template.form.label.to' | resolveResource" formControlName="applyTo"></app-datepicker-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-25">
+            <app-text-field [label]="'schedule.template.form.label.week' | resolveResource" formControlName="endWeek"></app-text-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-25">
+            <app-checkbox-field [label]="'schedule.template.form.label.aWeek' | resolveResource" formControlName="isWeekA"></app-checkbox-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-25">
+            <app-checkbox-field [label]="'schedule.template.form.label.bWeek' | resolveResource" formControlName="isWeekB"></app-checkbox-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-25">
+            <app-checkbox-field [label]="'schedule.template.form.label.cWeek' | resolveResource" formControlName="isWeekC"></app-checkbox-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-25">
+            <app-checkbox-field [label]="'schedule.template.form.label.dWeek' | resolveResource" formControlName="isWeekD"></app-checkbox-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-25">
+            <app-checkbox-field [label]="'schedule.template.form.label.continuously' | resolveResource" formControlName="isContinuous"></app-checkbox-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-25">
+            <app-checkbox-field [label]="'schedule.template.form.label.followingPattern' | resolveResource" formControlName="isPatternBased"></app-checkbox-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row mt-10 gap-5 align-items-baseline justify-content-end">
+        <div class="overflow-hidden">
+            <button class="btn customBtn">{{ 'schedule.template.form.button.template.to.calendar' | resolveResource }}</button>
+        </div>
+        <div class="overflow-hidden">
+            <button class="btn customBtn">{{ 'schedule.template.form.button.copy.template' | resolveResource }}</button>
+        </div>
+        <div class="overflow-hidden">
+            <button class="btn customBtn">{{ 'schedule.template.form.button.templateInOverviewView' | resolveResource }}</button>
+        </div>
+    </div>
+</ng-container>

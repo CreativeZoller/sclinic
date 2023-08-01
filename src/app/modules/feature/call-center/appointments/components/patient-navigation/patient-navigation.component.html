@@ -1,0 +1,14 @@
+<ng-container *ngIf="{
+    activeTabConfigIndex: activeTabConfigIndex$ | async
+} as vm">
+
+    <div class="list-tabs-title-tabs-inner-container d-flex flex-row-fluid gap-2 overflow-hidden align-items-end mt-10">
+        <mat-tab-group mat-align-tabs="start" [selectedIndex]="vm.activeTabConfigIndex"
+            (selectedIndexChange)="setPatientSubNavigationByIndex($event)">
+            <mat-tab *ngFor="let tabConfig of tabConfigs" [label]="tabConfig.title" [disabled]='isInitialMode'>
+                <app-cc-patient-services [patient]="patient"></app-cc-patient-services>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+
+</ng-container>

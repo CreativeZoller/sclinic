@@ -1,0 +1,250 @@
+<ng-container [formGroup]="form" *ngIf="{
+    isRequiredSubPackage: form.value.dC_SubServicePackageTypeId === constants.SubServicePackageTypeEnum.REQUIRED
+} as vm">
+    <div class="d-flex flex-row gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-text-field
+                [label]="'service.sub.package.form.label.servicePackageName' | resolveResource"
+                formControlName="servicePackageName"
+            ></app-text-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-text-field
+                [label]="'service.sub.package.form.label.servicePackageName_EN' | resolveResource"
+                formControlName="servicePackageName_EN"
+            ></app-text-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-text-area-field
+                [label]="'service.sub.package.form.label.description' | resolveResource"
+                formControlName="description"
+            ></app-text-area-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-number-field
+                [label]="'service.sub.package.form.label.minimumNumberOfDaysNextUse' | resolveResource"
+                formControlName="minimumNumberOfDaysNextUse"
+            ></app-number-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-select-field
+                [label]="'service.sub.package.form.label.dC_StatusId' | resolveResource"
+                formControlName="dC_StatusId"
+                [options]="initData.dC_StatusList"
+            ></app-select-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-number-field
+                [label]="'service.sub.package.form.label.duration' | resolveResource"
+                formControlName="duration"
+                [step]="5"
+            >
+                <ng-template #fieldSuffixTemplate>
+                    <span class="input-group-text">{{"general.unit.minute" | resolveResource}}</span>
+                </ng-template>
+            </app-number-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div
+            class="flex-column-fluid overflow-hidden"
+            [class.flex-50]="!vm.isRequiredSubPackage"
+            [class.flex-33]="vm.isRequiredSubPackage"
+        >
+            <app-select-field
+                [label]="'service.sub.package.form.label.dC_SubServicePackageCategoryId' | resolveResource"
+                formControlName="dC_SubServicePackageCategoryId"
+                [options]="initData.dC_SubServicePackageCategoryList"
+            ></app-select-field>
+        </div>
+        <div
+            class="flex-column-fluid overflow-hidden"
+            [class.flex-50]="!vm.isRequiredSubPackage"
+            [class.flex-33]="vm.isRequiredSubPackage"
+        >
+            <app-select-field
+                [label]="'service.sub.package.form.label.dC_SubServicePackageTypeId' | resolveResource"
+                formControlName="dC_SubServicePackageTypeId"
+                [options]="initData.dC_SubServicePackageTypeList"
+            ></app-select-field>
+        </div>
+
+        <div *ngIf="vm.isRequiredSubPackage" class="flex-column-fluid overflow-hidden flex-33">
+            <app-checkbox-field
+                [label]="'service.sub.package.form.label.isRightTime' | resolveResource"
+                [useAlignBaselineFix]="true"
+                formControlName="isRightTime"
+            ></app-checkbox-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-checkbox-field
+                [label]="'service.sub.package.form.label.isScreeningTest' | resolveResource"
+                formControlName="isScreeningTest"
+            ></app-checkbox-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="w-100 overflow-hidden">
+            <app-service-sub-package-booking-area-selection-list-field
+                formControlName="servicePackageXDC_BookingArea"
+            ></app-service-sub-package-booking-area-selection-list-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row mt-5 gap-5 align-items-baseline">
+        <div class="d-flex flex-column overflow-break-words">
+            <app-radio-field formControlName="TODO_assignToAllClinics">
+                <div class="d-flex flex-row gap-5 align-items-baseline">
+                    <div class="flex-50">
+                        <app-radio-field-option
+                            [label]="'service.sub.package.form.label.TODO_assignToAllClinics.option.true' | resolveResource"
+                            [optionValue]="true"
+                        ></app-radio-field-option>
+                    </div>
+                    <div class="flex-50">
+                        <app-radio-field-option
+                            [label]="'service.sub.package.form.label.TODO_assignToAllClinics.option.false' | resolveResource"
+                            [optionValue]="false"
+                        ></app-radio-field-option>
+                    </div>
+                </div>
+            </app-radio-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-service-sub-package-price-template-item-list-field
+                formControlName="priceTemplateItem"
+                [activePriceTable]="activePriceTable$ | async"
+                [basePriceValue]="basePriceValue$ | async"
+                (setBasePriceValue)="setBasePriceValue($event)"
+            ></app-service-sub-package-price-template-item-list-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-service-sub-package-service-list-field
+                formControlName="servicePackageXService"
+                baseResourceKey="service.sub.package.service"
+                tableIdProperty="servicePackageXServiceId"
+                [serviceType]="constants.ServiceTypeEnum.GENERAL_EXAMINATION"
+            ></app-service-sub-package-service-list-field>
+        </div>
+    </div>
+
+    <div *ngIf="!vm.isRequiredSubPackage" class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-number-field
+                [label]="'service.sub.package.form.label.maxServiceCount' | resolveResource"
+                formControlName="maxServiceCount"
+            ></app-number-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-service-sub-package-service-list-field
+                formControlName="servicePackageXLabService"
+                baseResourceKey="service.sub.package.lab.service"
+                tableIdProperty="servicePackageXLabServiceId"
+                [serviceType]="constants.ServiceTypeEnum.LAB_EXAMINATION"
+            ></app-service-sub-package-service-list-field>
+        </div>
+    </div>
+
+    <div *ngIf="!vm.isRequiredSubPackage" class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-number-field
+                [label]="'service.sub.package.form.label.maxLabServiceCount' | resolveResource"
+                formControlName="maxLabServiceCount"
+            ></app-number-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-service-sub-package-role-list-field
+                formControlName="servicePackageXRole"
+            ></app-service-sub-package-role-list-field>
+        </div>
+    </div>
+
+    <ng-container>
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="w-100 overflow-hidden">
+                <app-section-title [title]="'service.sub.package.form.section.title.deep.erp.merged.item' | resolveResource"></app-section-title>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden flex-50">
+                <app-text-field
+                    [label]="'service.sub.package.form.label.deeperpMergedItemName' | resolveResource"
+                    formControlName="deeperpMergedItemName"
+                ></app-text-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-50">
+                <app-text-field
+                    [label]="'service.sub.package.form.label.deeperpMergedItemNumber' | resolveResource"
+                    formControlName="deeperpMergedItemNumber"
+                ></app-text-field>
+            </div>
+        </div>
+    </ng-container>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-service-sub-package-service-package-list-field
+                formControlName="servicePackageList"
+            ></app-service-sub-package-service-package-list-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-service-sub-package-contract-list-field
+                formControlName="servicePackageXContract"
+            ></app-service-sub-package-contract-list-field>
+        </div>
+    </div>
+
+    <ng-container>
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="w-100 overflow-hidden">
+                <app-section-title [title]="'service.sub.package.form.section.title.deep.erp' | resolveResource"></app-section-title>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <app-deep-erp-item-identification-form-field
+                formControlName="deeperpItemIdentification"
+            ></app-deep-erp-item-identification-form-field>
+        </div>
+    </ng-container>
+
+    <div class="mt-10">
+        <app-form-error
+            [control]="form"
+            [resourceKeyPrefix]="errorResourceKeyPrefix"
+        ></app-form-error>
+    </div>
+</ng-container>

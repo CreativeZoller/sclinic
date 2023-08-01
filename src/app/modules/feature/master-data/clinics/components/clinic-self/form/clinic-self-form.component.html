@@ -1,0 +1,38 @@
+<ng-container [formGroup]="form" *ngIf="{
+} as vm">
+    <div class="d-flex flex-row gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-autocomplete-field
+                [label]="'clinic.self.form.label.selfName' | resolveResource"
+                formControlName="self"
+                [searchFn$]="selfAutocomplete.searhcFn"
+                [inputFormatter]="selfAutocomplete.getSelfName"
+                [resultFormatter]="selfAutocomplete.formatSelfForAutocompleteResult"
+            ></app-autocomplete-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-autocomplete-field
+                [label]="'clinic.self.form.label.specialtyName' | resolveResource"
+                formControlName="specialty"
+                [searchFn$]="specialtyAutocomplete.searhcFn"
+                [inputFormatter]="specialtyAutocomplete.getSpecialtyName"
+                [resultFormatter]="specialtyAutocomplete.formatSpecialtyForAutocompleteResult"
+            ></app-autocomplete-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-text-field
+                [label]="'clinic.self.form.label.clinicOrganizationUniteCode' | resolveResource"
+                formControlName="clinicOrganizationUniteCode"
+            ></app-text-field>
+        </div>
+    </div>
+</ng-container>
+<div class="mt-10">
+    <app-form-error
+        [control]="form"
+        [resourceKeyPrefix]="errorResourceKeyPrefix"
+    ></app-form-error>
+</div>

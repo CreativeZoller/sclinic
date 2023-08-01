@@ -1,0 +1,19 @@
+<ng-container [formGroup]="form" *ngIf="{
+    roleOptions: roleOptions$ | async
+} as vm">
+    <div class="d-flex flex-row gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-select-field
+                [label]="'service.package.role.form.label.roleId' | resolveResource"
+                formControlName="roleId"
+                [options]="vm.roleOptions ?? []"
+            ></app-select-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-number-field
+                [label]="'service.package.role.form.label.percentage' | resolveResource"
+                formControlName="percentage"
+            ></app-number-field>
+        </div>
+    </div>
+</ng-container>

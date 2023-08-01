@@ -1,0 +1,86 @@
+<ng-container [formGroup]="form">
+    <ng-container>
+        <div class="d-flex flex-row gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden flex-50">
+                <app-text-field
+                    [label]="'price.table.form.update.label.priceTableName' | resolveResource"
+                    formControlName="priceTableName"
+                ></app-text-field>
+            </div>
+
+            <div class="flex-column-fluid overflow-hidden flex-50">
+                <app-text-field
+                    [label]="'price.table.form.update.label.priceTableIdentifier' | resolveResource"
+                    formControlName="priceTableIdentifier"
+                ></app-text-field>
+            </div>
+        </div>
+
+        <ng-container formGroupName="parentPriceTable">
+            <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+                <div class="flex-column-fluid overflow-hidden flex-50">
+                    <app-text-field
+                        [label]="'price.table.form.update.label.parentPriceTableName' | resolveResource"
+                        formControlName="priceTableName"
+                    ></app-text-field>
+                </div>
+
+                <div class="flex-column-fluid overflow-hidden flex-50">
+                    <app-text-field
+                        [label]="'price.table.form.update.label.parentPriceTableName' | resolveResource"
+                        formControlName="priceTableIdentifier"
+                    ></app-text-field>
+                </div>
+            </div>
+        </ng-container>
+
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden flex-33">
+                <app-datepicker-field [label]="'price.table.form.update.label.startDate' | resolveResource" formControlName="startDate" [minDate]="startDateMin" [maxDate]="form.value.endDate"></app-datepicker-field>
+            </div>
+
+            <div class="flex-column-fluid overflow-hidden flex-33">
+                <app-datepicker-field [label]="'price.table.form.update.label.endDate' | resolveResource" formControlName="endDate" [minDate]="form.value.startDate"></app-datepicker-field>
+            </div>
+
+            <div class="flex-column-fluid overflow-hidden flex-33">
+                <app-checkbox-field
+                    [label]="'price.table.form.update.label.continuous' | resolveResource"
+                    formControlName="continuous"
+                    [useAlignBaselineFix]="true"
+                ></app-checkbox-field>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden flex-50">
+                <app-select-field
+                    [label]="'price.table.form.update.label.dC_PriceTableStatusId' | resolveResource"
+                    formControlName="dC_PriceTableStatusId"
+                    [options]="filteredPriceTableStatusOptions"
+                    [errorResourceKeyPrefix]="errorResourceKeyPrefix"
+                ></app-select-field>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden w-100">
+                <app-text-field
+                    [label]="'price.table.form.update.label.description' | resolveResource"
+                    formControlName="description"
+                ></app-text-field>
+            </div>
+        </div>
+    </ng-container>
+
+    <ng-container>
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="w-100 overflow-hidden">
+                <app-price-template-list-form-field
+                    formControlName="priceTemplate"
+                    [priceTableId]="((form.value.priceTableId ?? 0) > 0) ? form.value.priceTableId : undefined"
+                ></app-price-template-list-form-field>
+            </div>
+        </div>
+    </ng-container>
+</ng-container>

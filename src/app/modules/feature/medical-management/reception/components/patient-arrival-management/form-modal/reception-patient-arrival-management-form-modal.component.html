@@ -1,0 +1,12 @@
+<app-form-modal
+    [modalTitle]="'reception.tabs.patient.management.arrival.management.form.modal.title' | resolveResource"
+    [dismissButtonLabel]="'general.action.label.back' | resolveResource"
+    [saveButtonLabel]="'reception.tabs.patient.management.arrival.management.form.button.label.save' | resolveResource"
+    [handleSave$]="handleSave$"
+>
+    <app-reception-patient-arrival-management-form
+        #formComponent
+        [activeClinicRoomList]="(activeClinicRoomList$ | async) ?? []"
+        (afterPatientSaved)="afterPatientSaved.emit()"
+    ></app-reception-patient-arrival-management-form>
+</app-form-modal>

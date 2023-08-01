@@ -1,0 +1,39 @@
+<ng-container *ngIf="{
+    options: options$ | async
+} as vm">
+    <label class="form-label" *ngIf="!hideLabel">{{ label }}</label>
+    <select
+        class="form-control form-select"
+        [disabled]="isDisabled || false"
+        [ngModel]="value"
+        (ngModelChange)="changeValue($event)"
+        (blur)="onBlur()"
+        [ngClass]="classes ?? []"
+        [class.default-option-selected]="value === null"
+    >
+        <option
+            *ngIf="!hideDefaultOption"
+            class="default-option"
+            [ngValue]="null"
+        >
+            {{placeholder}}
+        </option>
+        <option
+            *ngFor="let option of (vm.options || [])"
+            [ngValue]="option.value"
+            [selected]="option.selected"
+        >
+            {{ option.name }}
+        </option>
+    </select>
+
+    <app-field-error
+        *ngIf="!!ngControl?.control && ngControl!.control!.invalid"
+        [control]="ngControl!.control!"
+        [resourceKeyPrefix]="errorResourceKeyPrefix"
+        [addControlNameToResourceKeyPrefix]="errorAddControlNameToResourceKeyPrefix"
+        [showErrorsMethod]="errorShowErrorsMethod"
+        [resourceOverrides]="errorResourceOverrides"
+        [resourceOverridesMethod]="errorResourceOverridesMethod"
+    ></app-field-error>
+</ng-container>

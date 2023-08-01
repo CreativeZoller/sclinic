@@ -1,0 +1,8 @@
+:host {
+    display: block;
+    padding-bottom: 16px;
+
+    .customBtn + .customBtn {
+        margin-left: 16px;
+    }
+}

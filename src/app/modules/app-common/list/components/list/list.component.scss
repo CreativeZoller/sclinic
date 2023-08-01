@@ -1,0 +1,26 @@
+@import "/src/assets/sass/init";
+@import "/src/assets/sass/variables";
+
+:host {
+    ::ng-deep {
+        .form-check-custom {
+            &.form-check-solid {
+                .form-check-input {
+                    cursor: pointer;
+                    background-color: $checkboxGrey;
+
+                    & + label {
+                        color: $black;
+                        cursor: pointer;
+                    }
+
+                    &:checked {
+                        background-color: $checkboxGreyActive;
+                        background-image: url("/assets/images/icons/checkmark.svg");
+                        border: 1px solid $checkboxGreyActive;
+                    }
+                }
+            }
+        }
+    }
+}

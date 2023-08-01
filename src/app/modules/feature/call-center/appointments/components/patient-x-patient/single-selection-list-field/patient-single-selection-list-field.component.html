@@ -1,0 +1,9 @@
+<app-single-selection-list-field
+    [baseResourceKey]="baseResourceKey$.value"
+    [tableIdProperty]="tableIdProperty"
+    [tableHeaders]="(tableHeaders$ | async) ?? []"
+    [getTableData$]="getTableData$"
+    [valueKeepOnlyIdProperty]="false"
+    [enableEditor]="false"
+>
+</app-single-selection-list-field>

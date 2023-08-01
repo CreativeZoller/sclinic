@@ -1,0 +1,64 @@
+<ng-container [formGroup]="form">
+    <div class="d-flex flex-row gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-text-field
+                [label]="'email.template.form.label.emailTemplateName' | resolveResource"
+                formControlName="emailTemplateName"
+                [errorResourceKeyPrefix]="errorResourceKeyPrefix"
+            ></app-text-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-text-field
+                [label]="'email.template.form.label.description' | resolveResource"
+                formControlName="description"
+                [errorResourceKeyPrefix]="errorResourceKeyPrefix"
+            ></app-text-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-text-field
+                [label]="'email.template.form.label.subject' | resolveResource"
+                formControlName="subject"
+                [errorResourceKeyPrefix]="errorResourceKeyPrefix"
+            ></app-text-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-ckeditor-field
+                [label]="'email.template.form.label.body' | resolveResource"
+                formControlName="body"
+                [errorResourceKeyPrefix]="errorResourceKeyPrefix"
+            ></app-ckeditor-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-select-field
+                [label]="'email.template.form.label.dC_EmailTemplateCategoryId' | resolveResource"
+                [options]="initData.dC_EmailTemplateCategoryList"
+                formControlName="dC_EmailTemplateCategoryId"
+                [errorResourceKeyPrefix]="errorResourceKeyPrefix"
+            ></app-select-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-file-input-field
+                formControlName="documentJSON"
+                [errorResourceKeyPrefix]="errorResourceKeyPrefix"
+                [accepts]="['application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/msword']"
+            ></app-file-input-field>
+        </div>
+    </div>
+</ng-container>
+
+<app-file-preview-modal #filePreviewModal [file]="form.value.documentJSON"></app-file-preview-modal>

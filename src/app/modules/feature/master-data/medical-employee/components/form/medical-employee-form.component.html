@@ -1,0 +1,249 @@
+<ng-container [formGroup]="form">
+    <div class="d-flex flex-row gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-33">
+            <app-select-field
+                [label]="'medical.employee.form.label.dC_TitleTypeId' | resolveResource"
+                formControlName="dC_TitleTypeId"
+                [options]="initData.dC_TitleTypeList"
+            ></app-select-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-33">
+            <app-text-field
+                [label]="'medical.employee.form.label.lastName' | resolveResource"
+                formControlName="lastName"
+            ></app-text-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-33">
+            <app-text-field
+                [label]="'medical.employee.form.label.firstName' | resolveResource"
+                formControlName="firstName"
+            ></app-text-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-text-field
+                *ngIf="_medicalEmployeeType === constants.MedicalEmployeeTypeEnum.DOCTOR"
+                [label]="'medical.employee.form.label.stampNumber' | resolveResource"
+                formControlName="stampNumber"
+                pattern="\d*"
+            ></app-text-field>
+
+            <app-text-field
+                *ngIf="_medicalEmployeeType === constants.MedicalEmployeeTypeEnum.ASSISTANT"
+                [label]="'medical.employee.form.label.license.number' | resolveResource"
+                formControlName="licenseNumber"
+            ></app-text-field>
+        </div>
+
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-text-field
+                [label]="'medical.employee.form.label.nehiIdentifier' | resolveResource"
+                formControlName="nehiIdentifier"
+            ></app-text-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-number-field
+                [label]="'medical.employee.form.label.numberOfDaysOff' | resolveResource"
+                formControlName="numberOfDaysOff"
+            ></app-number-field>
+        </div>
+
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-checkbox-field
+                *ngIf="_medicalEmployeeType === constants.MedicalEmployeeTypeEnum.DOCTOR"
+                [label]="'medical.employee.form.label.isAttendingPhysician' | resolveResource"
+                formControlName="isAttendingPhysician"
+                [useAlignBaselineFix]="true"
+            ></app-checkbox-field>
+
+            <app-autocomplete-field
+                *ngIf="_medicalEmployeeType === constants.MedicalEmployeeTypeEnum.ASSISTANT"
+                [label]="'medical.employee.form.label.substituteMedicalEmployee' | resolveResource"
+                formControlName="substituteMedicalEmployee"
+                [searchFn$]="medicalEmployeeAutocomplete.searhcFn$Factory(
+                    constants.MedicalEmployeeTypeEnum.ASSISTANT
+                )"
+                [inputFormatter]="medicalEmployeeAutocomplete.getFormattedInputText"
+                [resultFormatter]="medicalEmployeeAutocomplete.getFormattedSelectText"
+            ></app-autocomplete-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="w-100 overflow-hidden">
+            <app-medical-employee-booking-area-selection-list-field
+                formControlName="medicalEmployeeXDC_BookingArea"
+            ></app-medical-employee-booking-area-selection-list-field>
+        </div>
+    </div>
+
+    <div
+        *ngIf="_medicalEmployeeType === constants.MedicalEmployeeTypeEnum.DOCTOR"
+        class="d-flex flex-row gap-5 mt-10 align-items-baseline"
+    >
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-autocomplete-field
+                [label]="'medical.employee.form.label.substituteMedicalEmployee' | resolveResource"
+                formControlName="substituteMedicalEmployee"
+                [searchFn$]="medicalEmployeeAutocomplete.searhcFn$Factory(
+                    constants.MedicalEmployeeTypeEnum.DOCTOR
+                )"
+                [inputFormatter]="medicalEmployeeAutocomplete.getFormattedInputText"
+                [resultFormatter]="medicalEmployeeAutocomplete.getFormattedSelectText"
+            ></app-autocomplete-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-autocomplete-field
+                [label]="'medical.employee.form.label.assistant' | resolveResource"
+                formControlName="assistant"
+                [searchFn$]="medicalEmployeeAutocomplete.searhcFn$Factory(
+                    constants.MedicalEmployeeTypeEnum.ASSISTANT
+                )"
+                [inputFormatter]="medicalEmployeeAutocomplete.getFormattedInputText"
+                [resultFormatter]="medicalEmployeeAutocomplete.getFormattedSelectText"
+            ></app-autocomplete-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+        <div class="w-100 overflow-hidden">
+            <app-medical-employee-contact-list-field formControlName="medicalEmployeeXContact"></app-medical-employee-contact-list-field>
+        </div>
+    </div>
+
+    <ng-container formGroupName="address">
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden flex-50">
+                <app-autocomplete-field
+                    [label]="'medical.employee.form.label.address.dC_City.postCode' | resolveResource"
+                    formControlName="dC_City"
+                    [searchFn$]="cityAutocomplete.searhcFn$Factory('postCode')"
+                    [inputFormatter]="cityAutocomplete.getFormattedInputTextFactory('postCode')"
+                    [resultFormatter]="cityAutocomplete.getFormattedSelectText"
+                ></app-autocomplete-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-50">
+                <app-autocomplete-field
+                    [label]="'medical.employee.form.label.address.dC_City.name' | resolveResource"
+                    formControlName="dC_City"
+                    [searchFn$]="cityAutocomplete.searhcFn$Factory('name')"
+                    [inputFormatter]="cityAutocomplete.getFormattedInputTextFactory('name')"
+                    [resultFormatter]="cityAutocomplete.getFormattedSelectText"
+                ></app-autocomplete-field>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden flex-33">
+                <app-text-field
+                    [label]="'medical.employee.form.label.address.streetName' | resolveResource"
+                    formControlName="streetName"
+                ></app-text-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-33">
+                <app-select-field
+                    [label]="'medical.employee.form.label.address.dC_PublicPlaceCategoryId' | resolveResource"
+                    formControlName="dC_PublicPlaceCategoryId"
+                    [options]="initData.dC_PublicPlaceCategoryList"
+                ></app-select-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-33">
+                <app-text-field
+                    [label]="'medical.employee.form.label.address.buildingNumber' | resolveResource"
+                    formControlName="buildingNumber"
+                ></app-text-field>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden flex-25">
+                <app-text-field
+                    [label]="'medical.employee.form.label.address.building' | resolveResource"
+                    formControlName="building"
+                ></app-text-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-25">
+                <app-text-field
+                    [label]="'medical.employee.form.label.address.staircase' | resolveResource"
+                    formControlName="staircase"
+                ></app-text-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-25">
+                <app-text-field
+                    [label]="'medical.employee.form.label.address.floor' | resolveResource"
+                    formControlName="floor"
+                ></app-text-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-25">
+                <app-text-field
+                    [label]="'medical.employee.form.label.address.door' | resolveResource"
+                    formControlName="door"
+                ></app-text-field>
+            </div>
+        </div>
+    </ng-container>
+
+    <div
+        *ngIf="_medicalEmployeeType === constants.MedicalEmployeeTypeEnum.DOCTOR"
+        class="d-flex flex-row mt-10 gap-5 align-items-baseline"
+    >
+        <div class="w-100 overflow-hidden">
+            <app-medical-employee-professional-exam-list-field formControlName="medicalEmployeeXPUPHAX_ProfessionalExamCode"></app-medical-employee-professional-exam-list-field>
+        </div>
+    </div>
+
+    <ng-container>
+        <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+            <div class="w-100 overflow-hidden">
+                <app-section-title [title]="'medical.employee.form.section.title.speciality.assignment' | resolveResource"></app-section-title>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden w-100">
+                <app-medical-employee-speciality-service-tree-field
+                    formControlName="medicalEmployeeXService"
+                ></app-medical-employee-speciality-service-tree-field>
+            </div>
+        </div>
+    </ng-container>
+
+    <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+        <div class="w-100 overflow-hidden">
+            <app-medical-employee-language-list-field formControlName="medicalEmployeeXDC_Language"></app-medical-employee-language-list-field>
+        </div>
+    </div>
+
+    <ng-container *ngIf="_medicalEmployeeType === constants.MedicalEmployeeTypeEnum.DOCTOR">
+        <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+            <div class="w-100 overflow-hidden">
+                <app-section-title [title]="'medical.employee.form.section.title.contract.data' | resolveResource"></app-section-title>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="d-flex flex-row w-100 overflow-hidden gap-10 px-10">
+                <app-img-input-field
+                    [label]="'medical.employee.form.label.profilePicture' | resolveResource"
+                    formControlName="profilePicture"
+                ></app-img-input-field>
+
+                <app-img-input-field
+                    [label]="'medical.employee.form.label.stampPicture' | resolveResource"
+                    formControlName="stampPicture"
+                ></app-img-input-field>
+            </div>
+        </div>
+    </ng-container>
+
+    <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+        <div class="w-100 overflow-hidden">
+            <app-medical-employee-contract-list-field formControlName="medicalContract"></app-medical-employee-contract-list-field>
+        </div>
+    </div>
+</ng-container>

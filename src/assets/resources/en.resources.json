@@ -1,0 +1,11 @@
+{
+    "login": {
+        "form": {
+            "errors": {
+                "email": {
+                    "required": "Required field!"
+                }
+            }
+        }
+    }
+}

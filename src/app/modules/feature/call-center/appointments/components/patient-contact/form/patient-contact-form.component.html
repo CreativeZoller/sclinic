@@ -1,0 +1,21 @@
+<ng-container [formGroup]="form" *ngIf="{
+    contactTypeOptions: contactTypeOptions$ | async,
+    contactValueType: contactValueType$ | async
+} as vm">
+    <div class="d-flex flex-row gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-select-field
+                [label]="'patient.contact.form.label.dC_ContactTypeId' | resolveResource"
+                formControlName="dC_ContactTypeId"
+                [options]="vm.contactTypeOptions ?? []"
+            ></app-select-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-text-field
+                [label]="'patient.contact.form.label.contactValue' | resolveResource"
+                formControlName="contactValue"
+                [mask]="vm.contactValueType !== 'EMAIL' ? '0*' : undefined"
+            ></app-text-field>
+        </div>
+    </div>
+</ng-container>

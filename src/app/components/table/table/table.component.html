@@ -1,0 +1,185 @@
+<ng-container *ngIf="showTitleHeader" >
+    <ng-template #defaultTitleRowTemplate let-title="title" let-titleRowButtonsTemplate="titleRowButtonsTemplate">
+        <div class="d-flex flex-row align-items-center pb-3 pb-lg-6">
+            <h1 class="page-heading d-flex text-dark fw-bold fs-3 my-0 flex-column-fluid overflow-hidden">
+                {{ title }}
+            </h1>
+
+            <ng-container *ngIf="!!titleRowButtonsTemplate" [ngTemplateOutlet]="titleRowButtonsTemplate"></ng-container>
+        </div>
+    </ng-template>
+
+    <ng-container [ngTemplateOutlet]="titleRowTemplate || defaultTitleRowTemplate" [ngTemplateOutletContext]="{
+        title: title,
+        titleRowButtonsTemplate: titleRowButtonsTemplate
+    }"></ng-container>
+</ng-container>
+
+<div class="tableContainer" *ngLet="{ data: rows$ | async } as vm">
+    <div *ngIf="enableBulkActions && hasAnyVisibleBulkAction && vm.data != null" class="bulkActions" [style.opacity]="selectedRowIds.length > 0 ? 1 : 0">
+        <div class="bulkActionsMenuContainer">
+            <div class="btn customBtn customBtn--bulk"
+                mat-button
+                [matMenuTriggerData]="userMenuData"
+                [matMenuTriggerFor]="menu"
+                [class.open]="bulkActionOpened"
+                (menuOpened)="menuOpened()"
+                (menuClosed)="menuClosed($event)"
+            >
+                <!-- TODO i18n -->
+                {{ bulkActionsLabel ?? "Csoportos műveletek" }} <span [inlineSVG]="'./assets/images/icons/chevron-down.svg'"></span>
+            </div>
+            <mat-menu #menu="matMenu">
+                <ng-template matMenuContent let-menuWidth="menuWidth">
+                    <div [style.width.px]="menuWidth">
+                        <ng-container *ngFor="let bulkAction of bulkActions">
+                            <button
+                                *ngIf="!bulkAction.isHidden?.({selectedRowIds, selectedRows})"
+                                mat-menu-item
+                                (click)="bulkAction.onClick?.({selectedRowIds, selectedRows})"
+                                [disabled]="bulkAction.isDisabled?.({selectedRowIds, selectedRows}) ?? false"
+                            >
+                                <span>{{bulkAction.label}}</span>
+                            </button>
+                        </ng-container>
+                    </div>
+                </ng-template>
+            </mat-menu>
+        </div>
+    </div>
+    <div class="table-responsive d-flex flex-column" [class.bulk]="enableBulkActions && hasAnyVisibleBulkAction && selectedRowIds.length > 0">
+            <virtual-scroller
+                #scroll
+                [items]="!virtualScrollConfig?.enabled || showLoading ? ([]) : (vm.data ?? [])"
+                [enableUnequalChildrenSizes]="virtualScrollConfig?.enabled ?? false"
+                class="virtual-scroller"
+                [class.virtual-scroller-disabled]="!virtualScrollConfig?.enabled"
+                [style.max-height]="!virtualScrollConfig?.enabled ? 'unset' : (virtualScrollConfig?.maxHeightPx ?? 250) + 'px'"
+            >
+                <ng-container *ngLet="(virtualScrollConfig?.enabled
+                    ? (scroll?.viewPortItems ?? [])
+                    : (showLoading ? ([]) : (vm.data ?? []))
+                ) as visibleRows">
+                    <ng-container *ngLet="(virtualScrollConfig?.enabled
+                        ? (scroll?.viewPortInfo?.startIndexWithBuffer ?? 0)
+                        : (0)
+                    ) as visibleRowsIndexOffset">
+                        <table class="table table-row-bordered gy-5">
+                            <thead #header>
+                                <tr class="fw-semibold fs-6">
+                                    <th *ngIf="enableBulkActions" class="w-20px">
+                                        <div class="form-check form-check-custom form-check-solid form-check-sm">
+                                            <input
+                                                class="form-check-input"
+                                                type="checkbox"
+                                                value="all"
+                                                id="form-checkbox"
+                                                [checked]="selectedRowIds.length > 0 && selectedRowIds.length === (vm.data || []).length"
+                                                (change)="selectAllRow()"
+                                            />
+                                        </div>
+                                    </th>
+                                    <ng-container *ngFor="let header of tableHeaders">
+                                        <th *ngIf="!header.headerComponent" [ngClass]="header.headerClasses ?? []">
+                                            {{ header.name }}
+
+                                            <ng-template
+                                                *ngIf="!!header.headerSearchComponent"
+                                                appDynamicComponent
+                                                [component]="header.headerSearchComponent"
+                                                [initComponentBindingFn]="header.initHeaderSearchComponentBindingsFn"
+                                            ></ng-template>
+                                        </th>
+
+                                        <th *ngIf="!!header.headerComponent" [ngClass]="header.headerClasses ?? []">
+                                            <ng-template
+                                                appDynamicComponent
+                                                [component]="header.headerComponent"
+                                                [initComponentBindingFn]="header.initHeaderComponentBindingsFn"
+                                            ></ng-template>
+                                        </th>
+                                    </ng-container>
+                                </tr>
+                            </thead>
+                            <tbody
+                                #container
+                                cdkDropList
+                                [cdkDropListDisabled]="!isDragAndDropEnabled"
+                                [cdkDropListData]="vm?.data ?? []"
+                                (cdkDropListDropped)="handleDropForDragAndDrop($event)"
+                            >
+                                <ng-container *ngFor="let row of visibleRows; let visibleRowIndex = index">
+                                    <ng-container *ngLet="(visibleRowsIndexOffset + visibleRowIndex) as rowIndex">
+                                        <tr
+                                            [class.selected]="selectedRowIds.includes(row[idProperty]!)"
+                                            [ngClass]="row?._classes ?? []"
+                                            cdkDrag
+                                            [cdkDragData]="row"
+                                            (click)="rowClick.emit(row)"
+                                        >
+                                            <!-- An empty div is needed for "cursor: grabbing;" css to work while grabbing -->
+                                            <div *cdkDragPreview></div>
+
+                                            <td *ngIf="enableBulkActions" class="w-20px">
+                                                <div class="form-check form-check-custom form-check-solid form-check-sm">
+                                                    <input class="form-check-input" type="checkbox" value="{{ row[idProperty] }}"
+                                                        [checked]="selectedRowIds.includes(row[idProperty]!)"
+                                                        (change)="selectRow($event, row)"
+                                                        (click)="rowChecked.emit(row);$event.stopPropagation()" />
+                                                </div>
+                                            </td>
+                                            <ng-container *ngFor="let header of tableHeaders">
+                                                <td
+                                                    *ngIf="!header.cellComponent"
+                                                    [ngClass]="header.cellClasses ?? []"
+                                                    [innerHtml]="row
+                                                        | getPathProperty: $any(header.attributeName)
+                                                        | applyFormatterFnPure: header.formatterFn : row : rowIndex
+                                                        | safeHtml
+                                                    "
+                                                ></td>
+
+                                                <td *ngIf="!!header.cellComponent" [ngClass]="header.cellClasses ?? []">
+                                                    <ng-template
+                                                        appDynamicTableCellComponent
+                                                        [component]="header.cellComponent"
+                                                        [value]="row | getPathProperty: $any(header.attributeName)"
+                                                        [row]="row"
+                                                        [rowIndex]="rowIndex"
+                                                        [initComponentBindingFnFactory]="header.initCellComponentBindingsFactoryFn"
+                                                    ></ng-template>
+                                                </td>
+                                            </ng-container>
+                                        </tr>
+                                    </ng-container>
+                                </ng-container>
+
+                                <tr *ngIf="showLoading || !vm.data" class="loading">
+                                    <td [attr.colspan]="(tableHeaders.length || 0) + (enableBulkActions ? 1 : 0)">
+                                        <div class="d-flex justify-content-center loading-spinner-container-large">
+                                            <div class="spinner-border loading-spinner-large" role="status">
+                                                <span class="sr-only">Adatok lekérdezése...</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr *ngIf="!showLoading && vm.data && vm.data.length === 0" class="empty-result">
+                                    <td [attr.colspan]="(tableHeaders.length || 0) + (enableBulkActions ? 1 : 0)">
+                                        Üres eredményhalmaz
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </ng-container>
+                </ng-container>
+            </virtual-scroller>
+    </div>
+</div>
+
+<ng-container *ngIf="allowPaging">
+    <app-pagination
+        (pageConfigChanged)="onPageConfigurationChanged($event)"
+        [totalRecordCount]="(totalRecordCount$ | async)!"
+    ></app-pagination>
+</ng-container>

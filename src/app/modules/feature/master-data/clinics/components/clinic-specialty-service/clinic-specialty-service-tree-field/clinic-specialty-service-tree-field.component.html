@@ -1,0 +1,68 @@
+<ng-container *ngIf="{
+    form: form$ | async
+} as vm">
+    <app-text-field [formControl]="searchInput" placeholder="Keresés"></app-text-field>
+    <div
+        *ngIf="!vm.form"
+        class="d-flex justify-content-center loading-spinner-container-large"
+    >
+        <div class="spinner-border loading-spinner-large" role="status"></div>
+    </div>
+
+    <div *ngIf="!!vm.form" [formGroup]="vm.form" class="tree-container">
+        <!-- HEADER -->
+        <ng-container>
+            <div class="tree-column tree-column-header justify-content-start"></div>
+            <div class="tree-hr tree-hr-header"></div>
+        </ng-container>
+        <!-- TREE ROWS -->
+        <ng-container>
+            <ng-template #recursiveTreeNodes let-containerFg="containerFg" let-level="level">
+                <ng-container *ngFor="let entry of (containerFg.controls | stableKeyValue); trackBy: stableKeyValueNgForTrackByFn">
+                    <ng-container *ngIf="entry.value as fg">
+                        <ng-container *ngIf="fg.value._visible">
+
+                            <!-- TREE ROW -->
+                            <ng-container>
+                                <div
+                                    class="tree-column align-items-center"
+                                    [ngStyle]="{'padding-left': (15 + 25*(level - 1)) + 'px'}"
+                                >
+                                    <span *ngIf="level > 0" [inlineSVG]="'./assets/images/icons/level.svg'"></span>
+
+                                    <button
+                                        *ngIf="(fg.controls._childrenFg | stableKeyValue)?.length ?? 0 > 0"
+                                        mat-icon-button
+                                        class="d-flex align-items-center justify-content-center p-0 ms-1"
+                                        (click)="fg.controls._expanded.setValue(fg.value._expanded !== true)"
+                                    >
+                                        <mat-icon>{{fg.controls._expanded.value ? 'expand_more' : 'chevron_right'}}</mat-icon>
+                                    </button>
+
+                                    <div class="d-flex gap-2 align-items-center justify-content-center"
+                                        [class.ms-1]="(fg.controls._childrenFg | stableKeyValue)?.length ?? 0 > 0"
+                                        [class.ms-2]="!((fg.controls._childrenFg | stableKeyValue)?.length ?? 0 > 0)"
+                                    >
+                                        <app-checkbox-field
+                                            [label]="fg.value._label"
+                                            [boldLabel]="false"
+                                            [formControl]="fg.controls.selected"
+                                        ></app-checkbox-field>
+                                    </div>
+                                </div>
+                            </ng-container>
+
+                            <div class="tree-hr"></div>
+
+                            <ng-container *ngIf="fg.value._expanded && !!fg.controls._childrenFg">
+                                <ng-container *ngTemplateOutlet="recursiveTreeNodes; context:{ containerFg: fg.controls._childrenFg, level: level + 1 }"></ng-container>
+                            </ng-container>
+                        </ng-container>
+                    </ng-container>
+                </ng-container>
+            </ng-template>
+
+            <ng-container *ngTemplateOutlet="recursiveTreeNodes; context:{ containerFg: vm.form, level: 0 }"></ng-container>
+        </ng-container>
+    </div>
+</ng-container>

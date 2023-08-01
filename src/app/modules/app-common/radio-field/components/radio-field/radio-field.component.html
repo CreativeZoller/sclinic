@@ -1,0 +1,13 @@
+<label *ngIf="useAlignBaselineFix" class="form-label mb-5 w-0 invisible">&nbsp;</label>
+
+<ng-content></ng-content>
+
+<app-field-error
+    *ngIf="!!ngControl?.control && ngControl!.control!.invalid"
+    [control]="ngControl!.control!"
+    [resourceKeyPrefix]="errorResourceKeyPrefix"
+    [addControlNameToResourceKeyPrefix]="errorAddControlNameToResourceKeyPrefix"
+    [showErrorsMethod]="errorShowErrorsMethod"
+    [resourceOverrides]="errorResourceOverrides"
+    [resourceOverridesMethod]="errorResourceOverridesMethod"
+></app-field-error>

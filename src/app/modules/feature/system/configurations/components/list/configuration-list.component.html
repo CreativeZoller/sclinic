@@ -1,0 +1,11 @@
+<app-list
+    [baseResourceKey]="baseResourceKey"
+    [tableIdProperty]="tableIdProperty"
+    [tableHeaders]="tableHeaders"
+    [getTableData$]="getTableData$"
+    [handleSave$]="handleSave$"
+    [canCreate]="false"
+    [totalRecordCount]="(totalRecordCount$ | async)!"
+    >
+    <app-configuration-form #editorForm></app-configuration-form>
+</app-list>

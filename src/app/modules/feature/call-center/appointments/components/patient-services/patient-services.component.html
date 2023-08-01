@@ -1,0 +1,10 @@
+<ng-container>
+    <app-section-title 
+        [title]="'cc.sections.services' | resolveResource"
+        [withIcon]="false"
+    ></app-section-title>
+</ng-container>
+
+<app-cc-patient-services-form #filterForm [patient]="patient" (serviceAdded)="refreshFilteredServices($event)"></app-cc-patient-services-form>
+
+<app-cc-filtered-services #filteredServices [data]="services$ | async" *ngIf="gotData"></app-cc-filtered-services>

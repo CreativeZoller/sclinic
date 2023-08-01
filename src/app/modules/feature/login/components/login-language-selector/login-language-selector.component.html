@@ -1,0 +1,14 @@
+<ng-container *ngIf="{
+    activeLanguageConfig: activeLanguageConfig$ | async
+} as vm">
+    <div class="languages">
+        <a
+            *ngFor="let languageConfig of languageConfigs"
+            class="langselector"
+            [class.langselector--active]="languageConfig.code === vm.activeLanguageConfig?.code"
+            (click)="selectLanguageConfig(languageConfig)"
+        >
+            {{languageConfig.code | uppercase }}
+        </a>
+    </div>
+</ng-container>

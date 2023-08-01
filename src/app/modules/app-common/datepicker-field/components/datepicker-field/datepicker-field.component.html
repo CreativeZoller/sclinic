@@ -1,0 +1,31 @@
+<label class="form-label">{{ label }}</label>
+<mat-form-field appearance="outline" class="form-control" [ngClass]="classes ?? []" (click)="picker.open()">
+    <input
+        #input
+        class="datepicker-input"
+        [disabled]="isDisabled || false"
+        [ngModel]="value"
+        (ngModelChange)="changeValue($event)"
+        matInput
+        [matDatepicker]="picker"
+        (focus)="picker.open()"
+        (blur)="onInputBlur()"
+        placeholder="{{placeholder}}"
+        [matDatepickerFilter]="filterDates"
+        >
+    <span class="datepickerIcon" [inlineSVG]="'./assets/images/icons/calendar.svg'"></span>
+    <mat-datepicker
+        #picker
+        (closed)="onBlur()"
+        [disabled]="ngControl?.disabled ?? false"
+    ></mat-datepicker>
+</mat-form-field>
+<app-field-error
+    *ngIf="!!ngControl?.control && ngControl!.control!.invalid"
+    [control]="ngControl!.control!"
+    [resourceKeyPrefix]="errorResourceKeyPrefix"
+    [addControlNameToResourceKeyPrefix]="errorAddControlNameToResourceKeyPrefix"
+    [showErrorsMethod]="errorShowErrorsMethod"
+    [resourceOverrides]="errorResourceOverrides"
+    [resourceOverridesMethod]="errorResourceOverridesMethod"
+></app-field-error>

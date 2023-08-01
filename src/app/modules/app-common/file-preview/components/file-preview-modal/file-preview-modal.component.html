@@ -1,0 +1,3 @@
+<app-modal #modal [modalConfig]="modalConfig$ | async">
+    <app-file-preview [file]="isOpen ? file : null" #preview></app-file-preview>
+</app-modal>

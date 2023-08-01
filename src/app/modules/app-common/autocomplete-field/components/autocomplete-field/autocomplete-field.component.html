@@ -1,0 +1,43 @@
+<label class="form-label">{{ label }}</label>
+<div class="position-relative">
+    <input
+        #input
+        class="form-control pe-14"
+        type="text"
+        [disabled]="isDisabled || false"
+        [ngModel]="value"
+        (ngModelChange)="changeValue($event)"
+        (blur)="onBlur()"
+        [ngbTypeahead]="ngbTypeaheadSearch"
+        [container]="'body'"
+        [editable]="editable"
+        [focusFirst]="focusFirst"
+        [showHint]="showHint"
+        [popupClass]="popupClass"
+        [inputFormatter]="inputFormatter"
+        [resultTemplate]="resultTemplate"
+    />
+
+    <div class="position-absolute top-0 bottom-0 end-0 p-3 d-flex align-items-center justify-content-center">
+        <div *ngIf="isLoading" class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+
+        <i *ngIf="!isLoading" class="bi bi-search" role="presentation"></i>
+
+        <ng-template #resultTemplate let-result="result" let-term="term">
+            <div *ngIf="result.__NO_RESULT__">{{ emptyResultListText }}</div>
+            <div *ngIf="!result.__NO_RESULT__">{{ resultFormatter(result) }}</div>
+          </ng-template>
+    </div>
+</div>
+
+<app-field-error
+    *ngIf="!!ngControl?.control && ngControl!.control!.invalid"
+    [control]="ngControl!.control!"
+    [resourceKeyPrefix]="errorResourceKeyPrefix"
+    [addControlNameToResourceKeyPrefix]="errorAddControlNameToResourceKeyPrefix"
+    [showErrorsMethod]="errorShowErrorsMethod"
+    [resourceOverrides]="errorResourceOverrides"
+    [resourceOverridesMethod]="errorResourceOverridesMethod"
+></app-field-error>

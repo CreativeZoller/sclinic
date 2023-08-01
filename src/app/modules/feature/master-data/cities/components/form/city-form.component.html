@@ -1,0 +1,22 @@
+<ng-container [formGroup]="form">
+    <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-text-field [label]="'city.form.label.name' | resolveResource" formControlName="name" [errorResourceKeyPrefix]="errorResourceKeyPrefix"></app-text-field>
+        </div>
+
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-text-field [label]="'city.form.label.postCode' | resolveResource" formControlName="postCode" [errorResourceKeyPrefix]="errorResourceKeyPrefix"></app-text-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-select-field [label]="'city.form.label.dC_CountyId' | resolveResource" formControlName="dC_CountyId" [options]="initData.dC_CountyList | filterList: filterCountyFn" [errorResourceKeyPrefix]="errorResourceKeyPrefix"></app-select-field>
+        </div>
+
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-select-field [label]="'city.form.label.dC_CountryId' | resolveResource"formControlName="dC_CountryId" [options]="initData.dC_CountryList" [errorResourceKeyPrefix]="errorResourceKeyPrefix"></app-select-field>
+        </div>
+    </div>
+</ng-container>

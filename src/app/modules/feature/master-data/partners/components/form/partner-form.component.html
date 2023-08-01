@@ -1,0 +1,375 @@
+<ng-container [formGroup]="form">
+    <ng-container>
+        <div class="d-flex flex-row gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden flex-33">
+                <app-select-field
+                    [label]="'partner.form.label.dC_PartnerTypeId' | resolveResource"
+                    formControlName="dC_PartnerTypeId"
+                    [options]="initData.dC_PartnerTypeList"
+                ></app-select-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-33">
+                <app-select-field
+                    [label]="'partner.form.label.dC_PartnerModeId' | resolveResource"
+                    formControlName="dC_PartnerModeId"
+                    [options]="initData.dC_PartnerModeList"
+                ></app-select-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-33">
+                <app-text-field
+                    [label]="'partner.form.label.deepERPIdentifier' | resolveResource"
+                    formControlName="deepERPIdentifier"
+                ></app-text-field>
+            </div>
+        </div>
+    </ng-container>
+
+    <!-- PATIENT -->
+    <ng-container formGroupName="patient" *ngIf="form.value.dC_PartnerTypeId === PartnerTypeEnum.PATIENT">
+        <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+            <div class="w-100 overflow-hidden">
+                <app-section-title [title]="'partner.form.section.title.patient.data' | resolveResource"></app-section-title>
+            </div>
+        </div>
+
+        <!-- NAME DATA -->
+        <ng-container>
+            <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+                <div class="w-100 overflow-hidden">
+                    <app-section-subtitle [title]="'partner.form.section.subtitle.patient.name.data' | resolveResource"></app-section-subtitle>
+                </div>
+            </div>
+
+            <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+                <div class="flex-column-fluid overflow-hidden flex-33">
+                    <app-select-field [label]="'partner.form.label.patient.dC_TitleTypeId' | resolveResource" formControlName="dC_TitleTypeId" [options]="initData.dC_TitleTypeList"></app-select-field>
+                </div>
+                <div class="flex-column-fluid overflow-hidden flex-33">
+                    <app-text-field [label]="'partner.form.label.patient.surname' | resolveResource" formControlName="surname"></app-text-field>
+                </div>
+                <div class="flex-column-fluid overflow-hidden flex-33">
+                    <app-text-field [label]="'partner.form.label.patient.firstname' | resolveResource" formControlName="firstname" ></app-text-field>
+                </div>
+            </div>
+        </ng-container>
+
+        <!-- ADDRESSES -->
+        <ng-container>
+            <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+                <div class="w-100 overflow-hidden">
+                    <app-patient-address-list-field
+                        formControlName="patientXAddress"
+                        [tableTitle]="'partner.form.section.subtitle.patient.address.data' | resolveResource"
+                        [tableTitleUseSectionSubtitle]="true"
+                    ></app-patient-address-list-field>
+                </div>
+            </div>
+        </ng-container>
+
+        <!-- INVOICE DATA -->
+        <ng-container>
+            <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+                <div class="w-100 overflow-hidden">
+                    <app-section-subtitle [title]="'partner.form.section.subtitle.patient.invoice.data' | resolveResource"></app-section-subtitle>
+                </div>
+            </div>
+
+            <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+                <div class="flex-column-fluid overflow-hidden flex-50">
+                    <app-select-field [label]="'partner.form.label.patient.dC_InvoiceModeId' | resolveResource" formControlName="dC_InvoiceModeId" [options]="initData.dC_InvoiceModeList"></app-select-field>
+                </div>
+                <div class="flex-column-fluid overflow-hidden flex-50">
+                    <app-text-field [label]="'partner.form.label.patient.invoiceEmail' | resolveResource" formControlName="invoiceEmail"></app-text-field>
+                </div>
+            </div>
+        </ng-container>
+    </ng-container>
+
+    <!-- COMPANY -->
+    <ng-container formGroupName="company" *ngIf="form.value.dC_PartnerTypeId === PartnerTypeEnum.COMPANY">
+        <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+            <div class="w-100 overflow-hidden">
+                <app-section-title [title]="'partner.form.section.title.company.data' | resolveResource"></app-section-title>
+            </div>
+        </div>
+
+        <!-- NAME DATA -->
+        <ng-container>
+            <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+                <div class="w-100 overflow-hidden">
+                    <app-section-subtitle [title]="'partner.form.section.subtitle.company.name.data' | resolveResource"></app-section-subtitle>
+                </div>
+            </div>
+
+            <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+                <div class="flex-column-fluid overflow-hidden flex-33">
+                    <app-text-field [label]="'partner.form.label.company.fullName' | resolveResource" formControlName="fullName"></app-text-field>
+                </div>
+                <div class="flex-column-fluid overflow-hidden flex-33">
+                    <app-text-field [label]="'partner.form.label.company.shortName' | resolveResource" formControlName="shortName" ></app-text-field>
+                </div>
+                <div class="flex-column-fluid overflow-hidden flex-33">
+                    <app-select-field [label]="'partner.form.label.company.dC_CompanyTypeId' | resolveResource" formControlName="dC_CompanyTypeId" [options]="initData.dC_CompanyTypeList"></app-select-field>
+                </div>
+            </div>
+
+            <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+                <div class="flex-column-fluid overflow-hidden flex-33">
+                    <app-text-field [label]="'partner.form.label.company.contactPersonName' | resolveResource" formControlName="contactPersonName"></app-text-field>
+                </div>
+                <div class="flex-column-fluid overflow-hidden flex-33">
+                    <app-text-field [label]="'partner.form.label.company.contactPhoneNumber' | resolveResource" formControlName="contactPhoneNumber" mask="0*"></app-text-field>
+                </div>
+                <div class="flex-column-fluid overflow-hidden flex-33">
+                    <app-text-field [label]="'partner.form.label.company.contactEmailAddress' | resolveResource" formControlName="contactEmailAddress" ></app-text-field>
+                </div>
+            </div>
+        </ng-container>
+
+        <!-- INVOICE DATA -->
+        <ng-container>
+            <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+                <div class="w-100 overflow-hidden">
+                    <app-section-subtitle [title]="'partner.form.section.subtitle.company.invoice.data' | resolveResource"></app-section-subtitle>
+                </div>
+            </div>
+
+            <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+                <div class="flex-column-fluid overflow-hidden flex-50">
+                    <app-text-field [label]="'partner.form.label.company.taxNumber' | resolveResource" formControlName="taxNumber" mask="00000000-0-00"></app-text-field>
+                </div>
+                <div class="flex-column-fluid overflow-hidden flex-50">
+                    <app-text-field [label]="'partner.form.label.company.companyRegistrationNumber' | resolveResource" formControlName="companyRegistrationNumber"></app-text-field>
+                </div>
+            </div>
+
+            <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+                <div class="flex-column-fluid overflow-hidden flex-50">
+                    <app-select-field [label]="'partner.form.label.company.dC_InvoiceModeId' | resolveResource" formControlName="dC_InvoiceModeId" [options]="initData.dC_InvoiceModeList"></app-select-field>
+                </div>
+                <div class="flex-column-fluid overflow-hidden flex-50">
+                    <app-text-field [label]="'partner.form.label.company.invoiceEmail' | resolveResource" formControlName="invoiceEmail"></app-text-field>
+                </div>
+            </div>
+
+            <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+                <div class="flex-column-fluid overflow-hidden flex-50">
+                    <app-text-field [label]="'partner.form.label.company.euTaxNumber' | resolveResource" formControlName="euTaxNumber"></app-text-field>
+                </div>
+                <div class="flex-column-fluid overflow-hidden flex-50">
+                    <app-text-field [label]="'partner.form.label.company.bankAccountNumber' | resolveResource" formControlName="bankAccountNumber"></app-text-field>
+                </div>
+            </div>
+
+            <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+                <div class="flex-column-fluid overflow-hidden w-100">
+                    <app-autocomplete-field
+                        [label]="'partner.form.label.company.parentCompany' | resolveResource"
+                        formControlName="parentCompany"
+                        [searchFn$]="parentCompanyAutocomplete.searhcFn$"
+                        [inputFormatter]="parentCompanyAutocomplete.getFormattedInputText"
+                        [resultFormatter]="parentCompanyAutocomplete.getFormattedSelectText"
+                    ></app-autocomplete-field>
+                </div>
+            </div>
+
+            <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+                <div class="flex-column-fluid overflow-hidden flex-33">
+                    <app-text-field [label]="'partner.form.label.company.groupTaxation' | resolveResource" formControlName="groupTaxation"></app-text-field>
+                </div>
+                <div class="flex-column-fluid overflow-hidden flex-33">
+                    <app-text-field [label]="'partner.form.label.company.groupTaxNumber' | resolveResource" formControlName="groupTaxNumber" mask="00000000-0-00"></app-text-field>
+                </div>
+                <div class="flex-column-fluid overflow-hidden flex-33">
+                    <app-text-field [label]="'partner.form.label.company.communityMemberStateCode' | resolveResource" formControlName="communityMemberStateCode"></app-text-field>
+                </div>
+            </div>
+        </ng-container>
+
+        <!-- Számázási cím -->
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="w-100 overflow-hidden">
+                <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+                    <div class="w-100 overflow-hidden">
+                        <app-section-subtitle [title]="'partner.form.section.subtitle.company.invoice.address.data' | resolveResource"></app-section-subtitle>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ng-container formGroupName="invoiceAddress">
+            <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+                <div class="flex-column-fluid overflow-hidden flex-50">
+                    <app-autocomplete-field
+                        [label]="'partner.form.label.company.address.dC_City.postCode' | resolveResource"
+                        formControlName="dC_City"
+                        [searchFn$]="citiesAutocomplete.searhcFn$('postCode')"
+                        [inputFormatter]="citiesAutocomplete.getFormattedPostCodeInputText"
+                        [resultFormatter]="citiesAutocomplete.getFormattedSelectText"
+                    ></app-autocomplete-field>
+                </div>
+                <div class="flex-column-fluid overflow-hidden flex-50">
+                    <app-autocomplete-field
+                        [label]="'partner.form.label.company.address.dC_City.name' | resolveResource"
+                        formControlName="dC_City"
+                        [searchFn$]="citiesAutocomplete.searhcFn$('name')"
+                        [inputFormatter]="citiesAutocomplete.getFormattedCityNameInputText"
+                        [resultFormatter]="citiesAutocomplete.getFormattedSelectText"
+                    ></app-autocomplete-field>
+                </div>
+            </div>
+
+            <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+                <div class="flex-column-fluid overflow-hidden flex-33">
+                    <app-text-field
+                        [label]="'partner.form.label.company.address.streetName' | resolveResource"
+                        formControlName="streetName"
+                    ></app-text-field>
+                </div>
+                <div class="flex-column-fluid overflow-hidden flex-33">
+                    <app-select-field
+                        [label]="'partner.form.label.company.address.dC_PublicPlaceCategoryId' | resolveResource"
+                        formControlName="dC_PublicPlaceCategoryId"
+                        [options]="initData.dC_PublicPlaceCategoryList"
+                    ></app-select-field>
+                </div>
+                <div class="flex-column-fluid overflow-hidden flex-33">
+                    <app-text-field
+                        [label]="'partner.form.label.company.address.buildingNumber' | resolveResource"
+                        formControlName="buildingNumber"
+                    ></app-text-field>
+                </div>
+            </div>
+
+            <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+                <div class="flex-column-fluid overflow-hidden flex-25">
+                    <app-text-field
+                        [label]="'partner.form.label.company.address.building' | resolveResource"
+                        formControlName="building"
+                    ></app-text-field>
+                </div>
+                <div class="flex-column-fluid overflow-hidden flex-25">
+                    <app-text-field
+                        [label]="'partner.form.label.company.address.staircase' | resolveResource"
+                        formControlName="staircase"
+                    ></app-text-field>
+                </div>
+                <div class="flex-column-fluid overflow-hidden flex-25">
+                    <app-text-field
+                        [label]="'partner.form.label.company.address.floor' | resolveResource"
+                        formControlName="floor"
+                    ></app-text-field>
+                </div>
+                <div class="flex-column-fluid overflow-hidden flex-25">
+                    <app-text-field
+                        [label]="'partner.form.label.company.address.door' | resolveResource"
+                        formControlName="door"
+                    ></app-text-field>
+                </div>
+            </div>
+</ng-container>
+        <!-- HQ ADDRESS DATA -->
+        <ng-container>
+            <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+                <div class="w-100 overflow-hidden">
+                    <app-section-subtitle [title]="'partner.form.section.subtitle.company.hq.address.data' | resolveResource"></app-section-subtitle>
+                </div>
+            </div>
+
+            <ng-container formGroupName="headquartersAddress">
+                <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+                    <div class="flex-column-fluid overflow-hidden flex-50">
+                        <app-autocomplete-field
+                            [label]="'partner.form.label.company.address.dC_City.postCode' | resolveResource"
+                            formControlName="dC_City"
+                            [searchFn$]="citiesAutocomplete.searhcFn$('postCode')"
+                            [inputFormatter]="citiesAutocomplete.getFormattedPostCodeInputText"
+                            [resultFormatter]="citiesAutocomplete.getFormattedSelectText"
+                        ></app-autocomplete-field>
+                    </div>
+                    <div class="flex-column-fluid overflow-hidden flex-50">
+                        <app-autocomplete-field
+                            [label]="'partner.form.label.company.address.dC_City.name' | resolveResource"
+                            formControlName="dC_City"
+                            [searchFn$]="citiesAutocomplete.searhcFn$('name')"
+                            [inputFormatter]="citiesAutocomplete.getFormattedCityNameInputText"
+                            [resultFormatter]="citiesAutocomplete.getFormattedSelectText"
+                        ></app-autocomplete-field>0
+                    </div>
+                </div>
+
+                <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+                    <div class="flex-column-fluid overflow-hidden flex-33">
+                        <app-text-field
+                            [label]="'partner.form.label.company.address.streetName' | resolveResource"
+                            formControlName="streetName"
+                        ></app-text-field>
+                    </div>
+                    <div class="flex-column-fluid overflow-hidden flex-33">
+                        <app-select-field
+                            [label]="'partner.form.label.company.address.dC_PublicPlaceCategoryId' | resolveResource"
+                            formControlName="dC_PublicPlaceCategoryId"
+                            [options]="initData.dC_PublicPlaceCategoryList"
+                        ></app-select-field>
+                    </div>
+                    <div class="flex-column-fluid overflow-hidden flex-33">
+                        <app-text-field
+                            [label]="'partner.form.label.company.address.buildingNumber' | resolveResource"
+                            formControlName="buildingNumber"
+                        ></app-text-field>
+                    </div>
+                </div>
+
+                <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+                    <div class="flex-column-fluid overflow-hidden flex-25">
+                        <app-text-field
+                            [label]="'partner.form.label.company.address.building' | resolveResource"
+                            formControlName="building"
+                        ></app-text-field>
+                    </div>
+                    <div class="flex-column-fluid overflow-hidden flex-25">
+                        <app-text-field
+                            [label]="'partner.form.label.company.address.staircase' | resolveResource"
+                            formControlName="staircase"
+                        ></app-text-field>
+                    </div>
+                    <div class="flex-column-fluid overflow-hidden flex-25">
+                        <app-text-field
+                            [label]="'partner.form.label.company.address.floor' | resolveResource"
+                            formControlName="floor"
+                        ></app-text-field>
+                    </div>
+                    <div class="flex-column-fluid overflow-hidden flex-25">
+                        <app-text-field
+                            [label]="'partner.form.label.company.address.door' | resolveResource"
+                            formControlName="door"
+                        ></app-text-field>
+                    </div>
+                </div>
+            </ng-container>
+
+            <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+                <div class="flex-column-fluid overflow-hidden w-100">
+                    <app-text-field
+                        [label]="'partner.form.label.company.headquartersPhoneNumber' | resolveResource"
+                        formControlName="headquartersPhoneNumber"
+                        mask="0*"
+                    ></app-text-field>
+                </div>
+            </div>
+        </ng-container>
+
+        <!-- ADDRESSES -->
+        <ng-container>
+            <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+                <div class="w-100 overflow-hidden">
+                    <app-company-site-list-field
+                        formControlName="companySite"
+                        [tableTitle]="'partner.form.section.subtitle.company.site.data' | resolveResource"
+                        [tableTitleUseSectionSubtitle]="true"
+                        [companyFullName]="form.value.company?.fullName ?? ''"
+                    ></app-company-site-list-field>
+                </div>
+            </div>
+        </ng-container>
+    </ng-container>
+</ng-container>

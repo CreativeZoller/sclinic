@@ -1,0 +1,14 @@
+<app-list
+    [baseResourceKey]="baseResourceKey"
+    [tableIdProperty]="tableIdProperty"
+    [tableHeaders]="tableHeaders"
+    [getTableData$]="getTableData$"
+    [handleSave$]="handleSave$"
+    [handleDelete$]="handleDelete$"
+    [totalRecordCount]="(totalRecordCount$ | async)!"
+>
+    <app-price-table-form #editorForm
+        [activePriceTable]="activePriceTable"
+        [pendingActivePriceTable]="pendingActivePriceTable"
+    ></app-price-table-form>
+</app-list>

@@ -1,0 +1,20 @@
+<ng-container [formGroup]="form" *ngIf="{
+    languageOptions: languageOptions$ | async
+} as vm">
+    <div class="d-flex flex-row gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-select-field
+                [label]="'patient.language.form.label.dC_LanguageId' | resolveResource"
+                formControlName="dC_LanguageId"
+                [options]="vm.languageOptions ?? []"
+            ></app-select-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-checkbox-field
+                [label]="'patient.language.form.label.isDefault' | resolveResource"
+                formControlName="isDefault"
+                [useAlignBaselineFix]="true"
+            ></app-checkbox-field>
+        </div>
+    </div>
+</ng-container>

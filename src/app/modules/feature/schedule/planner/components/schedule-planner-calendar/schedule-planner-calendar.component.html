@@ -1,0 +1,20 @@
+<app-fullcalendar
+    [views]="views"
+    [resources$]="resources$"
+    [resourceAreaColumns$]="resourceAreaColumns$"
+    [events$]="events$"
+    [headerToolbar]="headerToolbar"
+    [customButtons]="customButtons"
+    [modalConfig]="modalConfig"
+    [selectDate]="selectDate"
+    (eventClick)="onEventClick($event)"
+    (eventDrop)="onEventDrop($event)"
+    (eventDelete)="deleteEvent($event)"
+    #fullcalendar
+>
+    <app-schedule-planner-calendar-event-modal
+        #eventEditForm
+        [model]="editableEvent"
+        (changeData)="refreshData($event)"
+    ></app-schedule-planner-calendar-event-modal>
+</app-fullcalendar>

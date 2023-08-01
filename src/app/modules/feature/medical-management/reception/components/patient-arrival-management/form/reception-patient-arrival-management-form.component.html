@@ -1,0 +1,178 @@
+<ng-container [formGroup]="form">
+    <app-section-title
+        [title]="'reception.tabs.patient.management.arrival.management.form.section.patient.data' | resolveResource"
+        [buttonsTemplate]="sectionTitleButtonsTemplate"
+    >
+        <ng-template #sectionTitleButtonsTemplate>
+            <div (click)="openPatientEditor()" class="btn customBtn">
+                {{ "general.action.label.edit" | resolveResource }}
+            </div>
+        </ng-template>
+    </app-section-title>
+
+    <ng-container formGroupName="patient">
+        <div class="d-flex flex-row gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden flex-33">
+                <app-text-field
+                    [label]="'reception.tabs.patient.management.arrival.management.form.label.patient.fullName' | resolveResource"
+                    formControlName="fullName"
+                ></app-text-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-33">
+                <app-select-field
+                    [label]="'reception.tabs.patient.management.arrival.management.form.label.patient.patientIdTypeId' | resolveResource"
+                    formControlName="patientIdTypeId"
+                    [options]="initData.dC_PatientIdTypeList"
+                ></app-select-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-33">
+                <app-text-field
+                    [label]="'reception.tabs.patient.management.arrival.management.form.label.patient.patientIdNumber' | resolveResource"
+                    formControlName="patientIdNumber"
+                ></app-text-field>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden flex-33">
+                <app-text-field
+                    [label]="'reception.tabs.patient.management.arrival.management.form.label.patient.placeOfBirth' | resolveResource"
+                    formControlName="placeOfBirth"
+                ></app-text-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-33">
+                <app-datepicker-field
+                    [label]="'reception.tabs.patient.management.arrival.management.form.label.patient.dateOfBirth' | resolveResource"
+                    formControlName="dateOfBirth"
+                ></app-datepicker-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-33">
+                <app-text-field
+                    [label]="'reception.tabs.patient.management.arrival.management.form.label.patient.motherName' | resolveResource"
+                    formControlName="motherName"
+                ></app-text-field>
+            </div>
+        </div>
+    </ng-container>
+
+    <ng-container formGroupName="appointment">
+        <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden flex-25">
+                <app-autocomplete-field
+                    [label]="'reception.tabs.patient.management.arrival.management.form.label.recommenderPartner' | resolveResource"
+                    formControlName="recommenderPartner"
+                    [searchFn$]="partnerAutocomplete.searhcFn$"
+                    [inputFormatter]="partnerAutocomplete.getFormattedInputText"
+                    [resultFormatter]="partnerAutocomplete.getFormattedSelectText"
+                ></app-autocomplete-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-25">
+                <app-select-field
+                    [label]="'reception.tabs.patient.management.arrival.management.form.label.dC_BookingAreaId' | resolveResource"
+                    formControlName="dC_BookingAreaId"
+                    [options]="initData.dC_BookingAreaList"
+                ></app-select-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-25">
+                <app-text-field
+                    [label]="'reception.tabs.patient.management.arrival.management.form.label.webshopInvoiceNumber' | resolveResource"
+                    formControlName="webshopInvoiceNumber"
+                ></app-text-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-25">
+                <app-number-field
+                    [label]="'reception.tabs.patient.management.arrival.management.form.label.webshopPaidAmount' | resolveResource"
+                    formControlName="webshopPaidAmount"
+                ></app-number-field>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden flex-16">
+                <app-checkbox-field
+                    [label]="'reception.tabs.patient.management.arrival.management.form.label.isLate' | resolveResource"
+                    formControlName="isLate"
+                ></app-checkbox-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-16">
+                <app-checkbox-field
+                    [label]="'reception.tabs.patient.management.arrival.management.form.label.isWithoutAppointment' | resolveResource"
+                    formControlName="isWithoutAppointment"
+                ></app-checkbox-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-16">
+                <app-checkbox-field
+                    [label]="'reception.tabs.patient.management.arrival.management.form.label.isWithoutRequiredReceipt' | resolveResource"
+                    formControlName="isWithoutRequiredReceipt"
+                ></app-checkbox-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-16">
+                <app-checkbox-field
+                    [label]="'reception.tabs.patient.management.arrival.management.form.label.isIncorrectRecording' | resolveResource"
+                    formControlName="isIncorrectRecording"
+                ></app-checkbox-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-16">
+                <app-checkbox-field
+                    [label]="'reception.tabs.patient.management.arrival.management.form.label.isUnableToWait' | resolveResource"
+                    formControlName="isUnableToWait"
+                ></app-checkbox-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-16">
+                <app-checkbox-field
+                    [label]="'reception.tabs.patient.management.arrival.management.form.label.isIncomprehensibleBehaviour' | resolveResource"
+                    formControlName="isIncomprehensibleBehaviour"
+                ></app-checkbox-field>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden w-100">
+                <app-text-field
+                    [label]="'reception.tabs.patient.management.arrival.management.form.label.remarks' | resolveResource"
+                    formControlName="remarks"
+                ></app-text-field>
+            </div>
+        </div>
+    </ng-container>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-reception-patient-arrival-management-appointment-service-list-field
+                formControlName="appointmentList"
+                [activeClinicRoomList]="(activeClinicRoomList$ | async) ?? []"
+                [patient]="(initialEditorData$ | async)?.patient"
+            ></app-reception-patient-arrival-management-appointment-service-list-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-section-title
+                [title]="'reception.tabs.patient.management.arrival.management.form.section.statements' | resolveResource"
+            ></app-section-title>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-reception-patient-arrival-management-statement-list
+                [patientManagementTableRowModel]="initialEditorData$ | async"
+            ></app-reception-patient-arrival-management-statement-list>
+        </div>
+    </div>
+
+    <div
+        class="d-flex flex-row flex-wrap gap-5 mt-10 align-items-baseline justify-content-end"
+        formGroupName="appointment"
+    >
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-text-field
+                formControlName="ticketNumber"
+                [label]="'reception.tabs.patient.management.arrival.management.form.label.appointment.ticketNumber' | resolveResource"
+            ></app-text-field>
+        </div>
+    </div>
+</ng-container>
+
+<app-reception-patient-form-modal #patientFormModal></app-reception-patient-form-modal>

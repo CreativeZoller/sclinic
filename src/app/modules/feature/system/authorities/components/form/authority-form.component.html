@@ -1,0 +1,17 @@
+<ng-container [formGroup]="form">
+    <div class="d-flex flex-row gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-text-field
+                [label]="'authority.form.label.name' | resolveResource"
+                formControlName="name"
+                [errorResourceKeyPrefix]="errorResourceKeyPrefix"
+            ></app-text-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-authority-function-tree-field formControlName="rightXFunction"></app-authority-function-tree-field>
+        </div>
+    </div>
+</ng-container>

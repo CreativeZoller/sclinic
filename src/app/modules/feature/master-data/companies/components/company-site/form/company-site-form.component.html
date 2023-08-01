@@ -1,0 +1,103 @@
+<ng-container [formGroup]="form">
+    <div class="d-flex flex-row gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-text-field
+                [label]="'company.site.form.label.companyFullName' | resolveResource"
+                [disabled]="true"
+                [ngModel]="companyFullName"
+                [ngModelOptions]="{standalone: true}"
+            ></app-text-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-text-field
+                [label]="'company.site.form.label.siteName' | resolveResource"
+                formControlName="siteName"
+            ></app-text-field>
+        </div>
+    </div>
+
+    <ng-container formGroupName="address">
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden flex-50">
+                <app-autocomplete-field
+                    [label]="'company.site.form.label.address.dC_City.postCode' | resolveResource"
+                    formControlName="dC_City"
+                    [searchFn$]="cityAutocomplete.searhcFn$Factory('postCode')"
+                    [inputFormatter]="cityAutocomplete.getFormattedInputTextFactory('postCode')"
+                    [resultFormatter]="cityAutocomplete.getFormattedSelectText"
+                ></app-autocomplete-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-50">
+                <app-autocomplete-field
+                    [label]="'company.site.form.label.address.dC_City.name' | resolveResource"
+                    formControlName="dC_City"
+                    [searchFn$]="cityAutocomplete.searhcFn$Factory('name')"
+                    [inputFormatter]="cityAutocomplete.getFormattedInputTextFactory('name')"
+                    [resultFormatter]="cityAutocomplete.getFormattedSelectText"
+                ></app-autocomplete-field>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden flex-33">
+                <app-text-field
+                    [label]="'company.site.form.label.address.streetName' | resolveResource"
+                    formControlName="streetName"
+                ></app-text-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-33">
+                <app-select-field
+                    [label]="'company.site.form.label.address.dC_PublicPlaceCategoryId' | resolveResource"
+                    formControlName="dC_PublicPlaceCategoryId"
+                    [options]="initData.dC_PublicPlaceCategoryList"
+                ></app-select-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-33">
+                <app-text-field
+                    [label]="'company.site.form.label.address.buildingNumber' | resolveResource"
+                    formControlName="buildingNumber"
+                ></app-text-field>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden flex-25">
+                <app-text-field
+                    [label]="'company.site.form.label.address.building' | resolveResource"
+                    formControlName="building"
+                ></app-text-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-25">
+                <app-text-field
+                    [label]="'company.site.form.label.address.staircase' | resolveResource"
+                    formControlName="staircase"
+                ></app-text-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-25">
+                <app-text-field
+                    [label]="'company.site.form.label.address.floor' | resolveResource"
+                    formControlName="floor"
+                ></app-text-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-25">
+                <app-text-field
+                    [label]="'company.site.form.label.address.door' | resolveResource"
+                    formControlName="door"
+                ></app-text-field>
+            </div>
+        </div>
+    </ng-container>
+
+    <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-text-field
+                [label]="'company.site.form.label.phoneNumber' | resolveResource"
+                formControlName="phoneNumber"
+                mask="0*"
+            ></app-text-field>
+        </div>
+    </div>
+</ng-container>

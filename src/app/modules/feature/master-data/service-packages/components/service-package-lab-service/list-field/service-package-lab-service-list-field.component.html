@@ -1,0 +1,25 @@
+<app-list-field
+    [baseResourceKey]="baseResourceKey$.value"
+    [tableIdProperty]="tableIdProperty"
+    [tableTitle]="tableTitle"
+    [tableTitleUseSectionSubtitle]="tableTitleUseSectionSubtitle"
+    [tableHeaders]="(tableHeaders$ | async) ?? []"
+    [errorResourceKeyPrefix]="errorResourceKeyPrefix"
+    [errorAddControlNameToResourceKeyPrefix]="errorAddControlNameToResourceKeyPrefix"
+    [errorShowErrorsMethod]="errorShowErrorsMethod"
+    [errorResourceOverrides]="errorResourceOverrides"
+    [errorResourceOverridesMethod]="errorResourceOverridesMethod"
+    [canCreate]="(canCreate$ | async) ?? false"
+    [dragAndDropConfig]="dragAndDropConfig"
+    [handleSave$]="handleSave$"
+    [handleDelete$]="handleDelete$"
+    [valueToFormValue]="valueToFormValue"
+>
+    <app-service-package-lab-service-form
+        #editorForm
+        [baseResourceKey]="baseResourceKey$.value"
+        [allLabServices]="(allLabServices$ | async) ?? []"
+        (refreshAllLabServices)="refreshAllLabServices$.next()"
+        [allSelectedLabServices]="(allSelectedLabServices$ | async) ?? []"
+    ></app-service-package-lab-service-form>
+</app-list-field>

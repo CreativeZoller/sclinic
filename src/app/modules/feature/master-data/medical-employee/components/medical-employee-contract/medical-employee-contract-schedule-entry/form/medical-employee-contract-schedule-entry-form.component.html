@@ -1,0 +1,34 @@
+<ng-container [formGroup]="form">
+    <div class="d-flex flex-row gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-25">
+            <app-select-field
+                [label]="'medical.employee.contract.schedule.entry.form.label.dC_ScheduleSpecialTypeId' | resolveResource"
+                formControlName="dC_ScheduleSpecialTypeId"
+                [options]="dC_ScheduleSpecialTypeOptions"
+                [hideDefaultOption]="true"
+            ></app-select-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-25">
+            <app-timepicker-field
+                [label]="'medical.employee.contract.schedule.entry.form.label.startTime' | resolveResource"
+                formControlName="startTime"
+            ></app-timepicker-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-25">
+            <app-timepicker-field
+                [label]="'medical.employee.contract.schedule.entry.form.label.endTime' | resolveResource"
+                formControlName="endTime"
+            ></app-timepicker-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-25">
+            <app-number-field
+                [label]="'medical.employee.contract.schedule.entry.form.label.amount' | resolveResource"
+                formControlName="amount"
+            >
+                <ng-template #fieldSuffixTemplate>
+                    <span class="input-group-text">Ft</span>
+                </ng-template>
+            </app-number-field>
+        </div>
+    </div>
+</ng-container>

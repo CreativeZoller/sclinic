@@ -1,0 +1,13 @@
+<ng-container [formGroup]="form" *ngIf="{
+    languageOptions: languageOptions$ | async
+} as vm">
+    <div class="d-flex flex-row gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-select-field
+                [label]="'medical.employee.language.form.label.dC_LanguageId' | resolveResource"
+                formControlName="dC_LanguageId"
+                [options]="vm.languageOptions ?? []"
+            ></app-select-field>
+        </div>
+    </div>
+</ng-container>

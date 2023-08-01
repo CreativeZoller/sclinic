@@ -1,0 +1,18 @@
+<ng-container *ngIf="{
+    isExposureItem: isExposureItem$ | async,
+    exposure: exposure$ | async,
+    exposureXExposureItem: exposureXExposureItem$ | async
+} as vm">
+    <app-exposure-item-form
+        #childFormComponent
+        [hidden]="!vm.isExposureItem"
+        [exposure]="vm.exposure"
+    ></app-exposure-item-form>
+
+    <app-exposure-item-service-form
+        #childFormComponent
+        [hidden]="!!vm.isExposureItem"
+        [exposure]="vm.exposure"
+        [exposureXExposureItem]="vm.exposureXExposureItem"
+    ></app-exposure-item-service-form>
+</ng-container>

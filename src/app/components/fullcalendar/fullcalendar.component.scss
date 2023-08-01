@@ -1,0 +1,67 @@
+// Initialize
+@import "/src/assets/sass/style.scss";
+@import "/src/assets/sass/variables";
+
+.tippy-box {
+    background: white;
+    border: 1px solid black;
+}
+
+.eventTitle {
+    padding: 6px 15px;
+    font-family: 'Poppins-SemiBold';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    border-bottom: 1px solid $lightGrey2;
+    color: $darkGrey;
+}
+
+.eventDetails {
+    border-bottom: 1px solid $lightGrey2;
+    padding: 25px 15px;
+}
+
+.eventTime {
+    font-family: 'Poppins-SemiBold';
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 18px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: $error;
+}
+
+.eventButtons {
+    padding: 10px 15px;
+}
+
+#context-menu {
+    position: fixed;
+    z-index: 10000;
+    width: 150px;
+    background: #1b1b1b;
+    border-radius: 5px;
+
+    .visible {
+        display: block;
+    }
+
+    .context-menu-item {
+        padding: 8px 10px;
+        font-size: 14px;
+        color: #eee;
+        cursor: pointer;
+
+        &:hover {
+            background: #3c3c3c;
+        }
+    }
+}
+
+:root {
+    .row:has(.fc-resource-group) {
+        border-top: 5px solid black;
+    }
+}

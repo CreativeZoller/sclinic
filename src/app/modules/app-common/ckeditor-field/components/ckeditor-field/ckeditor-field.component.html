@@ -1,0 +1,18 @@
+<label class="form-label">{{ label }}</label>
+<ckeditor
+    [editor]="editor"
+    [disabled]="isDisabled || false"
+    [ngModel]="value"
+    (ngModelChange)="changeValue($event)"
+    (blur)="onBlur()"
+></ckeditor>
+
+<app-field-error
+    *ngIf="!!ngControl?.control && ngControl!.control!.invalid"
+    [control]="ngControl!.control!"
+    [resourceKeyPrefix]="errorResourceKeyPrefix"
+    [addControlNameToResourceKeyPrefix]="errorAddControlNameToResourceKeyPrefix"
+    [showErrorsMethod]="errorShowErrorsMethod"
+    [resourceOverrides]="errorResourceOverrides"
+    [resourceOverridesMethod]="errorResourceOverridesMethod"
+></app-field-error>

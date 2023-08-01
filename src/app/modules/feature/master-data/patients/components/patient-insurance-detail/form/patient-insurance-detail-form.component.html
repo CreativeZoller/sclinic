@@ -1,0 +1,29 @@
+<ng-container [formGroup]="form" *ngIf="{
+} as vm">
+    <div class="d-flex flex-row gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-autocomplete-field
+                [label]="'patient.insurance.detail.form.label.partner' | resolveResource"
+                formControlName="partner"
+                [searchFn$]="partnerSearhcFn"
+                [inputFormatter]="getPartnerName"
+                [resultFormatter]="formatPartnerForAutocompleteResult"
+            ></app-autocomplete-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-number-field
+                [label]="'patient.insurance.detail.form.label.identificationNumber' | resolveResource"
+                formControlName="identificationNumber"
+            ></app-number-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-checkbox-field
+                [label]="'patient.insurance.detail.form.label.isEP' | resolveResource"
+                formControlName="isEP"
+            ></app-checkbox-field>
+        </div>
+    </div>
+</ng-container>

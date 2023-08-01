@@ -1,0 +1,26 @@
+@import "/src/assets/sass/core/components/variables";
+@import "/src/assets/sass/variables";
+
+:host {
+    width: 100%;
+
+    ::ng-deep {
+        .table {
+            th:not(:last-child).price-col {
+                border-right: 1px solid $tableHeaderBorderGrey;
+            }
+
+            td:not(:last-child).price-col {
+                border-right: 1px solid $gray-200;
+            }
+        }
+    }
+}
+
+:host-context(.actions-disabled) ::ng-deep {
+    th {
+        &, *, .svg-icon.svg-icon-1.svg-icon-add {
+            cursor: not-allowed;
+        }
+    }
+}

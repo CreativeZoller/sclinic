@@ -1,0 +1,29 @@
+@import "/src/assets//sass/variables";
+
+
+:host {
+    display: block;
+    width: 100%;
+
+    &.disabled {
+        &, & > * {
+            cursor: default;
+        }
+
+        opacity: 0.6;
+    }
+
+    select.form-select {
+        &.default-option-selected {
+            color: var(--kt-input-placeholder-color);
+        }
+
+        & > option {
+            color: $brandGrey;
+
+            &.default-option {
+                color: var(--kt-input-placeholder-color);
+            }
+        }
+    }
+}

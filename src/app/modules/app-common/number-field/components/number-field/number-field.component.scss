@@ -1,0 +1,27 @@
+:host {
+    display: block;
+    width: 100%;
+
+    &.disabled {
+        &, & > * {
+            cursor: default;
+        }
+
+        opacity: 0.6;
+    }
+
+    .input-group {
+        flex-wrap: nowrap;
+    }
+
+    .no-stepper::-webkit-inner-spin-button,
+    .no-stepper::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+
+    .no-stepper {
+    -moz-appearance: textfield;
+    }
+
+}

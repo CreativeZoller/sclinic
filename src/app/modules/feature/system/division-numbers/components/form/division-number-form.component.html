@@ -1,0 +1,89 @@
+<ng-container [formGroup]="form">
+    <div class="d-flex flex-row gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-33">
+            <app-text-field [label]="'division.number.form.label.name' | resolveResource" formControlName="name" [errorResourceKeyPrefix]="errorResourceKeyPrefix"></app-text-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-33">
+            <app-text-field [label]="'division.number.form.label.value' | resolveResource" formControlName="value" [errorResourceKeyPrefix]="errorResourceKeyPrefix"></app-text-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-33">
+            <app-select-field [label]="'division.number.form.label.dC_StatusId' | resolveResource" formControlName="dC_StatusId" [options]="initData.dC_StatusList" [errorResourceKeyPrefix]="errorResourceKeyPrefix"></app-select-field>
+        </div>
+    </div>
+
+    <ng-container *ngFor="let ctrl of form.controls.divisionNumberXField.controls; let i = index">
+        <div *ngIf="i !== 0" class="d-flex flex-row gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden flex-50 mt-5">
+                <strong class="d-block">{{"general.label.and" | resolveResource | uppercase}}</strong>
+            </div>
+
+            <div class="flex-column-fluid overflow-hidden invisible">
+                <div class="form-control equalField h-0">=</div>
+            </div>
+
+            <div class="flex-column-fluid overflow-hidden flex-50">
+                <strong *ngIf="i !== 0" class="d-block mt-5">{{"general.label.and" | resolveResource | uppercase}}</strong>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row mt-5 gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden flex-50">
+                <app-select-field
+                    [label]="'division.number.form.label.divisionNumberXField.fieldName' | resolveResource"
+                    [formControl]="ctrl.controls.fieldName"
+                    [options]="initData.divisionNumberXFieldOptions"
+                    [errorResourceKeyPrefix]="errorResourceKeyPrefix"
+                ></app-select-field>
+            </div>
+
+            <div class="flex-column-fluid overflow-hidden">
+                <label class="form-label invisible">&nbsp;</label>
+                <div class="form-control equalField">=</div>
+            </div>
+
+            <div class="flex-column-fluid overflow-hidden flex-50">
+                <ng-container>
+                    <app-text-field
+                        *ngIf="ctrl.controls.fieldName.value | isEmpty"
+                        [disabled]="true"
+                        [label]="'division.number.form.label.divisionNumberXField.fieldValue' | resolveResource"
+                    ></app-text-field>
+
+                    <ng-container *ngIf="!(ctrl.controls.fieldName.value | isEmpty)">
+                        <app-text-field
+                            *ngIf="ctrl.controls.fieldName.value?.type === 'string'"
+                            [label]="'division.number.form.label.divisionNumberXField.fieldValue' | resolveResource"
+                            [formControl]="ctrl.controls.fieldValue"
+                            [errorResourceKeyPrefix]="errorResourceKeyPrefix"
+                        ></app-text-field>
+
+                        <app-number-field
+                            *ngIf="ctrl.controls.fieldName.value?.type === 'number'"
+                            [label]="'division.number.form.label.divisionNumberXField.fieldValue' | resolveResource"
+                            [formControl]="ctrl.controls.fieldValue"
+                            [errorResourceKeyPrefix]="errorResourceKeyPrefix"
+                        ></app-number-field>
+
+                        <app-select-field
+                            *ngIf="ctrl.controls.fieldName.value?.type === 'boolean'"
+                            [label]="'division.number.form.label.divisionNumberXField.fieldValue' | resolveResource"
+                            [options]="[
+                                {value: true, name: 'general.label.true' | resolveResource | titlecase},
+                                {value: false, name: 'general.label.false' | resolveResource | titlecase},
+                            ]"
+                            [formControl]="ctrl.controls.fieldValue"
+                            [errorResourceKeyPrefix]="errorResourceKeyPrefix"
+                        ></app-select-field>
+
+                        <app-datepicker-field
+                            *ngIf="ctrl.controls.fieldName.value?.type === 'Date'"
+                            [label]="'division.number.form.label.divisionNumberXField.fieldValue' | resolveResource"
+                            [formControl]="ctrl.controls.fieldValue"
+                            [errorResourceKeyPrefix]="errorResourceKeyPrefix"
+                        ></app-datepicker-field>
+                    </ng-container>
+                </ng-container>
+            </div>
+        </div>
+    </ng-container>
+</ng-container>

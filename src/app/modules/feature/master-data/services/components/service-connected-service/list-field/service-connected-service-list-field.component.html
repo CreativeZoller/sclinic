@@ -1,0 +1,22 @@
+<app-list-field
+    [baseResourceKey]="baseResourceKey"
+    [tableIdProperty]="tableIdProperty"
+    [tableTitle]="tableTitle"
+    [tableTitleUseSectionSubtitle]="tableTitleUseSectionSubtitle"
+    [tableHeaders]="tableHeaders"
+    [errorResourceKeyPrefix]="errorResourceKeyPrefix"
+    [errorAddControlNameToResourceKeyPrefix]="errorAddControlNameToResourceKeyPrefix"
+    [errorShowErrorsMethod]="errorShowErrorsMethod"
+    [errorResourceOverrides]="errorResourceOverrides"
+    [errorResourceOverridesMethod]="errorResourceOverridesMethod"
+    [handleSave$]="handleSave$"
+    [canDelete]="false"
+    [valueToFormValue]="valueToFormValue"
+>
+    <app-service-connected-service-selection-list-form
+        #editorForm
+        [allSelectedConnectedServices]="(allSelectedConnectedServices$ | async) ?? []"
+        [currentServiceId]="currentServiceId"
+        [allSelectedIncompatibleServices]="allSelectedIncompatibleServices"
+    ></app-service-connected-service-selection-list-form>
+</app-list-field>

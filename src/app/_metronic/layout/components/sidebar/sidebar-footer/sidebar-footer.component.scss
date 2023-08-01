@@ -1,0 +1,23 @@
+// Initialize
+@import "/src/assets/sass/style.scss";
+@import "/src/assets/sass/variables";
+
+.logout{
+    font-family: "Poppins-SemiBold";
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0em;
+    color: $grey;
+    align-items: center;
+    cursor: pointer;
+
+    .svg-icon{
+        margin-right: 5px;
+    }
+}
+
+.settings {
+    justify-content: flex-end;
+    cursor: pointer;
+}

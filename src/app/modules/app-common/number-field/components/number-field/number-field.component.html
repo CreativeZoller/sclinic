@@ -1,0 +1,54 @@
+<label class="form-label" *ngIf="!hideLabel">{{ label }}</label>
+<div class="d-flex flex-column">
+    <div class="input-group">
+        <ng-container [ngTemplateOutlet]="fieldPrefixTemplate"></ng-container>
+
+        <input
+            class="form-control with-input-affix"
+            [class.no-stepper]="hideStepping"
+            [type]="type"
+            placeholder="{{placeholder}}"
+            mask="{{mask}}"
+            suffix="{{maskSuffix}}"
+            prefix="{{maskPrefix}}"
+            [dropSpecialCharacters]="maskDropSpecialCharacters"
+            [disabled]="isDisabled || false"
+            [ngModel]="value"
+            (ngModelChange)="changeValue($event)"
+            (blur)="onBlur()"
+            (focus)="onFocus()"
+            [ngClass]="classes ?? []"
+            [min]="minNumber"
+            [max]="maxNumber"
+            step="{{step}}"
+        />
+
+        <ng-container [ngTemplateOutlet]="fieldSuffixTemplate"></ng-container>
+    </div>
+
+    <div
+        *ngIf="autoSizeConfig?.autoSize ?? false"
+        class="input-group h-0 invisible my-0 py-0 border-top-0 bordor-bottom-0"
+    >
+        <ng-container [ngTemplateOutlet]="fieldPrefixTemplate"></ng-container>
+
+        <div class="form-control with-input-affix">
+            <app-field-autosize-placeholder
+                [value]="value"
+                [autoSizeConfig]="autoSizeConfig"
+            ></app-field-autosize-placeholder>
+        </div>
+
+        <ng-container [ngTemplateOutlet]="fieldSuffixTemplate"></ng-container>
+    </div>
+</div>
+
+<app-field-error
+    *ngIf="!!ngControl?.control && ngControl!.control!.invalid"
+    [control]="ngControl!.control!"
+    [resourceKeyPrefix]="errorResourceKeyPrefix"
+    [addControlNameToResourceKeyPrefix]="errorAddControlNameToResourceKeyPrefix"
+    [showErrorsMethod]="errorShowErrorsMethod"
+    [resourceOverrides]="errorResourceOverrides"
+    [resourceOverridesMethod]="errorResourceOverridesMethod"
+></app-field-error>

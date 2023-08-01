@@ -1,0 +1,13 @@
+<div class="section-title-container">
+    <span
+        *ngIf="withIcon"
+        [inlineSVG]="'./assets/images/icons/square-icon.svg'"
+        class="svg-icon section-title-icon"
+    ></span>
+
+    <h2 class="section-title-text">{{ title }}</h2>
+
+    <hr class="section-title-hr" />
+
+    <ng-container *ngIf="buttonsTemplate" [ngTemplateOutlet]="buttonsTemplate"></ng-container>
+</div>

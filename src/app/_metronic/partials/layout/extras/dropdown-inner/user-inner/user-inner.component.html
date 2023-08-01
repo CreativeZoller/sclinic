@@ -1,0 +1,73 @@
+<ng-container *ngIf="{
+    userData: userData$ | async,
+    userFormattedName: userFormattedName$ | async,
+    activeLanguageConfig: activeLanguageConfig$ | async
+} as vm">
+    <div class="menu-item px-3">
+        <div class="menu-content d-flex align-items-center px-3">
+            <div class="symbol symbol-50px me-5">
+                <!-- TODO show user image  -->
+                <img alt="Logo" src="assets/media/avatars/blank.png" />
+            </div>
+
+            <div class="d-flex flex-column">
+                <div class="fw-bolder d-flex align-items-center fs-5">
+                    {{ vm.userFormattedName }}
+                </div>
+                <a
+                    class="fw-bold text-muted text-hover-primary fs-7 cursor-pointer"
+                >
+                    {{ vm.userData?.email }}
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="separator my-2"></div>
+
+    <div
+        class="menu-item px-5"
+        data-kt-menu-trigger="hover"
+        data-kt-menu-placement="left-start"
+        data-kt-menu-flip="bottom"
+    >
+        <a class="menu-link px-5 cursor-pointer">
+            <span class="menu-title position-relative">
+                Nyelv
+                <span class="fs-8 rounded bg-light px-3 py-2 position-absolute translate-middle-y top-50 end-0">
+                    {{ vm.activeLanguageConfig?.name }}
+                    &nbsp;
+                    <img
+                        class="w-15px h-15px rounded-1 ms-2"
+                        [src]="vm.activeLanguageConfig?.flagUrl"
+                        alt="metronic"
+                    />
+                </span>
+            </span>
+        </a>
+
+        <div class="menu-sub menu-sub-dropdown w-175px py-4">
+            <div
+                *ngFor="let languageConfig of languageConfigs"
+                class="menu-item px-3 cursor-pointer"
+                (click)="selectLanguageConfig(languageConfig)"
+            >
+                <a
+                    class="menu-link d-flex px-5"
+                    [ngClass]="languageConfig.code === vm.activeLanguageConfig?.code ? 'active' : ''"
+                >
+                    <span class="symbol symbol-20px me-4">
+                        <img class="rounded-1" [src]="languageConfig.flagUrl" alt="metronic" />
+                    </span>
+                    {{ languageConfig.name }}
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu-item px-5">
+        <a (click)="logout()" class="menu-link px-5 cursor-pointer">
+            Kijelentkezés
+        </a>
+    </div>
+</ng-container>

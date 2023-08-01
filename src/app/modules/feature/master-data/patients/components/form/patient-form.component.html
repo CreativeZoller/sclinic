@@ -1,0 +1,200 @@
+<ng-container [formGroup]="form">
+    <!-- PERSONAL DATA -->
+    <ng-container>
+        <div class="d-flex flex-row gap-5 align-items-baseline">
+            <div class="w-100 overflow-hidden">
+                <app-section-title [title]="'patient.form.section.title.personal.data' | resolveResource"></app-section-title>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden flex-25">
+                <app-select-field [label]="'patient.form.label.dC_TitleTypeId' | resolveResource" formControlName="dC_TitleTypeId" [options]="initData.dC_TitleTypeList"></app-select-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-25">
+                <app-text-field [label]="'patient.form.label.surname' | resolveResource" formControlName="surname"></app-text-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-25">
+                <app-text-field [label]="'patient.form.label.firstname' | resolveResource" formControlName="firstname" ></app-text-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-25">
+                <app-select-field [label]="'patient.form.label.dC_NationalityId' | resolveResource" formControlName="dC_NationalityId" [options]="initData.dC_NationalityList"></app-select-field>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden flex-33">
+                <app-text-field [label]="'patient.form.label.birthLastName' | resolveResource" formControlName="birthLastName"></app-text-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-33">
+                <app-text-field [label]="'patient.form.label.birthFirstName' | resolveResource" formControlName="birthFirstName" ></app-text-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-33">
+                <app-text-field [label]="'patient.form.label.motherName' | resolveResource" formControlName="motherName" ></app-text-field>
+            </div>
+        </div>
+
+        <!-- PERSONAL DATA -->
+        <ng-container formGroupName="patientXSSNIdType">
+            <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+                <div class="flex-column-fluid overflow-hidden flex-50">
+                    <app-text-field [label]="'patient.form.label.ssn' | resolveResource" formControlName="number"></app-text-field>
+                </div>
+                <div class="flex-column-fluid overflow-hidden flex-50">
+                    <app-datepicker-field [label]="'patient.form.label.issueDate' | resolveResource" formControlName="issueDate"></app-datepicker-field>
+                </div>
+            </div>
+        </ng-container>
+
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden flex-25">
+                <app-checkbox-field [label]="'patient.form.label.isDeceased' | resolveResource" formControlName="isDeceased" [useAlignBaselineFix]="true">
+                    <img
+                        *ngIf="form.controls.isDeceased.value === true"
+                        labelSuffix
+                        class="grave-icon ms-5"
+                        src="/assets/images/icons/deceased.svg"
+                    />
+                </app-checkbox-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-25">
+                <app-datepicker-field [label]="'patient.form.label.deathTime' | resolveResource" formControlName="deathTime"></app-datepicker-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-25"></div>
+            <div class="flex-column-fluid overflow-hidden flex-25"></div>
+        </div>
+    </ng-container>
+
+    <ng-container formGroupName="_deceasedDependentFg">
+        <!-- PERSONAL DATA -->
+        <ng-container>
+            <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+                <div class="flex-column-fluid overflow-hidden flex-33">
+                    <app-text-field [label]="'patient.form.label.placeOfBirth' | resolveResource" formControlName="placeOfBirth"></app-text-field>
+                </div>
+                <div class="flex-column-fluid overflow-hidden flex-33">
+                    <app-datepicker-field [label]="'patient.form.label.dateOfBirth' | resolveResource" formControlName="dateOfBirth"></app-datepicker-field>
+                </div>
+                <div class="flex-column-fluid overflow-hidden flex-33">
+                    <app-select-field [label]="'patient.form.label.dC_VIPId' | resolveResource" formControlName="dC_VIPId" [options]="initData.dC_VIPList"></app-select-field>
+                </div>
+            </div>
+
+            <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+                <div class="flex-column-fluid overflow-hidden flex-33">
+                    <app-select-field [label]="'patient.form.label.dC_GenderId' | resolveResource" formControlName="dC_GenderId" [options]="initData.dC_GenderList"></app-select-field>
+                </div>
+                <div class="flex-column-fluid overflow-hidden flex-33"></div>
+                <div class="flex-column-fluid overflow-hidden flex-33"></div>
+            </div>
+        </ng-container>
+
+        <!-- ADDRESSES -->
+        <ng-container>
+            <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+                <div class="w-100 overflow-hidden">
+                    <app-patient-address-list-field formControlName="patientXAddress"></app-patient-address-list-field>
+                </div>
+            </div>
+        </ng-container>
+
+        <!-- CONTACT DETAILS -->
+        <ng-container>
+            <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+                <div class="w-100 overflow-hidden">
+                    <app-patient-contact-list-field formControlName="patientXContact"></app-patient-contact-list-field>
+                </div>
+            </div>
+        </ng-container>
+
+        <!-- COMMUNICATION LANGUAGE -->
+        <ng-container>
+            <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+                <div class="w-100 overflow-hidden">
+                    <app-patient-language-list-field formControlName="patientXDC_Language"></app-patient-language-list-field>
+                </div>
+            </div>
+        </ng-container>
+
+        <!-- WORKPLACE AND POSITION -->
+        <ng-container>
+            <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+                <div class="w-100 overflow-hidden">
+                    <app-patient-employment-list-field formControlName="patientXEmployment"></app-patient-employment-list-field>
+                </div>
+            </div>
+        </ng-container>
+
+        <!-- ID CARDS DATA -->
+        <ng-container>
+            <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+                <div class="w-100 overflow-hidden">
+                    <app-patient-id-list-field formControlName="patientXPatientIdType"></app-patient-id-list-field>
+                </div>
+            </div>
+        </ng-container>
+
+        <!-- INSURANCE AND HEALTH FUND DATA -->
+        <ng-container>
+            <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+                <div class="w-100 overflow-hidden">
+                    <app-patient-insurance-detail-list-field formControlName="patientInsuranceDetail"></app-patient-insurance-detail-list-field>
+                </div>
+            </div>
+        </ng-container>
+
+        <!-- Related Patient Data -->
+        <ng-container>
+            <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+                <div class="w-100 overflow-hidden">
+                    <app-patient-x-patient-list-field formControlName="patientXPatient" [currentPatientId]="form.value.patientId"></app-patient-x-patient-list-field>
+                </div>
+            </div>
+        </ng-container>
+
+        <!-- COMMENTS -->
+        <ng-container>
+            <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+                <div class="w-100 overflow-hidden">
+                    <app-section-title [title]="'patient.form.section.title.comments' | resolveResource"></app-section-title>
+                </div>
+            </div>
+
+            <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+                <div class="flex-column-fluid overflow-hidden w-100">
+                    <app-text-field [label]="'patient.form.label.publicComment' | resolveResource" formControlName="publicComment"></app-text-field>
+                </div>
+            </div>
+
+            <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+                <div class="flex-column-fluid overflow-hidden w-100">
+                    <app-text-field [label]="'patient.form.label.internalComment' | resolveResource" formControlName="internalComment"></app-text-field>
+                </div>
+            </div>
+
+            <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+                <div class="flex-column-fluid overflow-hidden w-100">
+                    <app-checkbox-field [label]="'patient.form.label.isBanned' | resolveResource" formControlName="isBanned"></app-checkbox-field>
+                </div>
+            </div>
+
+            <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+                <div class="flex-column-fluid overflow-hidden w-100">
+                    <app-text-field [label]="'patient.form.label.bannedComment' | resolveResource" formControlName="bannedComment"></app-text-field>
+                </div>
+            </div>
+
+            <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+                <div class="flex-column-fluid overflow-hidden w-100">
+                    <app-checkbox-field [label]="'patient.form.label.isInDebt' | resolveResource" formControlName="isInDebt"></app-checkbox-field>
+                </div>
+            </div>
+
+            <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+                <div class="flex-column-fluid overflow-hidden w-100">
+                    <app-text-field [label]="'patient.form.label.debtComment' | resolveResource" formControlName="debtComment"></app-text-field>
+                </div>
+            </div>
+        </ng-container>
+    </ng-container>
+</ng-container>

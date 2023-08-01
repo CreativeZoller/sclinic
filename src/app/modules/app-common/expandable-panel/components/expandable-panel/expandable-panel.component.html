@@ -1,0 +1,41 @@
+<!-- HEADER -->
+<ng-container>
+    <app-section-title
+        *ngIf="headerType === 'SECTION_TITLE'"
+        [title]="title"
+        [withIcon]="withIcon"
+        [buttonsTemplate]="buttonsTemplate"
+    ></app-section-title>
+
+    <app-section-subtitle
+        *ngIf="headerType === 'SECTION_SUBTITLE'"
+        [title]="title"
+        [compoundTitle]="compoundTitle"
+        [titleClass]="titleClass"
+        [compoundTitleClass]="compoundTitleClass"
+        [separatorClass]="separatorClass"
+        [separator]="separator"
+        [buttonsTemplate]="buttonsTemplate"
+    ></app-section-subtitle>
+</ng-container>
+
+<ng-template #buttonsTemplate>
+    <ng-container *ngIf="preButtonsTemplate" [ngTemplateOutlet]="preButtonsTemplate"></ng-container>
+
+    <div class="d-flex flex-column justify-content-end">
+        <div (click)="toggle()" class="btn customBtn--secondary expandable-panel-toggle">
+            <span
+                [inlineSVG]="'./assets/images/icons/sidebar-toggle.svg'"
+                class="svg-icon svg-icon-1 color-inherit expandable-panel-toggle-icon"
+                [class.expandable-panel-toggle-icon-closed]="!isOpened"
+            ></span>
+        </div>
+    </div>
+
+    <ng-container *ngIf="postButtonsTemplate" [ngTemplateOutlet]="postButtonsTemplate"></ng-container>
+</ng-template>
+
+<!-- BODY -->
+<ng-container *ngIf="isOpened">
+    <ng-content></ng-content>
+</ng-container>

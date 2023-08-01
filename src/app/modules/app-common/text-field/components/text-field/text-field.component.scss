@@ -1,0 +1,16 @@
+:host {
+    display: block;
+    width: 100%;
+
+    &.disabled {
+        &, & > * {
+            cursor: default;
+        }
+
+        opacity: 0.6;
+    }
+
+    .input-group {
+        flex-wrap: nowrap;
+    }
+}

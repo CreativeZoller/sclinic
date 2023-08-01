@@ -1,0 +1,26 @@
+
+<app-expandable-panel
+[title]="'schedule.planner.section.filter' | resolveResource"
+[withIcon]="false"
+[isOpened]="true"
+>
+    <app-schedule-planner-filter
+        (plannedScheduleList)="setPlannedScheduleList($event)"
+        (publishedScheduleList)="setPublishedScheduleList($event)"
+        (filteredClinicIds)="setClinicIds($event)"
+        (filteredMedicalEmployeeIds)="setMedicalEmployeeIds($event)"
+    ></app-schedule-planner-filter>
+</app-expandable-panel>
+
+<app-expandable-panel
+[title]="'schedule.planner.section.calendar' | resolveResource"
+[withIcon]="false"
+[isOpened]="true"
+>
+    <app-schedule-planner-calendar
+        [plannedSchedule]="plannedScheduleList"
+        [publishedSchedule]="publishedScheduleList"
+        [filteredClinicIds]="clinicIds"
+        [filteredMedicalEmployeeIds]="medicalEmployeeIds"
+    ></app-schedule-planner-calendar>
+</app-expandable-panel>

@@ -1,0 +1,11 @@
+<app-selection-list-field
+    [baseResourceKey]="baseResourceKey"
+    [tableIdProperty]="tableIdProperty"
+    [tableHeaders]="tableHeaders"
+    [getTableData$]="getTableData$"
+    [handleSave$]="handleSave$"
+    [handleDelete$]="handleDelete$"
+    [enableEditor]="!!(enableEditor$ | async)"
+>
+    <app-clinic-form #editorForm></app-clinic-form>
+</app-selection-list-field>

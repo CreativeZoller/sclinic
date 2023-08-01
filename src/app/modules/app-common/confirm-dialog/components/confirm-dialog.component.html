@@ -1,0 +1,30 @@
+<h1 *ngIf="title" mat-dialog-title>{{title}}</h1>
+<div *ngIf="message && !messageComponent" mat-dialog-content [innerHTML]="message"></div>
+<div *ngIf="messageComponent" mat-dialog-content>
+    <ng-template
+        appDynamicComponent
+        [component]="messageComponent"
+        [initComponentBindingFn]="initMessageComponentBindingsFn"
+    ></ng-template>
+</div>
+<div mat-dialog-actions>
+    <button
+        *ngIf="cancelButtonCaption"
+        type="button"
+        class="btn customBtn--secondary"
+        [mat-dialog-close]="false"
+        (click)="dialogRef.close(false)"
+    >
+        {{cancelButtonCaption}}
+    </button>
+
+    <button
+        *ngIf="yesButtonCaption"
+        type="button"
+        class="btn customBtn"
+        (click)="dialogRef.close(true)"
+        [mat-dialog-close]="true"
+    >
+        {{yesButtonCaption}}
+    </button>
+</div>

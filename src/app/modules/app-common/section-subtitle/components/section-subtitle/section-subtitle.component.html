@@ -1,0 +1,13 @@
+<div class="section-subtitle-container">
+    <h3 *ngIf="(title && !compoundTitle)" class="section-subtitle-text" [ngClass]="titleClass">{{ title }}</h3>
+
+    <div *ngIf="compoundTitle">
+        <ng-container *ngFor="let item of compoundTitle; let isLast = last">
+        <span [ngClass]="compoundTitleClass">{{ item }}</span>
+        <span [ngClass]="separatorClass" *ngIf="!isLast || isLast && title"><span> {{ separator }} </span></span>
+        <span [ngClass]="titleClass" *ngIf="isLast && title" >{{ title }}</span>
+        </ng-container>
+    </div>
+
+    <ng-container *ngIf="buttonsTemplate" [ngTemplateOutlet]="buttonsTemplate"></ng-container>
+</div>

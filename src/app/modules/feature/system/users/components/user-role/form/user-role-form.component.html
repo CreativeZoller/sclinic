@@ -1,0 +1,32 @@
+<ng-container [formGroup]="form" *ngIf="{
+    roleOptions: roleOptions$ | async
+} as vm">
+    <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-select-field
+                [label]="'user.role.form.label.roleId' | resolveResource"
+                formControlName="roleId"
+                [options]="vm.roleOptions ?? []"
+            ></app-select-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-number-field
+                [label]="'user.role.form.label.commissionPercentage' | resolveResource"
+                formControlName="commissionPercentage"
+            >
+                <ng-template #fieldSuffixTemplate>
+                    <span class="input-group-text"> %</span>
+                </ng-template>
+            </app-number-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+        <div class="w-100 overflow-hidden">
+            <app-clinic-selection-list-field
+                formControlName="swissUserXRoleXClinic"
+                [enableEditor]="false"
+            ></app-clinic-selection-list-field>
+        </div>
+    </div>
+</ng-container>

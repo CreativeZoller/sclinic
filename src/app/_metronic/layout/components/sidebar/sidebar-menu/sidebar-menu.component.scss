@@ -1,0 +1,51 @@
+// Initialize
+@import "/src/assets/sass/style.scss";
+@import "/src/assets/sass/variables";
+
+.menu-item {
+    .svg-icon {
+        transition: all 0.2s ease-in-out;
+    }
+    &.show {
+        color: $titleBlack;
+
+        .svg-icon {
+            rotate: 90deg;
+            transition: all 0.2s ease-in-out;
+        }
+    }
+}
+
+.menu-title {
+    font-family: "Poppins-Bold";
+    font-size: 15px;
+    line-height: 22px;
+    letter-spacing: 0em;
+    color: $grey;
+}
+
+.menu-sub {
+    .menu-link {
+        padding: 0.65rem 1rem 0.65rem 2rem;
+
+        &.active {
+            background-color: transparent !important;
+
+            .bullet {
+                background-color: $darkGrey !important;
+            }
+            .menu-title {
+                font-family: "Poppins-Bold";
+                color: $darkGrey !important;
+            }
+        }
+    }
+    .menu-title {
+        font-family: "Poppins";
+        font-size: 13px;
+        font-weight: 500;
+        line-height: 22px;
+        letter-spacing: 0em;
+        color: $grey;
+    }
+}

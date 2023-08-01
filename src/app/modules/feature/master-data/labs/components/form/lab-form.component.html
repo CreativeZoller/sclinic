@@ -1,0 +1,29 @@
+<ng-container [formGroup]="form">
+    <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-33">
+            <app-select-field [label]="'lab.form.label.dC_MarkerId' | resolveResource" formControlName="dC_MarkerId" [options]="initData.dC_MarkerList" [errorResourceKeyPrefix]="errorResourceKeyPrefix"></app-select-field>
+        </div>
+
+        <div class="flex-column-fluid overflow-hidden flex-33">
+            <app-text-field [label]="'lab.form.label.providerIdentificationNumber' | resolveResource" formControlName="providerIdentificationNumber" [errorResourceKeyPrefix]="errorResourceKeyPrefix"></app-text-field>
+        </div>
+
+        <div class="flex-column-fluid overflow-hidden flex-33">
+            <app-select-field [label]="'lab.form.label.dC_LabProviderId' | resolveResource" formControlName="dC_LabProviderId" [options]="initData.dC_LabProviderList" [errorResourceKeyPrefix]="errorResourceKeyPrefix"></app-select-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-33">
+            <app-select-field [label]="'lab.form.label.dC_LabSamplingTypeId' | resolveResource" formControlName="dC_LabSamplingTypeId" [options]="initData.dC_LabSamplingTypeList"></app-select-field>
+        </div>
+
+        <div class="flex-column-fluid overflow-hidden flex-33">
+            <app-select-field [label]="'lab.form.label.dC_LabRepeatPeriodId' | resolveResource" formControlName="dC_LabRepeatPeriodId" [options]="initData.dC_LabRepeatPeriodList"></app-select-field>
+        </div>
+
+        <div class="flex-column-fluid overflow-hidden flex-33">
+            <app-select-field [label]="'lab.form.label.dC_SamplingItemId' | resolveResource" formControlName="dC_SamplingItemId" [options]="initData.dC_SamplingItemList" [errorResourceKeyPrefix]="errorResourceKeyPrefix"></app-select-field>
+        </div>
+    </div>
+</ng-container>

@@ -1,0 +1,40 @@
+// Initialize
+// @import "/src/assets/sass/style.scss";
+@import "/src/assets/sass/variables";
+
+:host {
+    display: block;
+    width: 100%;
+
+    &.disabled {
+        &, & > * {
+            cursor: default;
+        }
+
+        opacity: 0.6;
+    }
+
+    .timepicker-input {
+        padding-right: 25px;
+        width: calc(100% - 25px);
+    }
+
+    ::ng-deep {
+        .timepicker-field-picker {
+            .mat-primary {
+                background-color: $red;
+            }
+        }
+
+        .mat-form-field-infix {
+            width: 100%;
+            min-width: 75px;
+        }
+    }
+}
+
+.timepickerIcon {
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+}

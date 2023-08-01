@@ -1,0 +1,29 @@
+// Initialize
+@import "/src/assets/sass/style.scss";
+@import "/src/assets/sass/variables";
+
+:host {
+    .languages {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .langselector {
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 18px;
+        letter-spacing: 0em;
+        color: $lightGrey;
+        padding: 8px 14px;
+        border-radius: 6px;
+        cursor: pointer;
+
+        &--active,
+        &:hover {
+            background-color: $hoverGrey;
+            color: $grey;
+        }
+    }
+}

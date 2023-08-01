@@ -1,0 +1,20 @@
+<app-list-field
+    [baseResourceKey]="baseResourceKey"
+    [tableIdProperty]="tableIdProperty"
+    [tableTitle]="tableTitle"
+    [tableTitleUseSectionSubtitle]="tableTitleUseSectionSubtitle"
+    [tableHeaders]="tableHeaders"
+    [errorResourceKeyPrefix]="errorResourceKeyPrefix"
+    [errorAddControlNameToResourceKeyPrefix]="errorAddControlNameToResourceKeyPrefix"
+    [errorShowErrorsMethod]="errorShowErrorsMethod"
+    [errorResourceOverrides]="errorResourceOverrides"
+    [errorResourceOverridesMethod]="errorResourceOverridesMethod"
+    [handleSave$]="handleSave$"
+    [canDelete]="false"
+    [valueToFormValue]="valueToFormValue"
+>
+    <app-service-lab-selection-list-form
+        #editorForm
+        [allSelectedLabs]="(allSelectedLabs$ | async) ?? []"
+    ></app-service-lab-selection-list-form>
+</app-list-field>

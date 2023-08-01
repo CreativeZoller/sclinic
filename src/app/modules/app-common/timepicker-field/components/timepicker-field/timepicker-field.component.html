@@ -1,0 +1,47 @@
+<label class="form-label">{{ label }}</label>
+<mat-form-field appearance="outline" class="form-control" [ngClass]="classes ?? []" (click)="!(isDisabled || false) && picker.open()">
+    <input
+        class="timepicker-input"
+        matInput
+        [disabled]="isDisabled || false"
+        [ngModel]="inputValue$ | async"
+        (ngModelChange)="changeValue($event)"
+        (focus)="onInputFocus()"
+        (blur)="onInputBlur()"
+        placeholder="{{placeholder}}"
+    >
+
+    <span class="timepickerIcon" (click)="onIconClick($event)" [inlineSVG]="'./assets/images/icons/clock.svg'"></span>
+
+    <ngx-mat-timepicker
+        #picker
+        (opened)="onTimepickerOpened()"
+        (closed)="onTimepickerClosed()"
+        [format]="24"
+        [cancelBtnTmpl]="cancelBtnTmpl"
+        [confirmBtnTmpl]="confirmBtnTmpl"
+        timepickerClass="timepicker-field-picker"
+        (timeSet)="changeValue($event)"
+    >
+        <ng-template #cancelBtnTmpl>
+            <button type="button" class="btn customBtn--secondary me-2">
+                {{ "general.action.label.cancel" | resolveResource }}
+            </button>
+        </ng-template>
+        <ng-template #confirmBtnTmpl>
+            <button  type="button" class="btn customBtn">
+                {{ "general.action.label.save" | resolveResource }}
+            </button>
+        </ng-template>
+    </ngx-mat-timepicker>
+</mat-form-field>
+
+<app-field-error
+    *ngIf="!!ngControl?.control && ngControl!.control!.invalid"
+    [control]="ngControl!.control!"
+    [resourceKeyPrefix]="errorResourceKeyPrefix"
+    [addControlNameToResourceKeyPrefix]="errorAddControlNameToResourceKeyPrefix"
+    [showErrorsMethod]="errorShowErrorsMethod"
+    [resourceOverrides]="errorResourceOverrides"
+    [resourceOverridesMethod]="errorResourceOverridesMethod"
+></app-field-error>

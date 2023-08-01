@@ -1,0 +1,47 @@
+<ng-container *ngIf="{
+    editorModalConfig: editorModalConfig$ | async
+} as vm">
+    <app-table
+        [title]="tableTitle"
+        [tableHeaders]="tableHeaders"
+        [idProperty]="$any(tableIdProperty)"
+        [data$]="expandedTableData$"
+        (rowClick)="rowClick.emit($event); openEditorFor($event)"
+        (rowChecked)="openDetails($event)"
+        [titleRowTemplate]="titleRowTemplate"
+        [titleRowButtonsTemplate]="titleRowButtonsTemplate"
+        [singleSelecting]="singleSelecting"
+        [enableBulkActions]="enableEditor"
+        [showLoading]="showLoading"
+        [dragAndDropConfig]="dragAndDropConfig"
+        [virtualScrollConfig]="virtualScrollConfig"
+        (pageConfigChanged)="onPageConfigurationChanged($event)"
+        [totalRecordCount]="(totalRecordCount$ | async) ?? 10"
+        [allowPaging]="allowPaging"
+        [bulkActionsLabel]="bulkActionsLabel"
+        [bulkActions]="bulkActions"
+    ></app-table>
+
+    <ng-template #titleRowButtonsTemplate>
+        <ng-container *ngIf="extraTitleRowPreButtonsTemplate" [ngTemplateOutlet]="extraTitleRowPreButtonsTemplate"></ng-container>
+
+        <div *ngIf="enableEditor && canCreate && !!handleSave$" class="d-flex flex-column justify-content-end">
+            <ng-template #defaultTitleRowCreateButtonTemplate>
+                <div (click)="openEditorFor()" class="btn customBtn customBtn--withIcon">
+                    <span [inlineSVG]="'./assets/images/icons/plus.svg'" class="svg-icon svg-icon-1 color-inherit"></span>
+                    {{ "general.action.label.add" | resolveResource }}
+                </div>
+            </ng-template>
+
+            <ng-container
+                *ngTemplateOutlet="titleRowCreateButtonTemplate || defaultTitleRowCreateButtonTemplate"
+            ></ng-container>
+        </div>
+
+        <ng-container *ngIf="extraTitleRowPostButtonsTemplate" [ngTemplateOutlet]="extraTitleRowPostButtonsTemplate"></ng-container>
+    </ng-template>
+
+    <app-modal #editorModal [modalConfig]="vm.editorModalConfig">
+        <ng-content></ng-content>
+    </app-modal>
+</ng-container>

@@ -1,0 +1,108 @@
+<ng-container [formGroup]="form">
+
+    <div class="d-flex flex-row gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-33">
+            <app-timepicker-field [label]="'schedule.planner.modal.form.label.startDate' | resolveResource" formControlName="startDate"></app-timepicker-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-33">
+            <app-timepicker-field [label]="'schedule.planner.modal.form.label.endDate' | resolveResource" formControlName="endDate"></app-timepicker-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-33">
+            <app-checkbox-field [label]="'schedule.planner.modal.form.label.isPending' | resolveResource" formControlName="isPending"></app-checkbox-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-33">
+            <app-select-field
+                [label]="'schedule.planner.modal.form.label.clinicId' | resolveResource"
+                formControlName="clinicId"
+                [options]="clinicOptions$ | async"
+            ></app-select-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-33">
+            <app-select-field
+                [label]="'schedule.planner.modal.form.label.clinicFloorId' | resolveResource"
+                formControlName="clinicFloorId"
+                [options]="clinicFloorOptions$ | async"
+            ></app-select-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-33">
+            <app-select-field
+                [label]="'schedule.planner.modal.form.label.clinicRoomId' | resolveResource"
+                formControlName="clinicRoomId"
+                [options]="clinicRoomOptions$ | async"
+            ></app-select-field>
+        </div>
+    </div>
+
+    <div class="mt-10 gap-5">
+        <button class="btn customBtn" (click)="openClinicFormModal()">{{ 'schedule.planner.modal.form.label.edit.clinic.button' | resolveResource }}</button>
+    </div>
+
+    <div class="mt-10 gap-5">
+        <app-schedule-planner-modal-special-time-list-field formControlName="specialTimeList"></app-schedule-planner-modal-special-time-list-field>
+    </div>
+
+    <div class="mt-10 gap-5">
+        <app-schedule-planner-doctor-list-field formControlName="doctorList"></app-schedule-planner-doctor-list-field>
+    </div>
+
+    <div class="mt-10 gap-5">
+        <app-schedule-planner-substitute-doctor-list-field formControlName="substituteList"></app-schedule-planner-substitute-doctor-list-field>
+    </div>
+
+    <div class="mt-10 gap-5" [style.display]="!!form.value.publishedScheduleId ? 'none' : 'block'">
+        <app-schedule-planner-modal-specialty-list-field formControlName="plannedScheduleXSpecialty"></app-schedule-planner-modal-specialty-list-field>
+    </div>
+
+    <div class="mt-10 gap-5" [style.display]="!!form.value.publishedScheduleId ? 'block' : 'none'">
+        <app-schedule-planner-modal-specialty-list-field formControlName="publishedScheduleXSpecialty"></app-schedule-planner-modal-specialty-list-field>
+    </div>
+
+     <div class="mt-10 gap-5">
+        <app-schedule-planner-assistant-list-field formControlName="assistantList"></app-schedule-planner-assistant-list-field>
+    </div>
+
+    <!-- TODO szerződések -->
+
+
+    <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-checkbox-field [label]="'schedule.planner.modal.form.label.isEmailDenied' | resolveResource" formControlName="isEmailDenied"></app-checkbox-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-checkbox-field [label]="'schedule.planner.modal.form.label.isClosedSchedule' | resolveResource" formControlName="isClosedSchedule"></app-checkbox-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden">
+            <app-text-field [label]="'schedule.planner.modal.form.label.remarks' | resolveResource" formControlName="remarks"></app-text-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-text-field
+                [label]="'schedule.planner.modal.form.label.editedBy' | resolveResource"
+                formControlName="editedBy"
+            ></app-text-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-text-field
+                [label]="'schedule.planner.modal.form.label.editedAt' | resolveResource"
+                formControlName="editedAt"
+            ></app-text-field>
+        </div>
+    </div>
+
+</ng-container>
+
+<app-modal #copyModal [modalConfig]="modalConfig">
+    <app-schedule-planner-calendar-event-copy-modal #copyForm></app-schedule-planner-calendar-event-copy-modal>
+</app-modal>
+
+<app-modal #clinicModal [modalConfig]="modalConfig">
+    <app-clinic-form #clinicForm></app-clinic-form>
+</app-modal>

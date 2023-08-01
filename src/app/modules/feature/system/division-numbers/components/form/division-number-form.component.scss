@@ -1,0 +1,10 @@
+// Initialize
+@import "/src/assets/sass/variables";
+
+.equalField {
+    width: max-content;
+    background-color: $hoverGrey;
+    border-radius: 8px;
+    border: 2px solid $hoverGrey;
+    padding: 0.775rem 1rem;
+}

@@ -1,0 +1,12 @@
+:host {
+    width: 100%;
+
+    ::ng-deep {
+        .max-200-width-colum {
+            max-width: 200px !important;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+}

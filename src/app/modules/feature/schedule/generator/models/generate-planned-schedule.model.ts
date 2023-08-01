@@ -1,0 +1,3 @@
+import { CoreModelsResourceManagementScheduleGeneratorGeneratePlannedScheduleRequest } from "src/api/models";
+
+export type GeneratePlannedScheduleRequest = NonNullable<CoreModelsResourceManagementScheduleGeneratorGeneratePlannedScheduleRequest>

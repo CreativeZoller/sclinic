@@ -1,0 +1,55 @@
+@import "/src/assets/sass/variables";
+
+$borderWidth: 2px;
+$activeBorderWidth: 3px;
+$tabPaddingBottom: 8px;
+
+:host {
+    width: 100%;
+
+    .list-tabs-title-tabs-container {
+        border-bottom: $borderWidth solid $tableHeaderBorderGrey;
+        padding-bottom: $tabPaddingBottom;
+
+        .list-tabs-title-tabs-inner-container {
+            margin-bottom: -($tabPaddingBottom + $borderWidth);
+
+            ::ng-deep {
+                > .mat-tab-group {
+                    height: 100%;
+
+                    > .mat-tab-header {
+                        height: 100%;
+                        border-bottom: 0;
+
+                        > .mat-tab-label-container {
+                            > .mat-tab-list {
+                                > .mat-tab-labels {
+                                    height: 100%;
+                                    gap: 10px;
+
+                                    > .mat-tab-label {
+                                        padding: 5px !important;
+
+                                        &:not(.mat-tab-label-active) {
+                                            color: $grey;
+                                            > .mat-tab-label-content{
+                                                color: $grey;
+                                            }
+                                        }
+
+                                        &.mat-tab-label-active {
+                                            > .mat-tab-label-content{
+                                                font-weight: bold;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

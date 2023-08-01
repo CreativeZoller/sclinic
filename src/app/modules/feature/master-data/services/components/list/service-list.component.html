@@ -1,0 +1,31 @@
+<ng-container *ngIf="{
+    tableHeaders: tableHeaders$ | async,
+    showTableLoading: showTableLoading$ | async
+} as vm">
+    <app-list
+        *ngIf="!!vm.tableHeaders"
+        [baseResourceKey]="baseResourceKey"
+        [tableIdProperty]="tableIdProperty"
+        [tableHeaders]="vm.tableHeaders"
+        [getTableData$]="getTableData$"
+        [handleSave$]="handleSave$"
+        [handleDelete$]="handleDelete$"
+        [extraTitleRowPreButtonsTemplate]="extraTitleRowPreButtonsTemplate"
+        [showLoading]="vm.showTableLoading ?? false"
+        [totalRecordCount]="(totalRecordCount$ | async)!"
+    >
+        <ng-template #extraTitleRowPreButtonsTemplate>
+            <div class="d-flex flex-column justify-content-end me-4">
+                <div (click)="saveBookingAreasChanges()" class="btn customBtn--secondary">
+                    {{ "service.list.table.buttons.save.booking.areas" | resolveResource }}
+                </div>
+            </div>
+        </ng-template>
+
+        <app-service-form #editorForm [activePriceTable]="activePriceTable$ | async"></app-service-form>
+    </app-list>
+
+    <div *ngIf="!vm.tableHeaders" class="d-flex justify-content-center loading-spinner-container-large">
+        <div class="spinner-border loading-spinner-large" role="status"></div>
+    </div>
+</ng-container>

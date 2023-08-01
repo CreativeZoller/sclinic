@@ -1,0 +1,16 @@
+<ng-container [formGroup]="form">
+    <div class="d-flex flex-row gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-text-field [label]="'function.form.label.functionName' | resolveResource" formControlName="functionName" [errorResourceKeyPrefix]="errorResourceKeyPrefix"></app-text-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-select-field [label]="'function.form.label.parentFunctionId' | resolveResource" formControlName="parentFunctionId" [options]="parentFunctions$ | async" [errorResourceKeyPrefix]="errorResourceKeyPrefix"></app-select-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-select-field [label]="'function.form.label.dC_FunctionTypeId' | resolveResource" formControlName="dC_FunctionTypeId" [options]="initData.dC_FunctionTypeList" [errorResourceKeyPrefix]="errorResourceKeyPrefix"></app-select-field>
+        </div>
+    </div>
+</ng-container>

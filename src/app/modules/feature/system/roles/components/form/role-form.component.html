@@ -1,0 +1,26 @@
+<ng-container [formGroup]="form">
+    <div class="d-flex flex-row gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-50">
+            <app-text-field
+                [label]="'role.form.label.roleName' | resolveResource"
+                formControlName="roleName"
+                [errorResourceKeyPrefix]="errorResourceKeyPrefix"
+            ></app-text-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden w-50">
+            <app-checkbox-field
+                [label]="'role.form.label.technical' | resolveResource"
+                formControlName="technical"
+                [useAlignBaselineFix]="true"
+            ></app-checkbox-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="w-100 overflow-hidden">
+            <app-authority-selection-list-field
+                formControlName="roleXRight"
+            ></app-authority-selection-list-field>
+        </div>
+    </div>
+</ng-container>

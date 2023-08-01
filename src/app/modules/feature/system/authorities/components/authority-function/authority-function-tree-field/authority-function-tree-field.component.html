@@ -1,0 +1,120 @@
+
+  <!-- Add the rest of your template here -->
+  <ng-container *ngIf="{
+    treeData: treeData$ | async,
+    treeHeaderData: treeHeaderData$ | async
+} as vm">
+    <app-text-field [formControl]="searchInput" placeholder="Keresés"></app-text-field>
+
+    <div class="tree-container">
+        <!-- HEADER -->
+        <ng-container>
+
+            <div class="tree-column tree-column-header">
+                <span>{{'authority.form.label.rightXFunction.title' | resolveResource}}</span>
+            </div>
+            <div class="tree-column tree-column-header">
+                <app-checkbox-field
+                    [label]="'authority.form.label.rightXFunction.canRead' | resolveResource"
+                    [boldLabel]="false"
+                    [ngModel]="vm.treeHeaderData?.canRead ?? false"
+                    (ngModelChange)="setNodesValueRecursively(vm.treeData ?? [], 'canRead', $event)"
+                ></app-checkbox-field>
+            </div>
+            <div class="tree-column tree-column-header">
+                <app-checkbox-field
+                    [label]="'authority.form.label.rightXFunction.canCreate' | resolveResource"
+                    [boldLabel]="false"
+                    [ngModel]="vm.treeHeaderData?.canCreate ?? false"
+                    (ngModelChange)="setNodesValueRecursively(vm.treeData ?? [], 'canCreate', $event)"
+                ></app-checkbox-field>
+            </div>
+            <div class="tree-column tree-column-header">
+                <app-checkbox-field
+                    [label]="'authority.form.label.rightXFunction.canUpdate' | resolveResource"
+                    [boldLabel]="false"
+                    [ngModel]="vm.treeHeaderData?.canUpdate ?? false"
+                    (ngModelChange)="setNodesValueRecursively(vm.treeData ?? [], 'canUpdate', $event)"
+                ></app-checkbox-field>
+            </div>
+            <div class="tree-column tree-column-header">
+                <app-checkbox-field
+                    [label]="'authority.form.label.rightXFunction.canDelete' | resolveResource"
+                    [boldLabel]="false"
+                    [ngModel]="vm.treeHeaderData?.canDelete ?? false"
+                    (ngModelChange)="setNodesValueRecursively(vm.treeData ?? [], 'canDelete', $event)"
+                ></app-checkbox-field>
+            </div>
+            <div class="tree-hr tree-hr-header"></div>
+        </ng-container>
+        <!-- TREE ROWS -->
+        <ng-container>
+            <ng-template #recursiveTreeNodes let-treeData="treeData" let-level="level">
+                <ng-container *ngFor="let node of (treeData ?? [])">
+                    <!-- TREE ROW -->
+                    <ng-container>
+                        <div
+                            class="tree-column"
+                            [ngStyle]="{'padding-left': (15 + 25*(level - 1)) + 'px'}"
+                        >
+                            <span *ngIf="level > 0" [inlineSVG]="'./assets/images/icons/level.svg'"></span>
+
+                            <button
+                                *ngIf="node.children.length > 0"
+                                mat-icon-button
+                                class="d-flex align-items-center justify-content-center p-0 ms-1"
+                                (click)="toggleNode(node)"
+                            >
+                                <mat-icon>{{node.expanded ? 'expand_more' : 'chevron_right'}}</mat-icon>
+                            </button>
+
+                            <div class="d-flex gap-2 align-items-center justify-content-center"
+                                [class.ms-1]="node.children.length > 0"
+                                [class.ms-2]="!(node.children.length > 0)"
+                            >
+                                <app-checkbox-field
+                                    [label]="node?.extraModel?.functionName"
+                                    [boldLabel]="false"
+                                    [ngModel]="node?.aggregation?.canAll ?? false"
+                                    (ngModelChange)="checkAllNodeValueRecursively(node, $event)"
+                                ></app-checkbox-field>
+                            </div>
+                        </div>
+                        <div class="tree-column">
+                            <app-checkbox-field
+                                [ngModel]="node.model.canRead"
+                                (ngModelChange)="setNodeValueRecursively(node, 'canRead' ,$event)"
+                            ></app-checkbox-field>
+                        </div>
+                        <div class="tree-column">
+                            <app-checkbox-field
+                                [ngModel]="node.model.canCreate"
+                                (ngModelChange)="setNodeValueRecursively(node, 'canCreate' ,$event)"
+                            ></app-checkbox-field>
+                        </div>
+                        <div class="tree-column">
+                            <app-checkbox-field
+                                [ngModel]="node.model.canUpdate"
+                                (ngModelChange)="setNodeValueRecursively(node, 'canUpdate' ,$event)"
+                            ></app-checkbox-field>
+                        </div>
+                        <div class="tree-column">
+                            <app-checkbox-field
+                                [ngModel]="node.model.canDelete"
+                                (ngModelChange)="setNodeValueRecursively(node, 'canDelete' ,$event)"
+                            ></app-checkbox-field>
+                        </div>
+                    </ng-container>
+
+                    <div class="tree-hr"></div>
+
+                    <ng-container *ngIf="node.expanded">
+                        <ng-container *ngTemplateOutlet="recursiveTreeNodes; context:{ treeData: node?.children, level: level + 1 }"></ng-container>
+                    </ng-container>
+                </ng-container>
+            </ng-template>
+
+            <ng-container *ngTemplateOutlet="recursiveTreeNodes; context:{ treeData: vm.treeData, level: 0 }"></ng-container>
+        </ng-container>
+    </div>
+</ng-container>

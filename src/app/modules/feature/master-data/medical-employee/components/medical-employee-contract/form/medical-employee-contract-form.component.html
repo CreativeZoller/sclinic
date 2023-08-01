@@ -1,0 +1,143 @@
+<ng-container [formGroup]="form">
+    <div class="d-flex flex-row gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-text-field
+                [label]="'medical.employee.contract.form.label.medicalContractNumber' | resolveResource"
+                formControlName="medicalContractNumber"
+            ></app-text-field>
+        </div>
+
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-text-field
+                [label]="'medical.employee.contract.form.label.medicalContractName' | resolveResource"
+                formControlName="medicalContractName"
+            ></app-text-field>
+        </div>
+    </div>
+
+    <ng-container formGroupName="_period">
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="w-100 overflow-hidden">
+                <app-clinic-selection-list-field
+                    formControlName="medicalContractPeriodXClinic"
+                    [enableEditor]="false"
+                ></app-clinic-selection-list-field>
+            </div>
+        </div>
+
+        <div class="d-flex flex-column mt-10 gap-5">
+            <h5 class="m-0 p-0">{{"medical.employee.contract.form.label._period.contract.type" | resolveResource}}</h5>
+        </div>
+
+        <div class="d-flex flex-row mt-5 gap-5 align-items-baseline">
+            <div class="flex-shrink-1 overflow-hidden overflow-break-words">
+                <app-checkbox-field
+                    [label]="'medical.employee.contract.form.label._period.isDuty' | resolveResource"
+                    formControlName="isDuty"
+                ></app-checkbox-field>
+            </div>
+
+            <div class="flex-shrink-1 overflow-hidden overflow-break-words">
+                <app-checkbox-field
+                    [label]="'medical.employee.contract.form.label._period.isCancelCommission' | resolveResource"
+                    formControlName="isCancelCommission"
+                ></app-checkbox-field>
+            </div>
+
+            <div class="flex-shrink-1 overflow-hidden overflow-break-words">
+                <app-checkbox-field
+                    [label]="'medical.employee.contract.form.label._period.isEmployee' | resolveResource"
+                    formControlName="isEmployee"
+                ></app-checkbox-field>
+            </div>
+
+            <div class="d-flex flex-column overflow-break-words">
+                <app-radio-field formControlName="isHourlyRate">
+                    <div class="d-flex flex-row gap-5 align-items-baseline">
+                        <app-radio-field-option
+                            [label]="'medical.employee.contract.form.label._period.isHourlyRate' | resolveResource"
+                            [optionValue]="true"
+                        ></app-radio-field-option>
+
+                        <app-radio-field-option
+                            [label]="'medical.employee.contract.form.label._period.isHandoverWork' | resolveResource"
+                            [optionValue]="false"
+                        ></app-radio-field-option>
+                    </div>
+                </app-radio-field>
+            </div>
+
+            <div class="flex-shrink-1 overflow-hidden overflow-break-words">
+                <app-checkbox-field
+                    [label]="'medical.employee.contract.form.label._period.isPaidLunchBreak' | resolveResource"
+                    formControlName="isPaidLunchBreak"
+                ></app-checkbox-field>
+            </div>
+
+            <div class="flex-shrink-1 overflow-hidden overflow-break-words">
+                <app-checkbox-field
+                    [label]="'medical.employee.contract.form.label._period.isPaidTravelTime' | resolveResource"
+                    formControlName="isPaidTravelTime"
+                ></app-checkbox-field>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden w-100">
+                <app-medical-employee-contract-schedule-entry-list-field
+                    formControlName="_scheduleEntries"
+                ></app-medical-employee-contract-schedule-entry-list-field>
+            </div>
+        </div>
+
+        <div
+            *ngIf="form.controls._period.controls.dC_WeekTypeIdFg as ctrl"
+            class="d-flex flex-column mt-10 gap-5"
+            [class.is-invalid]="ctrl?.invalid ?? false"
+        >
+            <div class="d-flex flex-row gap-5 align-items-baseline">
+                <div
+                    *ngFor="let weekTypeOption of initData.dC_WeekTypeList"
+                    [formGroup]="ctrl"
+                    class="flex-column-fluid flex-equal"
+                >
+                    <app-checkbox-field
+                        [label]="weekTypeOption.name"
+                        [formControlName]="weekTypeOption.value"
+                    ></app-checkbox-field>
+                </div>
+            </div>
+
+            <app-field-error *ngIf="!!ctrl && ctrl!.invalid" [control]="ctrl"></app-field-error>
+        </div>
+
+        <div
+            *ngIf="form.controls._period.controls.dC_DayIdFg as ctrl"
+            class="d-flex flex-column mt-10 gap-5"
+            [class.is-invalid]="ctrl?.invalid ?? false"
+        >
+            <div class="d-flex flex-row gap-5 align-items-baseline">
+                <div
+                    *ngFor="let dayOption of initData.dC_DayList"
+                    [formGroup]="ctrl"
+                    class="flex-column-fluid flex-equal"
+                >
+                    <app-checkbox-field
+                        [label]="dayOption.name"
+                        [formControlName]="dayOption.value"
+                    ></app-checkbox-field>
+                </div>
+            </div>
+
+            <app-field-error *ngIf="!!ctrl && ctrl!.invalid" [control]="ctrl"></app-field-error>
+        </div>
+    </ng-container>
+
+    <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-medical-employee-contract-commission-tree-field
+                formControlName="medicalContractPeriodCommission"
+            ></app-medical-employee-contract-commission-tree-field>
+        </div>
+    </div>
+</ng-container>

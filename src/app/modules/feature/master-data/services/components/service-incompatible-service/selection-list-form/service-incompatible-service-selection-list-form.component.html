@@ -1,0 +1,11 @@
+<ng-container [formGroup]="form">
+    <div class="d-flex flex-row gap-5 align-items-baseline">
+        <div class="w-100 overflow-hidden">
+            <app-service-incompatible-service-selection-list-field
+                formControlName="selectedIncompatibleServices"
+                [currentServiceId]="currentServiceId"
+                [allSelectedConnectedServices]="allSelectedConnectedServices"
+            ></app-service-incompatible-service-selection-list-field>
+        </div>
+    </div>
+</ng-container>

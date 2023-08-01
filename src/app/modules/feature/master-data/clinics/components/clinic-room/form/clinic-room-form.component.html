@@ -1,0 +1,27 @@
+<ng-container [formGroup]="form">
+    <!-- PERSONAL DATA -->
+    <ng-container>
+        <div class="d-flex flex-row gap-5 align-items-baseline">
+            <div class="w-100 overflow-hidden">
+                <app-section-title [title]="'clinic.room.list.table.title' | resolveResource"></app-section-title>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden flex-50">
+                <app-select-field
+                    [label]="'clinic.room.list.table.headers.dC_FloorId' | resolveResource"
+                    formControlName="dC_FloorId"
+                    [options]="this.initData.dC_FloorList"
+                ></app-select-field>
+            </div>
+
+            <div class="flex-column-fluid overflow-hidden flex-50">
+                <app-number-field
+                    [label]="'clinic.room.list.table.headers.roomNumber' | resolveResource"
+                    formControlName="roomNumber"
+                ></app-number-field>
+            </div>
+        </div>
+    </ng-container>
+</ng-container>

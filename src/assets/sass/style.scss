@@ -1,0 +1,750 @@
+//
+// Theme style
+//
+
+// Initialize
+@import "init";
+
+// Components
+@import "./core/components/components";
+@import "components/components";
+
+// Layout
+@import "./core/layout/base/layout";
+@import "layout/layout";
+
+// Custom variables
+
+@import "/src/assets/sass/variables";
+
+// Fonts
+
+@font-face {
+    font-family: "Poppins";
+    src: url("../fonts/Poppins-Regular.eot");
+    src: url("../fonts/Poppins-Regular.eot?#iefix") format("embedded-opentype"),
+        url("../fonts/Poppins-Regular.woff2") format("woff2"),
+        url("../fonts/Poppins-Regular.woff") format("woff"),
+        url("../fonts/Poppins-Regular.ttf") format("truetype"),
+        url("../fonts/Poppins-Regular.svg#Poppins-Regular") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Poppins-Bold";
+    src: url("../fonts/Poppins-Bold.eot");
+    src: url("../fonts/Poppins-Bold.eot?#iefix") format("embedded-opentype"),
+        url("../fonts/Poppins-Bold.woff2") format("woff2"),
+        url("../fonts/Poppins-Bold.woff") format("woff"),
+        url("../fonts/Poppins-Bold.ttf") format("truetype"),
+        url("../fonts/Poppins-Bold.svg#Poppins-Bold") format("svg");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Poppins-Light";
+    src: url("../fonts/Poppins-Light.eot");
+    src: url("../fonts/Poppins-Light.eot?#iefix") format("embedded-opentype"),
+        url("../fonts/Poppins-Light.woff2") format("woff2"),
+        url("../fonts/Poppins-Light.woff") format("woff"),
+        url("../fonts/Poppins-Light.ttf") format("truetype"),
+        url("../fonts/Poppins-Light.svg#Poppins-Light") format("svg");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Poppins-SemiBold";
+    src: url("../fonts/Poppins-SemiBold.eot");
+    src: url("../fonts/Poppins-SemiBold.eot?#iefix") format("embedded-opentype"),
+        url("../fonts/Poppins-SemiBold.woff2") format("woff2"),
+        url("../fonts/Poppins-SemiBold.woff") format("woff"),
+        url("../fonts/Poppins-SemiBold.ttf") format("truetype"),
+        url("../fonts/Poppins-SemiBold.svg#Poppins-SemiBold") format("svg");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Poppins-Medium";
+    src: url("../fonts/Poppins-Medium.eot");
+    src: url("../fonts/Poppins-Medium.eot?#iefix") format("embedded-opentype"),
+        url("../fonts/Poppins-Medium.woff2") format("woff2"),
+        url("../fonts/Poppins-Medium.woff") format("woff"),
+        url("../fonts/Poppins-Medium.ttf") format("truetype"),
+        url("../fonts/Poppins-Medium.svg#Poppins-Medium") format("svg");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+// Defaults
+
+* {
+    font-family: "Poppins";
+}
+
+body {
+    background-color: $bodyGrey !important;
+}
+
+a {
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: none;
+        outline: none;
+        color: inherit;
+    }
+}
+
+button {
+    border: none;
+    background-color: transparent;
+}
+
+.svg-icon {
+    svg {
+        height: auto !important;
+        width: auto !important;
+    }
+    &.svg-icon-2 {
+        svg {
+            height: auto !important;
+            width: auto !important;
+        }
+    }
+}
+
+.cdk-overlay-container{
+    z-index: 2000;
+}
+
+.mat-form-field-wrapper,
+.mat-form-field-flex {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.mat-form-field-infix {
+    padding: 0 !important;
+    border-top: none;
+}
+
+.mat-form-field-appearance-outline {
+    .mat-form-field-outline-start,
+    .mat-form-field-outline-end {
+        border: none !important;
+    }
+}
+
+.scrolltop {
+    background-color: $red;
+
+    &:hover {
+        background-color: $red;
+    }
+}
+
+.menu-sub-indention {
+    .menu-item {
+        .menu-link.active {
+            margin-right: 0 !important;
+        }
+    }
+}
+
+// Headings
+
+h1 {
+    font-family: "Poppins-SemiBold";
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 30px;
+    letter-spacing: 0em;
+    color: $titleBlack;
+}
+
+.spanLabel {
+    font-family: "Poppins-SemiBold";
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 21px;
+    letter-spacing: 0em;
+}
+
+// Forms
+
+.form-label {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+    letter-spacing: 0em;
+    color: $black;
+}
+
+.form-control {
+    background-color: $hoverGrey;
+    border-radius: 8px;
+    border: 2px solid $hoverGrey;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    color: $brandGrey;
+}
+
+.alert {
+    border: 2px solid;
+    border-radius: 10px;
+    padding: 7px 15px 7px 5px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0em;
+
+    &--danger{
+        border: 2px solid $error;
+        color: $error;
+    }
+}
+
+.is-invalid {
+    .form-label {
+        color: $error;
+        font-family: "Poppins-Bold";
+    }
+    .form-control {
+        border: 2px solid $error;
+        background-color: $bgRed;
+    }
+    .form-error {
+        color: $error;
+        font-family: "Poppins-Bold";
+    }
+}
+
+.mat-calendar-body-selected {
+    background-color: $red;
+}
+
+.mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover {
+    & > .mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical) {
+        background-color: $lightRed;
+    }
+}
+
+// Buttons
+
+.customBtn {
+    background-color: $red;
+    border-radius: 50px;
+    color: $white;
+    width: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:active,
+    &:hover {
+        background-color: $hoverRed;
+        color: $white !important;
+    }
+    &:disabled {
+        background-color: $bgRed;
+    }
+    &--secondary {
+        background-color: transparent;
+        border: 1px solid $red !important;
+        border-radius: 50px !important;
+        color: $red;
+
+        &:hover {
+            color: $white;
+            background-color: $red;
+
+            svg {
+                path {
+                    stroke: $white;
+                }
+            }
+        }
+    }
+    &--secondarySmall {
+        background-color: transparent;
+        border: 1px solid $red !important;
+        border-radius: 50px !important;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 18px;
+        letter-spacing: 0em;
+        color: $red;
+        padding: 3px 10px !important;
+
+        .icon {
+            margin-left: 5px;
+        }
+        &:hover {
+            color: $white;
+            background-color: $red;
+
+            .icon {
+                margin-left: 5px;
+
+                path {
+                    stroke: $white;
+                }
+            }
+        }
+    }
+    &--withIcon {
+        padding: calc(0.775rem + 1px) calc(1.5rem + 1px) calc(0.775rem + 1px) calc(1rem + 1px) !important;
+    }
+    &--bulk {
+        border-radius: 25px;
+
+        &.open{
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+    }
+}
+
+.btn.customIconBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:active,
+    &:hover {
+        background-color: $hoverGrey;
+    }
+    &:disabled {
+        opacity: 0.5;
+    }
+}
+
+.input-group {
+    input.with-input-affix {
+        z-index: 2;
+    }
+
+    .btn.customIconBtn {
+        background-color: $hoverGrey;
+        border-radius: $border-radius;
+        margin-left: 0;
+        padding: 1rem;
+        z-index: 1;
+
+        i.bi {
+            color: black;
+            font-size: 1.25em;
+            padding: 0;
+            margin: 0;
+        }
+    }
+}
+
+// Custom utility classes
+
+.flex-70 {
+    flex: 0 1 70%;
+}
+
+.flex-60 {
+    flex: 0 1 60%;
+}
+
+.flex-50 {
+    flex: 0 1 50%;
+}
+
+.flex-40 {
+    flex: 0 1 40%;
+}
+
+.flex-33 {
+    flex: 0 1 33.33%;
+}
+
+.flex-30 {
+    flex: 0 1 30%;
+}
+
+.flex-25 {
+    flex: 0 1 25%;
+}
+
+.flex-20 {
+    flex: 0 1 20%;
+}
+
+.flex-16 {
+    flex: 0 1 16%;
+}
+
+.flex-15 {
+    flex: 0 1 15%;
+}
+
+.flex-10 {
+    flex: 0 1 10%;
+}
+
+.flex-0 {
+    flex: 0 1 0%;
+}
+
+// Modals
+
+.modal-dialog {
+    max-width: 100%;
+}
+
+.modal-content {
+    background-color: transparent;
+    align-items: center;
+}
+
+.modalContainer {
+    max-width: 80%;
+    width: 100%;
+    background-color: white;
+    border-radius: var(--bs-modal-border-radius);
+
+    &--small {
+        max-width: 50%;
+    }
+}
+
+.modal-info {
+    font-family: "Poppins-Bold";
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0em;
+}
+
+// Hierarchy
+
+.hierarchy {
+    background-color: $white;
+}
+
+.hierarchyHeader {
+    border-bottom: 1px solid $tableHeaderBorderGrey;
+    padding: 10px 12px 10px 28px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0em;
+}
+
+.hierarchyRow {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0em;
+    padding: 6px 0;
+    border-bottom: 1px solid $checkboxGrey;
+    cursor: pointer;
+
+    &--subLevel {
+        // border-left: 1px solid $grey;
+        border-bottom: 0;
+        padding: 6px 0;
+    }
+    &--noPaddingLeft {
+        padding-left: 0;
+    }
+}
+
+.hierarchySubLevel {
+    border-bottom: 0;
+}
+
+.hierarchyButton {
+    padding: 0;
+    display: flex;
+
+    svg {
+        path {
+            stroke: $black !important;
+        }
+    }
+}
+
+.hierarchyRowTitleWithMargin {
+    margin-left: 5px;
+}
+
+.mat-tree-node {
+    min-height: auto;
+    flex-direction: column;
+}
+
+.mat-tree {
+    background: transparent;
+}
+
+.hierarchyRole {
+    .hierarchyHeader {
+        padding: 10px 0px;
+        display: grid;
+        grid-auto-columns: minmax(0, 1fr) 150px 150px 150px 150px;
+        grid-auto-flow: column;
+    }
+    .hierarchyHeaderColumn {
+        display: flex;
+    }
+    .hierarchyRow {
+        padding: 6px 0;
+        display: grid;
+        grid-auto-columns: minmax(0, 1fr) 150px 150px 150px 150px;
+        grid-auto-flow: column;
+    }
+}
+
+// Bulk action menu
+
+.mat-menu-panel {
+    background-color: transparent;
+    box-shadow: none;
+    border-radius: 0 !important;
+}
+
+.mat-menu-content,
+.mat-menu-content:not(:empty) {
+    background-color: $red;
+    border: 1px solid $white;
+    border-top: 0;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    padding: 0 !important;
+}
+
+.mat-menu-item {
+    color: $white;
+    padding: 8px 16px;
+    border-bottom: 1px solid $white;
+    font-family: "Poppins-SemiBold";
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+
+    &:last-of-type {
+        border-bottom: 0;
+    }
+}
+
+// Fullcalendar
+
+
+
+.fc-datagrid-body tr {
+    border-top: 2px solid #756d6d;
+}
+
+.fc {
+    .fc-timegrid-col.fc-day-today,
+    .fc-daygrid-day.fc-day-today {
+        background-color: transparent !important;
+    }
+    .fc-col-header-cell {
+        .fc-col-header-cell-cushion {
+            font-family: "Poppins-SemiBold";
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 21px;
+            letter-spacing: 0em;
+            color: $calendarHeader;
+        }
+    }
+}
+
+.fc-theme-standard {
+    td,
+    th {
+        border: 1px solid $calendarBorder !important;
+    }
+}
+
+.fc-h-event,
+.fc-v-event {
+    background-color: $red;
+    border: 3px solid;
+    border-radius: 4px !important;
+
+    .fc-event-main-frame {
+        align-items: center;
+        justify-content: center;
+    }
+    .fc-event-time {
+        font-size: 10px;
+        font-weight: 400;
+        line-height: 15px;
+        letter-spacing: 0em;
+    }
+    .fc-event-title-container {
+        flex-grow: 0 !important;
+        font-family: "Poppins-SemiBold";
+        font-size: 10px;
+        font-weight: 600;
+        line-height: 15px;
+        letter-spacing: 0em;
+    }
+    &--blue {
+        background-color: $calendarEventBlue !important;
+    }
+    &--red {
+        background-color: $calendarEventLightRed !important;
+    }
+}
+
+.fc-direction-ltr {
+    .fc-timegrid-slot-label-frame {
+        text-align: center !important;
+    }
+}
+
+.fc-timegrid-axis-cushion {
+    text-align: center !important;
+}
+
+// Tabs
+
+.mat-tab-labels {
+    gap: 20px;
+}
+
+.mat-tab-label {
+    height: auto !important;
+    min-width: 0 !important;
+    padding: 0 0 10px 0 !important;
+    opacity: 1 !important;
+}
+
+.mat-tab-label-content {
+    font-family: "Poppins";
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 27px;
+    letter-spacing: -0.02em;
+    text-align: center;
+}
+
+.mat-tab-label-active {
+    .mat-tab-label-content {
+        color: $red;
+    }
+}
+
+.mat-tab-group.mat-primary,
+.mat-tab-nav-bar.mat-primary {
+    .mat-ink-bar {
+        background-color: $red !important;
+    }
+}
+
+// Progress bar
+
+.mat-progress-bar {
+    height: 15px !important;
+    border-radius: 15px;
+}
+
+.mat-progress-bar-buffer {
+    background-color: $hoverGrey !important;
+}
+
+.mat-progress-bar-fill {
+    &::after {
+        background-color: $red !important;
+    }
+}
+
+// Fullcalendar event details popup
+
+.tippy-content{
+    background-color: $white !important;
+    color: $titleBlack;
+    border-radius: 6px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    min-width: 200px;
+    padding: 0;
+}
+
+.tippy-box{
+    background-color: $white !important;
+    color: $titleBlack;
+    left: -100px;
+}
+
+.tippy-arrow {
+    width: 16px;
+    height: 16px;
+    color: $white !important;
+}
+
+*[id^='tippy-']{
+    pointer-events: initial !important;
+}
+
+.loading-spinner-container-large {
+    padding: 5rem;
+}
+
+.loading-spinner-large {
+    &, &.spinner-border {
+        width: 5rem;
+        height: 5rem;
+        border-width: 5px;
+    }
+}
+
+.input-group {
+    .input-group-text {
+        border-color: $hoverGrey;
+        background-color: $iconBgGrey;
+
+        &.same-background {
+            background-color: $hoverGrey;
+
+            .disabled & {
+                background-color: var(--kt-input-disabled-bg);
+                border-color: var(--kt-input-disabled-border-color);
+            }
+        }
+    }
+}
+
+i.bi.yellow-icon {
+    color: $red;
+
+    & + i.bi.yellow-icon {
+        padding-left: 8px;
+    }
+}
+
+.h-0 {
+    height: 0 !important;
+}
+
+.w-0 {
+    width: 0 !important;
+}
+
+.color-inherit {
+    color: inherit !important;
+}
+
+.overflow-break-words {
+    word-break: break-word !important;
+}

@@ -1,0 +1,25 @@
+<app-list
+    [tableTitle]="'cc.sections.patients' | resolveResource"
+    [baseResourceKey]="baseResourceKey"
+    [tableIdProperty]="tableIdProperty"
+    [tableHeaders]="tableHeaders"
+    [getTableData$]="getTableData$"
+    [handleSave$]="handleSave$"
+    [handleDelete$]="handleDelete$"
+    [enableEditor]="true"
+    [singleSelecting]="true"
+    [titleRowTemplate]="customTitleTemplateRef"
+    [openRowEditorOverride]="true"
+    (rowChecked)="showDetails($event)"
+    [totalRecordCount]="(totalRecordCount$ | async)!"
+>
+    <app-cc-patient-form #editorForm></app-cc-patient-form>
+</app-list>
+
+<ng-template #customTitleTemplateRef let-title="title" let-titleRowButtonsTemplate="titleRowButtonsTemplate">
+        <div class="d-flex flex-row gap-5 mt-10 mb-5 align-items-baseline">
+            <div class="w-100 overflow-hidden">
+                <app-section-title [title]="'cc.sections.patients' | resolveResource" [buttonsTemplate]="titleRowButtonsTemplate" [withIcon]="false"></app-section-title>
+            </div>
+        </div>
+</ng-template>

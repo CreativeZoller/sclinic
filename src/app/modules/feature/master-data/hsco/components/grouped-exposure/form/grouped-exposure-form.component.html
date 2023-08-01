@@ -1,0 +1,22 @@
+<ng-container [formGroup]="form">
+    <div class="d-flex flex-row gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-autocomplete-field
+                [label]="'exposure.item.service.form.label.description' | resolveResource"
+                formControlName="exposure"
+                [searchFn$]="exposureAutocomplete.searhcFn"
+                [inputFormatter]="exposureAutocomplete.getFormattedInputText"
+                [resultFormatter]="exposureAutocomplete.getFormattedSelectText"
+            ></app-autocomplete-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-grouped-exposure-item-list-field
+                formControlName="exposureItemList"
+                [exposure]="(rawFormValue$ | async)?.exposure"
+            ></app-grouped-exposure-item-list-field>
+        </div>
+    </div>
+</ng-container>

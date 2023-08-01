@@ -1,0 +1,6 @@
+<ng-container *ngIf="{
+    fileType: fileType$ | async,
+    fileArrayBuffer: fileArrayBuffer$ | async
+} as vm">
+    <div [innerHtml]="htmlContent$ | async | safeHtml"></div>
+</ng-container>

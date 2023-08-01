@@ -1,0 +1,35 @@
+<ng-container [formGroup]="form">
+    <div *ngFor="let dayConfig of dayConfigs; let first = first"
+        [class.is-invalid]="form.controls[dayConfig.dayId].invalid"
+    >
+        <div
+            class="d-flex flex-row gap-5 align-items-baseline"
+            [class.mt-10]="!first"
+            [formGroupName]="dayConfig.dayId"
+        >
+            <div class="flex-column-fluid overflow-hidden flex-33">
+                <div class="invisible">&nbsp;</div>
+                <div class="open-hours-row-label mt-5">
+                    {{ ("general.weekday." + dayConfig.resourceKeyPart) | resolveResource}}
+                </div>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-33">
+                <app-timepicker-field
+                    [label]="'clinic.open.hours.form.label.startTime' | resolveResource"
+                    formControlName="startTime"
+                ></app-timepicker-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-33">
+                <app-timepicker-field
+                    [label]="'clinic.open.hours.form.label.endTime' | resolveResource"
+                    formControlName="endTime"
+                ></app-timepicker-field>
+            </div>
+        </div>
+
+        <app-field-error
+            [control]="form.controls[dayConfig.dayId]"
+            [resourceKeyPrefix]="errorResourceKeyPrefix"
+        ></app-field-error>
+    </div>
+</ng-container>

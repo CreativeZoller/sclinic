@@ -1,0 +1,23 @@
+:host ::ng-deep {
+    .expandable-panel-toggle {
+        padding: calc(0.775rem + 1px) calc(1rem + 1px) !important;
+
+        .expandable-panel-toggle-icon {
+            margin: 0 !important;
+
+            & > svg {
+                transform: rotate(90deg);
+                width: 18px !important;
+                height: 18px !important;
+                margin: 3px !important;
+                path {
+                    stroke: transparent;
+                }
+            }
+
+            &.expandable-panel-toggle-icon-closed > svg {
+                transform: rotate(270deg);
+            }
+        }
+    }
+}

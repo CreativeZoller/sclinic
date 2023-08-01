@@ -1,0 +1,153 @@
+<ng-container [formGroup]="form">
+    <div class="d-flex flex-row gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-text-field
+                [label]="'service.package.form.label.servicePackageName' | resolveResource"
+                formControlName="servicePackageName"
+            ></app-text-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-text-field
+                [label]="'service.package.form.label.servicePackageName_EN' | resolveResource"
+                formControlName="servicePackageName_EN"
+            ></app-text-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-text-area-field
+                [label]="'service.package.form.label.description' | resolveResource"
+                formControlName="description"
+            ></app-text-area-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-20">
+            <app-checkbox-field
+                [label]="'service.package.form.label.isScreeningTest' | resolveResource"
+                formControlName="isScreeningTest"
+                [useAlignBaselineFix]="true"
+            ></app-checkbox-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-40">
+            <app-select-field
+                [label]="'service.package.form.label.dC_StatusId' | resolveResource"
+                formControlName="dC_StatusId"
+                [options]="initData.dC_StatusList"
+            ></app-select-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-40">
+            <app-select-field
+                [label]="'service.package.form.label.dC_ServicePackageCategoryId' | resolveResource"
+                formControlName="dC_ServicePackageCategoryId"
+                [options]="initData.dC_ServicePackageCategoryList"
+            ></app-select-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-service-package-role-list-field
+                formControlName="servicePackageXRole"
+            ></app-service-package-role-list-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="w-100 overflow-hidden">
+            <app-service-package-booking-area-selection-list-field
+                formControlName="servicePackageXDC_BookingArea"
+            ></app-service-package-booking-area-selection-list-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-service-package-price-template-item-list-field
+                formControlName="priceTemplateItem"
+                [activePriceTable]="activePriceTable$ | async"
+                [basePriceValue]="basePriceValue$ | async"
+                (setBasePriceValue)="setBasePriceValue($event)"
+            ></app-service-package-price-template-item-list-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-service-package-service-list-field
+                formControlName="servicePackageXService"
+                baseResourceKey="service.package.service"
+                tableIdProperty="servicePackageXServiceId"
+            ></app-service-package-service-list-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-service-package-sub-service-package-list-field
+                formControlName="servicePackageXSubServicePackage"
+                baseResourceKey="service.package.sub.service.package"
+                tableIdProperty="servicePackageXSubServicePackageId"
+            ></app-service-package-sub-service-package-list-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-service-package-lab-service-list-field
+                formControlName="servicePackageXLabService"
+                baseResourceKey="service.package.lab.service"
+                tableIdProperty="servicePackageXLabServiceId"
+            ></app-service-package-lab-service-list-field>
+        </div>
+    </div>
+
+    <ng-container>
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="w-100 overflow-hidden">
+                <app-section-title [title]="'service.package.form.section.title.deep.erp.merged.item' | resolveResource"></app-section-title>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden flex-50">
+                <app-text-field
+                    [label]="'service.package.form.label.deeperpMergedItemName' | resolveResource"
+                    formControlName="deeperpMergedItemName"
+                ></app-text-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-50">
+                <app-text-field
+                    [label]="'service.package.form.label.deeperpMergedItemNumber' | resolveResource"
+                    formControlName="deeperpMergedItemNumber"
+                ></app-text-field>
+            </div>
+        </div>
+    </ng-container>
+
+    <ng-container>
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="w-100 overflow-hidden">
+                <app-section-title [title]="'service.package.form.section.title.deep.erp' | resolveResource"></app-section-title>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <app-deep-erp-item-identification-form-field
+                formControlName="deeperpItemIdentification"
+            ></app-deep-erp-item-identification-form-field>
+        </div>
+    </ng-container>
+
+    <div class="mt-10">
+        <app-form-error
+            [control]="form"
+            [resourceKeyPrefix]="errorResourceKeyPrefix"
+        ></app-form-error>
+    </div>
+</ng-container>

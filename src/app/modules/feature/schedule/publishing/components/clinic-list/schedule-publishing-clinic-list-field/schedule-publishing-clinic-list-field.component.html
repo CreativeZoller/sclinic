@@ -1,0 +1,15 @@
+<app-list-field
+    [baseResourceKey]="baseResourceKey"
+    [tableIdProperty]="tableIdProperty"
+    [tableTitle]="tableTitle"
+    [tableTitleUseSectionSubtitle]="tableTitleUseSectionSubtitle"
+    [tableHeaders]="tableHeaders"
+    [canDelete]="false"
+    [valueToFormValue]="valueToFormValue"
+    [handleSave$]="handleSave$"
+>
+    <app-schedule-publishing-clinic-form
+        #editorForm
+        [allSelected]="(allSelected$ | async) ?? []"
+    ></app-schedule-publishing-clinic-form>
+</app-list-field>

@@ -1,0 +1,66 @@
+<ng-container [formGroup]="form">
+
+    <div class="d-flex flex-row gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-33">
+            <app-text-field [label]="'schedule.planner.modal.copy.label.employee' | resolveResource" formControlName="medicalEmployee"></app-text-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-33">
+            <app-text-field [label]="'schedule.planner.modal.copy.label.specialty' | resolveResource" formControlName="specialty"></app-text-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden">
+            <app-checkbox-field [label]="'schedule.planner.modal.copy.label.aWeek' | resolveResource" formControlName="aWeek"></app-checkbox-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden">
+            <app-checkbox-field [label]="'schedule.planner.modal.copy.label.bWeek' | resolveResource" formControlName="bWeek"></app-checkbox-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden">
+            <app-checkbox-field [label]="'schedule.planner.modal.copy.label.cWeek' | resolveResource" formControlName="cWeek"></app-checkbox-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden">
+            <app-checkbox-field [label]="'schedule.planner.modal.copy.label.dWeek' | resolveResource" formControlName="dWeek"></app-checkbox-field>
+        </div>
+    </div>
+
+    <div class="mt-10 gap-5">
+        <div class="mt-10">
+            <app-checkbox-field [label]="'schedule.planner.modal.copy.label.monday' | resolveResource" formControlName="monday"></app-checkbox-field>
+        </div>
+        <div class="mt-10">
+            <app-checkbox-field [label]="'schedule.planner.modal.copy.label.tuesday' | resolveResource" formControlName="tuesday"></app-checkbox-field>
+        </div>
+        <div class="mt-10">
+            <app-checkbox-field [label]="'schedule.planner.modal.copy.label.wednesday' | resolveResource" formControlName="wednesday"></app-checkbox-field>
+        </div>
+        <div class="mt-10">
+            <app-checkbox-field [label]="'schedule.planner.modal.copy.label.thursday' | resolveResource" formControlName="thursday"></app-checkbox-field>
+        </div>
+        <div class="mt-10">
+            <app-checkbox-field [label]="'schedule.planner.modal.copy.label.friday' | resolveResource" formControlName="friday"></app-checkbox-field>
+        </div>
+        <div class="mt-10">
+            <app-checkbox-field [label]="'schedule.planner.modal.copy.label.saturday' | resolveResource" formControlName="saturday"></app-checkbox-field>
+        </div>
+        <div class="mt-10">
+            <app-checkbox-field [label]="'schedule.planner.modal.copy.label.sunday' | resolveResource" formControlName="sunday"></app-checkbox-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-33">
+            <app-datepicker-field [label]="'schedule.planner.modal.copy.label.startDate' | resolveResource" formControlName="startDate"></app-datepicker-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-33">
+            <app-text-field [label]="'schedule.planner.modal.copy.label.week' | resolveResource" formControlName="startWeek"></app-text-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-33">
+            <app-datepicker-field [label]="'schedule.planner.modal.copy.label.endDate' | resolveResource" formControlName="endDate"></app-datepicker-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-33">
+            <app-text-field [label]="'schedule.planner.modal.copy.label.week' | resolveResource" formControlName="endWeek"></app-text-field>
+        </div>
+    </div>
+
+</ng-container>

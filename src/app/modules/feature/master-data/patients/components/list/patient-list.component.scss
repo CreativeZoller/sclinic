@@ -1,0 +1,15 @@
+@import "/src/assets/sass/variables";
+
+:host {
+    width: 100%;
+
+    ::ng-deep {
+        .star-icon {
+            color: $red;
+            font-size: 1.5em;
+        }
+
+        .grave-icon {
+        }
+    }
+}

@@ -1,0 +1,79 @@
+
+
+<ng-container [formGroup]="form" *ngIf="{
+    twoFactorAuthenticationTypeOptions: twoFactorAuthenticationTypeOptions$ | async
+} as vm">
+    <div class="d-flex flex-row gap-5 align-items-baseline">
+        <div class="w-100 overflow-hidden">
+            <app-section-title [title]="'user.form.section.title.user.data' | resolveResource"></app-section-title>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden w-100">
+            <app-select-field
+                [label]="'user.form.label.dC_UserTypeId' | resolveResource"
+                formControlName="dC_UserTypeId"
+                [options]="initData.dC_UserTypeList"
+            ></app-select-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-25">
+            <app-select-field
+                [label]="'user.form.label.dC_TitleTypeId' | resolveResource"
+                formControlName="dC_TitleTypeId"
+                [options]="initData.dC_TitleTypeList"
+            ></app-select-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-25">
+            <app-text-field
+                [label]="'user.form.label.familyName' | resolveResource"
+                formControlName="familyName"
+            ></app-text-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-25">
+            <app-text-field
+                [label]="'user.form.label.firstName' | resolveResource"
+                formControlName="firstName"
+            ></app-text-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-25">
+            <app-select-field
+                [label]="'user.form.label.dC_TwoFactorAuthenticationTypeId' | resolveResource"
+                formControlName="dC_TwoFactorAuthenticationTypeId"
+                [options]="vm.twoFactorAuthenticationTypeOptions ?? []"
+            ></app-select-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-33">
+            <app-text-field
+                [label]="'user.form.label.phoneNumber' | resolveResource"
+                formControlName="phoneNumber"
+                mask="0*"
+            ></app-text-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-33">
+            <app-text-field
+                [label]="'user.form.label.email' | resolveResource"
+                formControlName="email"
+            ></app-text-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-33">
+            <app-select-field
+                [label]="'user.form.label.dC_UserStatusId' | resolveResource"
+                formControlName="dC_UserStatusId"
+                [options]="initData.dC_UserStatusList"
+            ></app-select-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+        <div class="w-100 overflow-hidden">
+            <app-user-role-list-field formControlName="swissUserXRole"></app-user-role-list-field>
+        </div>
+    </div>
+</ng-container>

@@ -1,0 +1,205 @@
+<ng-container [formGroup]="form">
+    <!-- PERSONAL DATA -->
+    <ng-container>
+        <div class="d-flex flex-row gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden w-100">
+                <app-text-field [label]="'clinic.form.label.clinicName' | resolveResource" formControlName="clinicName"></app-text-field>
+            </div>
+        </div>
+    </ng-container>
+
+    <ng-container formGroupName="address">
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden flex-50">
+                <app-autocomplete-field
+                    [label]="'clinic.form.label.address.dC_City.postCode' | resolveResource"
+                    formControlName="dC_City"
+                    [searchFn$]="citiesAutocomplete.searhcFn$('postCode')"
+                    [inputFormatter]="citiesAutocomplete.getFormattedPostCodeInputText"
+                    [resultFormatter]="citiesAutocomplete.getFormattedSelectText"
+                ></app-autocomplete-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-50">
+                <app-autocomplete-field
+                    [label]="'clinic.form.label.address.dC_City.name' | resolveResource"
+                    formControlName="dC_City"
+                    [searchFn$]="citiesAutocomplete.searhcFn$('name')"
+                    [inputFormatter]="citiesAutocomplete.getFormattedCityNameInputText"
+                    [resultFormatter]="citiesAutocomplete.getFormattedSelectText"
+                ></app-autocomplete-field>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden flex-33">
+                <app-text-field
+                    [label]="'clinic.form.label.address.streetName' | resolveResource"
+                    formControlName="streetName"
+                ></app-text-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-33">
+                <app-select-field
+                    [label]="'clinic.form.label.address.dC_PublicPlaceCategoryId' | resolveResource"
+                    formControlName="dC_PublicPlaceCategoryId"
+                    [options]="initData.dC_PublicPlaceCategoryList"
+                ></app-select-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-33">
+                <app-text-field
+                    [label]="'clinic.form.label.address.buildingNumber' | resolveResource"
+                    formControlName="buildingNumber"
+                ></app-text-field>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden flex-25">
+                <app-text-field
+                    [label]="'clinic.form.label.address.building' | resolveResource"
+                    formControlName="building"
+                ></app-text-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-25">
+                <app-text-field
+                    [label]="'clinic.form.label.address.staircase' | resolveResource"
+                    formControlName="staircase"
+                ></app-text-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-25">
+                <app-text-field
+                    [label]="'clinic.form.label.address.floor' | resolveResource"
+                    formControlName="floor"
+                ></app-text-field>
+            </div>
+            <div class="flex-column-fluid overflow-hidden flex-25">
+                <app-text-field
+                    [label]="'clinic.form.label.address.door' | resolveResource"
+                    formControlName="door"
+                ></app-text-field>
+            </div>
+        </div>
+    </ng-container>
+
+    <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-text-field
+                [label]="'clinic.form.label.phoneNumber' | resolveResource"
+                formControlName="phoneNumber"
+                mask="0*"
+            ></app-text-field>
+        </div>
+
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-text-field
+                [label]="'clinic.form.label.email' | resolveResource"
+                formControlName="email"
+            ></app-text-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="w-100 overflow-hidden">
+            <app-clinic-booking-area-selection-list-field
+                formControlName="clinicXDC_BookingArea"
+            ></app-clinic-booking-area-selection-list-field>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+        <div class="w-100 overflow-hidden">
+            <app-section-title [title]="'clinic.form.section.title.dC_ClinicType' | resolveResource"></app-section-title>
+        </div>
+    </div>
+
+    <div class="d-flex flex-column overflow-break-words gap-5 mt-10 align-items-baseline">
+        <app-radio-field formControlName="dC_ClinicTypeId">
+            <div class="d-flex flex-row gap-5 align-items-baseline">
+                <app-radio-field-option
+                    *ngFor="let opt of initData.dC_ClinicTypeList"
+                    [label]="opt.name"
+                    [optionValue]="opt.value"
+                ></app-radio-field-option>
+            </div>
+        </app-radio-field>
+    </div>
+
+    <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+        <div class="w-100 overflow-hidden">
+            <app-clinic-room-list-field formControlName="clinicRooms" [tableTitle]="'clinic.room.form.section.title' | resolveResource" [clinicName]="form.value.clinicName"></app-clinic-room-list-field>
+        </div>
+    </div>
+
+    <ng-container>
+        <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+            <div class="w-100 overflow-hidden">
+                <app-section-title [title]="'clinic.form.section.title.clinicOpenHours' | resolveResource"></app-section-title>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+            <div class="w-100 overflow-hidden">
+                <app-clinic-open-hours-form-field formControlName="clinicOpenHours"></app-clinic-open-hours-form-field>
+            </div>
+        </div>
+    </ng-container>
+
+    <ng-container>
+        <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+            <div class="w-100 overflow-hidden">
+                <app-section-title [title]="'clinic.form.section.title.clinicXSpecialtyXService' | resolveResource"></app-section-title>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row gap-5 align-items-baseline">
+            <div class="flex-column-fluid overflow-hidden w-100">
+                <app-clinic-specialty-service-tree-field
+                    formControlName="clinicXSpecialtyXService"
+                ></app-clinic-specialty-service-tree-field>
+            </div>
+        </div>
+    </ng-container>
+
+    <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+        <div class="w-100 overflow-hidden">
+            <app-clinic-self-list-field formControlName="clinicXSelf" [tableTitle]="'clinic.self.form.section.title' | resolveResource"></app-clinic-self-list-field>
+        </div>
+    </div>
+
+    <ng-container>
+        <div class="d-flex flex-row gap-5 mt-10 align-items-baseline">
+            <div class="w-100 overflow-hidden">
+                <app-section-title [title]="'clinic.form.section.title.transactionRules' | resolveResource"></app-section-title>
+            </div>
+        </div>
+    </ng-container>
+
+    <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-25">
+            <app-text-field
+                [label]="'clinic.form.label.ftKp' | resolveResource"
+                formControlName="ftKp"
+            ></app-text-field>
+        </div>
+
+        <div class="flex-column-fluid overflow-hidden flex-25">
+            <app-text-field
+                [label]="'clinic.form.label.ftOther' | resolveResource"
+                formControlName="ftOther"
+            ></app-text-field>
+        </div>
+
+        <div class="flex-column-fluid overflow-hidden flex-25">
+            <app-text-field
+                [label]="'clinic.form.label.eurKp' | resolveResource"
+                formControlName="eurKp"
+            ></app-text-field>
+        </div>
+
+        <div class="flex-column-fluid overflow-hidden flex-25">
+            <app-text-field
+                [label]="'clinic.form.label.eurOther' | resolveResource"
+                formControlName="eurOther"
+            ></app-text-field>
+        </div>
+    </div>
+</ng-container>

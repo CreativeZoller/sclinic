@@ -1,0 +1,30 @@
+<ng-container *ngIf="{
+    tableHeaders: tableHeaders$ | async,
+    showTableLoading: showTableLoading$ | async
+} as vm">
+    <app-list
+        *ngIf="!!vm.tableHeaders"
+        [baseResourceKey]="baseResourceKey"
+        [tableIdProperty]="$any(tableIdProperty)"
+        [tableHeaders]="vm.tableHeaders"
+        [getTableData$]="getTableData$"
+        [canRead]="false"
+        [canCreate]="false"
+        [canUpdate]="false"
+        [canDelete]="false"
+        [virtualScrollConfig]="{ enabled: true, maxHeightPx: 400 }"
+        [showLoading]="vm.showTableLoading ?? false"
+        [titleRowTemplate]="titleRowTemplateSectionTitle"
+        [allowPaging]="false"
+    ></app-list>
+
+    <div *ngIf="!vm.tableHeaders" class="d-flex justify-content-center loading-spinner-container-large">
+        <div class="spinner-border loading-spinner-large" role="status"></div>
+    </div>
+
+    <ng-template #titleRowTemplateSectionTitle let-title="title" let-titleRowButtonsTemplate="titleRowButtonsTemplate">
+        <div class="mb-5 w-100 overflow-hidden">
+            <app-section-title [title]="title" [buttonsTemplate]="titleRowButtonsTemplate"></app-section-title>
+        </div>
+    </ng-template>
+</ng-container>

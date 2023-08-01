@@ -1,0 +1,33 @@
+<ng-container *ngIf="data">
+    <app-section-title [title]="'cc.sections.searchables' | resolveResource" [withIcon]="false"></app-section-title><br />
+
+    <app-list
+        [tableTitle]="'cc.sections.searchables' | resolveResource"
+        [baseResourceKey]="baseResourceKey"
+        [tableIdProperty]="tableIdProperty"
+        [tableHeaders]="tableHeaders"
+        [getTableData$]="getTableData$"
+        [titleRowTemplate]="titleRowTemplate"
+        [allowPaging]="false"
+        [showLoading]="false"
+    >
+    <!-- 
+        [getExpandedRowChildRows]="getExpandedRowChildRows"
+        [getRowClasses]="getRowClasses"
+    -->
+        <ng-template #titleRowTemplate></ng-template>
+    </app-list>
+
+
+    <div class="d-flex flex-row mt-10 justify-content-between">
+        <button class="btn customBtn" type="button"><!-- (click)="startSearch()" -->
+            {{ 'cc.modals.action.search' | resolveResource }}
+        </button>
+        <div class="d-flex flex-row justify-content-end">
+            <button class="btn customBtn ml-5" type="button"><!-- (click)="addToCart()" -->
+                {{ 'cc.modals.action.to.basket' | resolveResource }}
+            </button>
+        </div>
+    </div>
+
+</ng-container>

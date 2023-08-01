@@ -1,0 +1,3 @@
+import { CoreModelsResourceManagementPublishedSchedulePublishingCreatePublishingRequest } from "src/api/models";
+
+export type PublishingRequestBody = CoreModelsResourceManagementPublishedSchedulePublishingCreatePublishingRequest;

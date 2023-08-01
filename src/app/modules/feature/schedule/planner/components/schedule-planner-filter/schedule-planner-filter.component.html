@@ -1,0 +1,38 @@
+<ng-container [formGroup]="form">
+    <div class="mt-10 gap-5">
+        <app-schedule-planner-employee-list-field formControlName="medicalEmployeeIdList"></app-schedule-planner-employee-list-field>
+    </div>
+
+    <div class="mt-10 gap-5">
+        <app-schedule-planner-specialty-list-field formControlName="specialtyIdList"></app-schedule-planner-specialty-list-field>
+    </div>
+
+    <div class="mt-10 gap-5">
+        <app-section-title [title]="'schedule.planner.filter.form.section.interval' | resolveResource"></app-section-title>
+    </div>
+
+    <div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-datepicker-field [label]="'schedule.planner.filter.form.label.startDate' | resolveResource" formControlName="startDate"></app-datepicker-field>
+        </div>
+        <div class="flex-column-fluid overflow-hidden flex-50">
+            <app-datepicker-field [label]="'schedule.planner.filter.form.label.endDate' | resolveResource" formControlName="endDate"></app-datepicker-field>
+        </div>
+    </div>
+
+    <div class="mt-10 gap-5">
+        <app-schedule-planner-clinic-list-field formControlName="clinicIdList"></app-schedule-planner-clinic-list-field>
+    </div>
+</ng-container>
+
+<div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+    <button class="btn customBtn">{{ 'schedule.planner.filter.button.default' | resolveResource }}</button>
+    <button class="btn customBtn" (click)="getData()">{{ 'schedule.planner.filter.button.update' | resolveResource }}</button>
+    <button class="btn customBtn">{{ 'schedule.planner.filter.button.save' | resolveResource }}</button>
+</div>
+
+<div class="d-flex flex-row mt-10 gap-5 align-items-baseline">
+    <button class="btn customBtn">{{ 'schedule.planner.filter.button.empty.template' | resolveResource }}</button>
+    <button class="btn customBtn">{{ 'schedule.planner.filter.button.create.template.from.filter' | resolveResource }}</button>
+    <button class="btn customBtn">{{ 'schedule.planner.filter.button.select.template' | resolveResource }}</button>
+</div>
